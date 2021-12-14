@@ -41,7 +41,6 @@ if ( ! class_exists( 'Taiowc' ) ):
             if ( $this->is_required_php_version() && $this->is_wc_active() ) {
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-setting.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-option.php';
-                require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-nav-menu.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-markup.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-cart-fragment.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-style.php';
@@ -614,21 +613,6 @@ if ( ! class_exists( 'Taiowc' ) ):
         return apply_filters( 'taiowc_is_sidecart_page', $this->isSideCartPage, $hidePages );
     }
 
-
-    /************************/
-    // Get Array To String
-    /************************/
-    public function to_convert_array($string){  
-
-        if($string !==''){ 
-
-        $toarray = explode(', ', $string);
-
-        return $toarray;
-
-        }
-
-      }
 
   }
 

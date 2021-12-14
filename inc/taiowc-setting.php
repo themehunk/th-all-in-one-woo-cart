@@ -502,7 +502,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		   <h4><?php _e( 'Using these three methods you can display cart at your desired location.', 'taiowc' ); ?>: </h4>
 		   <ol>
 
-		   	    <li><?php printf( __( 'Display cart in the header menu. <br /> <br /> Go to the Appearance > %s . Check "TH All In One Woo Cart" and Click "Add to menu" button. <br /> <br /> ', 'taiowc' ), '<a href="' . admin_url( 'nav-menus.php' ) . '" target="_blank">' . __( 'Menu Screen', 'taiowc' ) . '</a>' ); ?>
+		   	    <li><?php printf( __( 'Display cart in the header menu <span class="pro-ftr">(Pro)</span>. <br /> <br /> Go to the Appearance > %s . Check "TH All In One Woo Cart" and Click "Add to menu" button. <br /> <br /> ', 'taiowc' ), '<a href="#">' . __( 'Menu Screen', 'taiowc' ) . '</a>' ); ?>
 				</li>
 				<li><?php printf( __( 'Using Shortcode - <code>[taiowc]</code><br /> <br />%s    ', 'taiowc' ), '<ul><li>Add given shortcode at the desired location, You can use Shortcode block, Widget or any page builder shortcode add-on to display cart. <br /> </li>  </ul>' ); ?></li>
                 <br /> <br />
