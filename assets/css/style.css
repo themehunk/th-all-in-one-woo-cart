@@ -262,7 +262,7 @@ flex-grow: 2;
 text-align: end;
 }
 .taiowc-cart-model-body {
-    max-height: 320px;
+      max-height: 475px;
 }
 
 .quantity span.quantity-text{
@@ -697,7 +697,11 @@ font-size: 1rem;
 .taiowc-subtotal,.taiowc-discount,.taiowc-total,.taiowc-shipping{
 display: flex;
 justify-content: space-between;
-margin-bottom: 0.7rem;
+    margin-bottom: 0rem;
+  
+}
+.taiowc-subtotal{
+  margin-top: 0.7rem;
 }
 .cart-total .taiowc-label{
 font-weight: 600;

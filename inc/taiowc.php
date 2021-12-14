@@ -242,9 +242,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                  
                 <svg xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 160 160" ><path d="m132 1340c-35-15-48-54-28-85 15-23 22-25 96-25h79l14-47c8-27 20-73 27-103s25-102 40-160 40-157 55-220c24-99 33-120 61-147 31-30 39-33 96-33h63l-32-20c-117-71-54-263 81-246 76 9 135 82 122 151-8 39-49 93-80 105-13 5 56 9 169 9 189 1 190 1 160-18-36-21-63-60-71-100-7-35 26-104 61-127 65-43 152-20 193 51 36 63 15 135-53 176l-30 19h60c92 0 117 25 149 145 8 33 31 116 49 185 19 69 44 161 56 205s24 88 27 98c5 16-8 17-170 17h-175l-3 42c-3 36-9 47-46 75-50 38-115 45-157 17-22-14-26-14-47 0-74 52-208-18-208-109 0-25-1-25-90-25-49 0-90-3-90-7 0-5 6-30 13-58l13-50 98-5c87-4 99-7 109-27 15-26 118-118 156-138 26-13 31-12 77 19 28 19 73 59 101 90l52 56h106 107l-4-27c-3-16-14-62-26-103-11-41-32-120-47-174-14-55-28-103-31-108-3-4-157-8-343-8h-338l-81 327c-90 358-93 366-168 383-49 12-142 12-172 0zm762-140c33-29 35-30 48-12 32 45 89 54 113 18 27-41 4-100-64-168-32-32-63-58-69-58-20 0-111 96-127 133-42 100 21 155 99 87z" transform="matrix(.1 0 0 -.1 0 160)"/></svg>
 
-              <?php }
-
-                
+              <?php }        
 
          }
 
@@ -272,6 +270,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                     return count( WC()->cart->get_cart() );
                 }
                 else{
+
                     return WC()->cart->get_cart_contents_count();
                 }
 
@@ -292,6 +291,7 @@ if ( ! class_exists( 'Taiowc' ) ):
         foreach ( $get_cart_content as $cart_item_key => $cart_item ) {
 
             $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+
             $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
             if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
@@ -310,7 +310,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                 <div class="taiowc-woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
                     <div class="item-product-wrap">
                     <?php
-                    echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo apply_filters(
                         'woocommerce_cart_item_remove_link',
                         sprintf(
                             '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"> <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" alt="" title="" class="snipcart__icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 4v6.47H12v3.236h40V10.47H42V4H22zm3.333 6.47V7.235H38.67v3.235H25.333zm20.001 9.707h3.333V59H15.334V20.177h3.333v35.588h26.667V20.177zm-15 29.116V23.412h3.334v25.881h-3.334z" fill="currentColor"></path></svg> </a>',

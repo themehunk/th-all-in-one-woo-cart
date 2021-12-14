@@ -7,16 +7,7 @@ $uniqueID   = ++ taiowc()->cartInstances;
 
 $layoutType = !empty($args['layout'])  ? $args['layout'] : '';
 
-if($layoutType =='cart_fixed_1'){
-
-$cartStyle = '';
-
-}else{
-
-$cartStyle = 'taiowc-slide-right';	
-
-}
-
+$cartStyle = 'taiowc-slide-right';
 
 ?>
 

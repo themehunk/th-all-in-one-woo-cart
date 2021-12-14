@@ -91,9 +91,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 						 </button>
 					</p>
 			</div> 
-
-	
-
             </div>
             <div class="taiowc-notes-wrap">
             	
@@ -517,10 +514,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		<?php 		
 			endif;
 		}
-
-
-
-
 
 		public function color_field_callback( $args ){
 			$value = esc_attr( $this->get_option( $args['id'] ) );

@@ -58,7 +58,7 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                         
                           <?php if(taiowc()->get_option( 'cart_hd' )!==''){ ?>
                           <h4><?php echo esc_html(taiowc()->get_option( 'cart_hd' ));?></h4>
-                           <?php } ?>
+                          <?php } ?>
 
                            
                             <div class="cart-count-item">
@@ -142,11 +142,6 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
             
         }
 
-
-
-
-
-      
 
     }
 
