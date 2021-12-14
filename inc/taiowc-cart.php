@@ -9,20 +9,11 @@ $layoutType = !empty($args['layout'])  ? $args['layout'] : '';
 
 if($layoutType =='cart_fixed_1'){
 
-		if(taiowc()->get_option( 'cart_effect' ) == 'taiowc-click-dropdown'){
-
-          $cartStyle = '';
-
-		}else{
-
-          $cartStyle = taiowc()->get_option( 'cart_effect' );
-          
-		}
-
+$cartStyle = '';
 
 }else{
 
-$cartStyle = taiowc()->get_option( 'cart_effect' );	
+$cartStyle = 'taiowc-slide-right';	
 
 }
 

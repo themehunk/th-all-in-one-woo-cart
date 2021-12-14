@@ -322,7 +322,7 @@
 
                 var opensidecart = function(){
                        
-                               $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');
+                               $('a.taiowc-content').closest("div.taiowc-slide-right").toggleClass('model-cart-active');
                                
                                $( document.body ).trigger( 'wc_fragment_refresh' );
                         

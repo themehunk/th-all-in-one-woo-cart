@@ -111,8 +111,6 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
                         do_action('taiowc_mini_cart'); 
 
-                        taiowc_markup()->taiowc_get_suggest_product();
-
                         ?>
 
                     </div>
@@ -123,7 +121,6 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
                      if ( ! WC()->cart->is_empty() ) {
 
-                     WC()->cart->calculate_totals();
 
                      taiowc_markup()->taiowc_cart_footer(); 
 

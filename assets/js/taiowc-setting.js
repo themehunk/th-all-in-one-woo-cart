@@ -299,6 +299,13 @@
                    
              });
 
+            $('input#cart_style[value="style-2"]').attr("disabled", true);
+            $('#cart_effect-field option[value="taiowc-slide-left"]').attr("disabled", true);
+            $('#cart_effect-field option[value="taiowc-click-dropdown"]').attr("disabled", true);
+            $('#cart_item_order-field option[value="prd_last"]').attr("disabled", true);
+            $('#cart_open-field option[value="fly-image-open"]').attr("disabled", true);
+            $('input#cart-icon[value="icon-2"], input#cart-icon[value="icon-3"], input#cart-icon[value="icon-4"], input#cart-icon[value="icon-5"], input#cart-icon[value="icon-6"], input#cart-icon[value="icon-7"]').attr("disabled", true);
+
 
         },
   

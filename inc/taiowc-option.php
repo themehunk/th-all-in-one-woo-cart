@@ -132,9 +132,9 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'options' => array(
 
 									'taiowc-slide-right'   => esc_html__( 'Slide Right', 'taiowc' ),
-									'taiowc-slide-left' => esc_html__( 'Slide Left', 'taiowc' ),
+									'taiowc-slide-left' => esc_html__( 'Slide Left (Pro)', 'taiowc' ),
 									
-									'taiowc-click-dropdown' => esc_html__( 'Dropdown on Click', 'taiowc' ),
+									'taiowc-click-dropdown' => esc_html__( 'Dropdown on Click (Pro)', 'taiowc' ),
 									
 								),
 								
@@ -157,13 +157,13 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							array(
 								'id'      => 'cart_item_order',
 								'type'    => 'select',
-								'title'   => esc_html__( 'Cart Product Order', 'taiowc' ),
+								'title'   => esc_html__( 'Cart Product Order (Pro)', 'taiowc' ),
 								'default' =>'prd_first',
 								'options' => array(
 
 									'prd_first' => esc_html__( 'Add Product at the Top', 'taiowc' ),
 
-									'prd_last'   => esc_html__( 'Add Product at the Bottom', 'taiowc' ),
+									'prd_last'   => esc_html__( 'Add Product at the Bottom (Pro)', 'taiowc' ),
 									
 									
 								),
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							array(
 								'id'      => 'cart-icon',
 								'type'    => 'radio-image',
-								'title'   => esc_html__( 'Choose Cart Icon', 'taiowc' ),
+								'title'   => esc_html__( 'Choose Cart Icon (Pro)', 'taiowc' ),
 								
 								'options' => array(
 									'icon-1' => esc_url( TAIOWC_IMAGES_URI.'icon-1.png' ),
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							array(
 								'id'      => 'icon_url',
 								'type'    => 'file',
-								'title'   => esc_html__( 'Upload Icon Image', 'taiowc' ),
+								'title'   => esc_html__( 'Upload Icon Image (Pro)', 'taiowc' ),
 								'desc'    => esc_html__( 'Recommended cart image size 60 x 60px', 'taiowc' ),
 								'default' => false
 							    ),
@@ -243,12 +243,12 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                             array(
 								'id'      => 'cart_open',
 								'type'    => 'select',
-								'title'   => esc_html__( 'Cart Open Style', 'taiowc' ),
+								'title'   => esc_html__( 'Cart Open Style (Pro)', 'taiowc' ),
 								'default' =>'simple-open',
 								'options' => array(
 
 									'simple-open'   => esc_html__( 'Auto Open with Ajax', 'taiowc' ),
-									'fly-image-open' => esc_html__( 'Auto Open with Image fly Effect', 'taiowc' ),
+									'fly-image-open' => esc_html__( 'Auto Open with Image fly Effect (Pro)', 'taiowc' ),
 									
 									
 								),
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 			'taiowc_cart', esc_html__( 'Cart Settings', 'taiowc' ), apply_filters(
 			'taiowc_cart_settings_section', array(
 				array(
-					'title'  => esc_html__( 'Product List', 'taiowc' ),
+					'title'  => esc_html__( 'Product List (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_setting_fields', array(
 							array(
@@ -317,7 +317,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 
 				array(
-					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE', 'taiowc' ),
+					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_related_product_setting_fields', array(
 							array(
@@ -365,7 +365,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 
 					array(
-					'title'  => esc_html__( 'Payment Settings', 'taiowc' ),
+					'title'  => esc_html__( 'Payment Settings (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_payment_setting_fields', array(
 							array(
@@ -420,14 +420,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								
 							),
 
-							// array(
-							// 	'id'      => 'show_paypal_btn',
-							// 	'type'    => 'checkbox',
-							// 	'title'   => esc_html__( 'Show Paypal', 'taiowc' ),
-							// 	'desc'    => esc_html__( 'Paypal Express checkout.', 'taiowc' ),
-
-							// 	'default' => true
-							// ),
+							
 							
 						)
 					)
@@ -503,7 +496,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 			'taiowc_cart_style', esc_html__( 'Cart Style', 'taiowc' ), apply_filters(
 			'taiowc_cart_style_settings_section', array(
 				array(
-					'title'  => esc_html__( 'MENU CART / SHORTCODE CART', 'taiowc' ),
+					'title'  => esc_html__( 'MENU CART / SHORTCODE CART (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_top_cart_setting_fields', array(
 
@@ -585,7 +578,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					)
 				 ),
 					array(
-					'title'  => esc_html__( 'FIXED CART / FLOATING CART', 'taiowc' ),
+					'title'  => esc_html__( 'FIXED CART / FLOATING CART (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_fix_cart_setting_fields', array(
 
@@ -654,7 +647,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 				 ),
 
 				array(
-					'title'  => esc_html__( 'Cart Panel Style', 'taiowc' ),
+					'title'  => esc_html__( 'Cart Panel Style (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_pan_setting_fields', array(
 
@@ -750,7 +743,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 				 ),
 
 				array(
-					'title'  => esc_html__( 'Cart Panel May you like Style', 'taiowc' ),
+					'title'  => esc_html__( 'Cart Panel May you like Style (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_pan_rltd_setting_fields', array(
 
@@ -812,7 +805,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 				 ),
 
 				array(
-					'title'  => esc_html__( 'Cart Panel payment Style', 'taiowc' ),
+					'title'  => esc_html__( 'Cart Panel payment Style (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_pan_pay_setting_fields', array(
 
@@ -874,7 +867,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 				 ),
 
 					array(
-					'title'  => esc_html__( 'Coupon Style', 'taiowc' ),
+					'title'  => esc_html__( 'Coupon Style (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_coupon_setting_fields', array(
 								array(
@@ -986,7 +979,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 				 ),
 
 				array(
-					'title'  => esc_html__( 'Cart Panel Notification', 'taiowc' ),
+					'title'  => esc_html__( 'Cart Panel Notification (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_cart_pan_notify_setting_fields', array(
 
@@ -1039,7 +1032,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 			'taiowc_mobile_cart', esc_html__( 'Mobile Cart', 'taiowc' ), apply_filters(
 			'taiowc_mobile_cart_settings_section', array(
                 array(
-					'title'  => esc_html__( 'Menu Cart / Shortcode Cart', 'taiowc' ),
+					'title'  => esc_html__( 'Menu Cart / Shortcode Cart (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_mobile_menu_cart_setting_fields', array(			
 								array(
@@ -1069,7 +1062,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					  )
 				 ),
                    array(
-					'title'  => esc_html__( 'FIXED CART / FLOATING CART', 'taiowc' ),
+					'title'  => esc_html__( 'FIXED CART / FLOATING CART (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_fxd_mobile_cart_setting_fields', array(			
 								array(
@@ -1090,7 +1083,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					  )
 				 ),
                    array(
-					'title'  => esc_html__( 'Cart Panel', 'taiowc' ),
+					'title'  => esc_html__( 'Cart Panel (Pro)', 'taiowc' ),
 					'fields' => apply_filters(
 						'taiowc_mob_cart_pnl_setting_fields', array(			
 								array(
