@@ -401,10 +401,7 @@ width:3rem;
     padding: 1rem;
     background: #eee;
    border-radius: 10px!important;
-    -webkit-border-radius: 4px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
-    -webkit-box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
+
 
 }
 
@@ -542,9 +539,9 @@ position: fixed;
 display:none;
 }
 /*cart button*/
-.cart-button .buttons a{
+.taiowc .cart-button .buttons a{
     background: #000!important;
-    padding: 0.6rem 1.5rem!important;
+    padding: 1rem 1.5rem!important;
     font-size: 1rem!important;
     text-decoration: none!important;
     color: #fff;
@@ -552,6 +549,7 @@ display:none;
     margin: 0.25rem!important;
     font-weight: 500;
     width: 100%;
+    line-height: normal;
 }
 .taiowc .taiowc-cart-model-body .woocommerce-back-to-shop{
     background: #000!important;
@@ -569,29 +567,29 @@ display:none;
   background: #000;
   color: #fff;
 }
-.woocommerce-back-to-shop{
+.taiowc .woocommerce-back-to-shop{
     width: fit-content;
     margin: auto;
     margin-bottom: 1rem;
 }
-.woocommerce-mini-cart__empty-message{
+.taiowc .woocommerce-mini-cart__empty-message{
     margin-bottom: 1rem;
     text-align: center;
     margin-top: 1rem;
 }
 /*quatity add*/
-input[type=number].taiowc-quantity{
+.taiowc input[type=number].taiowc-quantity{
 width: 45px;
-padding: 3px;
 text-align: center;
 border: 1px solid #eee;
 margin-right: 0.4rem;
 font-size: 0.78rem;
-line-height: 23px!important;
-    min-height: 29px!important;
+line-height: 25px!important;
+    min-height: 25px!important;
+    height: 25px;
 }
 
-.quantity .amount{
+.taiowc .quantity .amount{
     margin-left: 0.4rem;
     font-size: 0.78rem;
     font-weight: 500;
