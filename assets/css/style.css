@@ -9,7 +9,7 @@ justify-content: center;
   border-radius: 3px;
 }
 .taiowc .taiowc-wrap{
-line-height: initial;
+    line-height: inherit;
 }
 .taiowc .taiowc-content{
 position:relative;
@@ -267,9 +267,13 @@ display: flex;
     flex: auto;
 }
 .taiowc-cart-model-body {
-    max-height: 475px;
     flex-grow: 1;
     overflow: auto;
+}
+.taiowc-cart-model-footer{
+
+    margin-bottom: 1rem;
+
 }
 
 .quantity span.quantity-text{
@@ -548,8 +552,8 @@ display:none;
 /*cart button*/
 .taiowc .cart-button .buttons a{
     background: #000!important;
-    padding: 1rem 1.5rem!important;
-    font-size: 1rem!important;
+    padding: 0.8rem 1.5rem!important;
+    font-size: .8rem!important;
     text-decoration: none!important;
     color: #fff;
     border: none;
@@ -573,6 +577,12 @@ display:none;
 .cart-button .buttons a:hover{
   background: #000;
   color: #fff;
+  opacity: 0.8;
+}
+.taiowc-cart-model-footer .cart-button .button:first-child{
+background:transparent!important;
+color:#000;
+border:1px solid #000;
 }
 .taiowc .woocommerce-back-to-shop{
     width: fit-content;
@@ -1224,6 +1234,7 @@ margin: 0rem 0.5rem;
 .taiowc .taiowc-cart-model-body img {
     margin-right: 0.7rem;
     width:3.5rem!important;
+    height: 3.5rem!important;
 }
 
 .taiowc .taiowc-cart-model-body a {
@@ -1284,13 +1295,8 @@ input[type=number].taiowc-quantity {
     font-size: 0.69rem;
     width: 100%;
 }
-.taiowc-cart-model-body {
-    max-height: 233px;
- }
 
- .taiowc-wrap.cart_fixed_2 .taiowc-cart-model{
-height: 350px;
-}
+
 .taiowc-wrap.cart_fixed_2 {
     bottom: -350px;
 }
@@ -1332,5 +1338,13 @@ left: 232px;
 .cart_fixed_2 .taiowc-show-coupon {
     font-size: 0.6rem;
 }
-
+.cart_fixed_1 .taiowc-cart-item {
+    padding: 0.6rem;
+}
+.cart_fixed_1 .taiowc-content svg {
+    width: 2rem;
+}
+.taiowc .cart-button .buttons a {
+    padding: 0.5rem 1.5rem!important;
+}
 }
