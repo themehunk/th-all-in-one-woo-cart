@@ -333,6 +333,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                         <a href="<?php echo esc_url( $product_permalink ); ?>">
                             <?php echo $thumbnail . $product_name;  echo $rating;?>
                         </a>
+                         <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
 
                     <?php endif; 
 
@@ -341,7 +342,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                 </div>
                 <?php if(taiowc()->get_option( 'show_prd_quantity' ) == true){ ?>
                 <div class="item-product-quantity">
-                    <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
+                   
                     <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.$quantity_text.'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
 
                    ?>
