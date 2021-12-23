@@ -1185,7 +1185,6 @@ display:block!important;
 display: flex;
 font-size: 0.89rem;
 margin-top: 0.3rem;
-
 }
 
 .taiowc-woocommerce-mini-cart-item .variation-size{
@@ -1196,7 +1195,7 @@ margin-right: 0.2rem;
 font-weight: 400;
 }
 .taiowc-woocommerce-mini-cart-item .variation-size p{
-line-height:normal;
+line-height: inherit;
 }
 
 
