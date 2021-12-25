@@ -9,7 +9,6 @@
             $this.cartopen();
             $this.cartclose();
             $this.AddCartProduct();
-            $this.UpdateCart();
             $this.refreshMyFragments();
 
         },
@@ -313,44 +312,6 @@
 
           },
 
-        
-       UpdateCart: function (){
-                     
-        $(document).on('added_to_cart',function(event,fragments,hash,atc_btn){
-               
-               //Auto open with ajax
-
-                var opensidecart = function(){
-                       
-                               $('a.taiowc-content').closest("div.taiowc-slide-right").toggleClass('model-cart-active');
-                               
-                               $( document.body ).trigger( 'wc_fragment_refresh' );
-                        
-                }
-
-                if(taiowc_param.cart_open == 'simple-open'){
-
-                     opensidecart();
-
-                }
-                 
-                //Refresh checkout page
-                if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
-                    if( $( 'form.checkout' ).length === 0 ){
-                        location.reload();
-                        return;
-                    }
-                    $(document.body).trigger("update_checkout");
-                }
-
-                //Refresh Cart page
-                if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
-                    $(document.body).trigger("wc_update_cart");
-                }
-
-        });
-
-        }
    
 }
 

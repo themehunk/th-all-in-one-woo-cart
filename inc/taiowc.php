@@ -326,12 +326,14 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                      if ( empty( $product_permalink ) ) : ?>
 
-                        <?php echo $thumbnail . $product_name;  echo $rating;?>
+                        <?php echo sprintf('%1s %2s %3s',$thumbnail,$product_name,$rating);?>
 
                     <?php else : ?>
 
                         <a href="<?php echo esc_url( $product_permalink ); ?>">
-                            <?php echo $thumbnail . $product_name;  echo $rating;?>
+
+                        <?php echo sprintf('%1s %2s %3s',$thumbnail,$product_name,$rating);?>
+                        
                         </a>
                          <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
 
@@ -456,9 +458,6 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         $product_id   = sanitize_text_field( $_POST['product_id'] );
 
-        $new_qty      = (int) $_POST['new_qty'];
-        
-
         $added = WC()->cart->add_to_cart( $product_id );
 
          if( $added ){
@@ -480,7 +479,7 @@ if ( ! class_exists( 'Taiowc' ) ):
         public function taiowc_update_item_quantity(){
 
         $cart_key   = sanitize_text_field( $_POST['cart_key'] );
-        $new_qty    = (float) $_POST['new_qty'];
+         $new_qty    = (float) $_POST['new_qty'];
 
         if( !is_numeric( $new_qty ) || $new_qty < 0 || !$cart_key ){
             //$this->set_notice( __( 'Something went wrong', 'taiowc' ) );
@@ -498,7 +497,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                     $notice = __( 'Product removed', 'taiowc' );
 
-                    $notice .= ' <span class="taiowc-undo-item" data-key="'.$cart_key.'">'.__('Undo?','taiowc').'</span>';  
+                    $notice .= ' <span class="taiowc-undo-item" data-key="'.esc_attr($cart_key).'">'.__('Undo?','taiowc').'</span>';  
 
                 }
                 else{
@@ -544,18 +543,18 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         $this->notices[] = $this->taiowc_notice_html( $notice, $type );
 
-       }
+        }
 
 
        public function taiowc_notice_html( $message, $notice_type = 'success' ){
         
         $classes = $notice_type === 'error' ? 'taiowc-notice-error' : 'taiowc-notice-success';
         
-        $html = '<li class="'.$classes.'">'.$message.'</li>';
+        $html = '<li class="'.esc_attr($classes).'">'.$message.'</li>';
         
         return apply_filters( 'taiowc_notice_html', $html, $message, $notice_type );
 
-     }
+      }
 
      public function taiowc_print_notices_html( $section = 'cart', $wc_cart_notices = true ){
 

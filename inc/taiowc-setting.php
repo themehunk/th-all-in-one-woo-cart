@@ -118,9 +118,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			
 		}
 	    public function taiowc_form_setting(){  
-	             if( isset($_POST['taiowc']) ){
-	             	        $taiowc =  $_POST['taiowc']; 
-	                      $sanitize_data_array = $this->taiowc_form_sanitize($taiowc);
+	             if( isset($_POST['taiowc']) ){ 
+	                      $sanitize_data_array = $this->taiowc_form_sanitize($_POST['taiowc']);
 	                      update_option('taiowc',$sanitize_data_array);         
 		            }
 		            die();  
@@ -302,10 +301,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			switch ( $field['type'] ) {
 
-				case 'radio':
-					$this->radio_field_callback( $field );
-					break;
-
 				case 'checkbox':
 					$this->checkbox_field_callback( $field );
 					break;
@@ -318,29 +313,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					$this->number_field_callback( $field );
 					break;
 
-				case 'color':
-					$this->color_field_callback( $field );
-					break;
-
 			    case 'colorpkr':
 					$this->colorpkr_field_callback( $field );
 					break;		
 
-				case 'post_select':
-					$this->post_select_field_callback( $field );
-					break;
-
-				case 'iframe':
-					$this->iframe_field_callback( $field );
-					break;
-
 				case 'html':
 					$this->html_field_callback( $field );
-					break;
-
-
-			    case 'file':
-					$this->file_field_callback( $field );
 					break;	
 
 				case 'radio-image':
@@ -360,57 +338,51 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
      
       public function checkbox_field_callback( $args ) {
                
-			$value = wc_string_to_bool( $this->get_option( $args['id'] ) );
+			$value = (bool)( $this->get_option( $args['id'] ) );
 
-			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
+			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';?>
+            <fieldset>
+            	<label>
+            		<input <?php echo esc_attr($attrs); ?> type="checkbox" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]" value="1" <?php echo esc_attr(checked( $value, true, false ));?>> <?php if ( ! empty( $args['desc'] ) ) {  echo esc_html($args['desc']); } ?>
+            	</label>     
+            </fieldset>
 
-			$html = sprintf( '<fieldset><label><input %1$s type="checkbox" id="%2$s-field" name="%4$s[%2$s]" value="%3$s" %5$s/> %6$s</label> %7$s</fieldset>', $attrs, $args['id'], true, $this->settings_name, checked( $value, true, false ), esc_attr( $args['desc'] ), $this->get_field_description( $args ) );
+		<?php }
 
-            if($args['id'] == 'show_paypal_btn'){
-			$html.= sprintf( '<a href="%1$s" target="_blank">%2$s</a>',esc_url('https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/'),esc_attr('Woocommerce paypal checkout payments plugin'));
-		       }
-
-			echo $html;
-		}
-			public function radio_field_callback( $args ) {
-		
-			$options = apply_filters( "taiowc_settings_{$args[ 'id' ]}_radio_options", $args['options'] );
-			$value   = esc_attr( $this->get_option( $args['id'] ) );
-
-			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
-
-
-			$html = '<fieldset>';
-			$html .= implode( '<br />', array_map( function ( $key, $option ) use ( $attrs, $args, $value ) {
-				return sprintf( '<label><input type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> %6$s</label>', $attrs, $args['id'], $key, $this->settings_name, checked( $value, $key, false ), $option );
-			}, array_keys( $options ), $options ) );
-			$html .= $this->get_field_description( $args );
-			$html .= '</fieldset>';
-
-			echo $html;
-		}
 		public function select_field_callback( $args ) {
-			$options = apply_filters( "taiowc_settings_{$args[ 'id' ]}_select_options", $args['options'] );
-			$value   = esc_attr( $this->get_option( $args['id'] ) );
 
-			$options = array_map( function ( $key, $option ) use ( $value ) {
-				return "<option value='{$key}'" . selected( $key, $value, false ) . ">{$option}</option>";
-			}, array_keys( $options ), $options );
+			$options = apply_filters( "thaps_settings_{$args[ 'id' ]}_select_options", $args['options'] );
+
+			$valuee   = esc_attr( $this->get_option( $args['id'] ) );
+
+		
 			$size    = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
 			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
+			?>
 
-			$html = sprintf( '<select %5$s class="%1$s-text" id="%2$s-field" name="%4$s[%2$s]">%3$s</select>', $size, $args['id'], implode( '', $options ), $this->settings_name, $attrs );
-			$html .= $this->get_field_description( $args );
+			<select <?php echo esc_attr($attrs); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]">
 
-			echo $html;
-		}
+				<?php foreach($options as $key => $value){ ?>
+
+                <option <?php echo esc_attr(selected( $key, $valuee, false )) ;?> value="<?php echo esc_attr($key);?>">
+                	
+                	<?php echo esc_html($value);?> 	
+
+                </option> 
+
+               <?php } ?>
+
+			</select>
+
+			<?php if ( ! empty( $args['desc'] ) ) { ?>
+            <p class="description"><?php echo esc_html($args['desc']);?></p>
+		    <?php } }
 
 		
 		public function get_field_description( $args ) {
 
 			$desc = '';
-			
 
 			if ( ! empty( $args['desc'] ) ) {
 				$desc .= sprintf( '<p class="description">%s</p>', $args['desc'] );
@@ -420,77 +392,33 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			return ( ( $args['type'] === 'checkbox' ) ) ? '' : $desc;
 		}
-		public function post_select_field_callback( $args ) {
-
-			$options = apply_filters( "taiowc_settings_{$args[ 'id' ]}_post_select_options", $args['options'] );
-
-			$value = esc_attr( $this->get_option( $args['id'] ) );
-
-			$options = array_map( function ( $option ) use ( $value ) {
-				return "<option value='{$option->ID}'" . selected( $option->ID, $value, false ) . ">$option->post_title</option>";
-			}, $options );
-
-			$size = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
-			$html = sprintf( '<select class="%1$s-text" id="%2$s-field" name="%4$s[%2$s]">%3$s</select>', $size, $args['id'], implode( '', $options ), $this->settings_name );
-			$html .= $this->get_field_description( $args );
-			echo $html;
-		}
 
 		public function text_field_callback( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';?>
+            <input type="text" class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"/>
 
-			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
-
-			$html = sprintf( '<input %5$s type="text" class="%1$s-text" id="%2$s-field" name="%4$s[%2$s]" value="%3$s"/>', $size, $args['id'], $value, $this->settings_name, $attrs );
-			$html .= $this->get_field_description( $args );
-
-			echo $html;
+            <?php if ( ! empty( $args['desc'] ) ) { ?>
+            <p class="description"><?php echo esc_html($args['desc']);?></p>
+	        <?php 
+	           }
+				
 		}
 
 		public function textarea_field_callback( $args ) {
 			$value = esc_attr( $this->get_option( $args['id'] ) );
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';?>
+           <textarea class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]"><?php echo esc_attr($value); ?></textarea>
 
-			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
-
-			$html = sprintf( '<textarea %5$s  class="%1$s-text" id="%2$s-field" name="%4$s[%2$s]">%3$s</textarea>', $size, $args['id'], $value, $this->settings_name, $attrs );
-			$html .= $this->get_field_description( $args );
-
-			echo $html;
+          <?php if ( ! empty( $args['desc'] ) ) { ?>
+           <p class="description"><?php echo esc_html($args['desc']);?></p>
+	      <?php 
+	           }
+				
 		}
 		
-        public function file_field_callback( $args ) {
-        $value = esc_attr( $this->get_option( $args['id'] ) );
-        $size = ( isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular' );
-        $attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
-        $label = ( isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File' ) );
-        $html = sprintf( '<input %5$s type="text" class="%1$s-text %2$s" id="%2$s-field" name="%4$s[%2$s]" value="%3$s"/>', $size, $args['id'], $value, $this->settings_name, $attrs );
-        $html .= '<input type="button" class="button taiowc_upload_image_button ' . $this->settings_name . 'browse" value="' . $label . '" />';
-        $html .= $this->get_field_description( $args );
-        echo  $html ;
-       }
-
-
-
-		public function iframe_field_callback( $args ) {
-			$is_html = isset( $args['html'] );
-			if ( $is_html ){
-				$html = $args['html'];
-			  } else {
-				$screen_frame = esc_url( $args['screen_frame'] );
-        $doc_link     = esc_url( $args['doc_link'] );
-        $doc_text     = esc_html($args['doc-texti']);
-				$width        = isset( $args['width'] ) ? $args['width'] : '100%';
-				$height       = isset( $args['height'] ) ? $args['height'] : '100%';
-
-        $html = sprintf( '<iframe width="%1s" height="%2s" src="%3s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a target="_blank" href="%4s">%5s</a>',  $width, $height, $screen_frame ,$doc_link, $doc_text);
-
-				$html .= $this->get_field_description( $args );
-			}
-			echo $html;
-		}
-
 		public function html_field_callback( $args ) {
          if($args[ 'id' ]=='how-to-integrate'):
 
@@ -506,41 +434,40 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				
 				<li><?php printf( __( 'Using php - %s', 'taiowc' ), '<code>&lt;?php echo do_shortcode(\'[taiowc]\'); ?&gt;</code> <br /> <br /><ul><li>Add this php code at the desired location in any php file.</li>  </ul>' ); ?>
 				</li>
-               
 				
 			</ol>
 		
-
 		<?php 		
 			endif;
 		}
 
-		public function color_field_callback( $args ){
-			$value = esc_attr( $this->get_option( $args['id'] ) );
-			
-			$alpha = isset( $args['alpha'] ) && $args['alpha'] === true ? ' data-alpha-enabled="true"' : '';
-			$html  = sprintf( '<input type="text" %1$s class="taiowc-color-picker" id="%2$s" name="%4$s[%2$s]" value="%3$s"  data-default-color="%3$s" />', $alpha, $args['id'], $value, $this->settings_name );
-			$html  .= $this->get_field_description( $args );
-
-			echo $html;
-		}
-
 		public function number_field_callback( $args ) {
+
 			$value = esc_attr( $this->get_option( $args['id'] ) );
+
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'small';
 
-			$min    = isset( $args['min'] ) && ! is_null( $args['min'] ) ? 'min="' . $args['min'] . '"' : '';
-			$max    = isset( $args['max'] ) && ! is_null( $args['max'] ) ? 'max="' . $args['max'] . '"' : '';
-			$step   = isset( $args['step'] ) && ! is_null( $args['step'] ) ? 'step="' . $args['step'] . '"' : '';
-			$suffix = isset( $args['suffix'] ) && ! is_null( $args['suffix'] ) ? ' <span>' . $args['suffix'] . '</span>' : '';
-
 			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
+            ?>
 
+			<input type="number"  <?php echo esc_attr($attrs); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"  min="<?php echo esc_attr($args['min']); ?>" max="<?php echo esc_attr($args['max']); ?>" step="<?php  if ( ! empty($args['step']) ) { 
+				echo esc_attr($args['step']); } ?>" />
 
-			$html = sprintf( '<input %9$s type="number" class="%1$s-text" id="%2$s-field" name="%4$s[%2$s]" value="%3$s" %5$s %6$s %7$s /> %8$s', $size, $args['id'], $value, $this->settings_name, $min, $max, $step, $suffix, $attrs );
-			$html .= $this->get_field_description( $args );
+              <?php if(isset( $args['suffix'] ) && ! is_null( $args['suffix'] ) ){ ?>
 
-			echo $html;
+			<span><?php echo esc_attr($args['suffix']); ?></span>
+         
+             <?php
+
+               }
+
+           if ( ! empty( $args['desc'] ) ) { ?>
+
+           <p class="description"><?php echo esc_html($args['desc']);?></p>    
+
+		<?php 	
+
+	         } 
 		}
 	      /**
 	     * Print a colorpicker
@@ -549,34 +476,34 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 	     * @param string $key
 	     * @param string $value
 	     */
-	    public function colorpkr_field_callback( $args ) {
+	     public function colorpkr_field_callback( $args ){
 
-	        $value = esc_attr( $this->get_option( $args['id'] ) );
-	        
-	        $html  = sprintf( '<input type="text" class="color_picker" id="%1$s" name="%3$s[%1$s]" value="%2$s" style="background:%2$s" />', $args['id'], $value, $this->settings_name );
-			$html  .= $this->get_field_description( $args );
+			$value = esc_attr( $this->get_option( $args['id'] ) );
+			
+			?>
 
-			echo $html;
+		  <input type="text" class="color_picker" id="<?php echo esc_attr($args['id']);?>" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>" style="background:<?php echo esc_attr($value); ?>" />
+          
+          <?php if ( ! empty( $args['desc'] ) ) { ?>
 
-	    }
+           <p class="description"><?php echo esc_html($args['desc']);?></p>      
 
+		<?php
+	        }
 
-	      public function radio_image_field_callback( $args ) {
-			// $size    = isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ? $args[ 'size' ] : 'regular';
+		}
+
+	     public function radio_image_field_callback( $args ) {
+
 			$options = apply_filters( "taiowc_settings_{$args[ 'id' ]}_radio_options", $args['options'] );
 			$value   = esc_attr( $this->get_option( $args['id'] ) );
 
 			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
 
-
-			$html = '<fieldset>';
-			$html .= implode( '', array_map( function ( $key, $option ) use ( $attrs, $args, $value ) {
-				return sprintf( '<label class="radio-image"><input id="%2$s" %1$s type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> <img src="%6$s"/> </label>', $attrs, $args['id'], $key, $this->settings_name, checked( $value, $key, false ), $option);
+			return implode( '', array_map( function ( $key, $option ) use ( $attrs, $args, $value ) {
+				echo sprintf( '<label class="radio-image"><input id="%2$s" %1$s type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> <img src="%6$s"/> </label>', $attrs, $args['id'], $key, $this->settings_name, checked( $value, $key, false ), $option);
 			}, array_keys( $options ), $options ) );
-			$html .= $this->get_field_description( $args );
-			$html .= '</fieldset>';
 
-			echo $html;
 		}
 
 	//*********************************/	

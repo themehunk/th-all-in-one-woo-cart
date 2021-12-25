@@ -101,6 +101,10 @@ color:#444;
     margin-top: -8px;
 }
 
+.taiowc-setting-form #submit.button-primary{
+    height: 40px;
+}
+
 .taiowc-setting-form #submit.button-primary,.taiowc-button-wrapper .reset{
 border:0;
 box-shadow:none;
@@ -450,7 +454,7 @@ display:flex;
 
 #cart-icon-wrapper label.radio-image,
 #cart_style-wrapper label.radio-image{
-margin-right:1rem!important;
+margin-right:0.5rem!important;
 margin-top:0!important;
 margin-bottom:0!important;
 }

@@ -47,38 +47,6 @@ if(taiowc()->get_option( 'cart-icon' ) == 'icon-7'){ ?>
 ?>
 
 
-<?php 
-if(taiowc()->get_option( 'show_rld_product' ) == false){ ?>
-
-#product_may_like_tle-wrapper, #choose_prdct_like-wrapper, #product_may_like_id-wrapper, #taiowc_cart_styletaiowc_cart_style-section-3,.taiowc_cart_styletaiowc_cart_style-section-3{display:none;}
-
-<?php }
-?>
-
-<?php 
-if(taiowc()->get_option( 'show_shipping' ) == false){ ?>
-
-#ship_txt-wrapper{display:none;}
-
-<?php }
-?>
-
-<?php 
-if(taiowc()->get_option( 'show_discount' ) == false){ ?>
-
-#discount_txt-wrapper{display:none;}
-
-<?php }
-?>
-
-<?php 
-if(taiowc()->get_option( 'show_coupon' ) == false){ ?>
-
-#coupon_plchdr_txt-wrapper, #coupon_aply_txt-wrapper, #show_coupon_list-wrapper, #coupon_btn_txt-wrapper,#show_added_coupon-wrapper,#taiowc_cart_styletaiowc_cart_style-section-5, .taiowc_cart_styletaiowc_cart_style-section-5{display:none;}
-
-<?php }
-?>
-
 
 <?php 
 

@@ -230,16 +230,6 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'default' => 'icon-1'
 							),
 
-							array(
-								'id'      => 'icon_url',
-								'type'    => 'file',
-								'title'   => esc_html__( 'Upload Icon Image (Pro)', 'taiowc' ),
-								'desc'    => esc_html__( 'Recommended cart image size 60 x 60px', 'taiowc' ),
-								'default' => false
-							    ),
-
-						
-
                             array(
 								'id'      => 'cart_open',
 								'type'    => 'select',
