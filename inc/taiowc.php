@@ -78,9 +78,8 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
 
-                 add_action( 'wc_ajax_taiowc_undo_item', array( $this,'taiowc_undo_item'));
-
                 
+   
             }
 
 
@@ -284,10 +283,8 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         <?php
 
-
         $get_cart_content =  array_reverse( WC()->cart->get_cart() );
 
-            
         foreach ( $get_cart_content as $cart_item_key => $cart_item ) {
 
             $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
@@ -302,9 +299,23 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 $rating_count   =  $_product->get_rating_count();
                 $average        =  $_product->get_average_rating();
-                $rating         = apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
-
+                
                 $quantity_text = __('Quantity','taiowc');
+
+                $allowed_img = array(
+
+                                'img' => array(
+                                    'src' => array(),
+                                    'title' => array(),
+                                    'class'=> array(),
+                                    'alt'=> array(),
+                                    'size'=> array(),
+                                    'loading'=> array(),
+                                    'srcset'=> array(),
+                                    'style'=> array(),
+                                ),
+                                
+                            );
 
                 ?>
                 <div class="taiowc-woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
@@ -326,15 +337,31 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                      if ( empty( $product_permalink ) ) : ?>
 
-                        <?php echo sprintf('%1s %2s %3s',$thumbnail,$product_name,$rating);?>
+                        <?php 
+
+                        echo esc_html($product_name); 
+
+                        echo wp_kses($thumbnail, $allowed_img);
+
+                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
+
+                        ?>
 
                     <?php else : ?>
 
                         <a href="<?php echo esc_url( $product_permalink ); ?>">
 
-                        <?php echo sprintf('%1s %2s %3s',$thumbnail,$product_name,$rating);?>
-                        
+                        <?php 
+
+                        echo esc_html($product_name); 
+
+                        echo wp_kses($thumbnail, $allowed_img);
+
+                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
+
+                        ?>
                         </a>
+
                          <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
 
                     <?php endif; 
@@ -345,7 +372,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                 <?php if(taiowc()->get_option( 'show_prd_quantity' ) == true){ ?>
                 <div class="item-product-quantity">
                    
-                    <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.$quantity_text.'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
+                    <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.esc_html($quantity_text).'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
 
                    ?>
                </div>
@@ -497,8 +524,6 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                     $notice = __( 'Product removed', 'taiowc' );
 
-                    $notice .= ' <span class="taiowc-undo-item" data-key="'.esc_attr($cart_key).'">'.__('Undo?','taiowc').'</span>';  
-
                 }
                 else{
                     $notice = __( 'Cart Updated', 'taiowc' );
@@ -514,30 +539,6 @@ if ( ! class_exists( 'Taiowc' ) ):
         die();
 
       }
-
-      //undo item
-
-      public function taiowc_undo_item(){
-
-            $cart_key = sanitize_text_field($_POST['cart_key']);
-
-            if(!$cart_key) return;
-
-            $cart_success = WC()->cart->restore_cart_item($cart_key);
-
-            if($cart_success){
-
-                $notice = __( 'Product restore', 'taiowc' );
-                
-                $this->set_notice( $notice, 'success' );
-
-            }
-
-            WC_AJAX::get_refreshed_fragments();
-            
-            die();
-
-        }
 
         public function set_notice( $notice, $type = 'success' ){
 
