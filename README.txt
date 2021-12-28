@@ -57,6 +57,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.0.2 =
+* Escaping issue fixed.
+
 = 1.0.1 =
 * Escaping and sanitize issue fixed.
 
