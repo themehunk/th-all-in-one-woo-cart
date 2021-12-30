@@ -106,10 +106,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'taiowc' ) ?></a>
             	</div>
 
-            	<!-- <div class="taiowc-notes-row taiowc-wrap-img">
-	               	<a target="_blank" href="<?php echo esc_url('https://themehunk.com/product/jot-shop/'); ?>"><img src='' alt="jot-shop">
-	               	</a>
-            	</div> -->
             </div>
            
 				</form>
@@ -501,7 +497,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';
 
 			return implode( '', array_map( function ( $key, $option ) use ( $attrs, $args, $value ) {
-				echo sprintf( '<label class="radio-image"><input id="%2$s" %1$s type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> <img src="%6$s"/> </label>', $attrs, $args['id'], $key, $this->settings_name, checked( $value, $key, false ), $option);
+				echo sprintf( '<label class="radio-image"><input id="%2$s" %1$s type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> <img src="%6$s"/> </label>', esc_attr($attrs), esc_attr($args['id']), esc_attr($key), esc_attr($this->settings_name), checked( esc_attr($value), esc_attr($key), false ), esc_attr($option));
 			}, array_keys( $options ), $options ) );
 
 		}

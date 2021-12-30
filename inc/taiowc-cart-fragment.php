@@ -63,7 +63,7 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                            
                             <div class="cart-count-item">
 
-                                <?php echo taiowc()->get_cart_count() ?>
+                                <?php taiowc()->get_cart_count() ?>
                                     
                             </div>
                            
