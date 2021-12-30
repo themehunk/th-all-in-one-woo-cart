@@ -10,8 +10,6 @@ if ( ! class_exists( 'Taiowc' ) ):
          *
          * @var object instance
          */
-
-       
        private static $instance;
        private $_settings_api;
        public  $cartInstances = 0 ;
@@ -85,8 +83,6 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         }
 
-       
-        
         public function is_wc_active() {
             return class_exists( 'WooCommerce' );
         }
@@ -266,11 +262,11 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 if( taiowc()->get_option( 'basket_count' ) == 'numb_prd' ){
 
-                    return count( WC()->cart->get_cart() );
+                    echo count( WC()->cart->get_cart() );
                 }
                 else{
 
-                    return WC()->cart->get_cart_contents_count();
+                   echo WC()->cart->get_cart_contents_count();
                 }
 
             }
@@ -371,12 +367,10 @@ if ( ! class_exists( 'Taiowc' ) ):
                 </div>
                 <?php if(taiowc()->get_option( 'show_prd_quantity' ) == true){ ?>
                 <div class="item-product-quantity">
-                   
                     <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.esc_html($quantity_text).'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
-
                    ?>
                </div>
-              <?php } ?>
+               <?php } ?>
 
             </div>
 
@@ -420,7 +414,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                 
                 if ( $_product->is_sold_individually() ) {
 
-                    $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
+                    $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', esc_attr($cart_item_key ));
 
                      } else {
 
@@ -451,7 +445,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                                     $product_id   = $cart_item_key;
                                     
 
-                            $product_quantity = sprintf( '<input type="number" id="%s" class="%s" name="%s" value="%s" step="1" max="%s" min="%s" data-key="%s"  title="Qty" size="4" placeholder="" inputmode="numeric">',$input_id, $classes, $input_name, $input_value, $max_value, $min_value , $product_id);
+                            $product_quantity = sprintf( '<input type="number" id="%s" class="%s" name="%s" value="%s" step="1" max="%s" min="%s" data-key="%s"  title="Qty" size="4" placeholder="" inputmode="numeric">',esc_attr($input_id), esc_attr($classes), esc_attr($input_name), esc_attr($input_value), esc_attr($max_value), esc_attr($min_value) , esc_attr($product_id));
 
                             
 
@@ -584,7 +578,7 @@ if ( ! class_exists( 'Taiowc' ) ):
         
         $this->notices = array();
 
-    }
+       }
 
 
         public function HideCartPage(){

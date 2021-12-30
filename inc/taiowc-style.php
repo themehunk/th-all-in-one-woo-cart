@@ -35,10 +35,10 @@ $taiowc_custom_css.=".cart-heading svg{display:block}";
 }
 
 //fixed cart position
-$fxd_cart_position  = taiowc()->get_option( 'fxd_cart_position' );
-$fxd_cart_frm_right  = taiowc()->get_option( 'fxd_cart_frm_right' );
-$fxd_cart_frm_left  = taiowc()->get_option( 'fxd_cart_frm_left' );
-$fxd_cart_frm_btm  = taiowc()->get_option( 'fxd_cart_frm_btm' );
+$fxd_cart_position  = esc_html(taiowc()->get_option( 'fxd_cart_position' ));
+$fxd_cart_frm_right  = esc_html(taiowc()->get_option( 'fxd_cart_frm_right' ));
+$fxd_cart_frm_left  = esc_html(taiowc()->get_option( 'fxd_cart_frm_left' ));
+$fxd_cart_frm_btm  = esc_html(taiowc()->get_option( 'fxd_cart_frm_btm' ));
 
 if($fxd_cart_position == 'fxd-left'){
 
