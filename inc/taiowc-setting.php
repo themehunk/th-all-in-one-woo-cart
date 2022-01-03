@@ -669,12 +669,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
         		return;
         	}
         	// STYEL
-        	wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. '/assets/css/admin.css', array(), TAIOWC_VERSION );
-        	wp_enqueue_style( 'taiowc-pickr-nano-css', TAIOWC_PLUGIN_URI. '/assets/css/nano.min.css', array(), TAIOWC_VERSION );
+        	wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. 'assets/css/admin.css', array(), TAIOWC_VERSION );
+        	wp_enqueue_style( 'taiowc-pickr-nano-css', TAIOWC_PLUGIN_URI. 'assets/css/nano.min.css', array(), TAIOWC_VERSION );
 
             //SCRIPT
-        	 wp_enqueue_script( 'taiowc-pickr-script', TAIOWC_PLUGIN_URI. '/assets/js/pickr.min.js', array('jquery'),TAIOWC_VERSION, true);
-            wp_enqueue_script( 'taiowc-setting-script', TAIOWC_PLUGIN_URI. '/assets/js/taiowc-setting.js', array('jquery'),TAIOWC_VERSION, true);
+        	 wp_enqueue_script( 'taiowc-pickr-script', TAIOWC_PLUGIN_URI. 'assets/js/pickr.min.js', array('jquery'),TAIOWC_VERSION, true);
+            wp_enqueue_script( 'taiowc-setting-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-setting.js', array('jquery'),TAIOWC_VERSION, true);
             wp_enqueue_media();
 
             wp_localize_script(

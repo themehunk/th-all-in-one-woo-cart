@@ -12,6 +12,7 @@
  * WC tested up to:         5.1
  * Domain Path:             /languages
  * Text Domain:             taiowc
+ * Tags: floating cart, cart, woo cart, flycart, sidecart, woocart, menu cart, basket cart, fly cart, woocommerce, woo, ajax
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
