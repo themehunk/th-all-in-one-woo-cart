@@ -409,9 +409,12 @@ width:3rem;
 
 .cart_fixed_1 .taiowc-cart-item {
     padding: 1rem;
-    background: #eee;
+    background: #fff;
    border-radius: 10px!important;
-
+   box-shadow: 0 0 10px rgb(183 183 183 / 60%);
+    -moz-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
+    -webkit-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
+    -o-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
 
 }
 
