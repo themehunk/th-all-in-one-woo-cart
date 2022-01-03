@@ -12,7 +12,7 @@
  * WC tested up to:         5.1
  * Domain Path:             /languages
  * Text Domain:             taiowc
- * Tags: floating cart,ajax,cart,slider
+ * Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

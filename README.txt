@@ -1,7 +1,7 @@
 ====== TH Side Cart and Menu Cart for Woocommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: floating cart,ajax,cart,slider
+Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
 Requires at least: 4.8
 Tested up to: 5.8.1
 Stable tag: 1.0.0
