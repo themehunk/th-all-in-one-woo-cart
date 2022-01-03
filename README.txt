@@ -1,22 +1,62 @@
-====== TH All In One Woo Cart ========
+====== TH Side Cart and Menu Cart for Woocommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: woocommerce, product, category
+Tags: floating cart, cart, woo cart, flycart, sidecart, woocart, menu cart, basket cart, fly cart, woocommerce, woo, ajax
 Requires at least: 4.8
 Tested up to: 5.8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Off canvas Cart in your website.  Your customers can update or remove products from the cart without reloading the cart continuously. It is mobile friendly and supports many advanced features with Color options for each elements.
+TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Floating Cart in your website.  Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features.
 
 == Description ==
 
-TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Off canvas Cart in your website.  Your customers can update or remove products from the cart without reloading the cart continuously. It is mobile friendly and supports many advanced features with Color options for each elements.
+TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Floating Cart in your website.  Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features.
 
-[Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [Sales Page](https:https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
+[Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
 
 **Key Features:-**
+
+⭐ Cart Integration Methods -
+   Shortcode, Using PHP code
+⭐ Cart Open Style
+   Slide Right, Slide Left, Dropdown on click
+⭐ Add Different Cart Basket Icons 
+⭐ Hide Cart from Pages
+⭐ One Fixed Cart Layout
+⭐ Auto Open with Ajax
+⭐ Highly Responsive to each & every device.
+⭐ Fully compatible with WordPress Themes.
+⭐ User Friendly Customize Panel.
+⭐ 24×7 support available for free product too
+
+
+**Pro Features:-**
+
+⭐ Cart Integration Methods -
+   Header Menu, Shortcode, Using PHP code
+⭐ Cart Open Style
+   Slide Right, Slide Left, Dropdown on click
+⭐ Add/ Upload Different Cart Basket Icons 
+⭐ Product elements list - Image, Title, Price, Quantity and Rating
+⭐ Cart Product order
+⭐ Hide Cart from Pages
+⭐ Cart Styling Options
+⭐ Manage Cart in Mobile View
+⭐ Unique Cart Layouts
+⭐ Fly to cart animation
+⭐ Advanced Shipping Option
+⭐ Payment Option
+⭐ Show Cross Sell Product
+⭐ Show Up Sell Product
+⭐ Show Related Product
+⭐ Advanced Coupon Option
+⭐ Auto Open with Ajax
+⭐ Highly Responsive to each & every device.
+⭐ Fully compatible with WordPress Themes.
+⭐ User Friendly Customize Panel.
+⭐ Priority 24×7 support available.
 
 
 == Installation ==
@@ -28,6 +68,7 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 == Frequently Asked Questions ==
 
 = How to Install Plugin =
+
 Just upload the `th-all-in-one-woo-cart.zip` to the `/wp-content/plugins/` directory, and then activate it from 'Plugins' menu in WordPress.
 
 = How can i get Support if my TH All In One Woo Cart Plugin is not Working ? =
@@ -56,15 +97,6 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
-
-= 1.0.3 =
-* Escaping issue fixed.
-
-= 1.0.2 =
-* Escaping issue fixed.
-
-= 1.0.1 =
-* Escaping and sanitize issue fixed.
 
 = 1.0.0 =
 * Initial release

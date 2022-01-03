@@ -94,7 +94,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
             </div>
             <div class="taiowc-notes-wrap">
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="#"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
             	</div>
            
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Join Group', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Get connected to our Facebook. Join our User friendly community.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.facebook.com/groups/themehunk');?>"><span class="dashicons dashicons-facebook-alt"></span><?php esc_html_e( 'Join Facebook Group', 'taiowc' ) ?></a>
