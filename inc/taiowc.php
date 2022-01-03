@@ -132,15 +132,15 @@ if ( ! class_exists( 'Taiowc' ) ):
 
               wp_enqueue_media();
 
-              wp_enqueue_style( 'taiowc-style', TAIOWC_PLUGIN_URI. '/assets/css/style.css', array(), TAIOWC_VERSION );
+              wp_enqueue_style( 'taiowc-style', TAIOWC_PLUGIN_URI. 'assets/css/style.css', array(), TAIOWC_VERSION );
 
-             wp_enqueue_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI. '/assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
+             wp_enqueue_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI. 'assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
 
               wp_add_inline_style('taiowc-style', taiowc_style());
 
-              wp_enqueue_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI. '/assets/js/taiowc-cart.js', array( 'jquery' ),true);
+              wp_enqueue_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-cart.js', array( 'jquery' ),true);
 
-              wp_enqueue_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI. '/assets/js/owl.carousel.js', array( 'jquery' ),true);
+              wp_enqueue_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI. 'assets/js/owl.carousel.js', array( 'jquery' ),true);
 
 
               $noticeMarkup = '<ul class="taiowc-notices-msg">%s</ul>'; 
