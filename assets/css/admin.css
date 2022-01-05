@@ -534,3 +534,62 @@ display: block;
 font-weight:bold;
 color:#a8df00
 }
+.thaps-use-plugin img{
+width:128px;
+height:128px;
+margin-right:1rem;
+    border: 1px solid #efefef;
+
+}
+
+.taiowc-use-plugin{
+display:flex;
+align-items: center;
+margin:1rem 0;
+}
+
+.taiowc-use-plugin a{
+font-size:1rem;
+font-weight:500;
+}
+.taiowc-notes-row
+{
+padding: 24px 16px;
+    border-radius: 4px;
+    color: #111;
+    text-align: center;
+    background: #fff;
+    margin-bottom: 1rem;
+}
+
+.taiowc-use-plugin img {
+    width: 128px;
+    height: 128px;
+    margin-right: 1rem;
+    border: 1px solid #efefef;
+}
+ .taiowc-wrap-pro a {
+    padding: 0.4rem 1.5rem;
+    letter-spacing: -0.08px;
+    font-size: .6875rem;
+    line-height: 1.81818;
+    background: #f56640;
+    color: #fff;
+    margin-top: 0.5rem;
+    display: inline-flex;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.taiowc-wrap-pro h4{
+margin-bottom:0.5rem;
+}
+#taiowc_usefull_plugintaiowc_usefull_plugin-section-0 tr{
+width:50%;
+}
+#taiowc_usefull_plugintaiowc_usefull_plugin-section-0 tbody{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}

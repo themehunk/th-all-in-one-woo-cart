@@ -1,10 +1,10 @@
 ====== TH Side Cart and Menu Cart for Woocommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: floating cart, cart, woo cart, flycart, sidecart, woocart, menu cart, basket cart, fly cart, woocommerce, woo, ajax
+Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
 Requires at least: 4.8
 Tested up to: 5.8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,13 +18,10 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 
 **Key Features:-**
 
-⭐ Cart Integration Methods -
-   Shortcode, Using PHP code
-⭐ Cart Open Style
-   Slide Right, Slide Left, Dropdown on click
-⭐ Add Different Cart Basket Icons 
+⭐ Cart Integration Using Shortcode
+⭐ Cart Integration Using PHP code
+⭐ Slide Right Cart Open Style
 ⭐ Hide Cart from Pages
-⭐ One Fixed Cart Layout
 ⭐ Auto Open with Ajax
 ⭐ Highly Responsive to each & every device.
 ⭐ Fully compatible with WordPress Themes.
@@ -34,12 +31,19 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 
 **Pro Features:-**
 
-⭐ Cart Integration Methods -
-   Header Menu, Shortcode, Using PHP code
-⭐ Cart Open Style
-   Slide Right, Slide Left, Dropdown on click
+⭐ Header Menu Integration
+⭐ Using Shortcode Integration
+⭐ Using PHP code Integration
+⭐ Slide Right Cart Open Style 
+⭐ Slide Left Cart Open Style 
+⭐ Dropdown on click Cart Open Style 
 ⭐ Add/ Upload Different Cart Basket Icons 
-⭐ Product elements list - Image, Title, Price, Quantity and Rating
+⭐ Display Product Image
+⭐ Display Product Title
+⭐ Display Product Price
+⭐ Display Product Quantity
+⭐ Display Product Rating
+⭐ Display Product Shipping
 ⭐ Cart Product order
 ⭐ Hide Cart from Pages
 ⭐ Cart Styling Options
@@ -97,6 +101,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.1 =
+* Style Issue Fixed
 
 = 1.0.0 =
 * Initial release

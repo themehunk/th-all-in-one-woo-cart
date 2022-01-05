@@ -73,6 +73,7 @@ margin-bottom: 0;
         padding: 0.9rem 0.7rem;
     text-align: center;
     background: #fff;
+    color: #111;
 }
 
 .cart-heading svg, .cart-heading img{
@@ -123,6 +124,7 @@ margin-bottom: 0;
     background: #fff;
     margin-bottom: 0.7rem!important;
     margin-top: 0.7rem!important;
+    color: #111;
 }
 
 .taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item:last-child{
@@ -164,6 +166,7 @@ margin-bottom: 0;
     font-size: 0.79rem!important;
     font-weight: 500!important;
         padding: 0!important;
+            color: #111;
 
 }
 
@@ -221,6 +224,7 @@ margin-bottom: 0;
     transition: 0.2s;
     opacity: 0;
     visibility: hiddden;
+    line-height: initial;
 }
 .taiowc-cart-close:after {
     font-family: dashicons;
@@ -557,7 +561,7 @@ display:none;
     padding: 0.8rem 1.5rem!important;
     font-size: .8rem!important;
     text-decoration: none!important;
-    color: #fff;
+    color: #fff!important;
     border: none;
     margin: 0.25rem!important;
     font-weight: 500;
@@ -583,7 +587,7 @@ display:none;
 }
 .taiowc-cart-model-footer .cart-button .button:first-child{
 background:transparent!important;
-color:#000;
+color:#111!important;
 border:1px solid #000;
 }
 .taiowc .woocommerce-back-to-shop{
@@ -714,6 +718,7 @@ color:#ef6238;
 display: flex;
 flex-direction: column;
 font-size: 1rem;
+    color: #111;
 }
 .taiowc-subtotal,.taiowc-discount,.taiowc-total,.taiowc-shipping{
 display: flex;
@@ -1033,6 +1038,7 @@ padding:0;
 
 .taiowc-payment-title{
     background-color: #f3f3f3;
+    color: #111;
 }
 
 .woocommerce .taiowc-related-product-right-area .star-rating,

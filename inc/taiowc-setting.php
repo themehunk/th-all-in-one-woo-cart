@@ -93,6 +93,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			</div> 
             </div>
             <div class="taiowc-notes-wrap">
+
+            	<div class="taiowc-notes-row taiowc-wrap-pro"><h4 class="wrp-title"><?php esc_html_e( 'Unlock TH All In One Woo Cart Pro', 'taiowc' ) ?></h4><img src='<?php echo esc_url(TAIOWC_IMAGES_URI.'cart-pro-side-banner.png') ?>' alt="amaz-store"><a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>"><?php esc_html_e( 'Upgrade Now', 'taiowc' ) ?></a>
+
+            	</div>
             	
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
             	</div>
@@ -224,6 +228,11 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 				printf( '<tr id="%s" %s %s>', $wrapper_id, $custom_attributes, $dependency );
 
+                if ( isset( $field['args']['usefull'] ) ) {
+					echo '<td colspan="2" style="padding: 0; margin: 0">';
+					$this->usefullplugin_field_callback( $field['args'] );
+					echo '</td>';
+			  	}else{
 				
 					echo '<th scope="row" class="taiowc-settings-label">';
 					if ( ! empty( $field['args']['label_for'] ) ) {
@@ -236,7 +245,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					echo '<td class="taiowc-settings-field-content">';
 					call_user_func( $field['callback'], $field['args'] );
 					echo '</td>';
-				
+				}
 				   echo '</tr>';
 			}
 		}
@@ -322,7 +331,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					break;
 			    case 'textarea':
 					$this->textarea_field_callback( $field );
-					break;					
+					break;
+				case 'usefullplugin':
+					$this->usefullplugin_field_callback( $field );
+					break;						
 
 				default:
 					$this->text_field_callback( $field );
@@ -347,7 +359,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 		public function select_field_callback( $args ) {
 
-			$options = apply_filters( "thaps_settings_{$args[ 'id' ]}_select_options", $args['options'] );
+			$options = apply_filters( "taiowc_settings_{$args[ 'id' ]}_select_options", $args['options'] );
 
 			$valuee   = esc_attr( $this->get_option( $args['id'] ) );
 
@@ -500,6 +512,25 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				echo sprintf( '<label class="radio-image"><input id="%2$s" %1$s type="radio"  name="%4$s[%2$s]" value="%3$s" %5$s/> <img src="%6$s"/> </label>', esc_attr($attrs), esc_attr($args['id']), esc_attr($key), esc_attr($this->settings_name), checked( esc_attr($value), esc_attr($key), false ), esc_attr($option));
 			}, array_keys( $options ), $options ) );
 
+		}
+
+		public function usefullplugin_field_callback( $args ) {
+
+			$is_html = isset( $args['html'] );
+
+			if ( $is_html ) {
+				$html = $args['html'];
+			  } else {
+				$plugin_image  = esc_url( $args['plugin_image'] );
+				$plugin_title  = $args['plugin_title'];
+				$plugin_link   = $args['plugin_link'];
+
+				$html = sprintf( '<div class="taiowc-use-plugin"><img src="%s" /><a target="_blank" href="%s">%s</a></div>', $plugin_image, $plugin_link, $plugin_title);
+				
+			}
+
+
+			echo $html;
 		}
 
 	//*********************************/	

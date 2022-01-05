@@ -1119,6 +1119,75 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 		    )
 		  );
 
+		taiowc()->add_setting(
+			'taiowc_usefull_plugin', esc_html__( 'Themehunk Useful Plugins', 'taiowc' ), apply_filters(
+			'taiowc_usefull_plugin_settings_section', array(
+				array(
+					'title'  => esc_html__( 'Themehunk Useful Plugins', 'taiowc' ),
+					'fields' => apply_filters(
+						'taiowc_usefull_plugin_setting_fields', array(
+							array(
+								'id'         => 'taiowc-th-Variation-Swatches',
+								'title'      =>'',
+                                'type'       => 'usefullplugin',
+                                'desc'       => '',
+								'usefull'          => true,
+								'plugin_image' => esc_url('https://ps.w.org/th-variation-swatches/assets/icon-128x128.gif'),
+								'plugin_title'  => esc_html__( 'TH Variation Swatches', 'taiowc' ),
+								'plugin_link'  => esc_url('https://themehunk.com/th-variation-swatches/'),	
+								
+							),
+							array(
+								'id'         => 'taiowc-th-advance-search',
+								'title'      =>'',
+                                'type'       => 'usefullplugin',
+                                'desc'       => '',
+								'usefull'          => true,
+								'plugin_image' => esc_url('https://ps.w.org/th-advance-product-search/assets/icon-256x256.png'),
+								'plugin_title'  => esc_html__( 'TH Advance Product Search', 'taiowc' ),
+								'plugin_link'  => esc_url('https://themehunk.com/advance-product-search/'),	
+								
+							),
+							array(
+								'id'         => 'taiowc-th-product-compare',
+								'title'      =>'',
+                                'type'       => 'usefullplugin',
+                                'desc'       => '',
+								'usefull'          => true,
+								'plugin_image' => esc_url('https://ps.w.org/th-product-compare/assets/icon-128x128.png'),
+								'plugin_title'  => esc_html__( 'Th Product Compare', 'taiowc' ),
+								'plugin_link'  => esc_url('https://themehunk.com/th-product-compare-plugin/'),	
+								
+							),
+							array(
+								'id'         => 'taiowc-lead-form-builder',
+								'title'      =>'',
+                                'type'       => 'usefullplugin',
+                                'desc'       => '',
+								'usefull'          => true,
+								'plugin_image' => esc_url('https://ps.w.org/lead-form-builder/assets/icon-128x128.png'),
+								'plugin_title'  => esc_html__( 'Lead Form Builder', 'taiowc' ),
+								'plugin_link'  => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),	
+								
+							),
+							array(
+								'id'         => 'taiowc-wp-popup-builder',
+								'title'      =>'',
+                                'type'       => 'usefullplugin',
+                                'desc'       => '',
+								'usefull'          => true,
+								'plugin_image' => esc_url('https://ps.w.org/wp-popup-builder/assets/icon-128x128.png'),
+								'plugin_title'  => esc_html__( 'WP Popup Builder – Popup Forms & Newsletter', 'taiowc' ),
+								'plugin_link'  => esc_url('https://themehunk.com/product/wp-popup-builder/'),	
+								
+							),
+						)
+					)
+				 )
+			  )
+		    )
+		  );
+
 		}
 
 	}

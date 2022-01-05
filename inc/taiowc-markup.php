@@ -3,9 +3,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 
-if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
+if ( ! class_exists( 'Taiowc_Markup' ) ):
 
-    class Taiowc_Markup_Pro {
+    class Taiowc_Markup {
          /**
          * Member Variable
          *
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
 function taiowc_markup(){
 
-        return Taiowc_Markup_Pro::instance();
+        return Taiowc_Markup::instance();
 
 }
 endif; 
