@@ -5,7 +5,7 @@ justify-content: center;
 }
 .taiowc-cart-item{
   padding: 0.6rem;
-  background: #fff;
+  background: transparent;
   border-radius: 3px;
 }
 .taiowc .taiowc-wrap{
