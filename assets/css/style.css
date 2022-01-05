@@ -153,7 +153,7 @@ margin-bottom: 0;
     border: 0;
     z-index: 9999;
     font-size: 0.89rem;
-    color: #ef6238
+        color: #ef6238!important;
 }
 
 .taiowc-cart-model-body a.taiowc-remove-item:hover{
