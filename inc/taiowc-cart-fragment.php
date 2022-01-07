@@ -56,28 +56,36 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
             ?>
                        <a class="taiowc-content" href="#">
                         
-                          <?php if(taiowc()->get_option( 'cart_hd' )!==''){ ?>
+                          <?php if(taiowc()->get_option( 'cart_hd' )!==''){ 
+                            ?>
                           <h4><?php echo esc_html(taiowc()->get_option( 'cart_hd' ));?></h4>
+
                           <?php } ?>
 
-                           
+                           <?php if ( ! WC()->cart->is_empty() ) {
+                            ?>
                             <div class="cart-count-item">
 
                                 <?php taiowc()->get_cart_count() ?>
                                     
                             </div>
+                        <?php } ?>
                            
                             <div class="taiowc-cart-item">
                                 <div class="taiowc-icon">
                                     <?php do_action('taiowc_cart_show_icon'); ?>
                                  </div>
-                                 <?php if(taiowc()->get_option( 'tpcrt_show_price' ) == true){ ?>
+                                 <?php if ( ! WC()->cart->is_empty() ) { 
+
+                                    if(taiowc()->get_option( 'tpcrt_show_price' ) == true){ 
+
+                                        ?>
                                  <div class="taiowc-total">
 
                                     <span><?php echo WC()->cart->get_cart_total(); ?></span>
 
                                 </div>
-                                <?php } ?>
+                                <?php } } ?>
                             </div>
                         </a>
                 
