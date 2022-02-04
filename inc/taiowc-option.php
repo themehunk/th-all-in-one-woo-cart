@@ -41,7 +41,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'id'      => 'how-to-integrate',
 								'type'    => 'html',
 								'title'   => esc_html__( 'How To Add', 'taiowc' ),
-							),	
+							)
 						)
 					)
 				 )
@@ -244,17 +244,17 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 								'desc'    => esc_html__( 'These options will open cart panel as soon as product added to the cart.', 'taiowc' ),
 								
-							),
+							)
 
 
 								
 						)
 					 )
-				 ),
+				 )
 				
 
 			   )
-		     ),
+		     )
 		   );
 
           taiowc()->add_setting(
@@ -298,7 +298,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Product Rating', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product Rating from cart panel.', 'taiowc' ),
 								'default' => true
-							),	
+							)
 							
 							
 						)
@@ -347,7 +347,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Product Slug', 'taiowc' ),
 								'default' => '',
 								'desc'    => esc_html__( 'Use Product Slug separated by comma. For eg: product-1, product-2 ', 'taiowc' ),	
-							),
+							)
 							
 						)
 					)
@@ -408,7 +408,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Total Text', 'taiowc' ),
 								'default' =>esc_html__( 'Total', 'taiowc' ),	
 								
-							),
+							)
 
 							
 							
@@ -470,16 +470,16 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Show Added Coupon', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide applied coupons list.', 'taiowc' ),
 								'default' => true
-							  ),
+							  )
 							
 						 )
 					  )
-				  ),		
+				  )		
 
 
 			  )
 
-		    ),
+		    )
 		  );
 
           taiowc()->add_setting(
@@ -562,7 +562,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Cart Icon Color', 'taiowc' ),
 										'default' => '#111'
 										
-								),
+								)
 							
 						)
 					)
@@ -630,8 +630,8 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Quantity Color', 'taiowc' ),
 										'default' => '#fff'
 										
-								),	
-							
+								)
+						
 						)
 					)
 				 ),
@@ -727,7 +727,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Product Border Color', 'taiowc' ),
 										'default' => '#ebebeb'
 										
-								),
+								)
 						)
 					)
 				 ),
@@ -788,7 +788,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Add to cart Color', 'taiowc' ),
 										'default' => '#fff'	
-								),
+								)
 								
 						  )
 					  )
@@ -848,7 +848,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Button Color', 'taiowc' ),
 										'default' => '#fff'
 										
-								),
+								)
 					
 						
 								
@@ -959,7 +959,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Added Coupon Cross Color', 'taiowc' ),
 										'default' => '#ef6238'
 										
-								),
+								)
 								
 					
 						
@@ -1008,12 +1008,12 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 										'title'   => esc_html__( 'Error Text Color', 'taiowc' ),
 										'default' => '#fff'
 										
-								),
+								)
 						
 								
 						  )
 					  )
-				 ),
+				 )
 			  )
 		    )
 		  );
@@ -1045,7 +1045,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Disable Cart Price', 'taiowc' ),
 								'desc'    => '',
 								'default' => false
-							    ),
+							    )
 
 								
 						  )
@@ -1068,7 +1068,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'title'   => esc_html__( 'Disable Quantity', 'taiowc' ),
 								'desc'    => '',
 								'default' => false
-							    ),		
+							    )	
 						  )
 					  )
 				 ),
@@ -1100,7 +1100,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							    		
 						  )
 					  )
-				 ),
+				 )
               )
 		));
          
