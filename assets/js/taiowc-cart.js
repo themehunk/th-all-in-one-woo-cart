@@ -68,13 +68,13 @@
                         $(document.body).trigger('wc_fragments_loaded');
 
                         //Refresh checkout page
-                            if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
-                                if( $( 'form.checkout' ).length === 0 ){
-                                    location.reload();
-                                    return;
-                                }
-                                $(document.body).trigger("update_checkout");
-                            }
+                            // if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
+                            //     if( $( 'form.checkout' ).length === 0 ){
+                            //         location.reload();
+                            //         return;
+                            //     }
+                            //     $(document.body).trigger("update_checkout");
+                            // }
 
                             //Refresh Cart page
                             if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
