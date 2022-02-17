@@ -32,13 +32,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
         
 
         public function add_menu(){
-
-						$page_title = esc_html__( 'TH All In One Woo Cart', 'taiowc' );
-						$menu_title = esc_html__( 'TH All In One Woo Cart', 'taiowc' );
-						add_menu_page( $page_title, $menu_title, 'edit_theme_options', 'taiowc', array(
-							$this,
-							'settings_form'
-						),  esc_url(TAIOWC_IMAGES_URI.'/icon.png'), 59 );
+						$page_title = esc_html__( 'TH AIO Woo Cart', 'taiowc' );
+						// add_menu_page( $page_title, $page_title, 'edit_theme_options', 'taiowc', array(
+						// 	$this,
+						// 	'settings_form'
+						// ),  esc_url(TAIOWC_IMAGES_URI.'/icon.png'), 59 );
+		
+		add_submenu_page( 'themehunk-plugins', $page_title,$page_title, 'manage_options', 'taiowc', array($this, 'settings_form'),10 );
 
 		 }
 
@@ -695,30 +695,29 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		}
 		
         public function script_enqueue(){
-        
-        	if('toplevel_page_taiowc' !== get_current_screen()->base ){
-        		return;
-        	}
-        	// STYEL
-        	wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. 'assets/css/admin.css', array(), TAIOWC_VERSION );
-        	wp_enqueue_style( 'taiowc-pickr-nano-css', TAIOWC_PLUGIN_URI. 'assets/css/nano.min.css', array(), TAIOWC_VERSION );
+			//get_current_screen()->base
+        	if (isset($_GET['page']) && $_GET['page'] == 'taiowc') {
 
-            //SCRIPT
-        	 wp_enqueue_script( 'taiowc-pickr-script', TAIOWC_PLUGIN_URI. 'assets/js/pickr.min.js', array('jquery'),TAIOWC_VERSION, true);
-            wp_enqueue_script( 'taiowc-setting-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-setting.js', array('jquery'),TAIOWC_VERSION, true);
-            wp_enqueue_media();
+				// STYEL
+				wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. 'assets/css/admin.css', array(), TAIOWC_VERSION );
+				wp_enqueue_style( 'taiowc-pickr-nano-css', TAIOWC_PLUGIN_URI. 'assets/css/nano.min.css', array(), TAIOWC_VERSION );
 
-            wp_localize_script(
-				'taiowc-setting-script', 'TaiowcPluginObject', array(
-					'media_title'   => esc_html__( 'Choose an Image', 'taiowc' ),
-					'button_title'  => esc_html__( 'Use Image', 'taiowc' ),
-					'add_media'     => esc_html__( 'Add Media', 'taiowc' ),
-					'ajaxurl'       => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
-					'nonce'         => wp_create_nonce( 'taiowc_plugin_nonce' ),
-				)
-			);
-			
-			
+				//SCRIPT
+				wp_enqueue_script( 'taiowc-pickr-script', TAIOWC_PLUGIN_URI. 'assets/js/pickr.min.js', array('jquery'),TAIOWC_VERSION, true);
+				wp_enqueue_script( 'taiowc-setting-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-setting.js', array('jquery'),TAIOWC_VERSION, true);
+				wp_enqueue_media();
+
+				wp_localize_script(
+					'taiowc-setting-script', 'TaiowcPluginObject', array(
+						'media_title'   => esc_html__( 'Choose an Image', 'taiowc' ),
+						'button_title'  => esc_html__( 'Use Image', 'taiowc' ),
+						'add_media'     => esc_html__( 'Add Media', 'taiowc' ),
+						'ajaxurl'       => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
+						'nonce'         => wp_create_nonce( 'taiowc_plugin_nonce' ),
+					)
+				);
+				
+			}
 		}
 
 }

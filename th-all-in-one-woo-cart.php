@@ -47,6 +47,7 @@ define('TAIOWC_VERSION', $plugin_data['version']);
 } 
 
 if (!class_exists('Taiowc') && !class_exists('Taiowc_Pro')){
+include_once(TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php');
 require_once("inc/taiowc.php");
 require_once("notice/th-notice.php");
 }              
