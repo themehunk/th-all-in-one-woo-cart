@@ -593,3 +593,11 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 }
+
+.requirement-notice{
+background: #d14b35;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    display:inline-block;
+    width:auto;
+}
