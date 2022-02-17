@@ -30,8 +30,6 @@ if ( ! class_exists( 'Taiowc' ) ):
         public function __construct(){
         $this->includes();
         $this->hooks();
-
-
         }
 
         public function includes() {
@@ -49,9 +47,9 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function hooks() {
 
-                add_action( 'init', array( $this, 'setImageSize' ));
+                if ($this->is_wc_active() ) {
 
-                add_action( 'init', array( $this, 'settings_api' ), 5 );
+                add_action( 'init', array( $this, 'setImageSize' ));
 
                 add_filter( 'body_class', array( $this, 'body_class' ) );
 
@@ -73,6 +71,8 @@ if ( ! class_exists( 'Taiowc' ) ):
                 add_action( 'wc_ajax_taiowc_update_item_quantity', array( $this,'taiowc_update_item_quantity'));
 
                 add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
+            }
+            add_action( 'init', array( $this, 'settings_api' ), 5 );
 
 
         }
