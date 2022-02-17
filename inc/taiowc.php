@@ -30,30 +30,26 @@ if ( ! class_exists( 'Taiowc' ) ):
         public function __construct(){
         $this->includes();
         $this->hooks();
-
-
         }
 
         public function includes() {
 
-            if ( $this->is_required_php_version() && $this->is_wc_active() ) {
+            
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-setting.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-option.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-markup.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-cart-fragment.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-style.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-admin-style.php';
-            }
+            
 
         }
 
         public function hooks() {
 
+                if ($this->is_wc_active() ) {
+
                 add_action( 'init', array( $this, 'setImageSize' ));
-
-                if($this->is_wc_active()){
-
-                add_action( 'init', array( $this, 'settings_api' ), 5 );
 
                 add_filter( 'body_class', array( $this, 'body_class' ) );
 
@@ -75,10 +71,8 @@ if ( ! class_exists( 'Taiowc' ) ):
                 add_action( 'wc_ajax_taiowc_update_item_quantity', array( $this,'taiowc_update_item_quantity'));
 
                 add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
-
-                
-   
             }
+            add_action( 'init', array( $this, 'settings_api' ), 5 );
 
 
         }
@@ -94,7 +88,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function settings_api() {
 
-            if ( ! $this->_settings_api &&  $this->is_wc_active() ){
+            if ( ! $this->_settings_api ){
                 $this->_settings_api = new Taiowc_Set();
             }
 
