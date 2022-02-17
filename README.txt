@@ -104,6 +104,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.0.4 =
 * Pro notice improved.
+* Improved Setting Page.
 
 = 1.0.3 =
 * PHP Version Issue Fixed.

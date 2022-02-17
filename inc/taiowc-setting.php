@@ -46,6 +46,14 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			if ( ! current_user_can( 'manage_options' ) ) {
 				wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 			}
+
+			if( ! class_exists( 'WooCommerce' ) ){
+
+				   printf('<h2 class="requirement-notice">%s</h2>',__('TH All In One Woo Cart requires WooCommerce to work. Make sure that you have installed and activated WooCommerce Plugin.','taiowc' ) );
+
+             return;
+
+			}
 		
 			?>
 			<div id="taiowc" class="settings-wrap">
