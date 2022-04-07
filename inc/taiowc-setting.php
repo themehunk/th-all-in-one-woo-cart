@@ -436,7 +436,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		}
 		
 		public function html_field_callback( $args ) {
-         if($args[ 'id' ]=='how-to-integrate'):
+         if($args[ 'id' ]=='taiowc-how-to-integrate'):
 
 			?>
 			

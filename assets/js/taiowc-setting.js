@@ -139,15 +139,15 @@
     },
     ChangeSettinghideshow:function(){
         
-           $(document).on('click', '#show_cart-field', function (event){
+           $(document).on('click', '#taiowc-show_cart-field', function (event){
 
                     if($(this).is(':checked')){
 
-                      $('#cart_style-wrapper, #cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').show(500);
+                      $('#cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').show(500);
 
                     }else{
 
-                      $('#cart_style-wrapper, #cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').hide(500);
+                      $('#cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').hide(500);
 
                    }
                    
@@ -157,42 +157,42 @@
 
                     if($("input[id=cart_style]:checked").val() == "style-1"){
 
-                      if($('#fxd_cart_position-field').find("option:selected").val() == "fxd-left"){
+                      if($('#taiowc-fxd_cart_position-field').find("option:selected").val() == "fxd-left"){
 
-                          $('#fxd_cart_frm_left-wrapper,#fxd_cart_frm_btm-wrapper').show(500);
-                          $('#fxd_cart_frm_right-wrapper').hide(500);
+                          $('#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show(500);
+                          $('#taiowc-fxd_cart_frm_right-wrapper').hide(500);
 
                       }else{
 
-                         $('#fxd_cart_frm_right-wrapper,#fxd_cart_frm_btm-wrapper').show(500);
-                         $('#fxd_cart_frm_left-wrapper').hide(500);
+                         $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show(500);
+                         $('#taiowc-fxd_cart_frm_left-wrapper').hide(500);
                       }
                       
              
                     }else{
 
-                      $('#fxd_cart_frm_right-wrapper,#fxd_cart_frm_left-wrapper,#fxd_cart_frm_btm-wrapper').hide(500);
+                      $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').hide(500);
 
                    }
                    
              });
 
-           $(document).on('change', '#fxd_cart_position-field', function (event){
+           $(document).on('change', '#taiowc-fxd_cart_position-field', function (event){
 
                     if($(this).find("option:selected").val() == "fxd-left"){
 
                        if($("input[id=cart_style]:checked").val() == "style-1"){
-                          $('#fxd_cart_frm_left-wrapper').show(500);
-                          $('#fxd_cart_frm_btm-wrapper').show(500);
-                          $('#fxd_cart_frm_right-wrapper').hide(500);
+                          $('#taiowc-fxd_cart_frm_left-wrapper').show(500);
+                          $('#taiowc-fxd_cart_frm_btm-wrapper').show(500);
+                          $('#taiowc-fxd_cart_frm_right-wrapper').hide(500);
                         }
 
                     }else{
 
                           if($("input[id=cart_style]:checked").val() == "style-1"){
-                          $('#fxd_cart_frm_left-wrapper').hide(500);
-                          $('#fxd_cart_frm_right-wrapper').show(500);
-                          $('#fxd_cart_frm_btm-wrapper').show(500);
+                          $('#taiowc-fxd_cart_frm_left-wrapper').hide(500);
+                          $('#taiowc-fxd_cart_frm_right-wrapper').show(500);
+                          $('#taiowc-fxd_cart_frm_btm-wrapper').show(500);
                         }
                         
 
@@ -200,9 +200,9 @@
                    
              });
 
-           $(document).on('click', '#cart-icon', function (event){
+           $(document).on('click', '#taiowc-cart-icon', function (event){
 
-                    if($("input[id=cart-icon]:checked").val() == "icon-7"){
+                    if($("input[id=taiowc-cart-icon]:checked").val() == "icon-7"){
 
                       $('#icon_url-wrapper').show(500);
 
@@ -215,26 +215,26 @@
              });
 
        
-            $(document).on('click', '#cart_pan_icon_shw-field', function (event){
+            $(document).on('click', '#taiowc-cart_pan_icon_shw-field', function (event){
 
                     if($(this).is(':checked')){
 
-                      $('#cart_pan_icon_clr-wrapper').show(500);
+                      $('#taiowc-cart_pan_icon_clr-wrapper').show(500);
 
                     }else{
 
-                      $('#cart_pan_icon_clr-wrapper').hide(500);
+                      $('#taiowc-cart_pan_icon_clr-wrapper').hide(500);
 
                    }
                    
              });
 
             $('input#cart_style[value="style-2"]').attr("disabled", true);
-            $('#cart_effect-field option[value="taiowc-slide-left"]').attr("disabled", true);
-            $('#cart_effect-field option[value="taiowc-click-dropdown"]').attr("disabled", true);
-            $('#cart_item_order-field option[value="prd_last"]').attr("disabled", true);
-            $('#cart_open-field option[value="fly-image-open"]').attr("disabled", true);
-            $('input#cart-icon[value="icon-2"], input#cart-icon[value="icon-3"], input#cart-icon[value="icon-4"], input#cart-icon[value="icon-5"], input#cart-icon[value="icon-6"], input#cart-icon[value="icon-7"]').attr("disabled", true);
+            $('#taiowc-cart_effect-field option[value="taiowc-slide-left"]').attr("disabled", true);
+            $('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').attr("disabled", true);
+            $('#taiowc-cart_item_order-field option[value="prd_last"]').attr("disabled", true);
+            $('#taiowc-cart_open-field option[value="fly-image-open"]').attr("disabled", true);
+            $('input#taiowc-cart-icon[value="icon-2"], input#taiowc-cart-icon[value="icon-3"], input#taiowc-cart-icon[value="icon-4"], input#taiowc-cart-icon[value="icon-5"], input#taiowc-cart-icon[value="icon-6"], input#taiowc-cart-icon[value="icon-7"]').attr("disabled", true);
 
         },
   

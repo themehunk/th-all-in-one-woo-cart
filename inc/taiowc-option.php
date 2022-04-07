@@ -38,7 +38,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_integration_setting_fields', array(
 							array(
-								'id'      => 'how-to-integrate',
+								'id'      => 'taiowc-how-to-integrate',
 								'type'    => 'html',
 								'title'   => esc_html__( 'How To Add', 'taiowc' ),
 							)
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							
 							
 							array(
-								'id'      => 'show_cart',
+								'id'      => 'taiowc-show_cart',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Enable Cart', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to disable Floating and Fixed cart. Still you can use "Shortcode" and "Menu" cart', 'taiowc' ),
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'default' => 'style-1'
 							),
 							array(
-								'id'      => 'fxd_cart_position',
+								'id'      => 'taiowc-fxd_cart_position',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Fixed Cart Position', 'taiowc' ),
 								'default' => 'fxd-right',
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'fxd_cart_frm_right',
+								'id'      => 'taiowc-fxd_cart_frm_right',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Fixed Cart Position From Right', 'taiowc' ),
 								'default' => 36,
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								
 							),
 							array(
-								'id'      => 'fxd_cart_frm_left',
+								'id'      => 'taiowc-fxd_cart_frm_left',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Fixed Cart Position From Left', 'taiowc' ),
 								'default' => 36,
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							 array(
-								'id'      => 'fxd_cart_frm_btm',
+								'id'      => 'taiowc-fxd_cart_frm_btm',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Fixed Cart Position From Bottom', 'taiowc' ),
 								'default' => 36,
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'cart_effect',
+								'id'      => 'taiowc-cart_effect',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Cart Open Style', 'taiowc' ),
 								'default' =>'taiowc-slide-right',
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'basket_count',
+								'id'      => 'taiowc-basket_count',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Basket Count', 'taiowc' ),
 								'default' =>'numb_prd',
@@ -155,7 +155,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'cart_item_order',
+								'id'      => 'taiowc-cart_item_order',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Cart Product Order (Pro)', 'taiowc' ),
 								'default' =>'prd_first',
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								
 							),
 							array(
-								'id'      => 'not_showing_page',
+								'id'      => 'taiowc-not_showing_page',
 								'type'    => 'textarea',
 								'title'   => esc_html__( 'Hide Cart from Pages', 'taiowc' ),
 								'desc'   => esc_html__( 'Use post type/page id/slug separated by comma. For eg: post,contact-us,about-us .For all non woocommerce pages, use no-woocommerce. For checkout page use checkout, for cart page -> cart', 'taiowc' ),
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'cart_hd',
+								'id'      => 'taiowc-cart_hd',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Cart Heading', 'taiowc' ),
 								
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'empty_cart_txt',
+								'id'      => 'taiowc-empty_cart_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Empty Cart Button Text', 'taiowc' ),
 								
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'empty_cart_url',
+								'id'      => 'taiowc-empty_cart_url',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Empty Cart Button URL', 'taiowc' ),
 								'desc'   => esc_html__( 'Add URL to which you want to redirect user in case of empty cart. By default user will be redirected to shop page.', 'taiowc' ),
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'cart-icon',
+								'id'      => 'taiowc-cart-icon',
 								'type'    => 'radio-image',
 								'title'   => esc_html__( 'Choose Cart Icon (Pro)', 'taiowc' ),
 								
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
                             array(
-								'id'      => 'cart_open',
+								'id'      => 'taiowc-cart_open',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Cart Open Style (Pro)', 'taiowc' ),
 								'default' =>'simple-open',
@@ -265,35 +265,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_cart_setting_fields', array(
 							array(
-								'id'      => 'show_prd_img',
+								'id'      => 'taiowc-show_prd_img',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Product Image', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product image from cart panel.', 'taiowc' ),
 								'default' => true
 							),	
 							array(
-								'id'      => 'show_prd_title',
+								'id'      => 'taiowc-show_prd_title',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Product Title', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product Title from cart panel.', 'taiowc' ),
 								'default' => true
 							),	
 							array(
-								'id'      => 'show_prd_price',
+								'id'      => 'taiowc-show_prd_price',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Product Price', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product Price from cart panel.', 'taiowc' ),
 								'default' => true
 							),	
 							array(
-								'id'      => 'show_prd_quantity',
+								'id'      => 'taiowc-show_prd_quantity',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Product Quantity', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product Quantity from cart panel.', 'taiowc' ),
 								'default' => true
 							),	
 							array(
-								'id'      => 'show_prd_rating',
+								'id'      => 'taiowc-show_prd_rating',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Product Rating', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product Rating from cart panel.', 'taiowc' ),
@@ -311,7 +311,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_related_product_setting_fields', array(
 							array(
-								'id'      => 'show_rld_product',
+								'id'      => 'taiowc-show_rld_product',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Enable', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product slider display below added product list in the cart panel. This slider display products from Cross Sell, Up Sell, Related or custom products depending on the option you choose below.', 'taiowc' ),
@@ -319,7 +319,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),	
 
 							array(
-								'id'      => 'product_may_like_tle',
+								'id'      => 'taiowc-product_may_like_tle',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Heading', 'taiowc' ),
 								'default' => esc_html__( 'Products you may like', 'taiowc' ),
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 							array(
 
-								'id'      => 'choose_prdct_like',
+								'id'      => 'taiowc-choose_prdct_like',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Choose Product', 'taiowc' ),
 								'default' =>'croos-sell',
@@ -342,7 +342,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),	
 
 							array(
-								'id'      => 'product_may_like_id',
+								'id'      => 'taiowc-product_may_like_id',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Product Slug', 'taiowc' ),
 								'default' => '',
@@ -359,14 +359,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_payment_setting_fields', array(
 							array(
-								'id'      => 'pay_hd',
+								'id'      => 'taiowc-pay_hd',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Payment Heading', 'taiowc' ),
 								'default' =>esc_html__( 'Payment Details', 'taiowc' ),	
 								
 							),
 							array(
-								'id'      => 'sub_total',
+								'id'      => 'taiowc-sub_total',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Sub Total Text', 'taiowc' ),
 								'default' =>esc_html__( 'Sub Total', 'taiowc' ),	
@@ -374,14 +374,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),	
 
 							array(
-								'id'      => 'show_shipping',
+								'id'      => 'taiowc-show_shipping',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Shipping', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide shipping details from cart panel.', 'taiowc' ),
 								'default' => true
 							),
 							array(
-								'id'      => 'ship_txt',
+								'id'      => 'taiowc-ship_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Shipping Text', 'taiowc' ),
 								'default' =>esc_html__( 'Shipping', 'taiowc' ),	
@@ -389,21 +389,21 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							array(
-								'id'      => 'show_discount',
+								'id'      => 'taiowc-show_discount',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Discount', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide product discount from cart panel.', 'taiowc' ),
 								'default' => true
 							),
 							array(
-								'id'      => 'discount_txt',
+								'id'      => 'taiowc-discount_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Discount Text', 'taiowc' ),
 								'default' =>esc_html__( 'Discount', 'taiowc' ),	
 								
 							),
 							array(
-								'id'      => 'total_txt',
+								'id'      => 'taiowc-total_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Total Text', 'taiowc' ),
 								'default' =>esc_html__( 'Total', 'taiowc' ),	
@@ -421,7 +421,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 						'taiowc_coupon_setting_fields', array(   
 						      array(
 
-								'id'      => 'show_coupon',
+								'id'      => 'taiowc-show_coupon',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Coupon', 'taiowc' ),
 								'default' => true,
@@ -430,7 +430,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 						     array(
 
-								'id'      => 'coupon_plchdr_txt',
+								'id'      => 'taiowc-coupon_plchdr_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Placeholder Text', 'taiowc' ),
 								'default' =>esc_html__( 'Enter your Promo Code', 'taiowc' ),	
@@ -439,7 +439,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 						     array(
 
-								'id'      => 'coupon_aply_txt',
+								'id'      => 'taiowc-coupon_aply_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Apply Coupon Button Text', 'taiowc' ),
 								'default' =>esc_html__( 'Apply', 'taiowc' ),	
@@ -448,7 +448,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 						      array(
 
-								'id'      => 'show_coupon_list',
+								'id'      => 'taiowc-show_coupon_list',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Coupon List', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide coupon list from cart panel.', 'taiowc' ),
@@ -456,7 +456,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 						      array(
-								'id'      => 'coupon_btn_txt',
+								'id'      => 'taiowc-coupon_btn_txt',
 								'type'    => 'text',
 								'title'   => esc_html__( 'View Coupon Link Text', 'taiowc' ),
 								'default' =>esc_html__( 'View Coupons', 'taiowc' ),	
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 						       array(
 
-								'id'      => 'show_added_coupon',
+								'id'      => 'taiowc-show_added_coupon',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Added Coupon', 'taiowc' ),
 								'desc'    => esc_html__( 'Uncheck to hide applied coupons list.', 'taiowc' ),
@@ -492,7 +492,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 							array(
 
-								'id'      => 'tpcrt_show_price',
+								'id'      => 'taiowc-tpcrt_show_price',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Price', 'taiowc' ),
 								'desc'    => '',
@@ -501,7 +501,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 							array(
 
-								'id'      => 'tpcrt_show_quantity',
+								'id'      => 'taiowc-tpcrt_show_quantity',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Quantity', 'taiowc' ),
 								'desc'    => '',
@@ -509,7 +509,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							  ),
 
 							 array(
-								'id'      => 'tpcrt_prc_font_size',
+								'id'      => 'taiowc-tpcrt_prc_font_size',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Price Font Size', 'taiowc' ),
 								'default' => 14,
@@ -519,7 +519,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							 array(
-								'id'      => 'tpcrt_icon_size',
+								'id'      => 'taiowc-tpcrt_icon_size',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Icon Size', 'taiowc' ),
 								'default' => 32,
@@ -529,35 +529,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							 array(
-										'id'      => 'tpcrt_bg_clr',
+										'id'      => 'taiowc-tpcrt_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Background Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 							 array(
-										'id'      => 'tpcrt_price_clr',
+										'id'      => 'taiowc-tpcrt_price_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Price Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							 array(
-										'id'      => 'tpcrt_quantity_bg_clr',
+										'id'      => 'taiowc-tpcrt_quantity_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Quantity BG Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							  array(
-										'id'      => 'tpcrt_quantity_clr',
+										'id'      => 'taiowc-tpcrt_quantity_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Quantity Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 							   array(
-										'id'      => 'tpcrt_cart_icon_clr',
+										'id'      => 'taiowc-tpcrt_cart_icon_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Cart Icon Color', 'taiowc' ),
 										'default' => '#111'
@@ -573,7 +573,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 						'taiowc_fix_cart_setting_fields', array(
 
 							 array(
-								'id'      => 'fxcrt_icon_size',
+								'id'      => 'taiowc-fxcrt_icon_size',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Icon Size', 'taiowc' ),
 								'default' => 32,
@@ -583,7 +583,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							),
 
 							 array(
-								'id'      => 'fxcrt_icon_brd_rds',
+								'id'      => 'taiowc-fxcrt_icon_brd_rds',
 								'type'    => 'number',
 								'title'   => esc_html__( 'Border Radius', 'taiowc' ),
 								'default' => 32,
@@ -594,7 +594,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 							 array(
 
-								'id'      => 'fxcrt_show_quantity',
+								'id'      => 'taiowc-fxcrt_show_quantity',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Quantity', 'taiowc' ),
 								'desc'    => '',
@@ -602,7 +602,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							  ),
 
 							  array(
-										'id'      => 'fxcrt_cart_bg_clr',
+										'id'      => 'taiowc-fxcrt_cart_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Cart BG Color', 'taiowc' ),
 										'default' => '#fff'
@@ -610,7 +610,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 							  array(
-										'id'      => 'fxcrt_cart_icon_clr',
+										'id'      => 'taiowc-fxcrt_cart_icon_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Cart Icon Color', 'taiowc' ),
 										'default' => '#111'
@@ -618,14 +618,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 							  array(
-										'id'      => 'fxcrt_qnty_bg_clr',
+										'id'      => 'taiowc-fxcrt_qnty_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Quantity BG Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							  array(
-										'id'      => 'fxcrt_qnty_clr',
+										'id'      => 'taiowc-fxcrt_qnty_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Quantity Color', 'taiowc' ),
 										'default' => '#fff'
@@ -643,28 +643,28 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 						      array(
 
-								'id'      => 'cart_pan_icon_shw',
+								'id'      => 'taiowc-cart_pan_icon_shw',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Icon', 'taiowc' ),
 								'desc'    => '',
 								'default' => true
 							  ),
 							  array(
-										'id'      => 'cart_pan_icon_clr',
+										'id'      => 'taiowc-cart_pan_icon_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Icon Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							   array(
-										'id'      => 'cart_pan_hd_clr',
+										'id'      => 'taiowc-cart_pan_hd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							   array(
-										'id'      => 'cart_pan_cls_clr',
+										'id'      => 'taiowc-cart_pan_cls_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'close Color', 'taiowc' ),
 										'default' => '#111'
@@ -672,14 +672,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 							   array(
-										'id'      => 'cart_pan_hdr_bg_clr',
+										'id'      => 'taiowc-cart_pan_hdr_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Header BG Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),	
 							   array(
-										'id'      => 'cart_pan_bg_clr',
+										'id'      => 'taiowc-cart_pan_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Cart BG Color', 'taiowc' ),
 										'default' => '#f3f3f3'
@@ -687,42 +687,42 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),	
 
 							   array(
-										'id'      => 'cart_pan_prd_bg_clr',
+										'id'      => 'taiowc-cart_pan_prd_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product BG Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 							   array(
-										'id'      => 'cart_pan_prd_tle_clr',
+										'id'      => 'taiowc-cart_pan_prd_tle_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Title Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 							    array(
-										'id'      => 'cart_pan_prd_rat_clr',
+										'id'      => 'taiowc-cart_pan_prd_rat_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Rating Color', 'taiowc' ),
 										'default' => '#e5a632'
 										
 								),
 								array(
-										'id'      => 'cart_pan_prd_dlt_clr',
+										'id'      => 'taiowc-cart_pan_prd_dlt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Delete Color', 'taiowc' ),
 										'default' => '#ef6238'
 										
 								),
 								array(
-										'id'      => 'cart_pan_prd_txt_clr',
+										'id'      => 'taiowc-cart_pan_prd_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Text Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_prd_brd_clr',
+										'id'      => 'taiowc-cart_pan_prd_brd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Border Color', 'taiowc' ),
 										'default' => '#ebebeb'
@@ -738,53 +738,53 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 						'taiowc_cart_pan_rltd_setting_fields', array(
 
 								array(
-										'id'      => 'cart_pan_rltd_hd_bg_clr',
+										'id'      => 'taiowc-cart_pan_rltd_hd_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading BG Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 								array(
-										'id'      => 'cart_pan_rltd_hd_clr',
+										'id'      => 'taiowc-cart_pan_rltd_hd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_bg_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Bg Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_tle_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_tle_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Title Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_rat_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_rat_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Rating Color', 'taiowc' ),
 										'default' => '#e5a632'	
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_prc_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_prc_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Price Color', 'taiowc' ),
 										'default' => '#111'	
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_add_bg_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_add_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Add to cart BG Color', 'taiowc' ),
 										'default' => '#111'	
 								),
 								array(
-										'id'      => 'cart_pan_rltd_prd_add_clr',
+										'id'      => 'taiowc-cart_pan_rltd_prd_add_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Product Add to cart Color', 'taiowc' ),
 										'default' => '#fff'	
@@ -800,35 +800,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 						'taiowc_cart_pan_pay_setting_fields', array(
 
 								array(
-										'id'      => 'cart_pan_pay_hd_bg_clr',
+										'id'      => 'taiowc-cart_pan_taiowc-pay_hd_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading BG Color', 'taiowc' ),
 										'default' => '#f3f3f3'
 										
 								),
 								array(
-										'id'      => 'cart_pan_pay_hd_clr',
+										'id'      => 'taiowc-cart_pan_taiowc-pay_hd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_pay_bg_clr',
+										'id'      => 'taiowc-cart_pan_pay_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'BG Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 								array(
-										'id'      => 'cart_pan_pay_txt_clr',
+										'id'      => 'taiowc-cart_pan_pay_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Text Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_pay_link_clr',
+										'id'      => 'taiowc-cart_pan_pay_link_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Link Color', 'taiowc' ),
 										'default' => '#111'
@@ -836,14 +836,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 								array(
-										'id'      => 'cart_pan_pay_btn_bg_clr',
+										'id'      => 'taiowc-cart_pan_pay_btn_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Button BG Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_pan_pay_btn_clr',
+										'id'      => 'taiowc-cart_pan_pay_btn_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Button Color', 'taiowc' ),
 										'default' => '#fff'
@@ -861,35 +861,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_cart_coupon_setting_fields', array(
 								array(
-										'id'      => 'cart_coupon_box_bg_clr',
+										'id'      => 'taiowc-cart_coupon_box_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Box BG Color', 'taiowc' ),
 										'default' => '#f3f3f3'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_box_brd_clr',
+										'id'      => 'taiowc-cart_coupon_box_brd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Box Border Color', 'taiowc' ),
 										'default' => '#f3f3f3'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_box_txt_clr',
+										'id'      => 'taiowc-cart_coupon_box_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Box Text Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_box_submt_clr',
+										'id'      => 'taiowc-cart_coupon_box_submt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Box Submit Color', 'taiowc' ),
 										'default' => '#ef6238'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_box_view_clr',
+										'id'      => 'taiowc-cart_coupon_box_view_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon View Color', 'taiowc' ),
 										'default' => '#03cd00'
@@ -897,28 +897,28 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 								array(
-										'id'      => 'cart_coupon_code_bg_clr',
+										'id'      => 'taiowc-cart_coupon_code_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code BG Color', 'taiowc' ),
 										'default' => '#FFF'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_brd_clr',
+										'id'      => 'taiowc-cart_coupon_code_brd_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code Border Color', 'taiowc' ),
 										'default' => 'rgba(129,129,129,.2)'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_txt_clr',
+										'id'      => 'taiowc-cart_coupon_code_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code Text Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_ofr_clr',
+										'id'      => 'taiowc-cart_coupon_code_ofr_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code Offer Color', 'taiowc' ),
 										'default' => '#4CAF50'
@@ -926,35 +926,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								),
 
 								array(
-										'id'      => 'cart_coupon_code_btn_bg_clr',
+										'id'      => 'taiowc-cart_coupon_code_btn_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code Button Bg Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_btn_txt_clr',
+										'id'      => 'taiowc-cart_coupon_code_btn_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Coupon Code Button Text Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_add_bg_clr',
+										'id'      => 'taiowc-cart_coupon_code_add_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Added Coupon BG Color', 'taiowc' ),
 										'default' => '#f6f7f7'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_add_txt_clr',
+										'id'      => 'taiowc-cart_coupon_code_add_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Added Coupon Text Color', 'taiowc' ),
 										'default' => '#111'
 										
 								),
 								array(
-										'id'      => 'cart_coupon_code_add_dlt_clr',
+										'id'      => 'taiowc-cart_coupon_code_add_dlt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Added Coupon Cross Color', 'taiowc' ),
 										'default' => '#ef6238'
@@ -975,35 +975,35 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
 								array(
 
-								'id'      => 'cart_pan_notify_shw',
+								'id'      => 'taiowc-cart_pan_notify_shw',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Notification', 'taiowc' ),
 								'desc'    => '',
 								'default' => true
 							  ),
 								array(
-										'id'      => 'success_mgs_bg_clr',
+										'id'      => 'taiowc-success_mgs_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Success BG Color', 'taiowc' ),
 										'default' => '#4db359'
 										
 								),
 								array(
-										'id'      => 'success_mgs_txt_clr',
+										'id'      => 'taiowc-success_mgs_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Success Text Color', 'taiowc' ),
 										'default' => '#fff'
 										
 								),
 								array(
-										'id'      => 'error_mgs_bg_clr',
+										'id'      => 'taiowc-error_mgs_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Error BG Color', 'taiowc' ),
 										'default' => '#b73d3d'
 										
 								),
 								array(
-										'id'      => 'error_mgs_txt_clr',
+										'id'      => 'taiowc-error_mgs_txt_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Error Text Color', 'taiowc' ),
 										'default' => '#fff'
@@ -1026,21 +1026,21 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_mobile_menu_cart_setting_fields', array(			
 								array(
-								'id'      => 'dsble_mnu_crt',
+								'id'      => 'taiowc-dsble_mnu_crt',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable', 'taiowc' ),
 								'desc'    => esc_html__( 'Disable Menu Cart / Shortcode Cart in mobile', 'taiowc' ),
 								'default' => false
 							    ),
 							    array(
-								'id'      => 'dsble_mnu_crt_qnty',
+								'id'      => 'taiowc-dsble_mnu_crt_qnty',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Cart Quantity', 'taiowc' ),
 								'desc'    => '',
 								'default' => false
 							    ),
 							    array(
-								'id'      => 'dsble_mnu_crt_price',
+								'id'      => 'taiowc-dsble_mnu_crt_price',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Cart Price', 'taiowc' ),
 								'desc'    => '',
@@ -1056,14 +1056,14 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_fxd_mobile_cart_setting_fields', array(			
 								array(
-								'id'      => 'dsble_fxd_crt',
+								'id'      => 'taiowc-dsble_fxd_crt',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable', 'taiowc' ),
 								'desc'    => esc_html__( 'Disable Fixed Cart / Floating Cart in mobile', 'taiowc' ),
 								'default' => false
 							    ),
 							    array(
-								'id'      => 'dsble_fxd_crt_qnty',
+								'id'      => 'taiowc-dsble_fxd_crt_qnty',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Quantity', 'taiowc' ),
 								'desc'    => '',
@@ -1077,21 +1077,21 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					'fields' => apply_filters(
 						'taiowc_mob_cart_pnl_setting_fields', array(			
 								array(
-								'id'      => 'dsble_mob_rel_prd_crt',
+								'id'      => 'taiowc-dsble_mob_rel_prd_crt',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Product you may like', 'taiowc' ),
 								'desc'    => '',
 								'default' => false
 							    ),
 							    array(
-								'id'      => 'dsble_mob_ship',
+								'id'      => 'taiowc-dsble_mob_ship',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Shipping', 'taiowc' ),
 								'desc'    => '',
 								'default' => false
 							    ),
 							     array(
-								'id'      => 'dsble_mob_coupan',
+								'id'      => 'taiowc-dsble_mob_coupan',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Disable Coupon', 'taiowc' ),
 								'desc'    => '',
