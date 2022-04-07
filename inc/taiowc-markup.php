@@ -39,9 +39,9 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                
                        <a class="taiowc-content" href="#">
                            
-                        <?php if(taiowc()->get_option( 'cart_hd' )!==''){ ?>
+                        <?php if(taiowc()->get_option( 'taiowc-cart_hd' )!==''){ ?>
 
-                          <h4><?php echo esc_html(taiowc()->get_option( 'cart_hd' ));?></h4>
+                          <h4><?php echo esc_html(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
 
                            <?php } ?>
 
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                  </div>
 
                                  <?php if ( ! WC()->cart->is_empty() ) {  
-                                    if(taiowc()->get_option( 'tpcrt_show_price' ) == true){ 
+                                    if(taiowc()->get_option( 'taiowc-tpcrt_show_price' ) == true){ 
                                         ?>
                                  <div class="taiowc-total">
 
@@ -135,8 +135,8 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
 
                             <?php do_action('taiowc_cart_show_icon');?>
 
-                           <?php if(taiowc()->get_option( 'cart_hd' )!==''){ ?>
-                          <h4><?php echo esc_html(taiowc()->get_option( 'cart_hd' ));?></h4>
+                           <?php if(taiowc()->get_option( 'taiowc-cart_hd' )!==''){ ?>
+                          <h4><?php echo esc_html(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
                            <?php } ?>
 
                           <a class="taiowc-cart-close"></a>
@@ -165,12 +165,12 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
 
             ?>
                 <div class="cart-total">
-                    <span class="taiowc-payment-title"><?php echo esc_html(taiowc()->get_option('pay_hd')); ?></span>
+                    <span class="taiowc-payment-title"><?php echo esc_html(taiowc()->get_option('taiowc-pay_hd')); ?></span>
 
                      <div class="taiowc-total-wrap">
                                 
                             <div class="taiowc-subtotal">
-                                <span class="taiowc-label"><?php echo esc_html(taiowc()->get_option('sub_total')); ?></span>
+                                <span class="taiowc-label"><?php echo esc_html(taiowc()->get_option('taiowc-sub_total')); ?></span>
                                 <span class="taiowc-value"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
                               </div>
 

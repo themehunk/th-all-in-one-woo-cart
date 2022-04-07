@@ -339,7 +339,7 @@ display: none;
 display: contents;
 }
 
-tr#how-to-integrate-wrapper th{
+tr#taiowc-how-to-integrate-wrapper th{
 display:none;
 }
 
@@ -357,7 +357,7 @@ background: #f6f7f7;
 .taiowc-button-wrapper .reset{
     display: none;
 }
-tr#how-to-integrate-wrapper th, tr#how-to-integrate-analytics-wrapper th {
+tr#taiowc-how-to-integrate-wrapper th, tr#taiowc-how-to-integrate-analytics-wrapper th {
     display: none;
 }
 .explore-google-analytics {
@@ -420,7 +420,7 @@ height: 30px;
 font-size:1rem;
 }
 
-#cart-icon-wrapper .radio-image [type=radio],
+#taiowc-cart-icon-wrapper .radio-image [type=radio],
 #cart_style-wrapper .radio-image [type=radio]{ 
   position: absolute;
   opacity: 0;
@@ -428,7 +428,7 @@ font-size:1rem;
   height: 0;
 }
 
- #cart-icon-wrapper .radio-image [type=radio] + img{
+ #taiowc-cart-icon-wrapper .radio-image [type=radio] + img{
    cursor: pointer;
    width: 60px;
     height: 60px;
@@ -442,17 +442,17 @@ font-size:1rem;
     padding: 0.3rem;
 }
 
- #cart-icon-wrapper .radio-image [type=radio]:checked + img,
+ #taiowc-cart-icon-wrapper .radio-image [type=radio]:checked + img,
  #cart_style-wrapper .radio-image [type=radio]:checked + img {
  outline: 1px solid #0d2b56;
 }
 
- #cart-icon-wrapper .taiowc-settings-field-content fieldset,
+ #taiowc-cart-icon-wrapper .taiowc-settings-field-content fieldset,
   #cart_style-wrapper .taiowc-settings-field-content fieldset{
 display:flex;
 }
 
-#cart-icon-wrapper label.radio-image,
+#taiowc-cart-icon-wrapper label.radio-image,
 #cart_style-wrapper label.radio-image{
 margin-right:0.5rem!important;
 margin-top:0!important;

@@ -56,9 +56,9 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
             ?>
                        <a class="taiowc-content" href="#">
                         
-                          <?php if(taiowc()->get_option( 'cart_hd' )!==''){ 
+                          <?php if(taiowc()->get_option( 'taiowc-cart_hd' )!==''){ 
                             ?>
-                          <h4><?php echo esc_html(taiowc()->get_option( 'cart_hd' ));?></h4>
+                          <h4><?php echo esc_html(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
 
                           <?php } ?>
 
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                                  </div>
                                  <?php if ( ! WC()->cart->is_empty() ) { 
 
-                                    if(taiowc()->get_option( 'tpcrt_show_price' ) == true){ 
+                                    if(taiowc()->get_option( 'taiowc-tpcrt_show_price' ) == true){ 
 
                                         ?>
                                  <div class="taiowc-total">

@@ -130,7 +130,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
              wp_enqueue_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI. 'assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
 
-             wp_enqueue_style( 'taiowc-cart-icon', TAIOWC_PLUGIN_URI. '/th-icon/style.css', array(), TAIOWC_VERSION );
+             wp_enqueue_style( 'taiowc-taiowc-cart-icon', TAIOWC_PLUGIN_URI. '/th-icon/style.css', array(), TAIOWC_VERSION );
 
               wp_add_inline_style('taiowc-style', taiowc_style());
 
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                         'errorNotice'   =>  sprintf( $noticeMarkup, $this->taiowc_notice_html('', 'error' ) ),
                     ),    
 
-                    'cart_open' => esc_html(taiowc()->get_option('cart_open')),
+                    'taiowc-cart_open' => esc_html(taiowc()->get_option('taiowc-cart_open')),
                     
                 )
             );
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
        public function taiowc_cart_icon(){
               
-              $icon_svg = taiowc()->get_option( 'cart-icon' );
+              $icon_svg = taiowc()->get_option( 'taiowc-cart-icon' );
 
               if($icon_svg=='icon-1'){?>
                  
@@ -240,7 +240,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
          public function addcartBody(){
             
-            if(taiowc()->get_option( 'show_cart' ) == true){
+            if(taiowc()->get_option( 'taiowc-show_cart' ) == true){
 
                 if(taiowc()->get_option( 'cart_style' ) == 'style-1'){
 
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function get_cart_count(){
 
-                if( taiowc()->get_option( 'basket_count' ) == 'numb_prd' ){
+                if( taiowc()->get_option( 'taiowc-basket_count' ) == 'numb_prd' ){
 
                     echo count( WC()->cart->get_cart() );
                 }
@@ -361,7 +361,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                      ?>
                 </div>
-                <?php if(taiowc()->get_option( 'show_prd_quantity' ) == true){ ?>
+                <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
                 <div class="item-product-quantity">
                     <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.esc_html($quantity_text).'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
                    ?>
@@ -388,9 +388,9 @@ if ( ! class_exists( 'Taiowc' ) ):
  
     public function taiowc_mini_cart_empty_content(){ 
 
-             if(taiowc()->get_option( 'empty_cart_url' )){
+             if(taiowc()->get_option( 'taiowc-empty_cart_url' )){
               
-              $empty_btn_url = taiowc()->get_option( 'empty_cart_url' );
+              $empty_btn_url = taiowc()->get_option( 'taiowc-empty_cart_url' );
 
              }else{
 
@@ -402,7 +402,7 @@ if ( ! class_exists( 'Taiowc' ) ):
      
              <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'taiowc' ); ?></p>
 
-             <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc()->get_option( 'empty_cart_txt' )); ?></a>
+             <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc()->get_option( 'taiowc-empty_cart_txt' )); ?></a>
 
     <?php }
 
@@ -583,13 +583,13 @@ if ( ! class_exists( 'Taiowc' ) ):
             return $this->HideCartPage;
         }
 
-        if( !trim(taiowc()->get_option('not_showing_page')) ){
+        if( !trim(taiowc()->get_option('taiowc-not_showing_page')) ){
 
             $hidePages = array();
 
         }else{
 
-            $hidePages = array_map( 'trim', explode( ',', taiowc()->get_option('not_showing_page') ) );
+            $hidePages = array_map( 'trim', explode( ',', taiowc()->get_option('taiowc-not_showing_page') ) );
         }
 
         $this->isSideCartPage = !( !empty( $hidePages ) && ( ( in_array( 'no-woocommerce', $hidePages )  && !is_woocommerce() && !is_cart() && !is_checkout() ) || is_page( $hidePages ) ) || ( is_product() && in_array( get_the_id() , $hidePages ) ) );
