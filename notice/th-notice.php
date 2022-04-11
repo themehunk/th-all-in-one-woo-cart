@@ -6,12 +6,7 @@ if (!defined('ABSPATH')){
     
 }
 
-if (class_exists('Taiowc_Pro')){
-
-   exit;
-}
-
-if ( ! class_exists( 'Taiowc_Notice' ) ){
+if (!class_exists('Taiowc_Pro') && !class_exists('Taiowcp_Main') && !class_exists( 'Taiowc_Notice' )){
 
 class Taiowc_Notice{
 
