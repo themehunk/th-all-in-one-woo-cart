@@ -3,11 +3,11 @@
  * Plugin Name:             TH All In One Woo Cart
  * Plugin URI:              https://themehunk.com/th-all-in-one-woo-cart/
  * Description:             TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Floating Cart in your website.  Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features.
- * Version:                 1.0.7
+ * Version:                 1.0.8
  * Author:                  ThemeHunk
  * Author URI:              https://themehunk.com
  * Requires at least:       4.8
- * Tested up to:            5.9.2
+ * Tested up to:            5.9.3
  * WC requires at least:    3.2
  * WC tested up to:         5.1
  * Domain Path:             /languages
