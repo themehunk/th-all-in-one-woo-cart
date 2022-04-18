@@ -170,12 +170,11 @@ font-size: 3rem;
 }
 
 .taiowc .taiowc-cart-model-body a{
-    display: block;
+    display: flex;
     font-size: 0.79rem!important;
     font-weight: 500!important;
-        padding: 0!important;
-            color: #111;
-
+    padding: 0!important;
+    color: #111;
 }
 
 .taiowc .taiowc-cart-model-body .quantity{

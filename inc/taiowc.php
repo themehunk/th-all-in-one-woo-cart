@@ -330,10 +330,11 @@ if ( ! class_exists( 'Taiowc' ) ):
                      if ( empty( $product_permalink ) ) : ?>
 
                         <?php 
-
-                        echo esc_html($product_name); 
+ 
 
                         echo wp_kses($thumbnail, $allowed_img);
+
+                        echo esc_html($product_name); 
 
                         echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
 
@@ -342,22 +343,25 @@ if ( ! class_exists( 'Taiowc' ) ):
                     <?php else : ?>
 
                         <a href="<?php echo esc_url( $product_permalink ); ?>">
+                       
+                        <div class="taiowc-image-wrap">
 
-                        <?php 
+                        <?php echo wp_kses($thumbnail, $allowed_img);?>
 
-                        echo esc_html($product_name); 
+                        </div>
 
-                        echo wp_kses($thumbnail, $allowed_img);
+                        <div class="taiowc-contnet-wrap">
 
-                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
+                        <?php  echo esc_html($product_name); 
+                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key ); ?>
 
-                        ?>
+                        <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
+
+                        </div>
+                       
                         </a>
 
-                         <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
-
                     <?php endif; 
-
 
                      ?>
                 </div>
