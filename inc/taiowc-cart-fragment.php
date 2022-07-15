@@ -56,11 +56,7 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
             ?>
                        <a class="taiowc-content" href="#">
                         
-                          <?php if(taiowc()->get_option( 'taiowc-cart_hd' )!==''){ 
-                            ?>
-                          <h4><?php echo esc_html(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
-
-                          <?php } ?>
+                          
 
                            <?php if ( ! WC()->cart->is_empty() ) {
                             ?>

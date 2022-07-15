@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
 Requires at least: 4.8
 Tested up to: 5.9.3
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.0.9 =
+* Title Tag Issue Fixed.
 
 = 1.0.8 =
 * Product Title Issue Fixed.
