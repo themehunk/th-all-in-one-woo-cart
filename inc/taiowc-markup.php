@@ -161,12 +161,12 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
 
             ?>
                 <div class="cart-total">
-                    <span class="taiowc-payment-title"><?php echo esc_html(taiowc()->get_option('taiowc-pay_hd')); ?></span>
+                    <span class="taiowc-payment-title"><?php _e('Payment Details','taiowc'); ?></span>
 
                      <div class="taiowc-total-wrap">
                                 
                             <div class="taiowc-subtotal">
-                                <span class="taiowc-label"><?php echo esc_html(taiowc()->get_option('taiowc-sub_total')); ?></span>
+                                <span class="taiowc-label"><?php _e('Sub Total','taiowc'); ?></span>
                                 <span class="taiowc-value"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
                               </div>
 
