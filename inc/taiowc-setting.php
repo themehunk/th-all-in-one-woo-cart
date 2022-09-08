@@ -118,6 +118,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'taiowc' ) ?></a>
             	</div>
 
+            	<div class="taiowc-wrap-doc taiowc-img">
+
+            		<a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"><img src='<?php echo esc_url(TAIOWC_IMAGES_URI.'th-shop-mania-ad.png') ?>' alt="th-shop-mania">
+	               	</a>
+            	</div>
+
             </div>
            
 				</form>
