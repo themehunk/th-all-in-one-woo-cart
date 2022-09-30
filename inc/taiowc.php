@@ -78,18 +78,24 @@ if ( ! class_exists( 'Taiowc' ) ):
         }
 
         public function is_wc_active() {
+
             return class_exists( 'WooCommerce' );
+
         }
         
        
         public function is_required_php_version() {
+
             return version_compare( PHP_VERSION, '5.6.0', '>=' );
+
         }
 
         public function settings_api() {
 
             if ( ! $this->_settings_api ){
+
                 $this->_settings_api = new Taiowc_Set();
+
             }
 
             return $this->_settings_api;
@@ -258,11 +264,11 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 if( taiowc()->get_option( 'taiowc-basket_count' ) == 'numb_prd' ){
 
-                    echo count( WC()->cart->get_cart() );
+                    echo wp_kses_post(count( WC()->cart->get_cart() ) );
                 }
                 else{
 
-                   echo WC()->cart->get_cart_contents_count();
+                   echo wp_kses_post(WC()->cart->get_cart_contents_count());
                 }
 
             }
@@ -352,10 +358,10 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                         <div class="taiowc-contnet-wrap">
 
-                        <?php  echo esc_html($product_name); 
+                        <?php echo esc_html($product_name); 
                         echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key ); ?>
 
-                        <?php echo wc_get_formatted_cart_item_data( $cart_item );?>
+                        <?php echo wp_kses_post(wc_get_formatted_cart_item_data( $cart_item ));?>
 
                         </div>
                        
@@ -366,10 +372,38 @@ if ( ! class_exists( 'Taiowc' ) ):
                      ?>
                 </div>
                 <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
+
                 <div class="item-product-quantity">
-                    <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity"><span class="quantity-text">'.esc_html($quantity_text).'</span>' . sprintf( '%s  %s', $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item), $product_price ) . '</span>', $cart_item, $cart_item_key ); 
+
+                    <?php 
+
+                    $quant = $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item);
+
+
+                    $taiowc_allow_tag = array( 
+                        
+                        'input' => array( 
+                               'id' => array(),
+                               'class' => array(),
+                               'name' => array(),
+                               'value' => array(),
+                               'step' => array(),
+                               'max' => array(),
+                               'min' => array(),
+                               'data-key' => array(),
+                               'title' => array(),
+                               'size' => array(),
+                               'type' => array(),
+                              )
+                        );
+
+                        echo apply_filters('woocommerce_widget_cart_item_quantity',
+
+                        sprintf('<span class="quantity"><span class="quantity-text">%1s</span>%2s %3s</span>',esc_html($quantity_text), wp_kses($quant,$taiowc_allow_tag), wp_kses_post($product_price)),$cart_item, $cart_item_key);
                    ?>
+
                </div>
+
                <?php } ?>
 
             </div>
@@ -477,7 +511,13 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function taiowc_add_item_cart(){
 
-        $product_id   = sanitize_text_field( $_POST['product_id'] );
+        if(!isset($_POST['product_id'])){
+
+           return;
+
+        }   
+
+        $product_id   = sanitize_key( $_POST['product_id'] );
 
         $added = WC()->cart->add_to_cart( $product_id );
 
@@ -499,12 +539,11 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function taiowc_update_item_quantity(){
 
-        $cart_key   = sanitize_text_field( $_POST['cart_key'] );
-         $new_qty    = (float) $_POST['new_qty'];
+        
+        $cart_key   = isset($_POST['cart_key']) ? sanitize_key($_POST['cart_key']) : '';
 
-        if( !is_numeric( $new_qty ) || $new_qty < 0 || !$cart_key ){
-            //$this->set_notice( __( 'Something went wrong', 'taiowc' ) );
-        }
+        $new_qty    = (float) $_POST['new_qty'];
+
         
         $validated = apply_filters( 'taiowc_update_quantity', true, $cart_key, $new_qty );
 
