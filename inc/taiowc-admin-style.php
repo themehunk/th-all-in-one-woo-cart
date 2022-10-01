@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 /***Admin Custom Style********/
 
-function taiowc_admin_style(){?>
+function taiowc_admin_style(){ ?>
 
 <style>
 <?php 

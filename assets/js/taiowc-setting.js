@@ -127,7 +127,7 @@
         $.ajax({
           url: TaiowcPluginObject.ajaxurl,
           type: "POST",
-          data: form_settting,
+          data: form_settting +'&_wpnonce=' + TaiowcPluginObject.nonce +'',
           success: function (response) {
            
             $('#submit').removeClass('loader');

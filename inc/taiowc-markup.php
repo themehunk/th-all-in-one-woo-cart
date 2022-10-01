@@ -62,7 +62,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                         ?>
                                  <div class="taiowc-total">
 
-                                    <span><?php echo WC()->cart->get_cart_total(); ?></span>
+                                    <span><?php echo wp_kses_post(WC()->cart->get_cart_total()); ?></span>
 
                                 </div>
                                 <?php } } ?>
@@ -167,7 +167,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                 
                             <div class="taiowc-subtotal">
                                 <span class="taiowc-label"><?php _e('Sub Total','taiowc'); ?></span>
-                                <span class="taiowc-value"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+                                <span class="taiowc-value"><?php echo wp_kses_post(WC()->cart->get_cart_subtotal()); ?></span>
                               </div>
 
                    </div>
@@ -192,22 +192,6 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                      </div>
 
        <?php  }
-
-    
-    public function taiowc_add_to_cart_url($product){
-
-         $cart_url =  apply_filters( 'woocommerce_loop_add_to_cart_link',
-            sprintf( '<a href="%s" rel="nofollow" data-product_id="%s" data-product_sku="%s" quantity="%s" class="button th-button %s %s"><span class="dashicons dashicons-plus-alt2"></span></a>',
-                esc_url( $product->add_to_cart_url() ),
-                esc_attr( $product->get_id() ),
-                esc_attr( $product->get_sku() ),
-                esc_attr( isset( $quantity ) ? $quantity : 1 ),
-                $product->is_purchasable() && $product->is_in_stock() ? 'th-add_to_cart_button' : '',
-                $product->is_purchasable() && $product->is_in_stock() && $product->supports( 'ajax_add_to_cart' ) ? 'th-ajax_add_to_cart' : '',
-                esc_html( $product->add_to_cart_text() )
-            ),$product );
-         return $cart_url;
-        }
 
         
 

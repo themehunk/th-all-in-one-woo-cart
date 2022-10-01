@@ -13,16 +13,23 @@ class Taiowc_Notice{
     function __construct(){
 
         if(isset($_GET['ntc-taiowc-disable']) && $_GET['ntc-taiowc-disable'] == true){
+
         add_action('admin_init', array($this,'taiowc_notice_set_cookie'));
+
         }
 
         if(!isset($_COOKIE['thntc_taiowc_time'])) {
+
         add_action( 'admin_enqueue_scripts', array($this,'taiowc_admin_enqueue_style') );
+
         add_action( 'admin_notices', array($this,'taiowc_admin_notice' ));
+
         }
 
         if(isset($_COOKIE['thntc_taiowc_time'])) {
+
             add_action( 'admin_notices', array($this,'taiowc_notice_unset_cookie'));
+
         }
 
         
@@ -36,11 +43,19 @@ class Taiowc_Notice{
 
     function taiowc_admin_notice() {  
 
-      $display = isset($_GET['ntc-taiowc-disable'])?'none':'block';
+        if(isset($_GET['ntc-taiowc-disable'])){
+
+          $display ='none';
+
+          }else{
+
+          $display ='block';
+
+          }
 
     ?>
 
-      <div class="taiowc-notice notice" style="display:<?php echo $display; ?>;">
+      <div class="taiowc-notice notice" style="display:<?php echo esc_attr($display); ?>;">
         <div class="taiowc-notice-wrap">
             <div class="taiowc-notice-image"><img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'notice/img/cart-pro.png' );?>" alt="<?php _e('TH All In One Woo Cart Pro','taiowc'); ?>"></div>
             <div class="taiowc-notice-content-wrap">
@@ -76,7 +91,8 @@ class Taiowc_Notice{
     function taiowc_notice_unset_cookie(){
 
             $visit_time = time();
-            $cookie_time = $_COOKIE['thntc_taiowc_time'];
+
+            $cookie_time = isset($_COOKIE['thntc_taiowc_time']) ? sanitize_key($_COOKIE['thntc_taiowc_time']) : '0';
 
             if ($cookie_time < $visit_time) {
                 setcookie('thntc_taiowc_time', null, strtotime('-1 day'));

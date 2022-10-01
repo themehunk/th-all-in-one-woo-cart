@@ -29,12 +29,22 @@ function tab_page() {
     include('tab-html.php' ); 
 }
 
-     /*
+          /*
           * Plugin install
           * Active plugin
           * Setup Homepage
           */
         public function th_activeplugin(){
+
+        if ( ! current_user_can( 'administrator' ) ) {
+
+            wp_die( - 1, 403 );
+                            
+        } 
+
+        check_ajax_referer( 'taiowc_admin_nonce','nonce'); 
+        
+
       if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
         wp_send_json_error(
           array(
@@ -171,33 +181,66 @@ function plugin_install_button($plugin){
   $slug = $plugin['slug'];
   $upgrade_button='';
   $admin_link=$plugin['admin_link'];
- $pro_active=$plugin['plugin_active'];
+  $pro_active=$plugin['plugin_active'];
 
-  $deatil_link = '<a class="plugin-detail" target="_blank" href="'.esc_url( $plugin['detail_pro'] ).'">'.esc_html__( 'View details', 'taiowc' ).'</a>
-   <span class="setting-link'.$pro_active.' setting-'.$slug.'">|</span><a class="setting-link'.$pro_active.' setting-'.$slug.'" href="'.admin_url('admin.php?page='.$admin_link).'">Settings</a>';
+  ?>
 
-  if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){
-  $upgrade_button ='<a class="upgrade-to-pro button" target="_blank" href="'.$plugin['detail_pro'].'">Upgrade To Pro</a>';
-  $deatil_link = '<a class="plugin-detail" target="_blank" href="'.esc_url( 'https://wordpress.org/plugins/'.$slug ).'">'.esc_html__( 'View details', 'taiowc' ).'</a>
-  <span class="setting-link'.$pro_active.' setting-'.$slug.'">|</span><a class="setting-link'.$pro_active.' setting-'.$slug.'" href="'.admin_url('admin.php?page='.$admin_link).'">Settings</a>';
-}
+<div class="rcp theme_link th-row">
+
+<div class="th-column <?php echo esc_attr($plugin['free_pro']);?>">
+
+    <img src="<?php echo esc_url($plugin['thumb']);?>" /> 
+
+</div>
+
+<div class="th-column two">
+
+<div class="title-plugin">
+    
+  <h4><?php echo esc_html( $plugin['plugin_name'] );?>
+
+  <b class="th-<?php echo esc_html( $plugin['free_pro'] );?>"><?php echo esc_html( $plugin['free_pro'] );?></b> 
+
+</h4>
+
+<div class="plugin-link">
+    
+     <?php if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){?>
+
+    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( 'https://wordpress.org/plugins/'.$slug );?>"><?php echo esc_html__( 'View details', 'th-advance-product-search' );?></a>
+
+   <span class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>">|</span>
+
+   <a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-advance-product-search');?>
+      
+  </a>
 
 
+     <?php } else { ?>
 
-  $button = '<div class="rcp theme_link th-row">';
-  $button .= ' <div class="th-column '.$plugin['free_pro'].'"><img src="'.esc_url( $plugin['thumb'] ).'" /> </div>';
-  $button .= '<div class="th-column two">';
+    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( $plugin['detail_pro'] );?>"><?php echo esc_html__( 'View details', 'th-advance-product-search' );?></a>
+   <span class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>">|</span><a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-advance-product-search');?></a>
 
-  $button .= '<div class="title-plugin">
-  <h4>'.esc_html( $plugin['plugin_name'] ). ' <b class="th-'.$plugin['free_pro'].'">'.$plugin['free_pro'].'</b> </h4>';
-  $button .= '<div class="plugin-link">'.$deatil_link.'</div>';
-  $button .= '</div>';
+<?php } ?>
 
-  $button .='<button data-activated="Activated" data-msg="Activating" data-init="'.esc_attr($plugin['plugin_init']).'" data-slug="'.esc_attr( $plugin['slug'] ).'" class="button '.esc_attr( $plugin['button_class'] ).'">'.esc_html($plugin['button_txt']).'</button>';
-  $button .=  $upgrade_button;
-  $button .= '</div></div>';
+</div>
 
-  echo $button;
+</div>
+
+
+<button data-activated="Activated" data-msg="Activating" data-init="<?php echo esc_attr( $plugin['plugin_init'] );?>" data-slug="<?php echo esc_attr( $plugin['slug'] );?>" class="button <?php echo esc_attr( $plugin['button_class'] );?>"><?php echo esc_html( $plugin['button_txt'] );?>
+</button>
+
+<?php if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){?>
+
+    <a class="upgrade-to-pro button" target="_blank" href="<?php echo esc_url($plugin['detail_pro']);?>"><?php echo esc_html__('Upgrade To Pro','th-advance-product-search');?></a>
+
+<?php } ?>
+
+</div></div>
+
+<?php 
+  
 }
 	
 } // class end
