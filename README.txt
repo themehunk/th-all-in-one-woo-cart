@@ -1,10 +1,10 @@
-====== TH Side Cart and Menu Cart for Woocommerce ========
+﻿====== TH Side Cart and Menu Cart for Woocommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
 Requires at least: 4.8
 Tested up to: 6.0.2
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.3 =
+* Langauge Issue Fixed.
 
 = 1.1.2 =
 * Security Issue Fixed.
