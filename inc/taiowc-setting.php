@@ -33,7 +33,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
         public function add_menu(){
 
-		$page_title = esc_html__( 'TH AIO Woo Cart', 'taiowc' );
+		$page_title = esc_html__( 'AIO Woo Cart', 'taiowc' );
 		
 		add_submenu_page( 'themehunk-plugins', $page_title,$page_title, 'manage_options', 'taiowc', array($this, 'settings_form'),10 );
 
@@ -163,10 +163,25 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				  <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			     </div>
 				<?php foreach ( $this->fields as $tabs ): ?>
-					<a data-target="<?php echo esc_attr($tabs['id']); ?>"  class="taiowc-setting-nav-tab nav-tab <?php echo esc_html($this->get_options_tab_css_classes( $tabs )); ?> " href="#<?php echo esc_attr($tabs['id']); ?>"><?php echo esc_html($tabs['title']); ?></a>
+					<a data-target="<?php echo esc_attr($tabs['id']); ?>"  class="taiowc-setting-nav-tab nav-tab <?php echo esc_html($this->get_options_tab_css_classes( $tabs )); ?> " href="#<?php echo esc_attr($tabs['id']); ?>"><span class="dashicons <?php echo $this->icon_list($tabs['id']); ?>"></span><?php echo esc_html($tabs['title']); ?></a>
 				<?php endforeach; ?>
 			</div>
 			<?php
+		}
+
+		function icon_list($id ='dashicons-menu'){
+			$icon = array(
+				'taiowc_integration'=>'dashicons-admin-appearance',
+				'taiowc_general' => 'dashicons-admin-generic',
+			'taiowc_cart'=>'dashicons-cart',
+			'taiowc_cart_style'=>'dashicons-color-picker',
+			'taiowc_mobile_cart'=>'dashicons-smartphone',
+			'taiowc_reset'=>'dashicons-warning',
+			'taiowc_usefull_plugin'=>'dashicons-admin-plugins'
+		);
+
+			return $icon[$id];
+
 		}
 
 		private function get_last_active_tab() {
