@@ -5,14 +5,12 @@
     border-radius: 0;
 }
 #taiowc .top-wrap{
-    padding: 1.3rem 1rem;
+    padding: 1.3rem 0.5rem;
     display: flex;
-    align-items: baseline;
-    flex-flow: column;
+    align-items: center;
 }
 #taiowc #logo{
-
-    margin-bottom: 0.5rem;
+    margin-right: 12px;
 }
 #taiowc .top-wrap h1{
 color: #121116;
@@ -29,45 +27,63 @@ display:flex;
 }
 #taiowc .setting-wrap{
     padding: 1.5rem;
-    width: 100%;
+    width: 80%;
+    margin: 0 20px;
     background: #fff;
     padding-top: 2.8rem;
     justify-content: space-between;
+    border-radius: 10px;
 }
 #taiowc .nav-tab-wrapper {
     display: flex;
     flex-direction: column;
     width: 28%;
     border: none;
-    padding: 0;
+    padding: 10px;
+    background: #E1E6F4;
+    border-radius: 10px;
 }
 #taiowc .nav-tab-wrapper .taiowc-setting-nav-tab {
-margin:0;
-border:0;
-background:transparent;
-color: #121116;
-font-size:1rem;
-padding: 1rem 1.2rem;
-position: relative;
-border-left: 2px solid transparent;
-border-top: 1px solid #E0E4E9;
+margin-bottom: 20px;
+    border: 0;
+    letter-spacing: 0.3px;
+    background: transparent;
+    color: #2e2e2e;
+    font-size: 1rem;
+    position: relative;
+    align-items: center;
+    padding: 9px 27px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 .taiowc-notes-wrap{
-display: flex;
-flex-direction: column;
-padding-left: 1.5rem;
-width: 28%;
+    display: flex;
+    flex-direction: column;
+     padding-left: 1.5rem; 
+    width: 28%;
+}
+.taiowc-setting-nav-tab span.dashicons {
+    margin-top: 5px;
+    color: #aab2cb;
+    margin-right: 9px;
+}
+#taiowc .taiowc-setting-nav-tab.nav-tab-active span{
+    color: #007eff;
 }
 #taiowc .taiowc-setting-nav-tab.nav-tab-active, 
 #taiowc .taiowc-setting-nav-tab.nav-tab-active:focus, 
 #taiowc .taiowc-setting-nav-tab.nav-tab-active:focus:active, 
-#taiowc .taiowc-setting-nav-tab.nav-tab-active:hover {
-color: #F56640;
-    background: #fff;
-    border-left: 2px solid #F56640;
+#taiowc .taiowc-setting-nav-tab:hover {
+color: #007eff;
     outline: 0;
-    box-shadow: none;
-    letter-spacing: 0.8px;
+    background: #ffffff;
+    -webkit-box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
+    box-shadow: 0px 6px 6px rgb(53 66 134 / 10%);
+    align-items: center;
+    padding: 9px 27px;
+    border-radius: 8px;
 }
 #taiowc .setting-wrap h2,#taiowc .setting-wrap h3 {
     color: #1d2327;
@@ -137,12 +153,17 @@ font-family: dashicons;
     display: flex;
     align-items: center;
 }
-.taiowc-setting-form #submit.button-primary:hover,.taiowc-button-wrapper .reset:hover{
-background:#F56640;
+.taiowc-setting-form #submit.button-primary:hover{
+background:#006ee1;
 }
-
+.taiowc-button-wrapper .reset:hover{
+    background: #ff181c;
+}
 .taiowc-button-wrapper .reset{
-    background:#da4c4e;
+    background: #fd4e51;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
 }
 .taiowc-button-wrapper{
 display:flex;
@@ -256,7 +277,8 @@ font-size:1rem;
 }
 .taiowc-setting-form #submit.button-primary{
 width:150px;
-background: #11bb8c; 
+background: #1681ef; 
+border-radius: 4px;
 }
 .taiowc-setting-form #submit.button-primary.loader{
 font-size:0;
@@ -294,37 +316,37 @@ line-height:24px;
 }
 
 .taiowc-wrap-doc {
-    padding: 24px 16px;
-    border-radius: 4px;
-   
+    padding: 22px 15px;
     text-align: center;
-    background:#fff;
+    background: #fff;
     margin-bottom: 1rem;
+    border-radius: 10px;
 }
 .taiowc-wrap-doc a{
     padding: 0.4rem 1.5rem;
     letter-spacing: -0.08px;
     font-size: .6875rem;
     line-height: 1.81818;
-    background: #fff;
-
+    background: #1681ef;
+    color: #fff;
     margin-top: 0.5rem;
     display: inline-flex;
     border-radius: 4px;
-    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
     text-transform: uppercase;
-        font-weight: 700;
-            border: 1px solid #eee;
+    font-weight: 700;
+    text-decoration: auto;
 }
 .taiowc-wrap-doc a:hover{
-    background: #f56640;
+    background: #006ee1;
     color: #fff;
 }
 .wrp-title{
 font-size:1rem;
 margin:0;
 }
-
+.taiowc-wrap-doc.taiowc-img a{
+    background: transparent;
+}
 .taiowc-notes-wrap h3{
      margin-bottom: 2rem;
     line-height: normal;
@@ -573,7 +595,7 @@ padding: 24px 16px;
     letter-spacing: -0.08px;
     font-size: .6875rem;
     line-height: 1.81818;
-    background: #f56640;
+    background: #1681ef;
     color: #fff;
     margin-top: 0.5rem;
     display: inline-flex;
@@ -581,9 +603,10 @@ padding: 24px 16px;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
     text-transform: uppercase;
     font-weight: 700;
+    text-decoration: none;
 }
 .taiowc-wrap-pro h4{
-margin-bottom:0.5rem;
+margin-bottom: 1.8rem;
 }
 #taiowc_usefull_plugintaiowc_usefull_plugin-section-0 tr{
 width:50%;

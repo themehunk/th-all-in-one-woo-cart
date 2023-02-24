@@ -36,7 +36,6 @@ function admin_scripts( $hook ) {
       );
 
     }
-    
   }
 
 }
