@@ -1,3 +1,9 @@
+code, kbd {
+    padding: 4px 6px;
+    border-radius: 2px;
+}
+
+
 #taiowc {
     padding: 0;
     margin-top: 1.5rem;
@@ -456,17 +462,21 @@ font-size:1rem;
     height: 60px;
     outline: 1px solid #f0f0f1;
     padding: 0.3rem;
+    opacity: 0.5;
+    margin-bottom: 8px;
 }
  #cart_style-wrapper .radio-image [type=radio] + img {
     cursor: pointer;
     width: 110px;
     outline: 1px solid #f0f0f1;
     padding: 0.3rem;
+    
 }
 
  #taiowc-cart-icon-wrapper .radio-image [type=radio]:checked + img,
  #cart_style-wrapper .radio-image [type=radio]:checked + img {
- outline: 1px solid #0d2b56;
+    outline: 2px solid #b0c5ff;
+    border-radius: 3px;
 }
 
  #taiowc-cart-icon-wrapper .taiowc-settings-field-content fieldset,
@@ -545,7 +555,7 @@ h2.taiowc_carttaiowc_cart-section-0::after,h2.taiowc_carttaiowc_cart-section-1::
     text-align: center;
     transition: color .1s ease-in;
    margin-left:0.5rem;
-   color: #a8df00;
+   color: #fd4e51;
 
 }
 #taiowc_carttaiowc_cart-section-0 tbody,#taiowc_carttaiowc_cart-section-1 tbody,#taiowc_carttaiowc_cart-section-2 tbody,#taiowc_carttaiowc_cart-section-3 tbody,#taiowc_cart_styletaiowc_cart_style-section-0 tbody,#taiowc_cart_styletaiowc_cart_style-section-1 tbody,#taiowc_cart_styletaiowc_cart_style-section-2 tbody,#taiowc_cart_styletaiowc_cart_style-section-3 tbody,#taiowc_cart_styletaiowc_cart_style-section-4 tbody,#taiowc_cart_styletaiowc_cart_style-section-5 tbody,#taiowc_cart_styletaiowc_cart_style-section-6 tbody,#taiowc_mobile_carttaiowc_mobile_cart-section-0 tbody,#taiowc_mobile_carttaiowc_mobile_cart-section-1 tbody,#taiowc_mobile_carttaiowc_mobile_cart-section-2 tbody{
@@ -554,7 +564,7 @@ display: block;
 }
 .pro-ftr{
 font-weight:bold;
-color:#a8df00
+color:#fd4e51
 }
 .thaps-use-plugin img{
 width:128px;
