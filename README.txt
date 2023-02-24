@@ -1,4 +1,4 @@
-﻿====== TH Side Cart and Menu Cart for Woocommerce ========
+﻿====== All In One Woo Cart Plugin ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
