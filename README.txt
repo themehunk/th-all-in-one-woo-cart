@@ -1,14 +1,14 @@
-﻿====== TH Side Cart and Menu Cart for Woocommerce ========
+======  Floating Cart and Menu Cart for Woocommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
-Tags: floating cart,ajax,cart,woocommerce,woocommerce cart,slider
+Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
 Tested up to: 6.1
 Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Floating Cart in your website.  Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features.
+All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom cart plugin.
 
 == Description ==
 
