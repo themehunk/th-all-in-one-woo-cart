@@ -1,18 +1,18 @@
-======  Floating Cart and Menu Cart for Woocommerce ========
+======  Floating Cart and Menu Cart for WooCommerce ========
 Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
-Tested up to: 6.1
-Stable tag: 1.1.5
+Tested up to: 6.2
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom cart plugin.
+All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom WooCommerce Cart plugin.
 
 == Description ==
 
-TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This plugin will add Floating Cart in your website.  Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features.
+TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This WooCommerce Cart plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
 
 [Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
 
@@ -62,6 +62,17 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 ⭐ User Friendly Customize Panel.
 ⭐ Priority 24×7 support available.
 
+**Theme Compatibility:-**
+
+This Plugins Works with all WordPress including popular WordPress Themes.
+
+⭐ Astra
+⭐ Storefront
+⭐ OceanWp
+⭐ GeneratePress
+⭐ Shop Mania
+
+
 
 == Installation ==
 
@@ -75,7 +86,7 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 
 Just upload the `th-all-in-one-woo-cart.zip` to the `/wp-content/plugins/` directory, and then activate it from 'Plugins' menu in WordPress.
 
-= How can i get Support if my TH All In One Woo Cart Plugin is not Working ? =
+= How can i get Support if my TH All In One Woo Cart Plugin is not Working? =
 
 If you're facing any problem while using our TH All In One Woo Cart plugin, Please first follow the below steps :
 
@@ -87,11 +98,11 @@ You're free to contact us through mail, via our Contact form and Live chat suppo
 
 = How can i get more advanced features of TH All In One Woo Cart ? =
 
-You can get more features with the premium version of TH All In One Woo Cart Plugin, available on [ThemeHunk](https://themehunk.com/). Please [follow this link](https://themehunk.com/th-all-in-one-woo-cart/) and get to know about more advanced features.
+You can get more features with the premium version of TH All In One Woo Cart Plugin, available on [ThemeHunk](https://themehunk.com/). Please [follow this link](https://themehunk.com/th-all-in-one-woo-cart/) and get to know about more advanced features in Pro version.
 
-= Is it Compatible with All WordPress Themes ? =
+= Is it Compatible with All WordPress Themes? = 
 
-It is compatible with all [ThemeHunk themes](https://themehunk.com/free-themes/) and almost all WordPress themes, We always try to make our Plugin compatible with All WordPress Themes. If TH All In One Woo Cart will create any kind of issue with any theme. You're Free to [contact us](https://themehunk.com/contact-us/) , Our Team will be Happy to help you.
+It is compatible with all [ThemeHunk themes](https://themehunk.com/free-themes/) and almost all WordPress themes, including Astra, Storefront, OceanWp, and GeneratePress. We always try to make our Plugin compatible with All WordPress Themes. If TH All In One Woo Cart will create any kind of issue with any theme. You're Free to [contact us](https://themehunk.com/contact-us/), Our Team will be Happy to help you.
 
 = Can I translate TH All In One Woo Cart plugin to Multi Language ? =
 
@@ -102,6 +113,10 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.1.6 =
+* New: Theme Compatibility Issue fixed.
+* New: Complete support for all WordPress theme including, Astra, Storefront, OceanWp, and GeneratePress. 
+
 = 1.1.5 =
 * Admin style modification.
 
@@ -109,7 +124,7 @@ Yes, You can translate our plugin to desired language.
 * Delete Notice.
 
 = 1.1.3 =
-* Langauge Issue Fixed.
+* Language Issue Fixed.
 
 = 1.1.2 =
 * Security Issue Fixed.
@@ -155,9 +170,9 @@ Yes, You can translate our plugin to desired language.
 
 == Upgrade Notice ==
 
-= 1.1.5 =
+= 1.1.6 =
 * Admin style modification.
 
-Thanks for using our plugin, I am sure you will create a great Product Search for your site. If you have any query then you can contact at our forum : https://www.support.themehunk.com/
+Thanks for using our plugin, We're sure you will create a great shopping website using this Woo Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
 
-Thank You
+Thank You!
