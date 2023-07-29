@@ -34,7 +34,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
 
         public function taiowc_cart_show(){
                   
-
+            if ( class_exists( 'WooCommerce' ) && ! is_null( WC()->cart ) ) {
             ?>
                
                        <a class="taiowc-content" href="#">
@@ -71,7 +71,8 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                         </a>
                 
 
-        <?php }
+        <?php } 
+    }
 
 
         public function taiowc_cart_item_show(){ ?>
