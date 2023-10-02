@@ -14,6 +14,7 @@ if ( ! class_exists( 'Taiowc' ) ):
        private $_settings_api;
        public  $cartInstances = 0 ;
        public $notices = array();
+       private $isSideCartPage = false;
        /**
          * Initiator
          */
