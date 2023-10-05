@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
 Tested up to: 6.2
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.7 =
+* Issue Fixed: Deprecated Notice.
 
 = 1.1.6 =
 * New: Theme Compatibility Issue fixed.
