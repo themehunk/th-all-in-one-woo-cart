@@ -13,6 +13,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		private $fields = array();
 		private $reserved_key = '';
 		private $reserved_fields = array();
+		private $settings_name;
 		
              public function __construct() {
              $this->settings_name   = apply_filters( 'taiowc_settings_name', $this->setting_name );

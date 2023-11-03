@@ -118,6 +118,7 @@ Yes, You can translate our plugin to desired language.
 
 = 1.1.7 =
 * Fix: Call to a member function is_empty() on null issue resolved.
+* Issue Fixed: Deprecated Notice.
 
 = 1.1.6 =
 * New: Theme Compatibility Issue fixed.
