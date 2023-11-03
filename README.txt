@@ -3,7 +3,7 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
-Tested up to: 6.3.2
+Tested up to: 6.3
 Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

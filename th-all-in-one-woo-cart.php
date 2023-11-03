@@ -7,7 +7,7 @@
  * Author:                  ThemeHunk
  * Author URI:              https://themehunk.com
  * Requires at least:       4.8
- * Tested up to:            6.3.2
+ * Tested up to:            6.3
  * WC requires at least:    3.2
  * WC tested up to:         7.5
  * Domain Path:             /languages
@@ -47,8 +47,6 @@ define('TAIOWC_VERSION', $plugin_data['version']);
 } 
 
 if (!class_exists('Taiowc') && !class_exists('Taiowcp_Main')){
-
-add_action( 'before_woocommerce_init', 'taiowc_plugin_hpos_compatibility' );
 
 include_once(TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php');
 require_once("inc/taiowc.php");
@@ -105,13 +103,3 @@ if ( ! function_exists( 'taiowc_plugin_meta_links' ) ){
 
 }
 add_filter('plugin_row_meta', 'taiowc_plugin_meta_links', 10, 2);
-
-/**
-     *  Declare the woo HPOS compatibility.
-     */
-     function taiowc_plugin_hpos_compatibility() {
-
-            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TAIOWC_PLUGIN_FILE, true );
-            }
-    }
