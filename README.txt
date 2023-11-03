@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
-Tested up to: 6.2
-Stable tag: 1.1.7
+Tested up to: 6.3.2
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -113,7 +113,11 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 1.1.8 =
+* HPOS compatibility issue fixed.
+
 = 1.1.7 =
+* Fix: Call to a member function is_empty() on null issue resolved.
 * Issue Fixed: Deprecated Notice.
 
 = 1.1.6 =
@@ -173,8 +177,8 @@ Yes, You can translate our plugin to desired language.
 
 == Upgrade Notice ==
 
-= 1.1.6 =
-* Admin style modification.
+= 1.1.8 =
+* HPOS compatibility issue fixed.
 
 Thanks for using our plugin, We're sure you will create a great shopping website using this Woo Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
 
