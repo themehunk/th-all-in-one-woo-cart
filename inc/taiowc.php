@@ -29,6 +29,7 @@ if ( ! class_exists( 'Taiowc' ) ):
          * Constructor
          */
         public function __construct(){
+    add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
         $this->includes();
         $this->hooks();
         }
@@ -84,7 +85,16 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         }
         
-       
+           /**
+     *  Declare the woo HPOS compatibility.
+     */
+    public function hpos_compatibility() {
+
+            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TAIOWC_PLUGIN_FILE, true );
+            }
+    }
+    
         public function is_required_php_version() {
 
             return version_compare( PHP_VERSION, '5.6.0', '>=' );
