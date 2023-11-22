@@ -29,13 +29,12 @@ if ( ! class_exists( 'Taiowc' ) ):
          * Constructor
          */
         public function __construct(){
-    add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
+        add_action( 'before_woocommerce_init', array( $this, 'hpos_compatibility') );
         $this->includes();
         $this->hooks();
         }
 
         public function includes() {
-
             
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-setting.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-option.php';
@@ -293,6 +292,7 @@ if ( ! class_exists( 'Taiowc' ) ):
         <?php
 
         $get_cart_content =  array_reverse( WC()->cart->get_cart() );
+
 
         foreach ( $get_cart_content as $cart_item_key => $cart_item ) {
 
