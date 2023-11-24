@@ -118,7 +118,7 @@ function taiowc_register_blocks() {
           'frontend_style' => 'taiowc-frontend-style',
           'render_callback' => 'taiowc_blocks_render_callback',
           'localize_data'  => array(
-              'adminUrlsearch' => admin_url('admin.php?page=taiowc'),
+              'adminUrltaiowc' => admin_url('admin.php?page=taiowc'),
           ),
       ),
   );
@@ -152,7 +152,7 @@ function taiowc_register_blocks() {
       if ( isset( $block['localize_data'] ) && ! is_null( $block['localize_data'] ) ) {
           wp_localize_script(
               $block['script_handle'],
-              'ThBlockData',
+              'ThBlockDatataiowc',
               $block['localize_data']
           );
       }
@@ -220,18 +220,16 @@ add_action( 'enqueue_block_editor_assets', 'taiowc_blocks_editor_assets' );
 
 function taiowc_blocks_render_callback( $attr ) {
 
-    if ( function_exists( 'get_current_screen' ) && get_current_screen()->is_block_editor() ) {
+ if ( function_exists( 'get_current_screen' ) && get_current_screen()->is_block_editor() ) {
         return;
-    } 
+ } 
    
   $block_content = '<div id="wp-block-taiowc-' . esc_attr($attr['uniqueID']) . '"  class="wp-block-taiowc">';
   
-  $cartStyle = '[taiowc]';
+  $cartStyle = isset($attr['cartStyle']) ? $attr['cartStyle'] : '[taiowc]';
 
   $block_content .= ''.do_shortcode($cartStyle).'</div>';
   
   return $block_content;
   
 }
-
-
