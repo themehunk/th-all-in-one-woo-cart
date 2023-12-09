@@ -26,7 +26,7 @@ const InsSettings = ({
     setAttributes
 }) => {
 
-    const adminUrlsearch = ThBlockData.adminUrlsearch;
+    const adminUrltaiowc = ThBlockDatataiowc.adminUrltaiowc;
 
     return (<Fragment>
         <InspectorControls>
@@ -35,17 +35,7 @@ const InsSettings = ({
 					initialOpen={true}
 					className="th-sEARCH-panel"
 				>   
-        {/* <SelectControl
-								label={ __( 'Search Style', 'taiowc' ) }
-								value={ attributes.searchStyle }
-								options={ [
-									{ label: __( 'Default', 'taiowc' ), value: '[th-aps]' },
-									{ label: __( 'bar-style', 'taiowc' ), value: '[th-aps layout="bar_style"]' },
-									{ label: __( 'icon-style', 'taiowc' ), value: '[th-aps layout="icon_style"]' },
-								    { label: __( 'flexible-style', 'taiowc' ), value: '[th-aps layout="flexible-style"]' },
-								] }
-								onChange={ e => setAttributes({ searchStyle: e }) }
-							/> */}
+       
                              <p>
                         {__(
                             'For the ',
@@ -58,7 +48,7 @@ const InsSettings = ({
                             'taiowc'
                         )}
                         <a
-                            href={adminUrlsearch}
+                            href={adminUrltaiowc}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
