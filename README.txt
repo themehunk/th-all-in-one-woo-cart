@@ -114,7 +114,7 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = 2.0.0=
-* Update : Auto reload page issue reolved.
+* Fixed : Cart page auto reload issue fixed.
 
 = 1.1.9 =
 * Cart Block Added.
@@ -184,7 +184,7 @@ Yes, You can translate our plugin to desired language.
 == Upgrade Notice ==
 
 = 2.0.0=
-* Update : Auto reload page issue reolved.
+* Fixed : Cart page auto reload issue fixed.
 
 Thanks for using our plugin, We're sure you will create a great shopping website using this Woo Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
 
