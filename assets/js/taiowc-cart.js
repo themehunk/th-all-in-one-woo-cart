@@ -77,9 +77,9 @@
                             // }
 
                             //Refresh Cart page
-                            if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
-                                $(document.body).trigger("wc_update_cart");
-                            }
+                            // if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
+                            //     $(document.body).trigger("wc_update_cart");
+                            // }
                       }
                 },
                 
