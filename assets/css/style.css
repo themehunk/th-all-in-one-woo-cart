@@ -143,12 +143,14 @@ font-size: 3rem;
     border-bottom: 0;
 }
 
+.taiowc .taiowc-contnet-wrap {
+    padding: 4px 15px;
+}
 .taiowc .taiowc-cart-model-body  img {
     float: left!important;
     margin-left:0px;
     margin-right:1rem;
-        width: 80px!important;
-    height: 80px!important;
+    width: 80px!important;
     height: auto;
     box-shadow: none;
 }
