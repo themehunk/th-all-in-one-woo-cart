@@ -3,8 +3,8 @@ Contributors: ThemeHunk
 Author URI: : https://www.themehunk.com/
 Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
 Requires at least: 4.8
-Tested up to: 6.4.2
-Stable tag: 2.0.0
+Tested up to: 6.4.3
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,6 +112,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.0.1=
+* Fixed : editor page save issue fixed.
 
 = 2.0.0=
 * Fixed : Cart page auto reload issue fixed.
