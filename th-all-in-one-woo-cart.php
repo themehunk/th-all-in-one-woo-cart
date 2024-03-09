@@ -84,13 +84,16 @@ if ( ! function_exists( 'taiowc_plugin_meta_links' ) ){
       return $links;
     }
 
+    $inline_styles =  "color: #0171e1; font-weight: 700;";
+
+   
     $demo_link = '<a target="_blank" href="'. esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Live Demo', 'taiowc') . '"><span class="dashicons  dashicons-laptop"></span>' . __('Live Demo', 'taiowc') . '</a>';
 
     $doc_link = '<a target="_blank" href="'.esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/').'" title="' . __('Documentation', 'taiowc') . '"><span class="dashicons  dashicons-search"></span>' . __('Documentation', 'taiowc') . '</a>';
 
     $support_link = '<a target="_blank" href="'.esc_url('https://themehunk.com/contact-us').'" title="' . __('Support', 'taiowc') . '"><span class="dashicons  dashicons-admin-users"></span>' . __('Support', 'taiowc') . '</a>';
 
-    $pro_link = '<a target="_blank" href="'. esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Premium Version', 'taiowc') . '"><span class="dashicons  dashicons-cart"></span>' . __('Premium Version', 'taiowc') . '</a>';
+    $pro_link = '<a  style="'.esc_attr( $inline_styles ).'" target="_blank" href="'. esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Pro Version', 'taiowc') . '"><span class="dashicons  dashicons-cart"></span>' . __('Premium Version', 'taiowc') . '</a>';
 
     $links[] = $demo_link;
     $links[] = $doc_link;
