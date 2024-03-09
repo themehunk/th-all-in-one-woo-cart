@@ -168,7 +168,9 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                 
                             <div class="taiowc-subtotal">
                                 <span class="taiowc-label"><?php _e('Sub Total','taiowc'); ?></span>
-                                <span class="taiowc-value"><?php echo wp_kses_post(WC()->cart->get_cart_subtotal()); ?></span>
+                                <span class="taiowc-value"><?php if(WC()->cart){
+                                    echo wp_kses_post(WC()->cart->get_cart_subtotal());
+                                 } ?></span>
                               </div>
 
                    </div>

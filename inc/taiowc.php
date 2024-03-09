@@ -43,7 +43,6 @@ if ( ! class_exists( 'Taiowc' ) ):
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-style.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-admin-style.php';
             
-
         }
 
         public function hooks() {
@@ -73,8 +72,8 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
             }
-            add_action( 'init', array( $this, 'settings_api' ), 5 );
 
+            add_action( 'init', array( $this, 'settings_api' ), 5 );
 
         }
 
@@ -230,6 +229,7 @@ if ( ! class_exists( 'Taiowc' ) ):
         $html = ob_get_clean();
 
         return apply_filters( 'taiowc_html', $html, $args );
+
        }
 
 
@@ -285,7 +285,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         public function taiowc_mini_cart_content(){ ?>
 
-        <?php if ( ! WC()->cart->is_empty() ) : ?>     
+        <?php if ( WC()->cart && ! WC()->cart->is_empty() ) : ?>     
 
         <div class="woocommerce-mini-cart cart_list taiowc-mini-cart-list">
 
