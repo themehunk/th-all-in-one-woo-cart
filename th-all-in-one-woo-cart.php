@@ -61,7 +61,7 @@ require_once("inc/taiowc.php");
  */
 
 function taiowc_plugin_action_links($links){
-          $settings_page = add_query_arg(array('page' => 'taiowc'), admin_url());
+          $settings_page = add_query_arg(array('page' => 'taiowc'), admin_url('admin.php'));
           $settings_link = '<a href="'.esc_url($settings_page).'">'.__('Settings', 'taiowc' ).'</a>';
           array_unshift($links, $settings_link);
           return $links;
@@ -84,11 +84,11 @@ if ( ! function_exists( 'taiowc_plugin_meta_links' ) ){
       return $links;
     }
 
-    $demo_link = '<a target="_blank" href="#" title="' . __('Live Demo', 'taiowc') . '"><span class="dashicons  dashicons-laptop"></span>' . __('Live Demo', 'taiowc') . '</a>';
+    $demo_link = '<a target="_blank" href="'. esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Live Demo', 'taiowc') . '"><span class="dashicons  dashicons-laptop"></span>' . __('Live Demo', 'taiowc') . '</a>';
 
     $doc_link = '<a target="_blank" href="'.esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/').'" title="' . __('Documentation', 'taiowc') . '"><span class="dashicons  dashicons-search"></span>' . __('Documentation', 'taiowc') . '</a>';
 
-    $support_link = '<a target="_blank" href="'.esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Support', 'taiowc') . '"><span class="dashicons  dashicons-admin-users"></span>' . __('Support', 'taiowc') . '</a>';
+    $support_link = '<a target="_blank" href="'.esc_url('https://themehunk.com/contact-us').'" title="' . __('Support', 'taiowc') . '"><span class="dashicons  dashicons-admin-users"></span>' . __('Support', 'taiowc') . '</a>';
 
     $pro_link = '<a target="_blank" href="'. esc_url('https://themehunk.com/th-all-in-one-woo-cart/').'" title="' . __('Premium Version', 'taiowc') . '"><span class="dashicons  dashicons-cart"></span>' . __('Premium Version', 'taiowc') . '</a>';
 
