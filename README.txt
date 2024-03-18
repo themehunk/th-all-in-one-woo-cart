@@ -1,10 +1,10 @@
-======  Floating Cart and Menu Cart for WooCommerce ========
-Contributors: ThemeHunk
+=== WooCommerce Shopping & Floating Cart ===
+Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
-Tags: floating cart,ajax cart,cart,basket,woocommerce cart,woocommerce
-Requires at least: 4.8
+Tags: woo cart, floating cart,ajax cart,woocommerce cart
+Requires at least: 5.0
 Tested up to: 6.4.3
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,13 @@ This Plugins Works with all WordPress including popular WordPress Themes.
 ⭐ GeneratePress
 ⭐ Shop Mania
 
+== Screenshots ==
+1. Dashboard
+2. Cart Icon
+3. Cart Layouts
+4. Color Design
+5. Cart Product Design
+
 
 
 == Installation ==
@@ -112,6 +119,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.0.2=
+* Update : Screenshots added.
 
 = 2.0.1=
 * Fixed : editor page save issue fixed.
