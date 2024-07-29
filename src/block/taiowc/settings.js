@@ -3,11 +3,7 @@ import {AlignmentToolbar, __experimentalColorGradientControl as ColorGradientCon
 
 import {
     PanelBody,
-    RangeControl,
-    SelectControl,
-    Placeholder,
-    Spinner,
-    ToggleControl,
+    ToggleControl,SelectControl
 } from '@wordpress/components';
 
 import { useSelect } from '@wordpress/data';
@@ -35,14 +31,32 @@ const InsSettings = ({
 					initialOpen={true}
 					className="th-sEARCH-panel"
 				>   
-       
-                             <p>
+                        <ToggleControl
+								label={ __( 'Display Total Price', 'taiowcp' ) }
+								checked={ attributes.cartPrice }
+								onChange={ cartPrice => setAttributes({cartPrice}) }
+							 />
+                        <ToggleControl
+								label={  __( 'Display Product Count', 'taiowcp' ) }
+								checked={ attributes.cartCount }
+								onChange={ cartCount => setAttributes({cartCount}) }
+							 />
+
+                            <SelectControl
+								label={ __( 'Count Position', 'taiowcp' ) }
+								value={ attributes.countPosition }
+								options={ [
+									{ label: __( 'Left', 'taiowcp' ), value: 'left' },
+									{ label: __( 'Right', 'taiowcp' ), value: 'right' },
+								] }
+								onChange={ e => setAttributes({ countPosition: e }) }
+							/>     
+                       <p>
                         {__(
                             'For the ',
                             'taiowc'
                         )}
-                        <strong>{__('Advanced Options and Styling', 'taiowc')}</strong>
-                           
+                        <strong>{__('Advanced Options and Styling', 'taiowc')}</strong>  
                         {__(
                             ' navigate to ',
                             'taiowc'
@@ -56,7 +70,7 @@ const InsSettings = ({
                         </a>
                     
                     </p>
-                            </PanelBody>
+                </PanelBody>
         </InspectorControls>
     </Fragment>)   
 }

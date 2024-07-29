@@ -20,6 +20,18 @@
 		"cartStyle": {
 			"type": "string",
 			"default": "[taiowc]"
+		},
+		"cartPrice": {
+			"type": "boolean",
+			"default": true
+		},
+		"cartCount": {
+			"type": "boolean",
+			"default": true
+		},
+		"countPosition": {
+			"type": "string",
+			"default": "left"
 		}
 	}
 		

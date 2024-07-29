@@ -92,6 +92,21 @@ function generateUniqueId(smallID) {
 			}
 			}, [] );
 
+      const ThiconStyle = ({ cartIconAttr }) => {
+        
+          return <span className="th-icon th-icon-Shopping_icons-01"></span>;
+        
+      };
+
+      let countPositionVar;
+
+        if (attributes.countPosition === 'left') {
+            countPositionVar = 'count-left';
+        } else if (attributes.countPosition === 'right') {
+            countPositionVar = 'count-right';
+        }
+
+
       const blockProps = useBlockProps({
                            id:`taiowc-${attributes.uniqueID}`,
                           className: 'taiowc-wrapper',
@@ -103,7 +118,22 @@ function generateUniqueId(smallID) {
               setAttributes={setAttributes}
             />
             <div { ...blockProps }>
-            {attributes.cartStyle}
+            <div className='th-minicart'> 
+            <div className='th-minicart-icon'>
+            <ThiconStyle cartIconAttr={attributes.cartIcon} />
+            </div> 
+            {attributes.cartPrice === true && (
+            <div className='th-minicart-amt'>
+            <span>$00.0</span>
+            </div> 
+            )}
+            {attributes.cartCount === true && (
+            <div className={`th-minicart-count ${countPositionVar}`}>
+            <span>00</span>
+            </div> 
+            )}
+            
+            </div> 
             </div>
             
             </>

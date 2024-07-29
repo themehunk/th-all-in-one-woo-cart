@@ -1,0 +1,23 @@
+.wp-block-taiowc .taiowc-wrap{
+display:inline-flex;    
+}
+.wp-block-taiowc .taiowc-cart-item .taiowc-total{
+
+    display:none;
+    
+}
+.wp-block-taiowc.th-showprice .taiowc-cart-item .taiowc-total{
+    display:block;
+}
+
+.wp-block-taiowc .cart-count-item{
+    display:none;
+}
+.wp-block-taiowc.th-showcount .cart-count-item{
+    display:block;
+}
+
+.wp-block-taiowc.right .cart-count-item{
+    right: -5px;
+    left: auto;
+}

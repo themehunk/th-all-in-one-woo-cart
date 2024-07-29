@@ -121,6 +121,19 @@ function Edit({
       addUniqueID(uniqueId, clientId);
     }
   }, []);
+  const ThiconStyle = ({
+    cartIconAttr
+  }) => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "th-icon th-icon-Shopping_icons-01"
+    });
+  };
+  let countPositionVar;
+  if (attributes.countPosition === 'left') {
+    countPositionVar = 'count-left';
+  } else if (attributes.countPosition === 'right') {
+    countPositionVar = 'count-right';
+  }
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.useBlockProps)({
     id: `taiowc-${attributes.uniqueID}`,
     className: 'taiowc-wrapper'
@@ -130,7 +143,17 @@ function Edit({
     setAttributes: setAttributes
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, attributes.cartStyle));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "th-minicart"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "th-minicart-icon"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ThiconStyle, {
+    cartIconAttr: attributes.cartIcon
+  })), attributes.cartPrice === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "th-minicart-amt"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "$00.0")), attributes.cartCount === true && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `th-minicart-count ${countPositionVar}`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "00")))));
 }
 
 /***/ }),
@@ -235,7 +258,32 @@ const InsSettings = ({
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('All In One Woo Cart', 'taiowc'),
     initialOpen: true,
     className: "th-sEARCH-panel"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('For the ', 'taiowc'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Advanced Options and Styling', 'taiowc')), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' navigate to ', 'taiowc'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Display Total Price', 'taiowcp'),
+    checked: attributes.cartPrice,
+    onChange: cartPrice => setAttributes({
+      cartPrice
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Display Product Count', 'taiowcp'),
+    checked: attributes.cartCount,
+    onChange: cartCount => setAttributes({
+      cartCount
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Count Position', 'taiowcp'),
+    value: attributes.countPosition,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Left', 'taiowcp'),
+      value: 'left'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Right', 'taiowcp'),
+      value: 'right'
+    }],
+    onChange: e => setAttributes({
+      countPosition: e
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('For the ', 'taiowc'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("strong", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Advanced Options and Styling', 'taiowc')), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)(' navigate to ', 'taiowc'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: adminUrltaiowc,
     target: "_blank",
     rel: "noopener noreferrer"
@@ -467,7 +515,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"taiowc/taiowc","version":"0.1.0","title":"All In One Woo Cart","category":"taiowc","description":"","supports":{"html":false},"textdomain":"taiowc","attributes":{"id":{"type":"string"},"uniqueID":{"type":"string"},"cartStyle":{"type":"string","default":"[taiowc]"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"taiowc/taiowc","version":"0.1.0","title":"All In One Woo Cart","category":"taiowc","description":"","supports":{"html":false},"textdomain":"taiowc","attributes":{"id":{"type":"string"},"uniqueID":{"type":"string"},"cartStyle":{"type":"string","default":"[taiowc]"},"cartPrice":{"type":"boolean","default":true},"cartCount":{"type":"boolean","default":true},"countPosition":{"type":"string","default":"left"}}}');
 
 /***/ })
 
