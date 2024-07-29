@@ -120,6 +120,9 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 2.0.3=
+* Update : Improve Block.
+
 = 2.0.2=
 * Update : Screenshots added.
 

@@ -1,0 +1,44 @@
+.wp-block-taiowc-taiowc{
+    display:inline-block;
+    }
+    .th-minicart{
+    display:flex;
+    align-items: center;
+    padding:0.5rem;
+    margin:0;
+    }
+    .th-minicart-icon span.th-icon{
+    font-size:32px;
+     -webkit-font-smoothing: subpixel-antialiased;
+    }
+    .th-minicart-amt span{
+    font-size:14px;
+    }
+    .th-minicart-icon{
+    display: inline-flex;
+    }
+
+    .th-minicart{
+        position:relative;
+        }
+        
+        .th-minicart{
+        position:relative;
+        }
+        .th-minicart-count{
+        position:absolute;
+        background:#111;
+        height:25px;
+        width:25px;
+        line-height:25px;
+        text-align:center;
+        color:#fff;
+        font-size:12px;
+        border-radius:50%;
+        top:-15px;
+        left:-5px;
+        }
+        .th-minicart-count.count-right{
+            right:-5px;
+            left:auto;
+        }
