@@ -46,6 +46,16 @@ $plugin_data = get_file_data(__FILE__, array('version' => 'Version'), false);
 define('TAIOWC_VERSION', $plugin_data['version']);
 } 
 
+/**
+*  Declare the woo HPOS compatibility.
+*/
+function taiowc_hpos_compatibility() {
+if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+          \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', TAIOWC_PLUGIN_FILE, true );
+      }
+}
+add_action( 'before_woocommerce_init', 'taiowc_hpos_compatibility');
+
 if (!class_exists('Taiowc') && !class_exists('Taiowcp_Main')){
 
 include_once(TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php');
