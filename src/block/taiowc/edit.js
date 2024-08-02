@@ -106,10 +106,165 @@ function generateUniqueId(smallID) {
             countPositionVar = 'count-right';
         }
 
+        const {
+            isViewportAvailable,
+            isPreviewDesktop,
+            isPreviewTablet,
+            isPreviewMobile
+          } = useSelect( select => {
+            const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' ) ? select( 'core/edit-post' ) : false;
+            return {
+              isViewportAvailable: __experimentalGetPreviewDeviceType ? true : false,
+              isPreviewDesktop: __experimentalGetPreviewDeviceType ? 'Desktop' === __experimentalGetPreviewDeviceType() : false,
+              isPreviewTablet: __experimentalGetPreviewDeviceType ? 'Tablet' === __experimentalGetPreviewDeviceType() : false,
+              isPreviewMobile: __experimentalGetPreviewDeviceType ? 'Mobile' === __experimentalGetPreviewDeviceType() : false
+            };
+          }, []);
+        
+          const isLarger = useViewportMatch( 'large', '>=' );
+        
+          const isLarge = useViewportMatch( 'large', '<=' );
+        
+          const isSmall = useViewportMatch( 'small', '>=' );
+        
+          const isSmaller = useViewportMatch( 'small', '<=' );
+        
+          let isDesktop = isLarger && ! isLarge && isSmall && ! isSmaller;
+        
+          let isTablet = ! isLarger && ! isLarge && isSmall && ! isSmaller;
+        
+          let isMobile = ! isLarger && ! isLarge && ! isSmall && ! isSmaller;
+        
+          if ( isViewportAvailable && ! isMobile ) {
+            isDesktop = isPreviewDesktop;
+            isTablet = isPreviewTablet;
+            isMobile = isPreviewMobile;
+          }
+    
+          const deviceAttributeMap = {
+            desktop: {
+                paddingTop: 'linked' === attributes.paddingType ? `${ attributes.padding }${ attributes.paddingUnit }` : `${ attributes.paddingTop }${ attributes.paddingUnit }`,
+                paddingRight: 'linked' === attributes.paddingType ? `${ attributes.padding }${ attributes.paddingUnit }` : `${ attributes.paddingRight }${ attributes.paddingUnit }`,
+                paddingBottom: 'linked' === attributes.paddingType ? `${ attributes.padding }${ attributes.paddingUnit }` : `${ attributes.paddingBottom }${ attributes.paddingUnit }`,
+                paddingLeft: 'linked' === attributes.paddingType ? `${ attributes.padding }${ attributes.paddingUnit }` : `${ attributes.paddingLeft }${ attributes.paddingUnit }`,
+              
+                marginTop: 'linked' === attributes.marginType ? `${ attributes.margin }${ attributes.marginUnit }` : `${ attributes.marginTop }${ attributes.marginUnit }`,
+                marginBottom: 'linked' === attributes.marginType ? `${ attributes.margin }${ attributes.marginUnit }` : `${ attributes.marginBottom }${ attributes.marginUnit }`,
+                marginRight: 'linked' === attributes.marginType ? `${ attributes.margin }${ attributes.marginUnit }` : `${ attributes.marginRight }${ attributes.marginUnit }`,
+                marginLeft: 'linked' === attributes.marginType ? `${ attributes.margin }${ attributes.marginUnit }` : `${ attributes.marginLeft }${ attributes.marginUnit }`,   
+                
+                pricefontSize: attributes.pricefontSize + attributes.pricefontSizeUnit,
+                iconfontSize: attributes.iconfontSize + attributes.iconfontSizeUnit,
+    
+                countSize: attributes.countSize + attributes.countSizeUnit,
+                countFontSize: attributes.countFontSize + attributes.countFontSizeUnit,
+    
+                borderRadius: attributes.borderRadius + attributes.borderRadiusUnit,
+            },
+            tablet: {
+              paddingTop: 'linked' === attributes.paddingTypeTablet ? `${ attributes.paddingTablet }${ attributes.paddingUnit }` : `${ attributes.paddingTopTablet }${ attributes.paddingUnit }`,
+              paddingRight: 'linked' === attributes.paddingTypeTablet ? `${ attributes.paddingTablet }${ attributes.paddingUnit }` : `${ attributes.paddingRightTablet }${ attributes.paddingUnit }`,
+              paddingBottom: 'linked' === attributes.paddingTypeTablet ? `${ attributes.paddingTablet }${ attributes.paddingUnit }` : `${ attributes.paddingBottomTablet }${ attributes.paddingUnit }`,
+              paddingLeft: 'linked' === attributes.paddingTypeTablet ? `${ attributes.paddingTablet }${ attributes.paddingUnit }` : `${ attributes.paddingLeftTablet }${ attributes.paddingUnit }`,
+            
+              marginTop: 'linked' === attributes.marginTypeTablet ? `${ attributes.marginTablet }${ attributes.marginUnit }` : `${ attributes.marginTopTablet }${ attributes.marginUnit }`,
+              marginBottom: 'linked' === attributes.marginTypeTablet ? `${ attributes.marginTablet }${ attributes.marginUnit }` : `${ attributes.marginBottomTablet }${ attributes.marginUnit }`,
+              marginRight: 'linked' === attributes.marginTypeTablet ? `${ attributes.marginTablet }${ attributes.marginUnit }` : `${ attributes.marginRightTablet }${ attributes.marginUnit }`,
+              marginLeft: 'linked' === attributes.marginTypeTablet ? `${ attributes.marginTablet }${ attributes.marginUnit }` : `${ attributes.marginLeftTablet }${ attributes.marginUnit }`,   
+           
+              pricefontSize: attributes.pricefontSizeTablet + attributes.pricefontSizeUnit,
+              iconfontSize: attributes.iconfontSizeTablet + attributes.iconfontSizeUnit,
+    
+              countSize: attributes.countSizeTablet + attributes.countSizeUnit,
+              countFontSize: attributes.countFontSizeTablet + attributes.countFontSizeUnit,
+              borderRadius: attributes.borderRadiusTablet + attributes.borderRadiusUnit,
+           
+            },
+    
+            mobile: {
+              paddingTop: 'linked' === attributes.paddingTypeMobile ? `${ attributes.paddingMobile }${ attributes.paddingUnit }` : `${ attributes.paddingTopMobile }${ attributes.paddingUnit }`,
+              paddingRight: 'linked' === attributes.paddingTypeMobile ? `${ attributes.paddingMobile }${ attributes.paddingUnit }` : `${ attributes.paddingRightMobile }${ attributes.paddingUnit }`,
+              paddingBottom: 'linked' === attributes.paddingTypeMobile ? `${ attributes.paddingMobile }${ attributes.paddingUnit }` : `${ attributes.paddingBottomMobile }${ attributes.paddingUnit }`,
+              paddingLeft: 'linked' === attributes.paddingTypeMobile ? `${ attributes.paddingMobile }${ attributes.paddingUnit }` : `${ attributes.paddingLeftMobile }${ attributes.paddingUnit }`,
+              
+              marginTop: 'linked' === attributes.marginTypeMobile ? `${ attributes.marginMobile }${ attributes.marginUnit }` : `${ attributes.marginTopMobile }${ attributes.marginUnit }`,
+              marginBottom: 'linked' === attributes.marginTypeMobile ? `${ attributes.marginMobile }${ attributes.marginUnit }` : `${ attributes.marginBottomMobile }${ attributes.marginUnit }`,
+              marginRight: 'linked' === attributes.marginTypeMobile ? `${ attributes.marginMobile }${ attributes.marginUnit }` : `${ attributes.marginRightMobile }${ attributes.marginUnit }`,
+              marginLeft: 'linked' === attributes.marginTypeMobile ? `${ attributes.marginMobile }${ attributes.marginUnit }` : `${ attributes.marginLeftMobile }${ attributes.marginUnit }`,   
+              
+              pricefontSize: attributes.pricefontSizeMobile + attributes.pricefontSizeUnit,
+              iconfontSize: attributes.iconfontSizeMobile + attributes.iconfontSizeUnit,
+    
+              countSize: attributes.countSizeMobile + attributes.countSizeUnit,
+              countFontSize: attributes.iconFontSizeMobile + attributes.countFontSizeUnit,
+              borderRadius: attributes.borderRadiusMobile + attributes.borderRadiusUnit,
+    
+            }
+    
+          }
+          const deviceType    = isDesktop ? 'desktop' : isTablet ? 'tablet' : 'mobile';
+          const PaddingTop    = deviceAttributeMap[deviceType].paddingTop;
+          const PaddingBottom = deviceAttributeMap[deviceType].paddingBottom;
+          const PaddingRight  = deviceAttributeMap[deviceType].paddingRight;
+          const PaddingLeft   = deviceAttributeMap[deviceType].paddingLeft;
+    
+          const MarginTop     = deviceAttributeMap[deviceType].marginTop;
+          const MarginBottom  = deviceAttributeMap[deviceType].marginBottom;
+          const MarginRight   = deviceAttributeMap[deviceType].marginRight;
+          const MarginLeft    = deviceAttributeMap[deviceType].marginLeft;
+    
+          const IconFontSize  = deviceAttributeMap[deviceType].iconfontSize;
+          const PriceFontSize = deviceAttributeMap[deviceType].pricefontSize;
+    
+          const CountSize     = deviceAttributeMap[deviceType].countSize;
+          const CountFontSize = deviceAttributeMap[deviceType].countFontSize;
+          const BorderRadius = deviceAttributeMap[deviceType].borderRadius;
+    
+          let taiowcStyle;
+    
+          taiowcStyle = {
+    
+            '--taiowc-padding-top':PaddingTop,
+            '--taiowc-padding-bottom':PaddingBottom,
+            '--taiowc-padding-right':PaddingRight,
+            '--taiowc-padding-left':PaddingLeft,
+    
+            '--taiowc-margin-top':MarginTop,
+            '--taiowc-margin-bottom':MarginBottom,
+            '--taiowc-margin-right':MarginRight,
+            '--taiowc-margin-left':MarginLeft,
+    
+            '--taiowc-icon-font-size':IconFontSize,
+            '--taiowc-price-font-size':PriceFontSize,
+    
+            '--taiowc-count-size':CountSize,
+            '--taiowc-count-font-size':CountFontSize,
+    
+            '--taiowc-brd-radius':BorderRadius,
+    
+            '--taiowc-cartBgClr':attributes.cartBgClr,
+            '--taiowc-iconClr':attributes.iconClr,
+            '--taiowc-priceClr':attributes.priceClr,
+            '--taiowc-countClr':attributes.countClr,
+            '--taiowc-countBgClr':attributes.countBgClr,
+    
+          }
 
-      const blockProps = useBlockProps({
+          const omitBy = (object, condition) => (
+            Object.fromEntries(
+              Object.entries(object).filter(([key, value]) => !condition(value))
+            )
+            );
+    
+          const style = omitBy({
+            ...taiowcStyle,
+          }, x => x?.includes?.( 'undefined' ));
+
+
+        const blockProps = useBlockProps({
                            id:`taiowc-${attributes.uniqueID}`,
                           className: 'taiowc-wrapper',
+                          style
                           });
         return (
 			    <>
