@@ -1,20 +1,23 @@
-=== WooCommerce Shopping & Floating Cart ===
+=== WooCommerce Cart & Floating Cart ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
 Tags: woo cart, floating cart,ajax cart,woocommerce cart
-Requires at least: 5.0
-Tested up to: 6.4.3
-Stable tag: 2.0.2
+Requires at least: 5.5
+Tested up to: 6.6.0
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom WooCommerce Cart plugin.
+All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom WooCommerce Sliding Cart plugin.
 
 == Description ==
 
 TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This WooCommerce Cart plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
 
 [Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
+
+https://www.youtube.com/watch?v=b5Rj9Xyv1-8
+
 
 **Key Features:-**
 
@@ -32,6 +35,8 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 **Pro Features:-**
 
 ⭐ Header Menu Integration
+⭐ Cart Analytics
+⭐ Show and Hide Cart
 ⭐ Using Shortcode Integration
 ⭐ Using PHP code Integration
 ⭐ Slide Right Cart Open Style 
@@ -64,13 +69,31 @@ TH All In One Woo Cart is a perfect choice to display Cart on your website and i
 
 **Theme Compatibility:-**
 
-This Plugins Works with all WordPress including popular WordPress Themes.
+These themes have been tested and are compatible with search plugin without significant issues. Also you can use this plugin to your Block, Elementor, WooCommerce Pages:
 
-⭐ Astra
-⭐ Storefront
-⭐ OceanWp
-⭐ GeneratePress
-⭐ Shop Mania
+* [Shop Mania](https://wordpress.org/themes/th-shop-mania/) - by ThemeHunk
+* [Top Store](https://wordpress.org/themes/top-store/) - by ThemeHunk
+* [Open Shop](https://wordpress.org/themes/open-shop/) - by ThemeHunk
+* [Zita](https://wordpress.org/themes/zita/) - by ThemeHunk
+* [Big Store](https://wordpress.org/themes/big-store/) - by ThemeHunk
+* [M Shop](https://wordpress.org/themes/m-shop/) - by ThemeHunk
+* [Royal Shop](https://wordpress.org/themes/royal-shop/) - by ThemeHunk
+* [Open Mart](https://wordpress.org/themes/open-mart/) - by ThemeHunk
+* [GoGo](https://wordpress.org/themes/gogo/) - by ThemeHunk
+* [Twenty Twenty-Two](https://wordpress.org/themes/twentytwentytwo/) - by WordPress.org
+* [Hello Elementor](https://wordpress.org/themes/hello-elementor/) - by Elementor
+* [OceanWP](https://wordpress.org/themes/oceanwp/) - by oceanwp
+* [Neve](https://wordpress.org/themes/neve/) - by Themeisle
+* [Go](https://wordpress.org/themes/go/) - by GoDaddy
+* [GeneratePress](https://wordpress.org/themes/generatepress/) - by Tom
+* [Hestia](https://wordpress.org/themes/hestia/) - by Themeisle
+* [Colibri WP](https://wordpress.org/themes/colibri-wp/) - by Extend Themes
+* [Kadence](https://wordpress.org/themes/kadence/) - by Ben Ritner – Kadence WP
+* [Astra](https://wordpress.org/themes/astra/) - by Brainstorm Force
+* [Kubio](https://wordpress.org/themes/kubio/) - by Extend Themes
+* [Zakra](https://wordpress.org/themes/zakra/) - by ThemeGrill
+* [Storefront](https://wordpress.org/themes/storefront/) - by Automattic
+* [Blocksy](https://wordpress.org/themes/blocksy/) - by creativethemeshq
 
 == Screenshots ==
 1. Dashboard
@@ -120,87 +143,89 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
-= 2.0.3=
+= Version 2.0.3 =
 * Update : Improve Block.
+* Update : Free and Pro  Blocks compatible issue fixed.
 
-= 2.0.2=
+= Version 2.0.2 =
 * Update : Screenshots added.
 
-= 2.0.1=
+= Version 2.0.1 =
 * Fixed : editor page save issue fixed.
 
-= 2.0.0=
+= Version 2.0.0 =
 * Fixed : Cart page auto reload issue fixed.
 
-= 1.1.9 =
+= Version 1.1.9 =
 * Cart Block Added.
 
-= 1.1.8 =
+= Version 1.1.8 =
 * HPOS compatibility issue fixed.
 
-= 1.1.7 =
+= Version 1.1.7 =
 * Fix: Call to a member function is_empty() on null issue resolved.
 * Issue Fixed: Deprecated Notice.
 
-= 1.1.6 =
+= Version 1.1.6 =
 * New: Theme Compatibility Issue fixed.
 * New: Complete support for all WordPress theme including, Astra, Storefront, OceanWp, and GeneratePress. 
 
-= 1.1.5 =
+= Version 1.1.5 =
 * Admin style modification.
 
-= 1.1.4 =
+= Version 1.1.4 =
 * Delete Notice.
 
-= 1.1.3 =
+= Version 1.1.3 =
 * Language Issue Fixed.
 
-= 1.1.2 =
+= Version 1.1.2 =
 * Security Issue Fixed.
 
-= 1.1.1 =
+= Version 1.1.1 =
 * Translate String Issue Fixed.
 
-= 1.1.0 =
+= Version 1.1.0 =
 * Add Ad.
 
-= 1.0.9 =
+= Version 1.0.9 =
 * Title Tag Issue Fixed.
 
-= 1.0.8 =
+= Version 1.0.8 =
 * Product Title Issue Fixed.
 
-= 1.0.7 =
+= Version 1.0.7 =
 * TH Notice Issue Fixed.
 
-= 1.0.6 =
+= Version 1.0.6 =
 * Translation Issue Fixed.
 
-= 1.0.5 =
+= Version 1.0.5 =
 * Icon Updated.
 
-= 1.0.4 =
+= Version 1.0.4 =
 * Pro notice improved.
 * Improved Setting Page.
 * New Option Panel added.
 
 
-= 1.0.3 =
+= Version 1.0.3 =
 * PHP Version Issue Fixed.
 
-= 1.0.2 =
+= Version 1.0.2 =
 * Variation Style Issue Fixed.
 
-= 1.0.1 =
+= Version 1.0.1 =
 * Style Issue Fixed
 
-= 1.0.0 =
+= Version 1.0.0 =
 * Initial release
 
 == Upgrade Notice ==
 
-= 2.0.0=
-* Fixed : Cart page auto reload issue fixed.
+= 2.0.3=
+* Update : Free and Pro  Blocks compatible issue fixed.
+
 
 Thanks for using our plugin, We're sure you will create a great shopping website using this Woo Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
 
