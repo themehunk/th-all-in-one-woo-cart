@@ -145,6 +145,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
               wp_enqueue_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI. 'assets/js/owl.carousel.js', array( 'jquery' ),true);
 
+              wp_enqueue_script( 'wc-cart-fragments' );
 
               $noticeMarkup = '<ul class="taiowc-notices-msg">%s</ul>'; 
 
@@ -376,38 +377,59 @@ if ( ! class_exists( 'Taiowc' ) ):
                 </div>
                 <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
 
-                <div class="item-product-quantity">
+        <div class="item-product-quantity">
+            <?php 
+            // Retrieve the quantity input field
+            $quant = $this->taiowc_mini_cart_add_quantity($_product, $cart_item_key, $cart_item);
 
-                    <?php 
+            // Allowable HTML tags for security
+            $taiowc_allow_tag = array( 
+                'input' => array( 
+                    'id' => array(),
+                    'class' => array(),
+                    'name' => array(),
+                    'value' => array(),
+                    'step' => array(),
+                    'max' => array(),
+                    'min' => array(),
+                    'data-key' => array(),
+                    'title' => array(),
+                    'size' => array(),
+                    'type' => array(),
+                ),
+                'button' => array(
+                    'class' => array(),
+                    'data-key' => array(),
+                    'type' => array(),
+                    'aria-label' => array(),
+                ),
+            );
 
-                    $quant = $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item);
+            // Add + and - buttons around the quantity input field
+            $quantity_html = sprintf(
+                '<button type="button" class="quantity-decrement" data-key="%1$s" aria-label="Decrease quantity">－</button>
+                %2$s
+                <button type="button" class="quantity-increment" data-key="%1$s" aria-label="Increase quantity">＋</button>',
+                esc_attr($cart_item_key),
+                wp_kses($quant, $taiowc_allow_tag)
+            );
 
+            // Display the quantity with custom buttons
+            echo apply_filters(
+                'woocommerce_widget_cart_item_quantity',
+                sprintf('<span class="quantity"><span class="quantity-text">%1$s</span><div class="quantity-wrap">%2$s</div> %3$s</span>',
+                    esc_html($quantity_text),
+                    $quantity_html,
+                    wp_kses_post($product_price)
+                ),
+                $cart_item,
+                $cart_item_key
+            );
+            ?>
+        </div>
 
-                    $taiowc_allow_tag = array( 
-                        
-                        'input' => array( 
-                               'id' => array(),
-                               'class' => array(),
-                               'name' => array(),
-                               'value' => array(),
-                               'step' => array(),
-                               'max' => array(),
-                               'min' => array(),
-                               'data-key' => array(),
-                               'title' => array(),
-                               'size' => array(),
-                               'type' => array(),
-                              )
-                        );
+        <?php } ?>
 
-                        echo apply_filters('woocommerce_widget_cart_item_quantity',
-
-                        sprintf('<span class="quantity"><span class="quantity-text">%1s</span>%2s %3s</span>',esc_html($quantity_text), wp_kses($quant,$taiowc_allow_tag), wp_kses_post($product_price)),$cart_item, $cart_item_key);
-                   ?>
-
-               </div>
-
-               <?php } ?>
 
             </div>
 
