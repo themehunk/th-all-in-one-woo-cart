@@ -62,7 +62,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                         ?>
                                  <div class="taiowc-total">
 
-                                    <span><?php echo wp_kses_post(WC()->cart->get_total()); ?></span>
+                                    <span><?php echo wp_kses_post(WC()->cart->get_cart_total()); ?></span>
 
                                 </div>
                                 <?php } } ?>
