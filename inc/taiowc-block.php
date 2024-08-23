@@ -87,14 +87,14 @@ function taiowc_register_blocks() {
   add_filter( 'block_categories_all', 'taiowc_blocks_categories', 11, 2);
   
   function taiowc_blocks_editor_assets(){
-
-  wp_enqueue_script(
-    'taiowc-data-block',
-    TAIOWC_PLUGIN_URI . 'build/taiowc-data.js',
-    array(),
-    TAIOWC_VERSION,
-    true
-  );
+    if ( is_admin() ) {
+    wp_enqueue_script(
+        'taiowc-data-block',
+        TAIOWC_PLUGIN_URI . 'build/taiowc-data.js',
+        array(),
+        TAIOWC_VERSION,
+        true
+    );
     wp_localize_script(
         'taiowc-data-block',
         'thnkblock',
@@ -104,17 +104,20 @@ function taiowc_register_blocks() {
         )
     );
     wp_enqueue_style(
-        'taiowc-th-icon-css',
-        TAIOWC_PLUGIN_URI . 'th-icon/style.css',
-        array(),
-        TAIOWC_VERSION
-    );
-    wp_enqueue_style(
         'taiowcp-component-editor-css',
         TAIOWC_PLUGIN_URI . 'build/component-editor.css',
          array(),
          TAIOWC_VERSION,
     );
+   }
+   
+    wp_enqueue_style(
+        'taiowc-th-icon-css',
+        TAIOWC_PLUGIN_URI . 'th-icon/style.css',
+        array(),
+        TAIOWC_VERSION
+    );
+    
       
   }
   add_action( 'enqueue_block_assets', 'taiowc_blocks_editor_assets' );

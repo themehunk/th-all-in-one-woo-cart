@@ -97,76 +97,34 @@
                
                });
 
-                // quantity add update cart
+                    // Quantity change and update cart
+                    $(document).on('click', '.quantity-decrement, .quantity-increment', function(e) {
+                        e.preventDefault();
+                
+                        // Get the quantity input associated with the clicked button
+                        var input = $(this).siblings('input.taiowc-quantity');
+                        var currentVal = parseInt(input.val());
+                        var newVal;
+                
+                        // Check if the decrement or increment button was clicked
+                        if ($(this).hasClass('quantity-decrement')) {
+                            newVal = currentVal > parseInt(input.attr('min')) ? currentVal - 1 : currentVal;
+                        } else if ($(this).hasClass('quantity-increment')) {
+                            newVal = !input.attr('max') || currentVal < parseInt(input.attr('max')) ? currentVal + 1 : currentVal;
 
-                $( document ).on('change','input.taiowc-quantity', function(e){
-                    
-                    var quantity = $(this).val();
-
-                    updateItemQty( $( e.currentTarget ).data('key'), quantity );
-
-                });
-
-               
-               // add item 
-              function AddItem( product_id, qty ){
-                  
-                if( !product_id || qty === undefined ) return;
-
-                show_loader();
-
-                $.ajax({
-                    url:taiowc_param.wc_ajax_url.toString().replace( '%%endpoint%%', 'taiowc_add_item_cart' ),
-                    type: 'POST',
-                    data: {
-                            product_id: product_id,
-                            new_qty: qty
-                          },
-                    success: function(response){ 
-
-                    hide_loader();
-                    show_custom_notice();
-
-                    if(response.fragments){
-                        var fragments = response.fragments,
-                            cart_hash =  response.cart_hash;
-
-                        //Set fragments
-                        $.each( response.fragments, function( key, value ) {
-                            $( key ).replaceWith( value );
-                            $( key ).stop( true ).css( 'opacity', '1' ).unblock();
-                        });
-
-                        if(wc_cart_fragments_params){
-                            var cart_hash_key = wc_cart_fragments_params.ajax_url.toString() + '-wc_cart_hash';
-                            //Set cart hash
-                            sessionStorage.setItem( wc_cart_fragments_params.fragment_name, JSON.stringify( fragments ) );
-                            localStorage.setItem( cart_hash_key, cart_hash );
-                            sessionStorage.setItem( cart_hash_key, cart_hash );
                         }
-
-                        $(document.body).trigger('wc_fragments_loaded');
-                        //Refresh checkout page
-                            if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
-                                if( $( 'form.checkout' ).length === 0 ){
-                                    location.reload();
-                                    return;
-                                }
-                                $(document.body).trigger("update_checkout");
-                            }
-
-                            //Refresh Cart page
-                            if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
-                                $(document.body).trigger("wc_update_cart");
-                            }
-                      }
-
-                  }
-
-                })
-
-             }
-
+                
+                        // Update the input value and trigger the change event
+                        input.val(newVal).trigger('change');
+                        
+                    });
+                
+                    // Trigger update when input value changes
+                    $(document).on('change', 'input.taiowc-quantity', function(e) {
+                        var quantity = $(this).val();
+                        updateItemQty($(e.currentTarget).data('key'), quantity);
+                    });
+                
                // update item 
               function updateItemQty( cart_key, qty ){
 
