@@ -1143,7 +1143,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                                 'type'       => 'usefullplugin',
                                 'desc'       => '',
 								'usefull'          => true,
-								'plugin_image' => esc_url('https://ps.w.org/th-advance-product-search/assets/icon-256x256.png'),
+								'plugin_image' => esc_url('https://ps.w.org/th-advance-product-search/assets/icon-256x256.gif'),
 								'plugin_title'  => esc_html__( 'TH Advance Product Search', 'taiowc' ),
 								'plugin_link'  => esc_url('https://themehunk.com/advance-product-search/'),	
 								
@@ -1154,7 +1154,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                                 'type'       => 'usefullplugin',
                                 'desc'       => '',
 								'usefull'          => true,
-								'plugin_image' => esc_url('https://ps.w.org/th-product-compare/assets/icon-128x128.png'),
+								'plugin_image' => esc_url('https://ps.w.org/th-product-compare/assets/icon-128x128.gif'),
 								'plugin_title'  => esc_html__( 'Th Product Compare', 'taiowc' ),
 								'plugin_link'  => esc_url('https://themehunk.com/th-product-compare-plugin/'),	
 								
