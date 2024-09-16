@@ -110,7 +110,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
             	</div>
            
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Join Group', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Get connected to our Facebook. Join our User friendly community.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.facebook.com/groups/themehunk');?>"><span class="dashicons dashicons-facebook-alt"></span><?php esc_html_e( 'Join Facebook Group', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'taiowc' ) ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart/&text=Hey, I just tried out the WordPress Plugin for <?php echo esc_url(home_url()); ?> .  Show off your amazing website with such amazing functionality with this awesome plugin: All In One Woo Cart By 
+@ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
+        <span class="x-image"><img src="<?php echo(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
+        <span><?php _e(' Click to Tweet','th-shop-mania'); ?></span></a>
             	</div>
             	
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'taiowc' ) ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'taiowc' ) ?></a>
