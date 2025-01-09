@@ -79,7 +79,7 @@ function taiowc_register_blocks() {
         [
             [
                 'slug'  => 'vayu-blocks',
-                'title' => __( 'ThemeHunk', 'th-advance-product-search-pro' ),
+                'title' => __( 'ThemeHunk', 'taiowc' ),
             ],
         ],
         $categories
