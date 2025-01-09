@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: woo cart, floating cart,ajax cart,woocommerce cart
 Requires at least: 5.5
 Tested up to: 6.6.0
-Stable tag: 2.0.5
+Stable tag: 2.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= Version 2.0.6 =
+* Update : Block Improved.
 
 = Version 2.0.5 =
 * Update : Admin stle improved.
