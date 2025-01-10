@@ -28,9 +28,10 @@ const { name } = metadata;
 
 registerBlockType( name, {
 	...metadata,
-	title: __( 'All In One Woo Cart', 'taiowc' ),
+	title: __( 'Woo Cart', 'taiowc' ),
 	description: __( 'Fastest All In One Woo Cart plugin for WooCommerce.', 'taiowc' ),
 	icon: <Dashicon icon="cart" />,
+	example: {},
 	edit,
 	save: () => null,
 });
