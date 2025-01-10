@@ -3427,7 +3427,6 @@ __webpack_require__.r(__webpack_exports__);
  * Internal dependencies
  */
 
-
 const ResponsiveControl = ({
   label,
   className,
@@ -3439,22 +3438,28 @@ const ResponsiveControl = ({
   const isSmall = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.useViewportMatch)('small', '>=');
   const isSmaller = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_4__.useViewportMatch)('small', '<=');
   const isMobile = !isLarger && !isLarge && !isSmall && !isSmaller;
+
+  // Get current device view
   const getView = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
-    const {
-      getView
-    } = select('taiowc/data');
-    const {
-      __experimentalGetPreviewDeviceType
-    } = select('core/edit-post') ? select('core/edit-post') : false;
-    return __experimentalGetPreviewDeviceType && !isMobile ? __experimentalGetPreviewDeviceType() : getView();
+    const siteEditorDeviceType = select('core/edit-site')?.getPreviewDeviceType?.();
+    const blockEditorDeviceType = select('core/edit-post')?.__experimentalGetPreviewDeviceType?.();
+    return siteEditorDeviceType || blockEditorDeviceType || 'Desktop'; // Default to 'Desktop'
   }, []);
+
+  // Update the current device view
   const {
-    updateView
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('taiowc/data');
+    __experimentalSetPreviewDeviceType: setBlockEditorDeviceType
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('core/edit-post') || {};
   const {
-    __experimentalSetPreviewDeviceType
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('core/edit-post') ? (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('core/edit-post') : false;
-  const setView = __experimentalSetPreviewDeviceType && !isMobile ? __experimentalSetPreviewDeviceType : updateView;
+    setPreviewDeviceType: setSiteEditorDeviceType
+  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useDispatch)('core/edit-site') || {};
+  const setView = deviceType => {
+    if (setBlockEditorDeviceType) {
+      setBlockEditorDeviceType(deviceType);
+    } else if (setSiteEditorDeviceType) {
+      setSiteEditorDeviceType(deviceType);
+    }
+  };
   const id = `inspector-responsive-control-${instanceId}`;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: id,
@@ -3484,34 +3489,17 @@ const ResponsiveControl = ({
       className: "o-responsive-control-settings"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "o-responsive-control-settings-title"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('View', 'vayu-blocks')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('View', 'vayu-blocks')), ['Desktop', 'Tablet', 'Mobile'].map(device => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      key: device,
       className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('o-responsive-control-settings-item', {
-        'is-selected': 'Desktop' === getView
+        'is-selected': device === getView
       }),
-      onClick: () => setView('Desktop')
-    }, 'Desktop' === getView && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+      onClick: () => setView(device)
+    }, device === getView && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
       icon: _icon_js__WEBPACK_IMPORTED_MODULE_6__.checkIcon
     }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       className: "popover-title"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Desktop', 'vayu-blocks'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('o-responsive-control-settings-item', {
-        'is-selected': 'Tablet' === getView
-      }),
-      onClick: () => setView('Tablet')
-    }, 'Tablet' === getView && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      icon: _icon_js__WEBPACK_IMPORTED_MODULE_6__.checkIcon
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "popover-title"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tablet', 'vayu-blocks'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()('o-responsive-control-settings-item', {
-        'is-selected': 'Mobile' === getView
-      }),
-      onClick: () => setView('Mobile')
-    }, 'Mobile' === getView && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
-      icon: _icon_js__WEBPACK_IMPORTED_MODULE_6__.checkIcon
-    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "popover-title"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Mobile', 'vayu-blocks'))))
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)(device, 'vayu-blocks')))))
   }))), children));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ResponsiveControl);
@@ -3870,59 +3858,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes,
-  clientId,
-  uniqueID
+  setAttributes
 }) {
-  let counter = 0;
-  function getUniqueId(uniqueID, clientId, isUniqueID, isUniqueBlock) {
-    let smallID = '_' + clientId.substr(2, 9);
-    if (!uniqueID) {
-      //new block
-      if (!isUniqueID(smallID)) {
-        smallID = generateUniqueId(smallID);
-      }
-      return smallID;
-    } else if (!isUniqueID(uniqueID)) {
-      // This checks if we are just switching views, client ID the same means we don't need to update.
-      if (!isUniqueBlock(uniqueID, clientId)) {
-        return smallID;
-      }
-    }
-    //normal block loading 
-    return uniqueID;
-  }
-  function generateUniqueId(smallID) {
-    counter += 1;
-    return `${smallID}${counter}`;
-  }
-  const {
-    id
-  } = attributes;
-  const {
-    addUniqueID
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useDispatch)('taiowc/data');
-  const {
-    isUniqueID,
-    isUniqueBlock
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
-    return {
-      isUniqueID: value => select('taiowc/data').isUniqueID(value),
-      isUniqueBlock: (value, clientId) => select('taiowc/data').isUniqueBlock(value, clientId)
-    };
-  }, [clientId]);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
-    const uniqueId = getUniqueId(uniqueID, clientId, isUniqueID, isUniqueBlock);
-    if (uniqueId !== uniqueID) {
-      attributes.uniqueID = uniqueId;
-      setAttributes({
-        uniqueID: uniqueId
-      });
-      addUniqueID(uniqueId, clientId);
-    } else {
-      addUniqueID(uniqueId, clientId);
-    }
-  }, []);
   const ThiconStyle = ({
     cartIconAttr
   }) => {
@@ -3936,6 +3873,20 @@ function Edit({
   } else if (attributes.countPosition === 'right') {
     countPositionVar = 'count-right';
   }
+
+  // Utility function to generate a unique ID
+  const generateUniqueId = () => {
+    const randomPart = Math.random().toString(36).substring(2, 10); // Generate random alphanumeric string
+    return `-${randomPart}`;
+  };
+
+  // Ensure the uniqueID is set if it's not
+  if (!attributes.uniqueID) {
+    setAttributes({
+      uniqueID: generateUniqueId()
+    });
+  }
+  //view port
   const {
     isViewportAvailable,
     isPreviewDesktop,
@@ -3943,13 +3894,13 @@ function Edit({
     isPreviewMobile
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
     const {
-      __experimentalGetPreviewDeviceType
-    } = select('core/edit-post') ? select('core/edit-post') : false;
+      getDeviceType
+    } = select('core/editor') || {};
     return {
-      isViewportAvailable: __experimentalGetPreviewDeviceType ? true : false,
-      isPreviewDesktop: __experimentalGetPreviewDeviceType ? 'Desktop' === __experimentalGetPreviewDeviceType() : false,
-      isPreviewTablet: __experimentalGetPreviewDeviceType ? 'Tablet' === __experimentalGetPreviewDeviceType() : false,
-      isPreviewMobile: __experimentalGetPreviewDeviceType ? 'Mobile' === __experimentalGetPreviewDeviceType() : false
+      isViewportAvailable: !!getDeviceType,
+      isPreviewDesktop: getDeviceType ? getDeviceType() === 'Desktop' : false,
+      isPreviewTablet: getDeviceType ? getDeviceType() === 'Tablet' : false,
+      isPreviewMobile: getDeviceType ? getDeviceType() === 'Mobile' : false
     };
   }, []);
   const isLarger = (0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_3__.useViewportMatch)('large', '>=');
@@ -4178,13 +4129,11 @@ const InsSettings = ({
   const adminUrltaiowc = ThBlockDatataiowc.adminUrltaiowc;
   const [tab, setTab] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.useState)('setting');
   const getView = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
-    const {
-      getView
-    } = select('taiowc/data');
-    const {
-      __experimentalGetPreviewDeviceType
-    } = select('core/edit-post') ? select('core/edit-post') : false;
-    return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : getView();
+    // Device type selectors for different editors
+    const siteEditorDeviceType = select('core/edit-site')?.getPreviewDeviceType?.(); // For Site Editor
+    const blockEditorDeviceType = select('core/editor')?.getDeviceType?.(); // For Block/Post Editor
+    // Fallback to your custom getView if neither device type is available
+    return siteEditorDeviceType || blockEditorDeviceType;
   }, []);
   //padding
   const getPaddingType = () => {
@@ -6847,7 +6796,7 @@ module.exports = window["wp"]["primitives"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"taiowc/taiowc","version":"0.1.0","title":"All In One Woo Cart","category":"taiowc","description":"","supports":{"html":false},"textdomain":"taiowc","attributes":{"id":{"type":"string"},"uniqueID":{"type":"string"},"cartStyle":{"type":"string","default":"[taiowc]"},"cartPrice":{"type":"boolean","default":true},"cartCount":{"type":"boolean","default":true},"countPosition":{"type":"string","default":"left"},"marginType":{"type":"string","default":"linked"},"marginTypeTablet":{"type":"string","default":"linked"},"marginTypeMobile":{"type":"string","default":"linked"},"margin":{"type":"number","default":0},"marginUnit":{"type":"string","default":"px"},"marginTablet":{"type":"number"},"marginMobile":{"type":"number"},"marginTop":{"type":"number","default":0},"marginTopTablet":{"type":"number"},"marginTopMobile":{"type":"number"},"marginBottom":{"type":"number","default":0},"marginBottomTablet":{"type":"number"},"marginBottomMobile":{"type":"number"},"marginRight":{"type":"number","default":0},"marginRightTablet":{"type":"number"},"marginRightMobile":{"type":"number"},"marginLeft":{"type":"number","default":0},"marginLeftTablet":{"type":"number"},"marginLeftMobile":{"type":"number"},"paddingType":{"type":"string","default":"linked"},"paddingTypeTablet":{"type":"string","default":"linked"},"paddingTypeMobile":{"type":"string","default":"linked"},"padding":{"type":"number"},"paddingUnit":{"type":"string","default":"px"},"paddingTablet":{"type":"number"},"paddingMobile":{"type":"number"},"paddingTop":{"type":"number","default":0},"paddingTopTablet":{"type":"number"},"paddingTopMobile":{"type":"number"},"paddingRight":{"type":"number","default":0},"paddingRightTablet":{"type":"number"},"paddingRightMobile":{"type":"number"},"paddingBottom":{"type":"number","default":0},"paddingBottomTablet":{"type":"number"},"paddingBottomMobile":{"type":"number"},"paddingLeft":{"type":"number","default":0},"paddingLeftTablet":{"type":"number"},"paddingLeftMobile":{"type":"number"},"bgSet":{"type":"boolean","default":false},"cartBgClr":{"type":"string"},"iconSet":{"type":"boolean","default":false},"iconClr":{"type":"string"},"priceSet":{"type":"boolean","default":false},"priceClr":{"type":"string"},"countSet":{"type":"boolean","default":false},"countClr":{"type":"string"},"countBgClr":{"type":"string"},"iconfontSize":{"type":"number"},"iconfontSizeTablet":{"type":"number"},"iconfontSizeMobile":{"type":"number"},"iconfontSizeUnit":{"type":"string","default":"px"},"pricefontSize":{"type":"number"},"pricefontSizeTablet":{"type":"number"},"pricefontSizeMobile":{"type":"number"},"pricefontSizeUnit":{"type":"string","default":"px"},"countSize":{"type":"number"},"countSizeTablet":{"type":"number"},"countSizeMobile":{"type":"number"},"countSizeUnit":{"type":"string","default":"px"},"countFontSize":{"type":"number"},"countFontSizeTablet":{"type":"number"},"countFontSizeMobile":{"type":"number"},"countFontSizeUnit":{"type":"string","default":"px"},"borderRadius":{"type":"number"},"borderRadiusTablet":{"type":"number"},"borderRadiusMobile":{"type":"number"},"borderRadiusUnit":{"type":"string","default":"px"}}}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"taiowc/taiowc","version":"0.1.0","title":"All In One Woo Cart","category":"vayu-blocks","keywords":["woo-cart","woocommerce","floating-cart","ajax-cart","woocommerce-cart","themehunk"],"description":"","supports":{"html":false},"textdomain":"taiowc","attributes":{"id":{"type":"string"},"uniqueID":{"type":"string"},"cartStyle":{"type":"string","default":"[taiowc]"},"cartPrice":{"type":"boolean","default":true},"cartCount":{"type":"boolean","default":true},"countPosition":{"type":"string","default":"left"},"marginType":{"type":"string","default":"linked"},"marginTypeTablet":{"type":"string","default":"linked"},"marginTypeMobile":{"type":"string","default":"linked"},"margin":{"type":"number","default":0},"marginUnit":{"type":"string","default":"px"},"marginTablet":{"type":"number"},"marginMobile":{"type":"number"},"marginTop":{"type":"number","default":0},"marginTopTablet":{"type":"number"},"marginTopMobile":{"type":"number"},"marginBottom":{"type":"number","default":0},"marginBottomTablet":{"type":"number"},"marginBottomMobile":{"type":"number"},"marginRight":{"type":"number","default":0},"marginRightTablet":{"type":"number"},"marginRightMobile":{"type":"number"},"marginLeft":{"type":"number","default":0},"marginLeftTablet":{"type":"number"},"marginLeftMobile":{"type":"number"},"paddingType":{"type":"string","default":"linked"},"paddingTypeTablet":{"type":"string","default":"linked"},"paddingTypeMobile":{"type":"string","default":"linked"},"padding":{"type":"number"},"paddingUnit":{"type":"string","default":"px"},"paddingTablet":{"type":"number"},"paddingMobile":{"type":"number"},"paddingTop":{"type":"number","default":0},"paddingTopTablet":{"type":"number"},"paddingTopMobile":{"type":"number"},"paddingRight":{"type":"number","default":0},"paddingRightTablet":{"type":"number"},"paddingRightMobile":{"type":"number"},"paddingBottom":{"type":"number","default":0},"paddingBottomTablet":{"type":"number"},"paddingBottomMobile":{"type":"number"},"paddingLeft":{"type":"number","default":0},"paddingLeftTablet":{"type":"number"},"paddingLeftMobile":{"type":"number"},"bgSet":{"type":"boolean","default":false},"cartBgClr":{"type":"string"},"iconSet":{"type":"boolean","default":false},"iconClr":{"type":"string"},"priceSet":{"type":"boolean","default":false},"priceClr":{"type":"string"},"countSet":{"type":"boolean","default":false},"countClr":{"type":"string"},"countBgClr":{"type":"string"},"iconfontSize":{"type":"number"},"iconfontSizeTablet":{"type":"number"},"iconfontSizeMobile":{"type":"number"},"iconfontSizeUnit":{"type":"string","default":"px"},"pricefontSize":{"type":"number"},"pricefontSizeTablet":{"type":"number"},"pricefontSizeMobile":{"type":"number"},"pricefontSizeUnit":{"type":"string","default":"px"},"countSize":{"type":"number"},"countSizeTablet":{"type":"number"},"countSizeMobile":{"type":"number"},"countSizeUnit":{"type":"string","default":"px"},"countFontSize":{"type":"number"},"countFontSizeTablet":{"type":"number"},"countFontSizeMobile":{"type":"number"},"countFontSizeUnit":{"type":"string","default":"px"},"borderRadius":{"type":"number"},"borderRadiusTablet":{"type":"number"},"borderRadiusMobile":{"type":"number"},"borderRadiusUnit":{"type":"string","default":"px"}}}');
 
 /***/ })
 

@@ -4,7 +4,15 @@
   "name": "taiowc/taiowc",
   "version": "0.1.0",
   "title": "All In One Woo Cart",
-  "category": "taiowc",
+  "category": "vayu-blocks",
+  "keywords": [
+    "woo-cart",
+    "woocommerce",
+    "floating-cart",
+    "ajax-cart",
+    "woocommerce-cart",
+    "themehunk"
+  ],
   "description": "",
   "supports": {
     "html": false

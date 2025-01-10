@@ -1,5 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
-
+require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 /****************/
 //Block registered
 /****************/
@@ -75,34 +75,24 @@ function taiowc_register_blocks() {
   
   function taiowc_blocks_categories( $categories ) {
     return array_merge(
-        $categories,
+        
         [
             [
-                'slug'  => 'taiowc',
-                'title' => __( 'All In One Woo Cart', 'taiowc' ),
+                'slug'  => 'vayu-blocks',
+                'title' => __( 'ThemeHunk', 'taiowc' ),
             ],
-        ]
+        ],
+        $categories
     );
   }
+
+  if ( !is_plugin_active( 'vayu-blocks/vayu-blocks.php' ) ) {
   add_filter( 'block_categories_all', 'taiowc_blocks_categories', 11, 2);
+  }
   
   function taiowc_blocks_editor_assets(){
     if ( is_admin() ) {
-    wp_enqueue_script(
-        'taiowc-data-block',
-        TAIOWC_PLUGIN_URI . 'build/taiowc-data.js',
-        array(),
-        TAIOWC_VERSION,
-        true
-    );
-    wp_localize_script(
-        'taiowc-data-block',
-        'thnkblock',
-        array(
-            'homeUrl' => plugins_url( '/', __FILE__ ),
-            'showOnboarding' => '',
-        )
-    );
+    
     wp_enqueue_style(
         'taiowcp-component-editor-css',
         TAIOWC_PLUGIN_URI . 'build/component-editor.css',

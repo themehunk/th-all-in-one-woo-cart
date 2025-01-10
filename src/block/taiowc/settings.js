@@ -31,13 +31,12 @@ const InsSettings = ({
 
     const adminUrltaiowc = ThBlockDatataiowc.adminUrltaiowc;
     const [ tab, setTab ] = useState( 'setting' );
-    const getView = useSelect( select => {
-
-		const { getView } = select( 'taiowc/data' );
-
-		const { __experimentalGetPreviewDeviceType } = select( 'core/edit-post' ) ? select( 'core/edit-post' ) : false;
-
-		return __experimentalGetPreviewDeviceType ? __experimentalGetPreviewDeviceType() : getView();
+    const getView = useSelect((select) => {
+		// Device type selectors for different editors
+		const siteEditorDeviceType = select('core/edit-site')?.getPreviewDeviceType?.(); // For Site Editor
+		const blockEditorDeviceType = select('core/editor')?.getDeviceType?.(); // For Block/Post Editor
+		// Fallback to your custom getView if neither device type is available
+		return siteEditorDeviceType || blockEditorDeviceType;
 	}, []);
     //padding
     const getPaddingType = () => {
