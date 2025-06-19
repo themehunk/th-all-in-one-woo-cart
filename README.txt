@@ -145,6 +145,7 @@ Yes, You can translate our plugin to desired language.
 
 = Version 2.0.8 =
 * Fixed : In Shop page add to cart not updated.
+* Update: th-icon-css common enqueue id added.
 
 = Version 2.0.7 =
 * Fixed : Block issue Fix.
