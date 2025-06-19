@@ -115,10 +115,11 @@ function taiowc_register_blocks() {
   
    function taiowc_blocks_render_callback( $attr ) {
   
-   if ( function_exists( 'get_current_screen' ) && get_current_screen()->is_block_editor() ) {
+   if ( function_exists( 'get_current_screen' ) && ! is_null( 'get_current_screen' ) && get_current_screen()->is_block_editor() ) {
       return;
    } 
-   $taiowBlockStyle = '';
+
+    $taiowBlockStyle = '';
     $paddingUnit = isset($attr['paddingUnit']) ? $attr['paddingUnit'] : 'px';
     $marginUnit = isset($attr['marginUnit']) ? $attr['marginUnit'] : 'px';
     
@@ -368,4 +369,3 @@ function taiowc_register_blocks() {
     return $block_content;
     
   }
-  
