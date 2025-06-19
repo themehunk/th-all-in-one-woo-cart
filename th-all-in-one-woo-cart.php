@@ -7,7 +7,7 @@
  * Author:                  ThemeHunk
  * Author URI:              https://themehunk.com
  * Requires at least:       4.8
- * Tested up to:            6.7.2
+ * Tested up to:            6.8
  * WC requires at least:    3.2
  * WC tested up to:         9.7.1
  * Domain Path:             /languages
