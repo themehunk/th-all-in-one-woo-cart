@@ -102,7 +102,7 @@ function taiowc_register_blocks() {
    }
    
     wp_enqueue_style(
-        'taiowc-th-icon-css',
+        'th-icon-css',
         TAIOWC_PLUGIN_URI . 'th-icon/style.css',
         array(),
         TAIOWC_VERSION
