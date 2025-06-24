@@ -141,7 +141,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
               wp_add_inline_style('taiowc-style', taiowc_style());
 
-              wp_enqueue_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-cart.js', array( 'jquery' ),true);
+              wp_enqueue_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-cart.js', array( 'jquery' ),TAIOWC_VERSION, true);
 
               wp_enqueue_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI. 'assets/js/owl.carousel.js', array( 'jquery' ),true);
 
