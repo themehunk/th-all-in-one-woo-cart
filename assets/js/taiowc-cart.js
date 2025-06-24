@@ -233,49 +233,50 @@
 
           },
 
-          UpdateCart: function (){
+          UpdateCart: function () {
+
+            var $this = this;
 
             $(document.body).on('wc-blocks_added_to_cart', function(event){
+                // Manually refresh fragments because blocks don't do it automatically
+                $this.refreshMyFragments();
 
-                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');     
-                //Refresh checkout page
-                if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
-                    if( $( 'form.checkout' ).length === 0 ){
+                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');
+
+                // Refresh checkout page
+                if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
+                    if ($('form.checkout').length === 0) {
                         location.reload();
                         return;
                     }
                     $(document.body).trigger("update_checkout");
                 }
 
-                //Refresh Cart page
-                if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
+                // Refresh Cart page
+                if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
                     $(document.body).trigger("wc_update_cart");
                 }
-            
-
             });
 
-             $(document).on('added_to_cart',function(event,fragments,hash,atc_btn){
+            $(document).on('added_to_cart', function(event, fragments, hash, atc_btn){
                 
-                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');     
-                //Refresh checkout page
-                if( window.wc_checkout_params && wc_checkout_params.is_checkout === "1" ){
-                    if( $( 'form.checkout' ).length === 0 ){
+                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');
+
+                // Refresh checkout page
+                if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
+                    if ($('form.checkout').length === 0) {
                         location.reload();
                         return;
                     }
                     $(document.body).trigger("update_checkout");
                 }
 
-                //Refresh Cart page
-                if( window.wc_add_to_cart_params && window.wc_add_to_cart_params.is_cart && wc_add_to_cart_params.is_cart === "1" ){
+                // Refresh Cart page
+                if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
                     $(document.body).trigger("wc_update_cart");
                 }
-            
             });
-
-         },
-
+        }
    
 }
 
