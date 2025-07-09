@@ -18,8 +18,7 @@ $cartStyle = 'taiowc-slide-right';
 
             taiowc_markup()->taiowc_cart_show();
     
-			
-			taiowc_markup()->taiowc_cart_item_show();
+			 taiowc_markup()->taiowc_cart_item_show();
 
 
 			?>
