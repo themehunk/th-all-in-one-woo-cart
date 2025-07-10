@@ -64,13 +64,9 @@ if ( ! class_exists( 'Taiowc' ) ):
                 add_action( 'taiowc_mini_cart', array( $this, 'taiowc_mini_cart_content' ) );
 
                 add_action( 'taiowc_mini_cart_empty', array( $this, 'taiowc_mini_cart_empty_content' ) );
-                
-                add_action( 'wp_ajax_taiowc_create_nonces', array( $this,'taiowc_create_nonces'));
-                add_action( 'wp_ajax_nopriv_taiowc_create_nonces', array( $this,'taiowc_create_nonces'));
 
                 add_action( 'wc_ajax_taiowc_update_item_quantity', array( $this,'taiowc_update_item_quantity'));
 
-                add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
             }
 
             add_action( 'init', array( $this, 'settings_api' ), 5 );
@@ -129,47 +125,56 @@ if ( ! class_exists( 'Taiowc' ) ):
             return apply_filters(  'taiowc_body_class', array_unique( $classes ), $old_classes );
         }
 
-        public function scripts(){
+       public function scripts() {
 
-              wp_enqueue_media();
+            // Make sure to enqueue only on frontend, not admin
+            if ( is_admin() ) {
+                return;
+            }
 
-              wp_enqueue_style( 'taiowc-style', TAIOWC_PLUGIN_URI. 'assets/css/style.css', array(), TAIOWC_VERSION );
+            // Register styles
+            wp_register_style( 'taiowc-style', TAIOWC_PLUGIN_URI . 'assets/css/style.css', array(), TAIOWC_VERSION );
+            wp_register_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI . 'assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
+            wp_register_style( 'th-icon-css', TAIOWC_PLUGIN_URI . 'th-icon/style.css', array(), TAIOWC_VERSION );
 
-             wp_enqueue_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI. 'assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
+            // Enqueue styles
+            wp_enqueue_style( 'taiowc-style' );
+            wp_enqueue_style( 'owl.carousel-style' );
+            wp_enqueue_style( 'th-icon-css' );
 
-             wp_enqueue_style( 'th-icon-css', TAIOWC_PLUGIN_URI. '/th-icon/style.css', array(), TAIOWC_VERSION );
+            // Add inline styles
+            wp_add_inline_style( 'taiowc-style', taiowc_style() );
 
-              wp_add_inline_style('taiowc-style', taiowc_style());
+            // Register scripts
+            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), TAIOWC_VERSION, true );
+            wp_register_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI . 'assets/js/owl.carousel.js', array( 'jquery' ), TAIOWC_VERSION, true );
 
-              wp_enqueue_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI. 'assets/js/taiowc-cart.js', array( 'jquery' ),TAIOWC_VERSION, true);
+            // Enqueue scripts
+            wp_enqueue_script( 'taiowc-cart-script' );
+            wp_enqueue_script( 'owl.carousel-script' );
 
-              wp_enqueue_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI. 'assets/js/owl.carousel.js', array( 'jquery' ),true);
+            // WooCommerce cart fragments (if required for AJAX cart updates)
+            wp_enqueue_script( 'wc-cart-fragments' );
 
-              wp_enqueue_script( 'wc-cart-fragments' );
+            // Localize data
+            $noticeMarkup = '<ul class="taiowc-notices-msg">%s</ul>';
 
-              $noticeMarkup = '<ul class="taiowc-notices-msg">%s</ul>'; 
-
-              wp_localize_script(
-
-                'taiowc-cart-script', 'taiowc_param', array(
-
-                    'ajax_url'             => esc_url(admin_url( 'admin-ajax.php' )),
-
-                    'wc_ajax_url'          => WC_Ajax::get_endpoint( "%%endpoint%%" ),
-
-                    
-                    'update_shipping_method_nonce' => wp_create_nonce( 'update-shipping-method' ),
-
-                    'html'                  => array(
-                        'successNotice' =>  sprintf( $noticeMarkup, $this->taiowc_notice_html('', 'success' ) ),
-                        'errorNotice'   =>  sprintf( $noticeMarkup, $this->taiowc_notice_html('', 'error' ) ),
-                    ),    
-
-                    'taiowc-cart_open' => esc_html(taiowc()->get_option('taiowc-cart_open')),
-                    
+            wp_localize_script(
+                'taiowc-cart-script',
+                'taiowc_param',
+                array(
+                    'ajax_url'                    => esc_url( admin_url( 'admin-ajax.php' ) ),
+                    'wc_ajax_url'                 => WC_Ajax::get_endpoint( "%%endpoint%%" ),
+                    'update_qty_nonce'            => wp_create_nonce( 'taiowc_update_qty_nonce' ),
+                    'html'                        => array(
+                        'successNotice'           => sprintf( $noticeMarkup, $this->taiowc_notice_html( '', 'success' ) ),
+                        'errorNotice'             => sprintf( $noticeMarkup, $this->taiowc_notice_html( '', 'error' ) ),
+                    ),
+                    'taiowc-cart_open'           => esc_html( taiowc()->get_option( 'taiowc-cart_open' ) ),
                 )
             );
         }
+
 
         public function add_setting( $tab_id, $tab_title, $tab_sections, $active = false, $is_pro_tab = false, $is_new = false ) {
             add_filter(
@@ -302,7 +307,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                 $rating_count   =  $_product->get_rating_count();
                 $average        =  $_product->get_average_rating();
                 
-                $quantity_text = __('Quantity','taiowc');
+                $quantity_text = __('Quantity','th-all-in-one-woo-cart');
 
                 $allowed_img = array(
 
@@ -322,19 +327,20 @@ if ( ! class_exists( 'Taiowc' ) ):
                 ?>
                 <div class="taiowc-woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
                     <div class="item-product-wrap">
-                    <?php
-                    echo apply_filters(
-                        'woocommerce_cart_item_remove_link',
-                        sprintf(
-                            '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"> <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" alt="" title="" class="snipcart__icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 4v6.47H12v3.236h40V10.47H42V4H22zm3.333 6.47V7.235H38.67v3.235H25.333zm20.001 9.707h3.333V59H15.334V20.177h3.333v35.588h26.667V20.177zm-15 29.116V23.412h3.334v25.881h-3.334z" fill="currentColor"></path></svg> </a>',
-                            esc_attr__( 'Remove this item', 'taiowc' ),
-                            esc_attr( $product_id ),
-                            esc_attr( $cart_item_key ),
-                            esc_attr( $_product->get_sku() )
-                        ),
-                        $cart_item_key
-                    );
-                    ?>
+                    <?php $remove_link = sprintf(
+    '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"><span class="dashicons dashicons-trash"></span></a>',
+    esc_attr__( 'Remove this item', 'th-all-in-one-woo-cart' ),
+    esc_attr( $product_id ),
+    esc_attr( $cart_item_key ),
+    esc_attr( $_product->get_sku() )
+);
+
+// Apply the filter and output with proper escaping
+echo wp_kses_post(
+    apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_item_key )
+);
+?>
+
                     <?php
 
                      if ( empty( $product_permalink ) ) : ?>
@@ -346,7 +352,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                         echo esc_html($product_name); 
 
-                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
+                        echo wp_kses_post(apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key ));
 
                         ?>
 
@@ -363,7 +369,7 @@ if ( ! class_exists( 'Taiowc' ) ):
                         <div class="taiowc-contnet-wrap">
 
                         <?php echo esc_html($product_name); 
-                        echo apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key ); ?>
+                        echo wp_kses_post(apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key )); ?>
 
                         <?php echo wp_kses_post(wc_get_formatted_cart_item_data( $cart_item ));?>
 
@@ -378,13 +384,13 @@ if ( ! class_exists( 'Taiowc' ) ):
                 <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
 
         <div class="item-product-quantity">
-            <?php 
+            <?php
             // Retrieve the quantity input field
-            $quant = $this->taiowc_mini_cart_add_quantity($_product, $cart_item_key, $cart_item);
+            $quant = $this->taiowc_mini_cart_add_quantity( $_product, $cart_item_key, $cart_item );
 
-            // Allowable HTML tags for security
-            $taiowc_allow_tag = array( 
-                'input' => array( 
+            // Allowable HTML tags for quantity input and buttons
+            $taiowc_allow_tag = array(
+                'input' => array(
                     'id' => array(),
                     'class' => array(),
                     'name' => array(),
@@ -407,23 +413,60 @@ if ( ! class_exists( 'Taiowc' ) ):
 
             // Add + and - buttons around the quantity input field
             $quantity_html = sprintf(
-                '<button type="button" class="quantity-decrement" data-key="%1$s" aria-label="Decrease quantity">－</button>
-                %2$s
-                <button type="button" class="quantity-increment" data-key="%1$s" aria-label="Increase quantity">＋</button>',
-                esc_attr($cart_item_key),
-                wp_kses($quant, $taiowc_allow_tag)
+                '<button type="button" class="quantity-decrement" data-key="%1$s" aria-label="%2$s">−</button>%3$s<button type="button" class="quantity-increment" data-key="%1$s" aria-label="%4$s">+</button>',
+                esc_attr( $cart_item_key ),
+                esc_attr__( 'Decrease quantity', 'th-all-in-one-woo-cart' ),
+                wp_kses( $quant, $taiowc_allow_tag ),
+                esc_attr__( 'Increase quantity', 'th-all-in-one-woo-cart' )
+            );
+
+            // Allowable HTML tags for the final output (to support filter modifications)
+            $allowed_quantity_html = array(
+                'span' => array(
+                    'class' => array(),
+                ),
+                'div' => array(
+                    'class' => array(),
+                ),
+                'input' => array(
+                    'id' => array(),
+                    'class' => array(),
+                    'name' => array(),
+                    'value' => array(),
+                    'step' => array(),
+                    'max' => array(),
+                    'min' => array(),
+                    'data-key' => array(),
+                    'title' => array(),
+                    'size' => array(),
+                    'type' => array(),
+                ),
+                'button' => array(
+                    'class' => array(),
+                    'data-key' => array(),
+                    'type' => array(),
+                    'aria-label' => array(),
+                ),
+                'bdi' => array(), // For price formatting (e.g., currency symbols)
+                'span' => array(
+                    'class' => array(),
+                ),
             );
 
             // Display the quantity with custom buttons
-            echo apply_filters(
-                'woocommerce_widget_cart_item_quantity',
-                sprintf('<span class="quantity"><span class="quantity-text">%1$s</span><div class="quantity-wrap">%2$s</div> %3$s</span>',
-                    esc_html($quantity_text),
-                    $quantity_html,
-                    wp_kses_post($product_price)
+            echo wp_kses(
+                apply_filters(
+                    'woocommerce_widget_cart_item_quantity',
+                    sprintf(
+                        '<span class="quantity"><span class="quantity-text">%1$s</span><div class="quantity-wrap">%2$s</div> %3$s</span>',
+                        esc_html( $quantity_text ),
+                        $quantity_html,
+                        wp_kses_post( $product_price )
+                    ),
+                    $cart_item,
+                    $cart_item_key
                 ),
-                $cart_item,
-                $cart_item_key
+                $allowed_quantity_html
             );
             ?>
         </div>
@@ -463,7 +506,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         ?>
      
-             <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'taiowc' ); ?></p>
+             <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'th-all-in-one-woo-cart' ); ?></p>
 
              <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc()->get_option( 'taiowc-empty_cart_txt' )); ?></a>
 
@@ -514,57 +557,12 @@ if ( ! class_exists( 'Taiowc' ) ):
 
      }    
 
-
-    public function taiowc_create_nonces(){
-
-        $actions = array(
-            'apply-coupon',
-            'remove-coupon',
-            'update-shipping-method'
-        );
-
-        $nonces = array();
-
-        foreach ($actions as $action) {
-            $nonces[$action] = wp_create_nonce( $action );
-        }
-
-        wp_send_json( $nonces );
-    }
-
-    //add item cart
-
-        public function taiowc_add_item_cart(){
-
-        if(!isset($_POST['product_id'])){
-
-           return;
-
-        }   
-
-        $product_id   = sanitize_key( $_POST['product_id'] );
-
-        $added = WC()->cart->add_to_cart( $product_id );
-
-         if( $added ){
-
-                $notice = __( 'Product Added', 'taiowc' );
-
-                $this->set_notice( $notice, 'success' );
-           }
-
-
-        WC_AJAX::get_refreshed_fragments();
-
-        die();
-
-      }
-
      // update quantity
 
         public function taiowc_update_item_quantity(){
 
-        
+        check_ajax_referer( 'taiowc_update_qty_nonce', 'security' );
+
         $cart_key   = isset($_POST['cart_key']) ? sanitize_key($_POST['cart_key']) : '';
 
         $new_qty    = (float) $_POST['new_qty'];
@@ -580,11 +578,11 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 if( $new_qty == 0 ){
 
-                    $notice = __( 'Product removed', 'taiowc' );
+                    $notice = __( 'Product removed', 'th-all-in-one-woo-cart' );
 
                 }
                 else{
-                    $notice = __( 'Cart Updated', 'taiowc' );
+                    $notice = __( 'Cart Updated', 'th-all-in-one-woo-cart' );
                 }
 
                 $this->set_notice( $notice, 'success' );
@@ -638,7 +636,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
         $notices_html = sprintf('<div class="taiowc-notice-container" data-section="%1$s"><ul class="taiowc-notices">%2$s</ul></div>', $section, implode( '' , $notices )  );
 
-        echo apply_filters('taiowc_print_notices_html', $notices_html, $notices, $section );
+        echo wp_kses_post(apply_filters('taiowc_print_notices_html', $notices_html, $notices, $section ));
         
         $this->notices = array();
 
@@ -681,6 +679,6 @@ function taiowc(){
 
         return Taiowc::instance();
 }
-add_action( 'plugins_loaded', 'taiowc', 25 );
+add_action( 'plugins_loaded','taiowc', 25 );
 
 endif; 

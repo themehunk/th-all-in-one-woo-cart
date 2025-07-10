@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="th-option-bottom-hdr">
-            <a class="tablinks active <?php echo esc_attr($tabActiveRp) ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php _e('Plugins', 'taiowc'); ?> </a>
+            <a class="tablinks active <?php echo esc_attr($tabActiveRp) ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php esc_html_e('Plugins', 'th-all-in-one-woo-cart'); ?> </a>
         </div>
     </div>
 
@@ -28,10 +28,10 @@
         </a>
     </div>
         <div class="thunk-notice-text">
-            <h3><?php _e('TH Shop Mania Free Theme','taiowc'); ?></h3>
-            <p><?php _e('Elementor + WooCommerce Free WordPress Theme.','taiowc'); ?>
+            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-all-in-one-woo-cart'); ?></h3>
+            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-all-in-one-woo-cart'); ?>
             </p>
-            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php _e('View Detail','taiowc'); ?></a>
+            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-all-in-one-woo-cart'); ?></a>
 
         </div>
     </div>

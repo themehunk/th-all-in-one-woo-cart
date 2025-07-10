@@ -1,39 +1,52 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: All In One Woo Cart\n"
+"Project-Id-Version: All In One Advance Cart\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-02 07:26+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"POT-Creation-Date: 2025-07-10 11:59+0000\n"
+"PO-Revision-Date: 2025-07-10 12:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.6; wp-6.3.1\n"
-"X-Domain: taiowc"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.2.0\n"
+"X-Domain: th-all-in-one-woo-cart"
 
-#: inc/themehunk-menu/th-option/th-option.php:147
+#: inc/taiowc-setting.php:116
+msgid " Click to Tweet"
+msgstr ""
+
+#: inc/themehunk-menu/th-option/th-option.php:96
 msgid "Activate Now"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:118
+#: inc/themehunk-menu/th-option/th-option.php:67
 msgid "Activated"
 msgstr ""
 
-#: inc/taiowc-setting.php:777
+#: inc/taiowc-setting.php:514
+msgid ""
+"Add given shortcode at the desired location. You can use Shortcode block, "
+"Widget, or any page builder shortcode add-on to display cart."
+msgstr ""
+
+#: inc/taiowc-setting.php:830
 msgid "Add Media"
 msgstr ""
 
 #: inc/taiowc-option.php:166
-msgid "Add Product at the Bottom (Pro)"
+msgid "Add Product at the Bottom (Procoach)"
 msgstr ""
 
 #: inc/taiowc-option.php:164
 msgid "Add Product at the Top"
+msgstr ""
+
+#: inc/taiowc-setting.php:527
+msgid "Add this PHP code at the desired location in any PHP file."
 msgstr ""
 
 #: inc/taiowc-option.php:208
@@ -54,12 +67,12 @@ msgstr ""
 msgid "Added Coupon Text Color"
 msgstr ""
 
-#: inc/taiowc-setting.php:36
+#: inc/taiowc-setting.php:37
 msgid "AIO Woo Cart"
 msgstr ""
 
 #. Name of the plugin
-msgid "All In One Woo Cart"
+msgid "All In One Advance Cart"
 msgstr ""
 
 #: inc/taiowc-option.php:445
@@ -70,7 +83,7 @@ msgstr ""
 msgid "Apply Coupon Button Text"
 msgstr ""
 
-#: inc/taiowc-setting.php:96
+#: inc/taiowc-setting.php:97
 msgid "Are you sure to reset current settings?"
 msgstr ""
 
@@ -166,15 +179,15 @@ msgstr ""
 msgid "Cart Style"
 msgstr ""
 
-#: inc/taiowc.php:562
+#: inc/taiowc.php:585
 msgid "Cart Updated"
 msgstr ""
 
-#: inc/taiowc-setting.php:109
+#: inc/taiowc-setting.php:110
 msgid "Check Doc"
 msgstr ""
 
-#: inc/taiowc-setting.php:775
+#: inc/taiowc-setting.php:828
 msgid "Choose an Image"
 msgstr ""
 
@@ -190,7 +203,7 @@ msgstr ""
 msgid "close Color"
 msgstr ""
 
-#: inc/taiowc-setting.php:115
+#: inc/taiowc-setting.php:119
 msgid "Contact Support"
 msgstr ""
 
@@ -250,6 +263,10 @@ msgstr ""
 msgid "Cross Sell"
 msgstr ""
 
+#: inc/taiowc.php:418
+msgid "Decrease quantity"
+msgstr ""
+
 #: inc/taiowc-option.php:1031 inc/taiowc-option.php:1061
 msgid "Disable"
 msgstr ""
@@ -294,15 +311,16 @@ msgstr ""
 msgid "Discount Text"
 msgstr ""
 
-#: inc/taiowc-setting.php:476
+#. %s : Menu Screen
+#: inc/taiowc-setting.php:500
 #, php-format
 msgid ""
-"Display cart in the header menu <span class=\"pro-ftr\">(Pro)</span>. <br /> "
-"<br /> Go to the Appearance > %s . Check \"TH All In One Woo Cart\" and "
-"Click \"Add to menu\" button. <br /> <br /> "
+"Display cart in the header menu <span class=\"pro-ftr\">(Pro)</span>. <br />"
+"<br /> Go to the Appearance > %s. Check \"TH All In One Woo Cart\" and click "
+"\"Add to menu\" button. <br /><br />"
 msgstr ""
 
-#: th-all-in-one-woo-cart.php:88 inc/taiowc-setting.php:109
+#: th-all-in-one-woo-cart.php:106 inc/taiowc-setting.php:110
 msgid "Documentation"
 msgstr ""
 
@@ -328,6 +346,12 @@ msgstr ""
 
 #: inc/taiowc-option.php:63
 msgid "Enable Cart"
+msgstr ""
+
+#: inc/taiowc-setting.php:113
+msgid ""
+"Enjoying this plugin? Help spread the the creation and show off your amazing "
+"website with such amazing functionality."
 msgstr ""
 
 #: inc/taiowc-option.php:436
@@ -366,15 +390,11 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: inc/taiowc-setting.php:112
-msgid "Get connected to our Facebook. Join our User friendly community."
-msgstr ""
-
-#: inc/taiowc-setting.php:118
+#: inc/taiowc-setting.php:122
 msgid "Give us your valuable feedback"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:19
+#: inc/themehunk-menu/th-option/th-option.php:14
 msgid "Grow your business with ThemeHunk free/pro themes & plugins."
 msgstr ""
 
@@ -435,11 +455,15 @@ msgid ""
 "useful options to customize your plugins."
 msgstr ""
 
-#: inc/taiowc-setting.php:115
+#: inc/taiowc-setting.php:119
 msgid "If you need any help you can contact to our support team"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:125
+#: inc/taiowc.php:420
+msgid "Increase quantity"
+msgstr ""
+
+#: inc/themehunk-menu/th-option/th-option.php:74
 msgid "Install Now"
 msgstr ""
 
@@ -447,15 +471,7 @@ msgstr ""
 msgid "Integration"
 msgstr ""
 
-#: inc/taiowc-setting.php:112
-msgid "Join Facebook Group"
-msgstr ""
-
-#: inc/taiowc-setting.php:112
-msgid "Join Group"
-msgstr ""
-
-#: inc/taiowc-option.php:1169 inc/themehunk-menu/plugins-list.php:55
+#: inc/taiowc-option.php:1169 inc/themehunk-menu/plugins-list.php:62
 msgid "Lead Form Builder"
 msgstr ""
 
@@ -471,7 +487,7 @@ msgstr ""
 msgid "Link Color"
 msgstr ""
 
-#: th-all-in-one-woo-cart.php:86
+#: th-all-in-one-woo-cart.php:104
 msgid "Live Demo"
 msgstr ""
 
@@ -483,7 +499,7 @@ msgstr ""
 msgid "Menu Cart / Shortcode Cart (Pro)"
 msgstr ""
 
-#: inc/taiowc-setting.php:476
+#: inc/taiowc-setting.php:501
 msgid "Menu Screen"
 msgstr ""
 
@@ -491,11 +507,11 @@ msgstr ""
 msgid "Mobile Cart"
 msgstr ""
 
-#: inc/taiowc-setting.php:115
+#: inc/taiowc-setting.php:119
 msgid "Need Help ?"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:52
+#: inc/themehunk-menu/admin-menu.php:24
 msgid "No plugin specified"
 msgstr ""
 
@@ -503,7 +519,7 @@ msgstr ""
 msgid "Number of Product"
 msgstr ""
 
-#: inc/taiowc-markup.php:164 inc/taiowc-option.php:365
+#: inc/taiowc-markup.php:165 inc/taiowc-option.php:365
 msgid "Payment Details"
 msgstr ""
 
@@ -519,7 +535,7 @@ msgstr ""
 msgid "Placeholder Text"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:73
+#: inc/themehunk-menu/admin-menu.php:41
 msgid "Plugin Successfully Activated"
 msgstr ""
 
@@ -527,7 +543,7 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-#: th-all-in-one-woo-cart.php:92
+#: th-all-in-one-woo-cart.php:110
 msgid "Premium Version"
 msgstr ""
 
@@ -539,16 +555,16 @@ msgstr ""
 msgid "Price Font Size"
 msgstr ""
 
+#: th-all-in-one-woo-cart.php:110
+msgid "Pro Version"
+msgstr ""
+
 #: inc/taiowc-option.php:783
 msgid "Product Add to cart BG Color"
 msgstr ""
 
 #: inc/taiowc-option.php:789
 msgid "Product Add to cart Color"
-msgstr ""
-
-#: inc/taiowc.php:526
-msgid "Product Added"
 msgstr ""
 
 #: inc/taiowc-option.php:692
@@ -595,7 +611,7 @@ msgstr ""
 msgid "Product Rating Color"
 msgstr ""
 
-#: inc/taiowc.php:558
+#: inc/taiowc.php:581
 msgid "Product removed"
 msgstr ""
 
@@ -623,7 +639,7 @@ msgstr ""
 msgid "Products you may like"
 msgstr ""
 
-#: inc/taiowc.php:301
+#: inc/taiowc.php:310
 msgid "Quantity"
 msgstr ""
 
@@ -639,11 +655,11 @@ msgstr ""
 msgid "Related"
 msgstr ""
 
-#: inc/taiowc.php:326
+#: inc/taiowc.php:332
 msgid "Remove this item"
 msgstr ""
 
-#: inc/taiowc-setting.php:96
+#: inc/taiowc-setting.php:97
 msgid "Reset all"
 msgstr ""
 
@@ -655,7 +671,7 @@ msgstr ""
 msgid "Reset All Setting"
 msgstr ""
 
-#: inc/taiowc-setting.php:118
+#: inc/taiowc-setting.php:122
 msgid "Review"
 msgstr ""
 
@@ -663,11 +679,12 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: inc/taiowc-setting.php:98
+#: inc/taiowc-setting.php:99
 msgid "Save Changes"
 msgstr ""
 
-#: th-all-in-one-woo-cart.php:64
+#: th-all-in-one-woo-cart.php:79 inc/themehunk-menu/th-option/th-option.php:163
+#: inc/themehunk-menu/th-option/th-option.php:171
 msgid "Settings"
 msgstr ""
 
@@ -723,7 +740,11 @@ msgstr ""
 msgid "Slide Right"
 msgstr ""
 
-#: inc/taiowc-markup.php:169 inc/taiowc-option.php:372
+#: inc/taiowc-setting.php:113
+msgid "Spread the News"
+msgstr ""
+
+#: inc/taiowc-markup.php:170 inc/taiowc-option.php:372
 msgid "Sub Total"
 msgstr ""
 
@@ -731,7 +752,7 @@ msgstr ""
 msgid "Sub Total Text"
 msgstr ""
 
-#: inc/taiowc-setting.php:118
+#: inc/taiowc-setting.php:122
 msgid "Submit a review"
 msgstr ""
 
@@ -755,7 +776,7 @@ msgstr ""
 msgid "Sum of quantity of all products"
 msgstr ""
 
-#: th-all-in-one-woo-cart.php:90 inc/themehunk-menu/th-option/sidebar.php:36
+#: th-all-in-one-woo-cart.php:108 inc/themehunk-menu/th-option/sidebar.php:36
 msgid "Support"
 msgstr ""
 
@@ -763,11 +784,11 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: inc/taiowc-option.php:1147 inc/themehunk-menu/plugins-list.php:4
+#: inc/taiowc-option.php:1147 inc/themehunk-menu/plugins-list.php:11
 msgid "TH Advance Product Search"
 msgstr ""
 
-#: inc/themehunk-menu/plugins-list.php:17
+#: inc/themehunk-menu/plugins-list.php:24
 msgid "Th All In One Woo Cart"
 msgstr ""
 
@@ -780,13 +801,13 @@ msgid ""
 "Responsive, mobile friendly plugin and supports many advanced features."
 msgstr ""
 
-#: inc/taiowc-setting.php:52
+#: inc/taiowc-setting.php:53
 msgid ""
 "TH All In One Woo Cart requires WooCommerce to work. Make sure that you have "
 "installed and activated WooCommerce Plugin."
 msgstr ""
 
-#: inc/taiowc-option.php:1158 inc/themehunk-menu/plugins-list.php:30
+#: inc/taiowc-option.php:1158 inc/themehunk-menu/plugins-list.php:37
 msgid "Th Product Compare"
 msgstr ""
 
@@ -794,22 +815,19 @@ msgstr ""
 msgid "TH Shop Mania Free Theme"
 msgstr ""
 
-#: inc/taiowc-option.php:1136 inc/themehunk-menu/plugins-list.php:43
+#: inc/taiowc-option.php:1136 inc/themehunk-menu/plugins-list.php:50
 msgid "TH Variation Swatches"
 msgstr ""
 
 #. Author of the plugin
-#: inc/themehunk-menu/admin-menu.php:10
-#: inc/themehunk-menu/th-option/th-option.php:16
+#: inc/taiowc-block.php:82 inc/themehunk-menu/admin-menu.php:48
+#: inc/themehunk-menu/admin-menu.php:48
+#: inc/themehunk-menu/th-option/th-option.php:11
 msgid "ThemeHunk"
 msgstr ""
 
-#: inc/themehunk-menu/th-option/th-option.php:18
+#: inc/themehunk-menu/th-option/th-option.php:13
 msgid "ThemeHunk Marketplace"
-msgstr ""
-
-#: inc/themehunk-menu/plugins-list.php:79
-msgid "ThemeHunk Megamenu – Menu builder"
 msgstr ""
 
 #: inc/themehunk-menu/th-option/sidebar.php:4
@@ -886,7 +904,7 @@ msgstr ""
 msgid "Uncheck to hide shipping details from cart panel."
 msgstr ""
 
-#: inc/taiowc-setting.php:105
+#: inc/taiowc-setting.php:106
 msgid "Unlock TH All In One Woo Cart Pro"
 msgstr ""
 
@@ -894,12 +912,16 @@ msgstr ""
 msgid "Up Sell"
 msgstr ""
 
-#: inc/taiowc-setting.php:105
+#: inc/taiowc-setting.php:106
 msgid "Upgrade Now"
 msgstr ""
 
 #: inc/themehunk-menu/th-option/sidebar.php:8
 msgid "Upgrade To Premium Plugin"
+msgstr ""
+
+#: inc/themehunk-menu/th-option/th-option.php:185
+msgid "Upgrade To Pro"
 msgstr ""
 
 #: inc/themehunk-menu/th-option/sidebar.php:14
@@ -908,7 +930,7 @@ msgid ""
 "will take your website to the next level."
 msgstr ""
 
-#: inc/taiowc-setting.php:776
+#: inc/taiowc-setting.php:829
 msgid "Use Image"
 msgstr ""
 
@@ -923,19 +945,25 @@ msgstr ""
 msgid "Use Product Slug separated by comma. For eg: product-1, product-2 "
 msgstr ""
 
-#: inc/taiowc-setting.php:481
+#. %s: PHP code to use the shortcode
+#: inc/taiowc-setting.php:526
 #, php-format
-msgid "Using php - %s"
+msgid "Using PHP - %s"
 msgstr ""
 
-#: inc/taiowc-setting.php:478
+#. %s: Instructions for using the shortcode
+#: inc/taiowc-setting.php:513
 #, php-format
-msgid "Using Shortcode - <code>[taiowc]</code><br /> <br />%s    "
+msgid "Using Shortcode - <code>[taiowc]</code><br /><br />%s"
 msgstr ""
 
-#: inc/taiowc-setting.php:473
+#: inc/taiowc-setting.php:491
 msgid ""
 "Using these three methods you can display cart at your desired location."
+msgstr ""
+
+#: inc/themehunk-menu/plugins-list.php:4
+msgid "Vayu Blocks"
 msgstr ""
 
 #: inc/themehunk-menu/th-option/sidebar.php:29
@@ -954,6 +982,11 @@ msgstr ""
 msgid "View Detail"
 msgstr ""
 
+#: inc/themehunk-menu/th-option/th-option.php:159
+#: inc/themehunk-menu/th-option/th-option.php:170
+msgid "View details"
+msgstr ""
+
 #: inc/themehunk-menu/th-option/sidebar.php:15
 msgid "View Premium Plugins"
 msgstr ""
@@ -963,7 +996,7 @@ msgid ""
 "Want a guide? We have video tutorials to walk you through getting started."
 msgstr ""
 
-#: inc/taiowc-setting.php:109
+#: inc/taiowc-setting.php:110
 msgid "Want to know how this plugin works. Read our Documentation."
 msgstr ""
 
@@ -979,11 +1012,15 @@ msgstr ""
 msgid "Why Upgrade?"
 msgstr ""
 
-#: inc/taiowc-option.php:1180 inc/themehunk-menu/plugins-list.php:67
+#: inc/taiowc-option.php:1180 inc/themehunk-menu/plugins-list.php:74
 msgid "WP Popup Builder – Popup Forms & Newsletter"
 msgstr ""
 
-#: inc/taiowc.php:441
+#: inc/taiowc-setting.php:48 inc/themehunk-menu/admin-menu.php:54
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: inc/taiowc.php:509
 msgid "Your Cart is Empty"
 msgstr ""
 

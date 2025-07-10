@@ -162,12 +162,12 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
 
             ?>
                 <div class="cart-total">
-                    <span class="taiowc-payment-title"><?php _e('Payment Details','taiowc'); ?></span>
+                    <span class="taiowc-payment-title"><?php esc_html_e('Payment Details','th-all-in-one-woo-cart'); ?></span>
 
                      <div class="taiowc-total-wrap">
                                 
                             <div class="taiowc-subtotal">
-                                <span class="taiowc-label"><?php _e('Sub Total','taiowc'); ?></span>
+                                <span class="taiowc-label"><?php esc_html_e('Sub Total','th-all-in-one-woo-cart'); ?></span>
                                 <span class="taiowc-value"><?php if(WC()->cart){
                                     echo wp_kses_post(WC()->cart->get_cart_subtotal());
                                  } ?></span>
