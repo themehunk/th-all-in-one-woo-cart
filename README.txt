@@ -1,18 +1,18 @@
-=== WooCommerce Cart & Floating Cart ===
+=== Advance Cart & Floating Cart ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
-Tags: woo cart, floating cart,ajax cart,woocommerce cart
+Tags: cart, floating cart,ajax cart,advance cart
 Requires at least: 5.5
-Tested up to: 6.8.1
+Tested up to: 6.8
 Stable tag: 2.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom WooCommerce Sliding Cart plugin.
+All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom advance Sliding Cart plugin.
 
 == Description ==
 
-TH All In One Woo Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This WooCommerce Cart plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
+TH All In One advacne Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This WooCommerce Cart plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
 
 [Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
 
@@ -33,7 +33,6 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 
 **Pro Features:-**
-
 ⭐ Header Menu Integration
 ⭐ Cart Analytics
 ⭐ Show and Hide Cart
@@ -142,14 +141,17 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.0.9 =
+* Update : The WooCommerce-related trademark/licensing violation has now been removed.
+* Update : All WooCommerce-related images and logos have been successfully removed.
 * Fixed : In Shop page add to cart not updated in block theme.
 
 = Version 2.0.8 =
-* Fixed : In Shop page add to cart not updated.
+* Fixed : Block Screen editor issue Fix.
 
 = Version 2.0.7 =
 * Fixed : Block issue Fix.
 * Update : Tested with WordPress 6.8.
+* Fixed : In Shop page add to cart not updated.
 
 = Version 2.0.6 =
 * Update : Block Improved.
@@ -248,6 +250,6 @@ Yes, You can translate our plugin to desired language.
 * Fix: Active plugin issue resolved.
 
 
-Thanks for using our plugin, We're sure you will create a great shopping website using this Woo Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
+Thanks for using our plugin, We're sure you will create a great shopping website using this Advance Cart Plugin. If you have any query then you can contact at our forum : https://themehunk.com/contact-us/
 
 Thank You!
