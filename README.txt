@@ -102,8 +102,6 @@ These themes have been tested and are compatible with search plugin without sign
 4. Color Design
 5. Cart Product Design
 
-
-
 == Installation ==
 
 1. Upload the `th-all-in-one-woo-cart.zip` to the `/wp-content/plugins/` directory
