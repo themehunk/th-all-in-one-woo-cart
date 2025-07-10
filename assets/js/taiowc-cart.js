@@ -137,7 +137,8 @@
                     type: 'POST',
                     data: {
                             cart_key: cart_key,
-                            new_qty: qty
+                            new_qty: qty,
+                            security: taiowc_param.update_qty_nonce
                           },
                     success: function(response){ 
                     hide_loader();

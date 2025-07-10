@@ -34,7 +34,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
         public function add_menu(){
 
-		$page_title = esc_html__( 'AIO Woo Cart', 'taiowc' );
+		$page_title = esc_html__( 'AIO Woo Cart', 'th-all-in-one-woo-cart');
 		
 		add_submenu_page( 'themehunk-plugins', $page_title,$page_title, 'manage_options', 'taiowc', array($this, 'settings_form'),10 );
 
@@ -45,12 +45,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 
-				wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+				wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'th-all-in-one-woo-cart' ) );
 			}
 
 			if( ! class_exists( 'WooCommerce' ) ){
 
-				   printf('<h2 class="requirement-notice">%s</h2>',__('TH All In One Woo Cart requires WooCommerce to work. Make sure that you have installed and activated WooCommerce Plugin.','taiowc' ) );
+				   printf('<h2 class="requirement-notice">%s</h2>',esc_html__( 'TH All In One Woo Cart requires WooCommerce to work. Make sure that you have installed and activated WooCommerce Plugin.', 'th-all-in-one-woo-cart' ) );
 
              return;
 
@@ -94,32 +94,32 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					?>
 					<p class="submit taiowc-button-wrapper">
 						
-						<a onclick="return confirm('<?php esc_attr_e( 'Are you sure to reset current settings?', 'taiowc' ) ?>')" class="reset" href="<?php echo esc_url($this->reset_url()); ?>"><?php esc_html_e( 'Reset all', 'taiowc' ); ?>
+						<a onclick="return confirm('<?php esc_attr_e( 'Are you sure to reset current settings?', 'th-all-in-one-woo-cart' ) ?>')" class="reset" href="<?php echo esc_url($this->reset_url()); ?>"><?php esc_html_e( 'Reset all',  'th-all-in-one-woo-cart'); ?>
 						</a>
-						 <button  disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'taiowc' ) ?>"><span class="dashicons dashicons-image-rotate spin"></span><span><?php esc_html_e( 'Save Changes', 'taiowc' ) ?></span>
+						 <button  disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'th-all-in-one-woo-cart') ?>"><span class="dashicons dashicons-image-rotate spin"></span><span><?php esc_html_e( 'Save Changes', 'th-all-in-one-woo-cart' ) ?></span>
 						 </button>
 					</p>
 			</div> 
             </div>
             <div class="taiowc-notes-wrap">
 
-            	<div class="taiowc-notes-row taiowc-wrap-pro"><h4 class="wrp-title"><?php esc_html_e( 'Unlock TH All In One Woo Cart Pro', 'taiowc' ) ?></h4><img src='<?php echo esc_url(TAIOWC_IMAGES_URI.'cart-pro-side-banner.png') ?>' alt="amaz-store"><a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>"><?php esc_html_e( 'Upgrade Now', 'taiowc' ) ?></a>
+            	<div class="taiowc-notes-row taiowc-wrap-pro"><h4 class="wrp-title"><?php esc_html_e( 'Unlock TH All In One Woo Cart Pro', 'th-all-in-one-woo-cart' ) ?></h4><img src='<?php echo esc_url(TAIOWC_IMAGES_URI.'cart-pro-side-banner.png') ?>' alt="amaz-store"><a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>"><?php esc_html_e( 'Upgrade Now', 'th-all-in-one-woo-cart' ) ?></a>
 
             	</div>
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.','th-all-in-one-woo-cart') ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
            
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'taiowc' ) ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart/&text=Hey, I just tried out the WordPress Plugin for <?php echo esc_url(home_url()); ?> .  Show off your amazing website with such amazing functionality with this awesome plugin: All In One Woo Cart By 
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'th-all-in-one-woo-cart') ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'th-all-in-one-woo-cart') ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart/&text=Hey, I just tried out the WordPress Plugin for <?php echo esc_url(home_url()); ?> .  Show off your amazing website with such amazing functionality with this awesome plugin: All In One Woo Cart By 
 @ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
-        <span class="x-image"><img src="<?php echo(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
-        <span><?php _e(' Click to Tweet','th-shop-mania'); ?></span></a>
+        <span class="x-image"><img src="<?php echo esc_url(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
+        <span><?php esc_html_e(' Click to Tweet','th-all-in-one-woo-cart'); ?></span></a>
             	</div>
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'taiowc' ) ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'th-all-in-one-woo-cart') ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'th-all-in-one-woo-cart') ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
 
             	<div class="taiowc-wrap-doc taiowc-img">
@@ -143,12 +143,9 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		            
 		      }
 		      check_ajax_referer( 'taiowc_plugin_nonce','_wpnonce');
-
-	             if( isset($_POST['taiowc']) ){ 
-	                      $sanitize_data_array = $this->taiowc_form_sanitize($_POST['taiowc']);
-	                      update_option('taiowc',$sanitize_data_array);         
-		            }
-		            die();  
+	          $sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash( $_POST['taiowc'] ) );
+	          update_option('taiowc', $sanitize_data_array);         
+		      die();  
 	    }
         
 	    public function taiowc_form_sanitize( $input ){
@@ -167,7 +164,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				  <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			     </div>
 				<?php foreach ( $this->fields as $tabs ): ?>
-					<a data-target="<?php echo esc_attr($tabs['id']); ?>"  class="taiowc-setting-nav-tab nav-tab <?php echo esc_html($this->get_options_tab_css_classes( $tabs )); ?> " href="#<?php echo esc_attr($tabs['id']); ?>"><span class="dashicons <?php echo $this->icon_list($tabs['id']); ?>"></span><?php echo esc_html($tabs['title']); ?></a>
+					<a data-target="<?php echo esc_attr( $tabs['id'] ); ?>" class="taiowc-setting-nav-tab nav-tab <?php echo esc_attr( $this->get_options_tab_css_classes( $tabs ) ); ?>" href="#<?php echo esc_attr( $tabs['id'] ); ?>">
+    <span class="dashicons <?php echo esc_attr( $this->icon_list( $tabs['id'] ) ); ?>"></span>
+    <?php echo esc_html( $tabs['title'] ); ?>
+</a>
 				<?php endforeach; ?>
 			</div>
 			<?php
@@ -243,8 +243,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		}
 
 		private function last_tab_input() {
-			printf( '<input type="hidden" id="_last_active_tab" name="%s[_last_active_tab]" value="%s">', $this->settings_name, $this->get_last_active_tab() );
-		}
+    printf(
+        '<input type="hidden" id="_last_active_tab" name="%s[_last_active_tab]" value="%s">',
+        esc_attr( $this->settings_name ),
+        esc_attr( $this->get_last_active_tab() )
+    );
+}
 
 		private function get_options_tab_css_classes( $tabs ) {
 			$classes = array();
@@ -268,7 +272,17 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				$wrapper_id = ! empty( $field['args']['id'] ) ? esc_attr( $field['args']['id'] ) . '-wrapper' : '';
 				$dependency = ! empty( $field['args']['require'] ) ? $this->build_dependency( $field['args']['require'] ) : '';
 
-				printf( '<tr id="%s" %s %s>', $wrapper_id, $custom_attributes, $dependency );
+							printf(
+				'<tr id="%s" %s %s>',
+				esc_attr( $wrapper_id ),
+				wp_kses( $custom_attributes, array(
+					'class' => array(),
+					'data' => array(),
+					'data-*' => array(), 
+					'style' => array(),
+				) ),
+				esc_attr( $dependency )
+			);
 
                 if ( isset( $field['args']['usefull'] ) ) {
 					echo '<td colspan="2" style="padding: 0; margin: 0">';
@@ -474,18 +488,50 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			?>
 			
-		   <h4><?php _e( 'Using these three methods you can display cart at your desired location.', 'taiowc' ); ?>: </h4>
-		   <ol>
+		   <h4><?php esc_html_e( 'Using these three methods you can display cart at your desired location.', 'th-all-in-one-woo-cart' ); ?>: </h4>
+		  <ol>
+    <li>
+        <?php
+       
+        echo wp_kses_post(
+			
+            sprintf(
+				 /* translators: %s : Menu Screen */
+                __( 'Display cart in the header menu <span class="pro-ftr">(Pro)</span>. <br /><br /> Go to the Appearance > %s. Check "TH All In One Woo Cart" and click "Add to menu" button. <br /><br />', 'th-all-in-one-woo-cart' ),
+                '<a href="#">' . esc_html__( 'Menu Screen', 'th-all-in-one-woo-cart' ) . '</a>'
+            )
+        );
+        ?>
+    </li>
 
-		   	    <li><?php printf( __( 'Display cart in the header menu <span class="pro-ftr">(Pro)</span>. <br /> <br /> Go to the Appearance > %s . Check "TH All In One Woo Cart" and Click "Add to menu" button. <br /> <br /> ', 'taiowc' ), '<a href="#">' . __( 'Menu Screen', 'taiowc' ) . '</a>' ); ?>
-				</li>
-				<li><?php printf( __( 'Using Shortcode - <code>[taiowc]</code><br /> <br />%s    ', 'taiowc' ), '<ul><li>Add given shortcode at the desired location, You can use Shortcode block, Widget or any page builder shortcode add-on to display cart. <br /> </li>  </ul>' ); ?></li>
-                <br /> <br />
-				
-				<li><?php printf( __( 'Using php - %s', 'taiowc' ), '<code>&lt;?php echo do_shortcode(\'[taiowc]\'); ?&gt;</code> <br /> <br /><ul><li>Add this php code at the desired location in any php file.</li>  </ul>' ); ?>
-				</li>
-				
-			</ol>
+    <li>
+        <?php
+        
+        echo wp_kses_post(
+            sprintf(
+				/* translators: %s: Instructions for using the shortcode */
+                __( 'Using Shortcode - <code>[taiowc]</code><br /><br />%s', 'th-all-in-one-woo-cart' ),
+                '<ul><li>' . esc_html__( 'Add given shortcode at the desired location. You can use Shortcode block, Widget, or any page builder shortcode add-on to display cart.', 'th-all-in-one-woo-cart' ) . '</li></ul>'
+            )
+        );
+        ?>
+    </li>
+
+    <li>
+        <?php
+        
+        echo wp_kses_post(
+            sprintf(
+				/* translators: %s: PHP code to use the shortcode */
+                __( 'Using PHP - %s', 'th-all-in-one-woo-cart' ),
+                '<code>&lt;?php echo do_shortcode(\'[taiowc]\'); ?&gt;</code><br /><br /><ul><li>' . esc_html__( 'Add this PHP code at the desired location in any PHP file.', 'th-all-in-one-woo-cart' ) . '</li></ul>'
+            )
+        );
+        ?>
+    </li>
+</ol>
+
+
 		
 		<?php 		
 			endif;
@@ -620,7 +666,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			if ( $this->is_reset_all() ) {
 				 $this->delete_settings();
-				 wp_redirect($this->settings_url());
+				 wp_redirect(esc_url($this->settings_url()));
+				 exit;
 			}
               
 		  register_setting( $this->settings_name, $this->settings_name, array( $this, 'sanitize_callback' ) );
@@ -709,7 +756,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
             }
 
-            if (isset($_GET['delete_wpnonce']) || wp_verify_nonce($_REQUEST['delete_wpnonce'], 'delete_nonce' ) ) {
+            if ( isset( $_REQUEST['delete_wpnonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['delete_wpnonce'] ) ), 'delete_nonce' ) ) {
 
 			do_action( sprintf( 'delete_%s_settings', $this->settings_name ), $this );
 
@@ -767,6 +814,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 				// STYEL
 				wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. 'assets/css/admin.css', array(), TAIOWC_VERSION );
+				// Add inline styles
+                wp_add_inline_style('taiowc-admin', taiowc_admin_style() );  
 				wp_enqueue_style( 'taiowc-pickr-nano-css', TAIOWC_PLUGIN_URI. 'assets/css/nano.min.css', array(), TAIOWC_VERSION );
 
 				//SCRIPT
@@ -776,9 +825,9 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 				wp_localize_script(
 					'taiowc-setting-script', 'TaiowcPluginObject', array(
-						'media_title'   => esc_html__( 'Choose an Image', 'taiowc' ),
-						'button_title'  => esc_html__( 'Use Image', 'taiowc' ),
-						'add_media'     => esc_html__( 'Add Media', 'taiowc' ),
+						'media_title'   => esc_html__( 'Choose an Image', 'th-all-in-one-woo-cart' ),
+						'button_title'  => esc_html__( 'Use Image', 'th-all-in-one-woo-cart' ),
+						'add_media'     => esc_html__( 'Add Media', 'th-all-in-one-woo-cart' ),
 						'ajaxurl'       => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
 						'nonce'         => wp_create_nonce( 'taiowc_plugin_nonce' ),
 					)

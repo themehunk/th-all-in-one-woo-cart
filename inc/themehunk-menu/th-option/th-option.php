@@ -8,10 +8,10 @@ function get_plugin(){
 function tab_constant(){
     $theme_data = wp_get_theme();
     $tab_array = array();
-    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','taiowc'),
+    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','th-all-in-one-woo-cart'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
-    'welcome'=>esc_html__('ThemeHunk Marketplace', 'taiowc' ),
-    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'taiowc' ),
+    'welcome'=>esc_html__('ThemeHunk Marketplace', 'th-all-in-one-woo-cart' ),
+    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'th-all-in-one-woo-cart' ),
     'v'=> 'Version '.$theme_data->get( 'Version' )
     );
     return $tab_array;
@@ -64,14 +64,14 @@ function tab_page() {
 
              if ( is_plugin_active( $plugin_init ) ) {
                    $button_class = 'button disabled '.$slug;
-                   $button_txt = esc_html__( 'Activated', 'taiowc' );
+                   $button_txt = esc_html__( 'Activated', 'th-all-in-one-woo-cart' );
                    $detail_link = $install_url = '';
                    $pro_active = 1; 
 
                 }
 
             if ( ! is_plugin_active( $plugin_init ) ){
-                    $button_txt = esc_html__( 'Install Now', 'taiowc' );
+                    $button_txt = esc_html__( 'Install Now', 'th-all-in-one-woo-cart' );
                     if ( ! $status ) {
                         $install_url = wp_nonce_url(
                             add_query_arg(
@@ -93,7 +93,7 @@ function tab_page() {
                             '_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_init ),
                         ), network_admin_url('plugins.php'));
                         $button_class = 'activate-now button-primary '.$slug;
-                        $button_txt = esc_html__( 'Activate Now', 'taiowc' );
+                        $button_txt = esc_html__( 'Activate Now', 'th-all-in-one-woo-cart' );
                     }
                 }
                 $detail_link = add_query_arg(
@@ -156,19 +156,19 @@ function plugin_install_button($plugin){
     
      <?php if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){?>
 
-    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( 'https://wordpress.org/plugins/'.$slug );?>"><?php echo esc_html__( 'View details', 'th-advance-product-search' );?></a>
+    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( 'https://wordpress.org/plugins/'.$slug );?>"><?php echo esc_html__( 'View details', 'th-all-in-one-woo-cart' );?></a>
 
    <span class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>">|</span>
 
-   <a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-advance-product-search');?>
+   <a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-all-in-one-woo-cart');?>
       
   </a>
 
 
      <?php } else { ?>
 
-    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( $plugin['detail_pro'] );?>"><?php echo esc_html__( 'View details', 'th-advance-product-search' );?></a>
-   <span class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>">|</span><a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-advance-product-search');?></a>
+    <a class="plugin-detail" target="_blank" href="<?php echo esc_url( $plugin['detail_pro'] );?>"><?php echo esc_html__( 'View details','th-all-in-one-woo-cart');?></a>
+   <span class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>">|</span><a class="setting-link<?php echo esc_attr($pro_active);?> setting-<?php echo esc_attr($slug);?>" href="<?php echo esc_url(admin_url('admin.php?page='.$admin_link));?>"><?php echo esc_html__('Settings','th-all-in-one-woo-cart');?></a>
 
 <?php } ?>
 
@@ -182,7 +182,7 @@ function plugin_install_button($plugin){
 
 <?php if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){?>
 
-    <a class="upgrade-to-pro button" target="_blank" href="<?php echo esc_url($plugin['detail_pro']);?>"><?php echo esc_html__('Upgrade To Pro','th-advance-product-search');?></a>
+    <a class="upgrade-to-pro button" target="_blank" href="<?php echo esc_url($plugin['detail_pro']);?>"><?php echo esc_html__('Upgrade To Pro','th-all-in-one-woo-cart');?></a>
 
 <?php } ?>
 
