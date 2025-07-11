@@ -146,8 +146,12 @@ if ( ! class_exists( 'Taiowc' ) ):
             wp_add_inline_style( 'taiowc-style', taiowc_style() );
 
             // Register scripts
-            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), TAIOWC_VERSION, true );
-            wp_register_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI . 'assets/js/owl.carousel.js', array( 'jquery' ), TAIOWC_VERSION, true );
+            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), TAIOWC_VERSION, array( 
+                'strategy'  => 'defer',
+            ) );
+            wp_register_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI . 'assets/js/owl.carousel.js', array( 'jquery' ), TAIOWC_VERSION, array( 
+                'strategy'  => 'defer',
+            ) );
 
             // Enqueue scripts
             wp_enqueue_script( 'taiowc-cart-script' );
@@ -565,7 +569,7 @@ echo wp_kses_post(
 
         $cart_key   = isset($_POST['cart_key']) ? sanitize_key($_POST['cart_key']) : '';
 
-        $new_qty    = (float) $_POST['new_qty'];
+        $new_qty = isset( $_POST['new_qty'] ) ? floatval( $_POST['new_qty'] ) : 0;
 
         
         $validated = apply_filters( 'taiowc_update_quantity', true, $cart_key, $new_qty );

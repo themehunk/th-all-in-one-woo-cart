@@ -143,13 +143,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		            
 		      }
 		      check_ajax_referer( 'taiowc_plugin_nonce','_wpnonce');
+			  $sanitize_data_array = array();
 	          $sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash( $_POST['taiowc'] ) );
 	          update_option('taiowc', $sanitize_data_array);         
 		      die();  
 	    }
         
 	    public function taiowc_form_sanitize( $input ){
-				$new_input = array();
 				foreach ( $input as $key => $val ){
 					$new_input[ $key ] = ( isset( $input[ $key ] ) ) ? sanitize_text_field( $val ) :'';
 		   }
@@ -666,7 +666,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			if ( $this->is_reset_all() ) {
 				 $this->delete_settings();
-				 wp_redirect(esc_url($this->settings_url()));
+				 wp_safe_redirect(esc_url($this->settings_url()));
 				 exit;
 			}
               
