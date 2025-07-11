@@ -17,7 +17,7 @@ if (!function_exists('themehunk_admin_menu')) {
           ){
              wp_die( - 1, 403 );
           }
-          if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
+          if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! sanitize_text_field(wp_unslash($_POST['init'])) ) {
            wp_send_json_error(
              array(
                'success' => false,
@@ -25,7 +25,7 @@ if (!function_exists('themehunk_admin_menu')) {
              )
            );
          }
-         $plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( $_POST['init'] ) : '';
+         $plugin_init = ( isset( $_POST['init'] ) ) ? sanitize_text_field( wp_unslash($_POST['init']) ) : '';
          $activate = activate_plugin( $plugin_init);
          if ( is_wp_error( $activate ) ) {
            wp_send_json_error(
@@ -63,9 +63,9 @@ function taiowc_admin_scripts( $hook ) {
 
     if ($hook === 'toplevel_page_themehunk-plugins'  ) {
 
-      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css' );
+      wp_enqueue_style( 'themehunk-plugin-css', THEMEHUNK_PURL . '/th-option/assets/css/started.css', array(), TAIOWC_VERSION );
       
-      wp_enqueue_script('themehunk-plugin-js', THEMEHUNK_PURL . '/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),'1', true);
+      wp_enqueue_script('themehunk-plugin-js', THEMEHUNK_PURL . '/th-option/assets/js/th-options.js',array( 'jquery', 'updates' ),TAIOWC_VERSION, true);
 
       wp_localize_script(
           'themehunk-plugin-js', 'TAIOWCAdmin', array(
