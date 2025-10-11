@@ -16,24 +16,28 @@
         cartopen: function (){
             $(document).on('click','a.taiowc-content',function(e){
                 e.preventDefault();
-                $(this).closest("div").toggleClass('model-cart-active');
+
+                // Remove active class from all first (optional cleanup)
+                $('.taiowc-model-wrap').removeClass('model-cart-active');
+
+                // Then activate the modal wrapper
+                $('.taiowc-model-wrap').addClass('model-cart-active');
 
                 
             });
         },
-        cartclose: function (){   
-            $(document).on('click','a.taiowc-cart-close',function(e){
+        cartclose: function () {
+            // Close button inside cart
+            $(document).on('click', 'a.taiowc-cart-close', function (e) {
                 e.preventDefault();
-                $('.taiowc-wrap').removeClass('model-cart-active');
-               
-
+                $('.taiowc-model-wrap').removeClass('model-cart-active');
             });
 
-           $(document).on('click','body', function(evt){ 
-                if($(evt.target).closest('a.taiowc-content, .taiowc-cart-model').length)
-                  return;             
-                  $('.taiowc-wrap').removeClass('model-cart-active'); 
-                 
+            // Click outside the cart closes it
+            $(document).on('click', 'body', function (evt) {
+                if ($(evt.target).closest('a.taiowc-content, .taiowc-cart-model').length)
+                    return;
+                $('.taiowc-model-wrap').removeClass('model-cart-active');
             });
         },
 
@@ -234,51 +238,53 @@
 
           },
 
-          UpdateCart: function () {
+         UpdateCart: function () {
+    var $this = this;
 
-            var $this = this;
+    // ✅ For WooCommerce Blocks add-to-cart event
+    $(document.body).on('wc-blocks_added_to_cart', function (event) {
+        // Refresh cart fragments (needed for WC blocks)
+        $this.refreshMyFragments();
 
-            $(document.body).on('wc-blocks_added_to_cart', function(event){
-                // Manually refresh fragments because blocks don't do it automatically
-                $this.refreshMyFragments();
+        // ✅ Open the modal cart
+        $('.taiowc-model-wrap').addClass('model-cart-active');
 
-                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');
-
-                // Refresh checkout page
-                if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
-                    if ($('form.checkout').length === 0) {
-                        location.reload();
-                        return;
-                    }
-                    $(document.body).trigger("update_checkout");
-                }
-
-                // Refresh Cart page
-                if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
-                    $(document.body).trigger("wc_update_cart");
-                }
-            });
-
-            $(document).on('added_to_cart', function(event, fragments, hash, atc_btn){
-                
-                $('a.taiowc-content').closest("div.taiowc-slide-right, div.taiowc-slide-left").toggleClass('model-cart-active');
-
-                // Refresh checkout page
-                if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
-                    if ($('form.checkout').length === 0) {
-                        location.reload();
-                        return;
-                    }
-                    $(document.body).trigger("update_checkout");
-                }
-
-                // Refresh Cart page
-                if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
-                    $(document.body).trigger("wc_update_cart");
-                }
-            });
+        // ✅ Refresh checkout page
+        if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
+            if ($('form.checkout').length === 0) {
+                location.reload();
+                return;
+            }
+            $(document.body).trigger("update_checkout");
         }
-   
+
+        // ✅ Refresh Cart page
+        if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
+            $(document.body).trigger("wc_update_cart");
+        }
+    });
+
+    // ✅ For classic WooCommerce add-to-cart event
+    $(document).on('added_to_cart', function (event, fragments, hash, atc_btn) {
+        // ✅ Open the modal cart
+        $('.taiowc-model-wrap').addClass('model-cart-active');
+
+        // ✅ Refresh checkout page
+        if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
+            if ($('form.checkout').length === 0) {
+                location.reload();
+                return;
+            }
+            $(document.body).trigger("update_checkout");
+        }
+
+        // ✅ Refresh Cart page
+        if (window.wc_add_to_cart_params && wc_add_to_cart_params.is_cart === "1") {
+            $(document.body).trigger("wc_update_cart");
+        }
+    });
+}
+ 
 }
 
 TAIOWCscriptLib.init();

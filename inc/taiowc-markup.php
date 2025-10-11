@@ -29,11 +29,24 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
          */
         public function __construct(){
             
+        // Render the cart modal only once in the footer
+        add_action( 'wp_footer', [ $this, 'render_cart_modal_once' ] );
 
         }
 
+        public function render_cart_modal_once() {
+        static $rendered = false;
+        if ( $rendered ) {
+            return;
+        }
+        $rendered = true;
+
+        // Output the modal HTML only once
+        $this->taiowc_cart_item_show();
+        }
+
         public function taiowc_cart_show(){
-                  
+    
             if ( class_exists( 'WooCommerce' ) && ! is_null( WC()->cart ) ) {
             ?>
                
@@ -75,7 +88,11 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
     }
 
 
-        public function taiowc_cart_item_show(){ ?>
+        public function taiowc_cart_item_show(){ 
+            
+            ?>
+
+            <div class="taiowc-model-wrap">
 
             <div class="taiowc-cart-model">   
 
@@ -118,7 +135,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
              
             </div>
 
-            
+            </div>
 
         <?php }
 

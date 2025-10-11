@@ -34,12 +34,9 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
          */
 
         public function __construct(){
-
             add_action( 'wc_ajax_get_refreshed_fragments', array( $this, 'get_refreshed_fragments' ) );
-     
             add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'taiowc_cart_show' ));
-            add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'taiowc_cart_item_show' ));
-               
+            add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'taiowc_cart_item_show' ));    
         }
 
         public function get_refreshed_fragments(){
@@ -96,60 +93,43 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
 
 
-     public function taiowc_cart_item_show($fragments){ 
-              
-               ob_start();   
+    /**
+     * Output updated cart modal content for fragments
+     */
+    public function taiowc_cart_item_show( $fragments ) {
+        ob_start();
 
+        ?>
+        <div class="taiowc-cart-model-wrap">
+            <?php 
+            // Optional notices (like item added to cart)
+            if ( function_exists( 'taiowc' ) ) {
+                taiowc()->taiowc_print_notices_html( 'cart' );
+            }
+
+            // Header section
+            taiowc_markup()->taiowc_cart_header();
             ?>
-               
-               <div class="taiowc-cart-model-wrap">
 
-               <?php taiowc()->taiowc_print_notices_html('cart');?>
+            <div class="taiowc-cart-model-body">
+                <?php do_action( 'taiowc_mini_cart' ); ?>
+            </div>
 
-                <?php taiowc_markup()->taiowc_cart_header();?>
+            <div class="taiowc-cart-model-footer">
+                <?php 
+                if ( class_exists( 'WooCommerce' ) && ! WC()->cart->is_empty() ) {
+                    taiowc_markup()->taiowc_cart_footer();
+                }
+                ?>
+            </div>
+        </div>
+        <?php
 
-                
-                    <div class="taiowc-cart-model-body">
-                        
-                        <?php 
+        // Capture output buffer
+        $fragments['div.taiowc-cart-model-wrap'] = ob_get_clean();
 
-                        do_action('taiowc_mini_cart'); 
-
-                        ?>
-
-                    </div>
-
-                    <div class="taiowc-cart-model-footer">
-
-                     <?php 
-
-                     if ( ! WC()->cart->is_empty() ) {
-
-
-                     taiowc_markup()->taiowc_cart_footer(); 
-
-                     }
-                    
-                    ?>
-
-                   </div> 
-
-               </div>
-
-               <?php 
-
-
-               $fragments['div.taiowc-cart-model-wrap'] = ob_get_clean();
-                    
-                return $fragments;
-
-            
-        }
-
-
-    }
-
-
+        return $fragments;
+      }
+    } 
 endif; 
-
 Taiowc_Cart_Fragment::get_instance();

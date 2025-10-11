@@ -134,28 +134,22 @@ if ( ! class_exists( 'Taiowc' ) ):
 
             // Register styles
             wp_register_style( 'taiowc-style', TAIOWC_PLUGIN_URI . 'assets/css/style.css', array(), TAIOWC_VERSION );
-            wp_register_style( 'owl.carousel-style', TAIOWC_PLUGIN_URI . 'assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
             wp_register_style( 'th-icon-css', TAIOWC_PLUGIN_URI . 'th-icon/style.css', array(), TAIOWC_VERSION );
 
             // Enqueue styles
             wp_enqueue_style( 'taiowc-style' );
-            wp_enqueue_style( 'owl.carousel-style' );
             wp_enqueue_style( 'th-icon-css' );
 
             // Add inline styles
             wp_add_inline_style( 'taiowc-style', taiowc_style() );
 
             // Register scripts
-            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), TAIOWC_VERSION, array( 
-                'strategy'  => 'defer',
-            ) );
-            wp_register_script( 'owl.carousel-script', TAIOWC_PLUGIN_URI . 'assets/js/owl.carousel.js', array( 'jquery' ), TAIOWC_VERSION, array( 
+            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), '', array( 
                 'strategy'  => 'defer',
             ) );
 
             // Enqueue scripts
             wp_enqueue_script( 'taiowc-cart-script' );
-            wp_enqueue_script( 'owl.carousel-script' );
 
             // WooCommerce cart fragments (if required for AJAX cart updates)
             wp_enqueue_script( 'wc-cart-fragments' );
