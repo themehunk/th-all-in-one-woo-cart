@@ -283,7 +283,7 @@
             $(document.body).trigger("wc_update_cart");
         }
     });
-}
+  }
  
 }
 

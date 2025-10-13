@@ -426,14 +426,16 @@ box-shadow: -4px 2px 6px #dddddd1a;
 
 
 .cart_fixed_1 .taiowc-cart-item {
-    padding: 0.7rem;
-    background: #fff;
-   border-radius: 10px!important;
-   box-shadow: 0 0 10px rgb(183 183 183 / 60%);
-    -moz-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
-    -webkit-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
-    -o-box-shadow: 0 0 10px rgb(183 183 183 / 60%);
-
+    padding: 0.4rem;
+    background: rgba(255, 255, 255, 0.44);
+    border-radius: 6px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(255, 255, 255, 0.27);
+}
+.cart_fixed_1 .taiowc-icon .th-icon {
+    font-size: 2rem;
 }
 
 .cart_fixed_1 .taiowc-cart-item .taiowc-total{
