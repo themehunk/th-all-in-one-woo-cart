@@ -12,14 +12,7 @@ $cartStyle = 'taiowc-slide-right';
 ?>
 
 <div id="<?php echo esc_attr($uniqueID); ?>" class="taiowc-wrap  <?php echo esc_attr($cartStyle); ?>  <?php echo esc_attr($layoutType); ?>">
-			
-			<?php 
-
-
-            taiowc_markup()->taiowc_cart_show();
-    
-			 taiowc_markup()->taiowc_cart_item_show();
-
-
-			?>
+	<?php 
+     taiowc_markup()->taiowc_cart_show();
+	?>
 </div>
