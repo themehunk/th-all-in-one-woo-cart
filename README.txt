@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: cart, floating cart,ajax cart,advance cart
 Requires at least: 5.5
 Tested up to: 6.8
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
@@ -140,6 +140,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= Version 2.2.1 =
+* Update : Themehunk Plugins page style improved.
 
 = Version 2.2.0 =
 * Fixed : Multiple cart model showing issue fix.
