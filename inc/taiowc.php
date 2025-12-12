@@ -139,6 +139,7 @@ if ( ! class_exists( 'Taiowc' ) ):
             // Enqueue styles
             wp_enqueue_style( 'taiowc-style' );
             wp_enqueue_style( 'th-icon-css' );
+            wp_enqueue_style('dashicons');
 
             // Add inline styles
             wp_add_inline_style( 'taiowc-style', taiowc_style() );
