@@ -30,7 +30,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
         public function __construct(){
             
         // Render the cart modal only once in the footer
-        add_action( 'wp_footer', [ $this, 'render_cart_modal_once' ] );
+        add_action( 'wp_footer', [ $this, 'render_cart_modal_once' ],999 );
 
         }
 

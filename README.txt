@@ -3,7 +3,7 @@ Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
 Tags: cart, floating cart,ajax cart,advance cart
 Requires at least: 5.5
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -142,6 +142,7 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.2.1 =
+* Fixed : cart model open issue fix.
 * Update : Themehunk Plugins page style improved.
 
 = Version 2.2.0 =

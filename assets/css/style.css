@@ -571,6 +571,9 @@ position: fixed;
 .cart_fixed_2 .cart-heading h4{
 display:none;
 }
+.taiowc-content:focus{
+    outline:none!important;
+}
 /*cart button*/
 .taiowc .cart-button .buttons a{
     background: #000!important;
@@ -624,7 +627,6 @@ font-weight: bold;
     display:none;
 }
 .quantity-decrement, .quantity-increment {
-
     cursor: pointer;
     border: 1px solid #eee;
     background-color:transparent;
@@ -633,7 +635,8 @@ font-weight: bold;
     height:25px;
     line-height:25px;
     width:25px;
-
+    padding: 0;
+    color: #444;
 }
 .quantity-decrement:focus,
 .quantity-increment:focus {
@@ -649,6 +652,8 @@ font-weight: bold;
 
 .quantity-decrement:hover, .quantity-increment:hover {
     background-color: #eee;
+    outline: none; /* Removes the default outline when the button is active */
+    box-shadow: none;
 }
 .taiowc input[type=number].taiowc-quantity {
     width: 30px;

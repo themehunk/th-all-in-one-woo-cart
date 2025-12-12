@@ -17,6 +17,8 @@
             $(document).on('click','a.taiowc-content',function(e){
                 e.preventDefault();
 
+                
+
                 // Remove active class from all first (optional cleanup)
                 $('.taiowc-model-wrap').removeClass('model-cart-active');
 

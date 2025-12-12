@@ -59,7 +59,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 add_action('taiowc_cart_show_icon',array( $this,'taiowc_cart_icon'));
 
-                add_action( 'wp_footer', array( $this, 'addcartBody' ) );
+                add_action( 'wp_footer', array( $this, 'addcartBody' ),99 );
 
                 add_action( 'taiowc_mini_cart', array( $this, 'taiowc_mini_cart_content' ) );
 
@@ -133,18 +133,19 @@ if ( ! class_exists( 'Taiowc' ) ):
             }
 
             // Register styles
-            wp_register_style( 'taiowc-style', TAIOWC_PLUGIN_URI . 'assets/css/style.css', array(), TAIOWC_VERSION );
+            wp_register_style( 'taiowc-style', TAIOWC_PLUGIN_URI . 'assets/css/style.css', array(), '' );
             wp_register_style( 'th-icon-css', TAIOWC_PLUGIN_URI . 'th-icon/style.css', array(), TAIOWC_VERSION );
 
             // Enqueue styles
             wp_enqueue_style( 'taiowc-style' );
             wp_enqueue_style( 'th-icon-css' );
+            wp_enqueue_style('dashicons');
 
             // Add inline styles
             wp_add_inline_style( 'taiowc-style', taiowc_style() );
 
             // Register scripts
-            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), '', array( 
+            wp_register_script( 'taiowc-cart-script', TAIOWC_PLUGIN_URI . 'assets/js/taiowc-cart.js', array( 'jquery' ), TAIOWC_VERSION, array( 
                 'strategy'  => 'defer',
             ) );
 
