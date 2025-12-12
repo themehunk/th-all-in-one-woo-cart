@@ -143,6 +143,7 @@ Yes, You can translate our plugin to desired language.
 
 = Version 2.2.1 =
 * Fixed : cart model open issue fix.
+* Update : Themehunk Plugins page style improved.
 
 = Version 2.2.0 =
 * Fixed : Multiple cart model showing issue fix.
