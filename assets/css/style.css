@@ -23,16 +23,20 @@ text-decoration: none!important;
 .cart-count-item{
 position: absolute;
     background: #111;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
+    height: 1.5rem;
+    width: 1.5rem;
     color: #fff;
     text-align: center;
-    font-size: 0.9rem;
-    border-radius: 100%;
-    top: -18px;
-    left:-18px;
+    font-size: 0.8rem;
+    border-radius: 9999px;
+    top: -7px;
+    left:-7px;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px #FFFFFF;
+    font-weight: 500;
 }
 .taiowc-content .taiowc-total{
 margin-left:0.3rem;
