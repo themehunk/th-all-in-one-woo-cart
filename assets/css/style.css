@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .taiowc-cart-item,.taiowc-icon,.taiowc-total{
 display:flex;
 align-items: center;
@@ -15,29 +18,55 @@ justify-content: center;
 position:relative;
 padding: 0;
 margin: 0;
+display: inline-flex;
 }
 .taiowc-content,
 .taiowc-cart-close{
 text-decoration: none!important;
 }
 .cart-count-item{
-position: absolute;
+    position: absolute;
     background: #111;
-    height: 1.5rem;
-    width: 1.5rem;
     color: #fff;
-    text-align: center;
-    font-size: 0.8rem;
+    right: initial;
+    line-height: 1;
+    left: 14px;
+    top: -3px;
+    font-size: 0.5rem;
+    padding: 0;
     border-radius: 9999px;
-    top: -7px;
-    left:-7px;
-    z-index: 1;
+    width: 1.125rem;
+    height: 1.125rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 2px #FFFFFF;
     font-weight: 500;
+    box-shadow: 0 0 0 2px #FFFFFF;
+    z-index: 1;
 }
+
+.cart_fixed_1 .cart-count-item{
+    left: -7px;
+}
+/*.cart-count-item{
+    position: absolute;
+    right: initial;
+    line-height: 1rem;
+    left: 14px;
+    top: -7px;
+    background: #999;
+    font-size: 0.65rem;
+    padding: 0;
+    border-radius: 9999px;
+    width: 1.125rem;
+    height: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    box-shadow: 0 0 0 2px #FFFFFF;
+
+}*/
 .taiowc-content .taiowc-total{
 margin-left:0.3rem;
 font-size:0.89rem;

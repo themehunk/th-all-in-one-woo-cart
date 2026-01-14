@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function taiowc_style($taiowc_custom_css=''){
 
 if(taiowc()->get_option( 'taiowc-tpcrt_show_quantity' )== true){
-  $taiowc_custom_css.=".cart-count-item{display:block;}";
+  $taiowc_custom_css.=".cart-count-item{display:flex;}";
 }else{
  $taiowc_custom_css.=".cart-count-item{display:none;}";
 
@@ -14,7 +14,7 @@ if(taiowc()->get_option( 'taiowc-tpcrt_show_quantity' )== true){
 
 
 if(taiowc()->get_option( 'taiowc-fxcrt_show_quantity' )== true){
-  $taiowc_custom_css.=".cart_fixed_1 .cart-count-item{display:block;}";
+  $taiowc_custom_css.=".cart_fixed_1 .cart-count-item{display:flex;}";
 }else{
  $taiowc_custom_css.=".cart_fixed_1 .cart-count-item{display:none;}";
 
