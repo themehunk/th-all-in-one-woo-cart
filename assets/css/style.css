@@ -6,8 +6,7 @@ display:flex;
 align-items: center;
 justify-content: center;
 }
-.taiowc-cart-item{
-  padding: 0.6rem;
+.taiowc-wrap .taiowc-cart-item{
   background: transparent;
   border-radius: 3px;
 }
@@ -18,21 +17,20 @@ justify-content: center;
 position:relative;
 padding: 0;
 margin: 0;
-display: inline-flex;
+display: flex;
 }
 .taiowc-content,
 .taiowc-cart-close{
 text-decoration: none!important;
 }
-.cart-count-item{
-    position: absolute;
+.taiowc-wrap .cart-count-item{
+     position: absolute;
     background: #111;
     color: #fff;
-    right: initial;
     line-height: 1;
-    left: 14px;
-    top: -3px;
-    font-size: 0.5rem;
+    left: 12px;
+    top: -10px;
+    font-size: 0.65rem;
     padding: 0;
     border-radius: 9999px;
     width: 1.125rem;
@@ -45,8 +43,9 @@ text-decoration: none!important;
     z-index: 1;
 }
 
-.cart_fixed_1 .cart-count-item{
-    left: -7px;
+.taiowc-wrap.cart_fixed_1 .cart-count-item{
+    left: -5px;
+    top: -7px;
 }
 /*.cart-count-item{
     position: absolute;
