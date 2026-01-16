@@ -84,26 +84,26 @@ display:inline-flex;
     color:var(--taiowc-iconClr);
     font-size:var(--taiowc-iconfontSize);
 }
-.wp-block-taiowc .taiowc-cart-item .taiowc-total{
-    color:var(--taiowc-priceClr);
-    font-size:var(--taiowc-pricefontSize);
-display:none;
-}
+// .wp-block-taiowc .taiowc-cart-item .taiowc-total{
+//     color:var(--taiowc-priceClr);
+//     font-size:var(--taiowc-pricefontSize);
+// display:none;
+// }
 .wp-block-taiowc.th-showprice .taiowc-cart-item .taiowc-total{
 display:block;
 }
 
-.wp-block-taiowc .cart-count-item{
-    background-color:var(--taiowc-countBgClr);
-    color:var(--taiowc-countClr);
-    font-size:var(--taiowc-countFontSize);
-    height:var(--taiowc-countSize);
-    width:var(--taiowc-countSize);
-    line-height:var(--taiowc-countSize);
-    display:none;
-}
+// .wp-block-taiowc .cart-count-item{
+//     background-color:var(--taiowc-countBgClr);
+//     color:var(--taiowc-countClr);
+//     font-size:var(--taiowc-countFontSize);
+//     height:var(--taiowc-countSize);
+//     width:var(--taiowc-countSize);
+//     line-height:var(--taiowc-countSize);
+//     display:none;
+// }
 .wp-block-taiowc.th-showcount .cart-count-item{
-    display:block;
+    display:flex;
 }
 
 .wp-block-taiowc.right .cart-count-item{
