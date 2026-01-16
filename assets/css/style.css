@@ -41,6 +41,7 @@ text-decoration: none!important;
     font-weight: 500;
     box-shadow: 0 0 0 2px #FFFFFF;
     z-index: 1;
+    font-weight: 600;
 }
 
 .taiowc-wrap.cart_fixed_1 .cart-count-item{
