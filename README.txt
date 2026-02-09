@@ -1,21 +1,26 @@
-=== All In One Advance Cart ===
+=== All In One Advance Cart for WooCommerce, Side Cart, Ajax Cart & Floating Cart ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
-Tags: cart, floating cart,ajax cart,advance cart
+Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
 
-All in One Ajax Floating Add to Cart Plugin for WooCommerce. Powerful & Easy to use custom advance Sliding Cart plugin.
+Enhance your Cart for WooCommerce with a modern side cart and floating cart. Improve shopping experience with a fast, Ajax-powered WooCommerce shopping cart plugin.
 
 == Description ==
 
-TH All In One advacne Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This WooCommerce Cart plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
+TH All In One Woo Cart is a powerful Cart for WooCommerce plugin that improves the default shopping cart experience by adding a modern side cart, floating cart, and Ajax-powered cart features.
 
-[Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
+This plugin helps customers view and manage their cart without leaving the current page, resulting in faster checkout and a better shopping experience.
+
+This WooCommerce Shopping Cart is a perfect choice to display Cart on your website and improve your potential customer’s buying experience. This Cart for WooCommerce plugin will add Floating Cart in your website. Customers can update or remove products from the cart without reloading the cart continuously. It is a fully Responsive, mobile friendly plugin and supports many advanced features. You can use this Woo Cart Plugin on any WooCommerce Theme.
+
+[Live Demo](https://wpthemes.themehunk.com/woo-cart-pro/) | [Docs](https://themehunk.com/docs/th-all-in-one-woo-cart/) | [More Details](https://themehunk.com/th-all-in-one-woo-cart/) | [support](https://themehunk.com/contact-us/).
+
 
 https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
@@ -24,6 +29,9 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 ⭐ Cart Integration Using Shortcode
 ⭐ Cart Integration Using PHP code
+⭐ Side Cart for WooCommerce
+⭐ Floating Cart Button
+⭐ Ajax Cart for WooCommerce
 ⭐ Slide Right Cart Open Style
 ⭐ Hide Cart from Pages
 ⭐ Auto Open with Ajax
@@ -34,6 +42,7 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 
 **Pro Features:-**
+
 ⭐ Header Menu Integration
 ⭐ Cart Analytics
 ⭐ Show and Hide Cart
@@ -69,7 +78,7 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 **Theme Compatibility:-**
 
-These themes have been tested and are compatible with search plugin without significant issues. Also you can use this plugin to your Block, Elementor, WooCommerce Pages:
+These plugin have been tested and are compatible with all WordPress themes without significant issues. Also you can use this plugin to your Block, Elementor, WooCommerce Pages:
 
 * [Shop Mania](https://wordpress.org/themes/th-shop-mania/) - by ThemeHunk
 * [Top Store](https://wordpress.org/themes/top-store/) - by ThemeHunk
@@ -140,6 +149,9 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+= Version 2.2.5 =
+* Fix : Shop mania theme issue fixed
+* Update: Style improved.
 
 = Version 2.2.4 =
 * Update : Required classes added in fixed cart and other html.

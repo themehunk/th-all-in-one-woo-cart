@@ -640,7 +640,7 @@ msgstr ""
 msgid "Products you may like"
 msgstr ""
 
-#: inc/taiowc.php:310
+#: inc/taiowc.php:309
 msgid "Quantity"
 msgstr ""
 
