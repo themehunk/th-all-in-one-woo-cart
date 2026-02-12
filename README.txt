@@ -1,15 +1,15 @@
-=== All In One Advance Cart for WooCommerce, Side Cart, Ajax Cart & Floating Cart ===
+=== Advance Side Cart, Ajax Cart & Floating Cart for WooCommerce   ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
 
-Enhance your Cart for WooCommerce with a modern side cart and floating cart. Improve shopping experience with a fast, Ajax-powered WooCommerce shopping cart plugin.
+Enhance your Cart for WooCommerce with a modern side cart and floating cart. Improve shopping experience with a fast, Ajax-powered shopping cart.
 
 == Description ==
 
@@ -80,29 +80,29 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 These plugin have been tested and are compatible with all WordPress themes without significant issues. Also you can use this plugin to your Block, Elementor, WooCommerce Pages:
 
-* [Shop Mania](https://wordpress.org/themes/th-shop-mania/) - by ThemeHunk
-* [Top Store](https://wordpress.org/themes/top-store/) - by ThemeHunk
-* [Open Shop](https://wordpress.org/themes/open-shop/) - by ThemeHunk
-* [Zita](https://wordpress.org/themes/zita/) - by ThemeHunk
-* [Big Store](https://wordpress.org/themes/big-store/) - by ThemeHunk
-* [M Shop](https://wordpress.org/themes/m-shop/) - by ThemeHunk
-* [Royal Shop](https://wordpress.org/themes/royal-shop/) - by ThemeHunk
-* [Open Mart](https://wordpress.org/themes/open-mart/) - by ThemeHunk
-* [GoGo](https://wordpress.org/themes/gogo/) - by ThemeHunk
-* [Twenty Twenty-Two](https://wordpress.org/themes/twentytwentytwo/) - by WordPress.org
-* [Hello Elementor](https://wordpress.org/themes/hello-elementor/) - by Elementor
-* [OceanWP](https://wordpress.org/themes/oceanwp/) - by oceanwp
-* [Neve](https://wordpress.org/themes/neve/) - by Themeisle
-* [Go](https://wordpress.org/themes/go/) - by GoDaddy
-* [GeneratePress](https://wordpress.org/themes/generatepress/) - by Tom
-* [Hestia](https://wordpress.org/themes/hestia/) - by Themeisle
-* [Colibri WP](https://wordpress.org/themes/colibri-wp/) - by Extend Themes
-* [Kadence](https://wordpress.org/themes/kadence/) - by Ben Ritner – Kadence WP
-* [Astra](https://wordpress.org/themes/astra/) - by Brainstorm Force
-* [Kubio](https://wordpress.org/themes/kubio/) - by Extend Themes
-* [Zakra](https://wordpress.org/themes/zakra/) - by ThemeGrill
-* [Storefront](https://wordpress.org/themes/storefront/) - by Automattic
-* [Blocksy](https://wordpress.org/themes/blocksy/) - by creativethemeshq
+* [Shop Mania](https://wordpress.org/themes/th-shop-mania/) – by ThemeHunk
+* [Top Store](https://wordpress.org/themes/top-store/) – by ThemeHunk
+* [Open Shop](https://wordpress.org/themes/open-shop/) – by ThemeHunk
+* [Zita](https://wordpress.org/themes/zita/) – by ThemeHunk
+* [Big Store](https://wordpress.org/themes/big-store/) – by ThemeHunk
+* [M Shop](https://wordpress.org/themes/m-shop/) – by ThemeHunk
+* [Royal Shop](https://wordpress.org/themes/royal-shop/) – by ThemeHunk
+* [Open Mart](https://wordpress.org/themes/open-mart/) – by ThemeHunk
+* [GoGo](https://wordpress.org/themes/gogo/) – by ThemeHunk
+* [Twenty Twenty-Two](https://wordpress.org/themes/twentytwentytwo/) – by WordPress.org
+* [Hello Elementor](https://wordpress.org/themes/hello-elementor/) – by Elementor
+* [OceanWP](https://wordpress.org/themes/oceanwp/) – by oceanwp
+* [Neve](https://wordpress.org/themes/neve/) – by Themeisle
+* [Go](https://wordpress.org/themes/go/) – by GoDaddy
+* [GeneratePress](https://wordpress.org/themes/generatepress/) – by Tom
+* [Hestia](https://wordpress.org/themes/hestia/) – by Themeisle
+* [Colibri WP](https://wordpress.org/themes/colibri-wp/) – by Extend Themes
+* [Kadence](https://wordpress.org/themes/kadence/) – by Ben Ritner – Kadence WP
+* [Astra](https://wordpress.org/themes/astra/) – by Brainstorm Force
+* [Kubio](https://wordpress.org/themes/kubio/) – by Extend Themes
+* [Zakra](https://wordpress.org/themes/zakra/) – by ThemeGrill
+* [Storefront](https://wordpress.org/themes/storefront/) – by Automattic
+* [Blocksy](https://wordpress.org/themes/blocksy/) – by creativethemeshq
 
 == Screenshots ==
 1. Dashboard
@@ -149,7 +149,7 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
-= Version 2.2.5 =
+= Version 2.2.6 =
 * Fix : Shop mania theme issue fixed
 * Update: Style improved.
 
