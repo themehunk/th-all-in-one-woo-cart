@@ -95,7 +95,7 @@ function taiowc_register_blocks() {
     if ( is_admin() ) {
     
     wp_enqueue_style(
-        'taiowcp-component-editor-css',
+        'taiowc-component-editor-css',
         TAIOWC_PLUGIN_URI . 'build/component-editor.css',
          array(),
          TAIOWC_VERSION,
@@ -350,9 +350,9 @@ function taiowc_register_blocks() {
                 ";
     // class
     if (!isset($attr['cartPrice'])) {
-        $taiowcPriceShow = "th-showprice";
+        $taiowcriceShow = "th-showprice";
     }else{
-        $taiowcPriceShow = "";
+        $taiowcriceShow = "";
     }
     if (!isset($attr['cartCount'])) {
     $taiowcCountShow = "th-showcount";
@@ -363,7 +363,7 @@ function taiowc_register_blocks() {
     $countPosition    = isset($attr['countPosition']) ? $attr['countPosition'] : 'left';
     $taiowBlockStyle  = preg_replace('/\s+/', ' ', trim($taiowBlockStyle));
      
-    $block_content = '<div id="wp-block-taiowc-' . esc_attr($attr['uniqueID']) . '"  class="wp-block-taiowc ' . esc_attr($taiowcPriceShow) . ' ' . esc_attr($taiowcCountShow) . '  '.esc_attr($countPosition).'" style="'.esc_attr($taiowBlockStyle).'">';
+    $block_content = '<div id="wp-block-taiowc-' . esc_attr($attr['uniqueID']) . '"  class="wp-block-taiowc ' . esc_attr($taiowcriceShow) . ' ' . esc_attr($taiowcCountShow) . '  '.esc_attr($countPosition).'" style="'.esc_attr($taiowBlockStyle).'">';
     
     $cartStyle = isset($attr['cartStyle']) ? $attr['cartStyle'] : '[taiowc]';
   

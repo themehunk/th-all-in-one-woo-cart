@@ -1,29 +1,29 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;?>
 <!-- preview wrapper -->
-			<div class="setting-preview-wrap" data-tab="taiowcp_menu_cart">
+			<div class="setting-preview-wrap" data-tab="taiowc_menu_cart">
 				    <div class="page-wrapper">
         <header class="site-header">
             <!-- Logo -->
             <div class="logo">
                 <span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg></span>
-                <span class="logo-text"><?php esc_html_e('MEGASTORE','taiowcp');  ?></span>
+                <span class="logo-text"><?php esc_html_e('MEGASTORE','th-all-in-one-woo-cart');  ?></span>
             </div>
 
             <!-- Navigation -->
             <nav class="main-nav">
-                <a href="#"><?php esc_html_e('Home','taiowcp');  ?></a>
-                <a href="#"><?php esc_html_e('Shop','taiowcp');  ?></a>
-                <a href="#"><?php esc_html_e('Categories','taiowcp');  ?></a>
+                <a href="#"><?php esc_html_e('Home','th-all-in-one-woo-cart');  ?></a>
+                <a href="#"><?php esc_html_e('Shop','th-all-in-one-woo-cart');  ?></a>
+                <a href="#"><?php esc_html_e('Categories','th-all-in-one-woo-cart');  ?></a>
             </nav>
 
             <!-- Cart -->
             <div class="cart">
-                <div id="3" class="taiowc-wrap taiowc-slide-right fxd-right" data-th-bg="taiowcp-bg_clr">
+                <div id="3" class="taiowc-wrap taiowc-slide-right fxd-right" data-th-bg="taiowc-bg_clr">
     <a class="taiowc-content" href="#">
         <div class="taiowc-cart-item">
 
             <div class="taiowc-icon-wrapper">
-                <div class="taiowc-icon" data-th-color="taiowcp-cart_icon_clr"  data-th-width="taiowcp-icon_size-field">
+                <div class="taiowc-icon" data-th-color="taiowc-cart_icon_clr"  data-th-width="taiowc-icon_size-field">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -34,15 +34,15 @@
                     </svg>
                 </div>
 
-                <div class="cart-count-item"  data-th-bg="taiowcp-quantity_bg_clr"
-                      data-th-color="taiowcp-quantity_clr"
-                      data-th-border="taiowcp-price_clr" data-th-shadow="taiowcp-quantity_shadow_clr" data-th-shadow-val="0 0 10px {color}"
-                      data-th-toggle="taiowcp-show_quantity-field">2</div>
+                <div class="cart-count-item"  data-th-bg="taiowc-quantity_bg_clr"
+                      data-th-color="taiowc-quantity_clr"
+                      data-th-border="taiowc-price_clr" data-th-shadow="taiowc-quantity_shadow_clr" data-th-shadow-val="0 0 10px {color}"
+                      data-th-toggle="taiowc-show_quantity-field">2</div>
             </div>
 
-            <div class="taiowc-total" data-th-color="taiowcp-price_clr" data-th-font-size="taiowcp-prc_font_size-field" data-th-unit="px" data-th-toggle="taiowcp-show_price-field">
+            <div class="taiowc-total" data-th-color="taiowc-price_clr" data-th-font-size="taiowc-prc_font_size-field" data-th-unit="px" data-th-toggle="taiowc-show_price-field">
                 <span class="woocommerce-Price-amount amount">
-                    <span class="woocommerce-Price-currencySymbol"> <?php esc_html_e( '$', 'taiowcp' ); ?></span> <?php esc_html_e( '1008.00', 'taiowcp' ); ?>
+                    <span class="woocommerce-Price-currencySymbol"> <?php esc_html_e( '$', 'th-all-in-one-woo-cart' ); ?></span> <?php esc_html_e( '1008.00', 'th-all-in-one-woo-cart' ); ?>
                 </span>
             </div>
 

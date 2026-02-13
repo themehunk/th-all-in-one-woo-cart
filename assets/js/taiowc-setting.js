@@ -27,7 +27,7 @@
         // e.preventDefault();
 
         // Trigger click on Reset tab
-        $("a[data-target='taiowcp_reset']").trigger('click');
+        $("a[data-target='taiowc_reset']").trigger('click');
     });
 
 },
@@ -62,8 +62,8 @@
 
         LiveMobileCartEffectPreview: function () {
 
-    var $mobileSelect = $('#taiowcp-cart_mobile_effect-field');
-    var $globalSelect = $('#taiowcp-cart_effect-field');
+    var $mobileSelect = $('#taiowc-cart_mobile_effect-field');
+    var $globalSelect = $('#taiowc-cart_effect-field');
     var $wrapper      = $('.live-mobile .cart-panel-preview .cart-wrapper');
 
     function applyMobileEffect() {
@@ -72,7 +72,7 @@
 
         // remove ALL effect classes
         $wrapper.removeClass(function (i, cls) {
-            return (cls.match(/(taiowcp-\S+|mobiletopslide)/g) || []).join(' ');
+            return (cls.match(/(taiowc-\S+|mobiletopslide)/g) || []).join(' ');
         });
 
         if (mobileEffect === 'mobiletopslide') {
@@ -87,12 +87,12 @@
     }
 
     // mobile effect change
-    $(document).on('change', '#taiowcp-cart_mobile_effect-field', function () {
+    $(document).on('change', '#taiowc-cart_mobile_effect-field', function () {
         applyMobileEffect();
     });
 
     // global effect change (only when mobile = global)
-    $(document).on('change', '#taiowcp-cart_effect-field', function () {
+    $(document).on('change', '#taiowc-cart_effect-field', function () {
         if ($mobileSelect.val() === 'global') {
             applyMobileEffect();
         }
@@ -282,15 +282,15 @@ LiveTextPreview: function () {
 
 LiveCartEffectPreview: function () {
 
-    var $select = $('#taiowcp-cart_effect-field');
+    var $select = $('#taiowc-cart_effect-field');
     var $wrapper = $('.cart-wrapper');
 
     function applyCartEffect() {
         var selectedClass = $select.val();
 
-        // Remove ONLY dynamic taiowcp-* classes
+        // Remove ONLY dynamic taiowc-* classes
         $wrapper.removeClass(function (index, className) {
-            return (className.match(/taiowcp-\S+/g) || []).join(' ');
+            return (className.match(/taiowc-\S+/g) || []).join(' ');
         });
 
         // Add selected class
@@ -300,7 +300,7 @@ LiveCartEffectPreview: function () {
     }
 
     // Apply on change
-    $(document).on('change', '#taiowcp-cart_effect-field', function () {
+    $(document).on('change', '#taiowc-cart_effect-field', function () {
         applyCartEffect();
     });
 
@@ -316,7 +316,7 @@ LiveCartEffectPreview: function () {
 
         CopyToClipboard: function () {
 
-  $(document).on('click', '.taiowcp-copy-btn', function (e) {
+  $(document).on('click', '.taiowc-copy-btn', function (e) {
     e.preventDefault();
 
     var $btn = $(this);
@@ -354,7 +354,7 @@ LiveCartEffectPreview: function () {
 
         SettingTab: function (){
           $(document).ready(function(){ 
-                  $('#taiowcp').on('click', '.nav-tab', function (event){
+                  $('#taiowc').on('click', '.nav-tab', function (event){
                   event.preventDefault()
                   var target = $(this).data('target')
                   $(this).addClass('nav-tab-active').siblings().removeClass('nav-tab-active')
@@ -377,7 +377,7 @@ LiveCartEffectPreview: function () {
                         /* --------- DYNAMIC PREVIEW (REPLACED PART) --------- */
 
             var $preview = $('.setting-preview-wrap[data-tab="' + target + '"]');
-            var $form = $('.setting-preview-wrap').closest('.taiowcp-setting-form');
+            var $form = $('.setting-preview-wrap').closest('.taiowc-setting-form');
 
             // remove old preview classes
           
@@ -475,20 +475,20 @@ $form.removeClass(function (i, cls) {
           });
         },
         SaveSetting:function(){
-        $(document).on('keyup change paste', '.taiowc-setting-form input, .taiowc-setting-form select, .taiowc-setting-form textarea, .taiowcp-setting-form input, .taiowcp-setting-form select, .taiowcp-setting-form textarea', function () {
+        $(document).on('keyup change paste', '.taiowc-setting-form input, .taiowc-setting-form select, .taiowc-setting-form textarea', function () {
         
               $('#submit').removeAttr("disabled");
               
         });  
-        $(document).on("click", ".taiowcp-button-wrapper #submit", function (e) {
+        $(document).on("click", ".taiowc-button-wrapper #submit", function (e) {
         e.preventDefault();
         $(this).addClass('loader');
         
-        var form_settting = $(".taiowcp-setting-form").serialize();
+        var form_settting = $(".taiowc-setting-form").serialize();
         $.ajax({
-          url: TaiowcPluginObject.ajaxurl,
+          url: taiowcluginObject.ajaxurl,
           type: "POST",
-          data: form_settting +'&_wpnonce=' + TaiowcPluginObject.nonce +'',
+          data: form_settting +'&_wpnonce=' + taiowcluginObject.nonce +'',
           success: function (response) {
            
             $('#submit').removeClass('loader');

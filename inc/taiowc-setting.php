@@ -59,7 +59,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			}
 		
 			?>
-			<div id="taiowcp" class="settings-wrap thwc-plugin-common-wrap">
+			<div id="taiowc" class="settings-wrap thwc-plugin-common-wrap">
 				
 				 <?php $this->options_tabs(); ?>
 
@@ -68,18 +68,19 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					<div class="top-header">
                 <h2 class="tabheading"><?php esc_html_e("Configuration Engine", 'th-product-compare-pro'); ?></h2>
                
-					<p class="submit taiowcp-button-wrapper th-save-btn">
+               <a href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>" title="Get Premium Version" target="_blank"><?php esc_html_e('Get Premium Version','th-all-in-one-woo-cart'); ?></a>
+					<p class="submit taiowc-button-wrapper th-save-btn">
 						
 						<span class="reset" href="#">
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg><?php esc_html_e( 'Reset all', 'taiowcp' ); ?>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg><?php esc_html_e( 'Reset all', 'th-all-in-one-woo-cart' ); ?>
 						</span>
 
-						 <button disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'taiowcp' ) ?>"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span><?php esc_html_e( 'Save All Changes', 'taiowcp' ) ?></span>
+						 <button disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'th-all-in-one-woo-cart' ) ?>"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span><?php esc_html_e( 'Save All Changes', 'th-all-in-one-woo-cart' ) ?></span>
 						 </button>
 					</p> 
 					</div>
 					
-				   <form method="post" action="" enctype="multipart/form-data" class="taiowcp-setting-form">
+				   <form method="post" action="" enctype="multipart/form-data" class="taiowc-setting-form">
                    <input type="hidden" name="action" value="taiowc_form_setting">
 					<div id="settings-tabs">
 						<?php foreach ( $this->fields as $tab ):
@@ -89,7 +90,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 							$is_active = ( $this->get_last_active_tab() == $tab['id'] );
 							?>
 							<div id="<?php echo esc_attr($tab['id']); ?>"
-								 class="settings-tab taiowcp-setting-tab"
+								 class="settings-tab taiowc-setting-tab"
 								 style="<?php echo ! esc_attr($is_active) ? 'display: none' : '' ?>">
 								 
 								<?php foreach ( $tab['sections'] as $section ):
@@ -115,17 +116,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-cart-panel.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-mobile.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-reset.php';
+					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-cart-analytics.php';
 					?> 
 					
 					</form>
 			</div> 
 
-			<div id="taiowcp_cart_analys" class="taiowcp-cart-track-wrapper">
-				<?php 
-					// taiowcp_track_table();
-					do_action('taiowcp_cart_track'); 
-				?>
-			</div>
+			
             
             </div>        
 				
@@ -162,7 +159,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				  <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 			     </div>
 				<?php foreach ( $this->fields as $tabs ): ?>
-					<a data-target="<?php echo esc_attr( $tabs['id'] ); ?>" class="taiowcp-setting-nav-tab nav-tab <?php echo esc_attr( $this->get_options_tab_css_classes( $tabs ) ); ?>" href="#<?php echo esc_attr( $tabs['id'] ); ?>">
+					<a data-target="<?php echo esc_attr( $tabs['id'] ); ?>" class="taiowc-setting-nav-tab nav-tab <?php echo esc_attr( $this->get_options_tab_css_classes( $tabs ) ); ?>" href="#<?php echo esc_attr( $tabs['id'] ); ?>">
 			    <span><?php echo $this->icon_list($tabs['id']); ?></span>
 			    <?php echo esc_html( $tabs['title'] ); ?>
 </a>
@@ -175,24 +172,24 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			$icon = array(
 			'taiowc_integration'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml" aria-hidden="true"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>',
 
-			'taiowcp_general' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+			'taiowc_general' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>',
 
-			'taiowcp_menu_cart' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>',
+			'taiowc_menu_cart' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>',
 
-			'taiowcp_fixed_cart' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mouse-pointer2 lucide-mouse-pointer-2" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"></path></svg>',
+			'taiowc_fixed_cart' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mouse-pointer2 lucide-mouse-pointer-2" aria-hidden="true"><path d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"></path></svg>',
 
-			'taiowcp-cart_style_set'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>',
+			'taiowc-cart_style_set'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>',
 
-			'taiowcp_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>',
+			'taiowc_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>',
 
 			
-			'taiowcp_mobile_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>',
+			'taiowc_mobile_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>',
 
-			'taiowcp_hide_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg>',
+			'taiowc_hide_cart'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg>',
 
-			'taiowcp_cart_analyst'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>',
+			'taiowc_cart_analyst'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>',
 
-			'taiowcp_reset'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>',
+			'taiowc_reset'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>',
 		);
 
 			return $icon[$id];
@@ -233,11 +230,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
 
-				if ( $section['title'] ) {
-
-					echo "<h2 class=".esc_attr($section['id']).">".esc_html($section['title'])."</h2>";
-
-				}
+				
                 
 				if ( $section['callback'] ) {
 					call_user_func( $section['callback'], $section );
@@ -247,9 +240,16 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					continue;
 				}
 
-				echo '<table class="form-table" id='.esc_attr($section['id']).'>';
+				echo '<div class="form-table taiowc-form-table" id='.esc_attr($section['id']).'>';
+
+				if ( $section['title'] ) {
+
+					echo "<h2 class=".esc_attr($section['id']).">".esc_html($section['title'])."</h2>";
+
+				}
+
 				$this->do_settings_fields( $page, $section['id'] );
-				echo '</table>';
+				echo '</div>';
 			}
 		}
 
@@ -278,13 +278,25 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			foreach ( (array) $wp_settings_fields[ $page ][ $section ] as $field ) {
 				
-				$custom_attributes = $this->array2html_attr( isset( $field['args']['attributes'] ) ? $field['args']['attributes'] : array() );
+				// $custom_attributes = $this->array2html_attr( isset( $field['args']['attributes'] ) ? $field['args']['attributes'] : array() );
+
+				$attributes = isset( $field['args']['attributes'] ) ? $field['args']['attributes'] : array();
+
+				// Always add taiowc-settings-row class
+				if ( isset( $attributes['class'] ) ) {
+				    $attributes['class'] .= ' taiowc-settings-row';
+				} else {
+				    $attributes['class'] = 'taiowc-settings-row';
+				}
+
+				$custom_attributes = $this->array2html_attr( $attributes );
+
 
 				$wrapper_id = ! empty( $field['args']['id'] ) ? esc_attr( $field['args']['id'] ) . '-wrapper' : '';
 				$dependency = ! empty( $field['args']['require'] ) ? $this->build_dependency( $field['args']['require'] ) : '';
 
 							printf(
-				'<tr id="%s" %s %s>',
+				'<div id="%s" %s %s>',
 				esc_attr( $wrapper_id ),
 				wp_kses( $custom_attributes, array(
 					'class' => array(),
@@ -296,24 +308,24 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			);
 
                 if ( isset( $field['args']['usefull'] ) ) {
-					echo '<td colspan="2" style="padding: 0; margin: 0">';
+					echo '<div colspan="2" style="padding: 0; margin: 0">';
 					$this->usefullplugin_field_callback( $field['args'] );
-					echo '</td>';
+					echo '</div>';
 			  	}else{
 				
-					echo '<th scope="row" class="taiowc-settings-label">';
+					echo '<div scope="row" class="taiowc-settings-label">';
 					if ( ! empty( $field['args']['label_for'] ) ) {
 						echo '<label for="' . esc_attr( $field['args']['label_for'] ) . '">' . esc_html($field['title']). '</label>';
 					} else {
 						echo esc_html($field['title']);
 					}
 
-					echo '</th>';
-					echo '<td class="taiowc-settings-field-content">';
+					echo '</div>';
+					echo '<div class="taiowc-settings-field-content">';
 					call_user_func( $field['callback'], $field['args'] );
-					echo '</td>';
+					echo '</div>';
 				}
-				   echo '</tr>';
+				   echo '</div>';
 			}
 		}
 
@@ -417,7 +429,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			$attrs = isset( $args['attrs'] ) ? $this->make_implode_html_attributes( $args['attrs'] ) : '';?>
             <fieldset>
-            	<label>
+            	<label class="th-toggle">
             		<input <?php echo esc_attr($attrs); ?> type="checkbox" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->settings_name);?>[<?php echo esc_attr($args['id']);?>]" value="1" <?php echo esc_attr(checked( $value, true, false ));?>> <?php if ( ! empty( $args['desc'] ) ) {  echo esc_html($args['desc']); } ?>
             	</label>     
             </fieldset>
@@ -498,7 +510,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
         	if($args[ 'id' ]=='taiowc-how-to-integrate'):
    
-				$taiowcp_karr = array( 
+				$taiowc_karr = array( 
 			   'br' => array(),
 			   'strong' => array(),
 			   'code' => array(),
@@ -510,92 +522,92 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
    
 			   ?>
 			   
-			 <div class="taiowcp-guide">
+			 <div class="taiowc-guide">
 
   <!-- STEP 1 -->
-  <div class="taiowcp-card">
-    <div class="taiowcp-step">
+  <div class="taiowc-card">
+    <div class="taiowc-step">
       <span class="step-number">1</span>
       <div class="step-header">
-        <h3><?php esc_html_e('Display cart in the header menu','taiowcp'); ?></h3>
-        <span class="badge pro"><?php esc_html_e('PRO FEATURE','taiowcp'); ?></span>
-        <span class="badge success"><?php esc_html_e('VISUAL EDITOR READY','taiowcp'); ?></span>
+        <h3><?php esc_html_e('Display cart in the header menu','th-all-in-one-woo-cart'); ?></h3>
+        <span class="badge pro"><?php esc_html_e('PRO FEATURE','th-all-in-one-woo-cart'); ?></span>
+        <span class="badge success"><?php esc_html_e('VISUAL EDITOR READY','th-all-in-one-woo-cart'); ?></span>
       </div>
     </div>
 
     <p class="step-desc">
-      <?php esc_html_e('Recommended for standard WordPress themes.','taiowcp'); ?>
+      <?php esc_html_e('Recommended for standard WordPress themes.','th-all-in-one-woo-cart'); ?>
     </p>
 
     <p class="step-text">
-      <?php esc_html_e('Navigate to your dashboard','taiowcp'); ?> <b><?php esc_html_e('Appearance → Menus','taiowcp'); ?></b>.  
-       <b><?php esc_html_e('Locate the TH All In One Woo Cart','taiowcp'); ?></b> <?php esc_html_e('item in the left panel and click','taiowcp'); ?>
-      <b><?php esc_html_e('Add to Menu','taiowcp'); ?></b>.
+      <?php esc_html_e('Navigate to your dashboard','th-all-in-one-woo-cart'); ?> <b><?php esc_html_e('Appearance → Menus','th-all-in-one-woo-cart'); ?></b>.  
+       <b><?php esc_html_e('Locate the TH All In One Woo Cart','th-all-in-one-woo-cart'); ?></b> <?php esc_html_e('item in the left panel and click','th-all-in-one-woo-cart'); ?>
+      <b><?php esc_html_e('Add to Menu','th-all-in-one-woo-cart'); ?></b>.
     </p>
 
     <div class="note-box">
-      <strong><?php esc_html_e('NOTE','taiowcp'); ?></strong><br>
-      <?php esc_html_e('Position the cart element as the last item in your primary navigation for optimal UI balance.','taiowcp'); ?>
+      <strong><?php esc_html_e('NOTE','th-all-in-one-woo-cart'); ?></strong><br>
+      <?php esc_html_e('Position the cart element as the last item in your primary navigation for optimal UI balance.','th-all-in-one-woo-cart'); ?>
     </div>
   </div>
 
   <!-- STEP 2 -->
-  <div class="taiowcp-card">
-    <div class="taiowcp-step">
+  <div class="taiowc-card">
+    <div class="taiowc-step">
       <span class="step-number">2</span>
       <div class="step-header">
-        <h3><?php esc_html_e('Use Shortcode Component','taiowcp'); ?></h3>
-        <span class="badge universal"><?php esc_html_e('UNIVERSAL','taiowcp'); ?></span>
+        <h3><?php esc_html_e('Use Shortcode Component','th-all-in-one-woo-cart'); ?></h3>
+        <span class="badge universal"><?php esc_html_e('UNIVERSAL','th-all-in-one-woo-cart'); ?></span>
       </div>
     </div>
 
     <p class="step-text">
-      <?php esc_html_e('Inject the cart into any page builder (Elementor, Divi, Gutenberg) or standard text block.','taiowcp'); ?>
+      <?php esc_html_e('Inject the cart into any page builder (Elementor, Divi, Gutenberg) or standard text block.','th-all-in-one-woo-cart'); ?>
     </p>
 
     <div class="shortcode-box">
       <code>[taiowc]</code>
       <button type="button"
-          class="taiowcp-copy-btn"
+          class="taiowc-copy-btn"
           aria-label="Copy shortcode"
           data-copy-target="code">
-    <?php esc_html_e('Copy','taiowcp'); ?>
+    <?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?>
   </button>
-      <span class="shortcode-label"><?php esc_html_e('SHORTCODE','taiowcp'); ?></span>
+      <span class="shortcode-label"><?php esc_html_e('SHORTCODE','th-all-in-one-woo-cart'); ?></span>
     </div>
 
     <div class="supported">
-      <span><?php esc_html_e('✔ Widgets','taiowcp'); ?></span>
-      <span><?php esc_html_e('✔ Blocks','taiowcp'); ?></span>
-      <span><?php esc_html_e('✔ Elementor','taiowcp'); ?></span>
+      <span><?php esc_html_e('✔ Widgets','th-all-in-one-woo-cart'); ?></span>
+      <span><?php esc_html_e('✔ Blocks','th-all-in-one-woo-cart'); ?></span>
+      <span><?php esc_html_e('✔ Elementor','th-all-in-one-woo-cart'); ?></span>
     </div>
   </div>
 
   <!-- STEP 3 -->
-<div class="taiowcp-card">
-  <div class="taiowcp-step">
+<div class="taiowc-card">
+  <div class="taiowc-step">
     <span class="step-number">3</span>
     <div class="step-header">
-      <h3><?php esc_html_e('Direct Template Integration','taiowcp'); ?></h3>
-      <span class="badge advanced"><?php esc_html_e('ADVANCED','taiowcp'); ?></span>
+      <h3><?php esc_html_e('Direct Template Integration','th-all-in-one-woo-cart'); ?></h3>
+      <span class="badge advanced"><?php esc_html_e('ADVANCED','th-all-in-one-woo-cart'); ?></span>
     </div>
   </div>
 
   <p class="step-desc">
-      <span><?php esc_html_e('For theme developers. Paste this snippet directly into your header.php or custom template files.','taiowcp'); ?></span>
+      <span><?php esc_html_e('For theme developers. Paste this snippet directly into your header.php or custom template files.','th-all-in-one-woo-cart'); ?></span>
  
   </p>
 
   <div class="shortcode-box php">
     <code>&lt;?php echo do_shortcode('[taiowc]'); ?&gt;</code>
      <button type="button"
-          class="taiowcp-copy-btn"
+          class="taiowc-copy-btn"
           aria-label="Copy PHP code"
           data-copy-target="code">
-      <span><?php esc_html_e('Copy','taiowcp'); ?></span>
+      <span><?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?></span>
     
   </button>
-    <span class="shortcode-label"><?php esc_html_e('PHP','taiowcp'); ?></span>
+    <span class="shortcode-label"><?php esc_html_e('PHP','th-all-in-one-woo-cart'); ?></span>
   </div>
 
 </div>
@@ -897,7 +909,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				wp_enqueue_media();
 
 				wp_localize_script(
-					'taiowc-setting-script', 'TaiowcPluginObject', array(
+					'taiowc-setting-script', 'taiowcluginObject', array(
 						'media_title'   => esc_html__( 'Choose an Image', 'th-all-in-one-woo-cart' ),
 						'button_title'  => esc_html__( 'Use Image', 'th-all-in-one-woo-cart' ),
 						'add_media'     => esc_html__( 'Add Media', 'th-all-in-one-woo-cart' ),
