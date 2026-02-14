@@ -79,40 +79,39 @@ margin-bottom: 0;
 
 .taiowc-cart-model{
     position: fixed;
-    background-color: #fff;
+    background-color: #f9fafb;
     z-index: 9999999999;
     display: flex;
+    flex-direction: column;
     transition: 0.5s;
-    top:0;
-    bottom:0;
-    max-width:400px;
-    width:100%;
-    right: -400px;
-    overflow-y: auto;
-    -webkit-border-radius: 4px;
+    top: 0;
+    bottom: 0;
+    max-width: 450px;
+    width: 100%;
+    right: -450px;
+    /* overflow-y: auto; */
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
+    -webkit-box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
 
 }
 
 .model-cart-active .taiowc-cart-model{
     right: 0;
-        -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
-    -webkit-box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 20px;
 }
 
 .cart-heading{
- display: flex;
+    display: flex;
     flex: 0 0 auto;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
-        padding: 0.9rem 0.7rem;
+    padding: 0.9rem 1.5rem;
     text-align: center;
     background: #fff;
-    color: #111;
+    border-color: rgb(243 244 246 / 1);
 }
-.cart-heading .th-icon{
- font-size:2rem;
+.cart-heading span{
+font-size: 2rem;
 }
 .cart-heading img{
     width:2rem;
@@ -126,12 +125,14 @@ font-size: 1.7rem;
 font-size: 3rem;
 }
 .taiowc-cart-model-header{ 
-  background-color: #f7f7f8;
   position: relative;
 }
 .cart-heading h4 {
-    margin-bottom: 0;
-    font-size: 1.2rem;
+    margin: 0;
+    font-size: .9rem;
+    padding-left: 0.3rem;
+    color: inherit;
+    font-weight: 900;
 }
 
 .logged-in .taiowc-cart-model{
@@ -145,73 +146,119 @@ font-size: 3rem;
 }
 
 .taiowc-cart-model-body{
-    overflow-x: hidden;
-    overflow-y: auto;
-    border-bottom: 1px solid rgba(125, 87, 177, 0.1);
-    background-color: #f3f3f3;
+    overflow-y: scroll;
+    /* border-bottom: 1px solid rgba(125, 87, 177, 0.1); */
 }
 
 .taiowc .taiowc-cart-model-body .woocommerce-mini-cart {
-
-    padding: 0;
     margin: 0;
     list-style: none;
     text-align: left;
-    margin: 0rem 0.7rem;
- 
+    padding: 1rem 1.2rem;
 }
-.taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item {
-    overflow: hidden;
+.taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item,
+.taiowc-related-product-cont ul li {
     position: relative;
-   box-shadow: 0 0 2px #ddd;
-    padding: 0.7rem!important;
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    padding: 1rem!important;
     background: #fff;
-    margin-bottom: 0.7rem!important;
-    margin-top: 0.7rem!important;
-    color: #111;
+    margin-bottom: 1rem!important;
+    display: flex;
+    gap: 1.25rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item:hover,
+.taiowc-related-product-cont ul li:hover{
+    border-color: rgb(229 231 235 / 1);
+}
+.taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item:hover img{
+    transform: scale(1.029);
 }
 
+.item-image-wrapper,
+.taiowc-related-wrap .taiowc-product-image{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 0.75rem;
+    border: 1px solid #f3f4f6;
+    background-color: #f9fafb;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.taiowc-related-wrap .taiowc-product-image img{
+    height: auto;
+}
+.item-image-wrapper img{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    object-fit: cover;
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+.item-image-wrapper:hover img{
+    transform: scale(1.029);
+}
 .taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item:last-child{
     border-bottom: 0;
 }
+.taiowc.taiowc-contnet-wrap {
+    padding: 4px 10px;
+}
 
+.taiowc-cart-model-body a.taiowc-remove-item{
+    background-color: rgb(255 255 255 / 1);
+    color: rgb(156 163 175 / 1);
+    border: 1px solid;
+    border-color: rgb(243 244 246 / 1);
+    text-decoration: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    position: absolute;
+    right: -5px;
+    top: -7px;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.taiowc-woocommerce-mini-cart-item:hover a.taiowc-remove-item{
+    opacity: 1;
+    visibility: visible;
+}
+
+.taiowc-cart-model-body a.taiowc-remove-item:hover {
+    background-color: rgb(254 242 242 / 1);
+    color: rgb(239 68 68 / 1);
+}
 .taiowc .taiowc-contnet-wrap {
     padding: 4px 15px;
 }
-.taiowc .taiowc-cart-model-body  img {
-    float: left!important;
-    margin-left:0px;
-    margin-right:1rem;
-    width: 80px!important;
-    height: auto;
-    box-shadow: none;
-}
-.taiowc-cart-model-body a.taiowc-remove-item{
-    float: right;
-    font-size: 1.2em;
-    height: 1.2em;
-    width: 1.2em;
-    line-height: 1rem;
-    text-align: center;
-    border-radius: 0%;
+
+.taiowc .taiowc-cart-model-body a:not(.taiowc-remove-item,.woocommerce-back-to-shop) {
+    display: block;
+    font-size: 0.875rem !important;
+    line-height: 1.375rem !important;
+    font-weight: 600 !important;
+    padding: 0 !important;
+    color: rgb(17 24 39 / 1);
     text-decoration: none;
-    font-weight: 700;
-    border: 0;
-    z-index: 9999;
-    font-size: 0.89rem;
-        color: #ef6238!important;
-}
-
-.taiowc-cart-model-body a.taiowc-remove-item:hover{
-    background:none;
-    color:#ff0b0b!important;
-}
-
-.taiowc .taiowc-cart-model-body a{
-    font-size: 0.79rem!important;
-    font-weight: 500!important;
-    padding: 0!important;
-    color: #111;
 }
 .taiowc-cart-model-body a.taiowc-remove-item span{
 font-size:15px!important;
@@ -268,11 +315,12 @@ cursor:pointer;
     position: absolute;
     font-size: 0;
     text-align: center;
-    left: 0.5rem;
+    right: 0.5rem;
     transition: 0.2s;
     opacity: 0;
-    visibility: hiddden;
-    line-height: initial;
+    display: flex;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .taiowc-cart-close:after {
     font-family: dashicons;
@@ -301,9 +349,6 @@ padding: 0;
 float:left;
 width:100%;
 }
-.item-product-quantity{
-border-top: 1px solid #ebebeb;
-}
 
 .taiowc-cart-model-body .quantity{
 display: flex;
@@ -311,11 +356,6 @@ display: flex;
 .quantity .amount{
 flex-grow: 2;
 text-align: end;
-}
-.taiowc-cart-model-wrap{
-display: flex;
-    flex-direction: column;
-    flex: auto;
 }
 .taiowc-cart-model-wrap .cart-heading svg{
     margin-right: 9px;
@@ -333,6 +373,7 @@ display: flex;
 .quantity span.quantity-text{
     font-size:0.68rem;
     margin-right:0.5rem;
+    display: none;
 }
 
 /*left-slide*/
@@ -663,15 +704,18 @@ font-weight: bold;
 }
 .quantity-decrement, .quantity-increment {
     cursor: pointer;
-    border: 1px solid #eee;
-    background-color:transparent;
+    background-color: #FFF;
     font-size: 12px;
     user-select: none;
-    height:25px;
-    line-height:25px;
-    width:25px;
-    padding: 0;
-    color: #444;
+    height: 25px;
+    line-height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 108%;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border: 0;
 }
 .quantity-decrement:focus,
 .quantity-increment:focus {
@@ -691,28 +735,30 @@ font-weight: bold;
     box-shadow: none;
 }
 .taiowc input[type=number].taiowc-quantity {
-    width: 30px;
+    width: 21px;
     text-align: center;
-    border: 1px solid #eee;
     font-size: 0.68rem;
     line-height: 25px !important;
     min-height: 25px !important;
     height: 25px;
-    padding: 0;
-    margin:0;
-    margin-right:-1px;
-    margin-left:-1px;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
+    font-weight: 700;
+    color: #111;
 }
 
 .quantity-wrap{
-display:flex;
-margin-left:0.2rem;
+    display: flex;
+    background-color: rgb(243 244 246 / 1.0);
+    border-radius: 99999PX;
+    padding: 2px;
 }
 
 .taiowc .quantity .amount{
     margin-left: 0.4rem;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.9rem;
+    font-weight: 900;
 }
 
 /*loading effect*/
@@ -1122,16 +1168,17 @@ padding:0;
 .taiowcmo-code,.taiowc-payment-title {
     display: block;
     font-size: 0.89rem;
-    font-weight:500;
-    padding:0.7rem;
+    font-weight: 500;
+    padding: 0.7rem;
     text-align: center;
     cursor: pointer;
     background-color: #fff;
 }
 
 .taiowc-payment-title{
-    background-color: #f3f3f3;
-    color: #111;
+    background-color: transparent;
+    font-weight: 700;
+    letter-spacing: .097rem;
 }
 
 .woocommerce .taiowc-related-product-right-area .star-rating,
@@ -1480,4 +1527,67 @@ left: 232px;
 margin-left:0.1rem;
 }
 
+}
+
+
+
+.taiowc-cart-model-wrap{
+    display: flex;
+    flex-direction: column;
+/*    height: 99vh;*/
+    height: 100%;
+    overflow-y: scroll;
+}
+.taiowc-cart-model-footer{
+    margin-top: auto;
+    padding-bottom: 1rem;
+    background: #FFF;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 -10px 40px -15px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid transparent;
+    border-color: rgb(238 241 239);
+}
+.item-product-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.copyright{
+    text-align: center;
+    font-size: .7rem;
+    line-height: .7rem;
+    color: #9ca3af;
+    letter-spacing: .9px;
+    font-weight: 900;
+    opacity: .5;
+    padding: 1rem;
+    padding-bottom: 0;
+}
+.copyright a{
+    text-decoration: none;
+    color: #111;
+}
+.copyright:hover{
+    opacity: 1;
+}
+
+.taiowc-model-overlay{
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgb(0 0 0 / 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 99999;
+    display: none;
+    opacity: 0;
+    /*transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;*/
+}
+
+.model-cart-active .taiowc-model-overlay{
+    display: block;
+    opacity: 1;
 }
