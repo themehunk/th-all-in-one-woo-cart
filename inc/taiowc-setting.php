@@ -66,7 +66,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                    <div class="setting-wrap">
                    <div class="setting-content">
 					<div class="top-header">
-                <h2 class="tabheading"><?php esc_html_e("Configuration Engine", 'th-product-compare-pro'); ?></h2>
+                <h2 class="tabheading"><?php esc_html_e("Configuration Engine", 'th-all-in-one-woo-cart'); ?></h2>
                
                <a href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>" title="Get Premium Version" target="_blank"><?php esc_html_e('Get Premium Version','th-all-in-one-woo-cart'); ?></a>
 					<p class="submit taiowc-button-wrapper th-save-btn">
@@ -160,13 +160,75 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			     </div>
 				<?php foreach ( $this->fields as $tabs ): ?>
 					<a data-target="<?php echo esc_attr( $tabs['id'] ); ?>" class="taiowc-setting-nav-tab nav-tab <?php echo esc_attr( $this->get_options_tab_css_classes( $tabs ) ); ?>" href="#<?php echo esc_attr( $tabs['id'] ); ?>">
-			    <span><?php echo $this->icon_list($tabs['id']); ?></span>
+			    <span><?php echo wp_kses( $this->icon_list($tabs['id']), $this->allowed_svg_tags() ); ?></span>
 			    <?php echo esc_html( $tabs['title'] ); ?>
 </a>
 				<?php endforeach; ?>
 			</div>
 			<?php
 		}
+
+		function allowed_svg_tags() {
+
+        return [
+          'svg' => [
+    'xmlns'            => true,
+    'width'            => true,
+    'height'           => true,
+    'viewbox'          => true, // ← lowercase!
+    'fill'             => true,
+    'stroke'           => true,
+    'stroke-width'     => true,
+    'stroke-linecap'   => true,
+    'stroke-linejoin'  => true,
+    'class'            => true,
+],
+
+            'g' => [
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+                'stroke-linejoin' => true,
+            ],
+            'path' => [
+                'd'               => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+                'stroke-linejoin' => true,
+            ],
+            'circle' => [
+                'cx'              => true,
+                'cy'              => true,
+                'r'               => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+            ],
+            'rect' => [
+                'width'           => true,
+                'height'          => true,
+                'x'               => true,
+                'y'               => true,
+                'rx'              => true,
+                'ry'              => true,
+                'fill'            => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+            ],
+            'line' => [
+                'x1'              => true,
+                'x2'              => true,
+                'y1'              => true,
+                'y2'              => true,
+                'stroke'          => true,
+                'stroke-width'    => true,
+                'stroke-linecap'  => true,
+            ],
+        ];
+    }
 
 		function icon_list($id ='dashicons-menu'){
 			$icon = array(
