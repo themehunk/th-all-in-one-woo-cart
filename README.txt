@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 2.2.5
+Stable tag: 2.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
@@ -149,6 +149,15 @@ Yes, You can translate our plugin to desired language.
 == Screenshots ==
 
 == Changelog ==
+
+= Version 2.2.7 =
+* Update: Premium tab features showing as a demo included.
+* Update: Front Style modified.
+
+
+= Version 2.2.6 =
+* Update: Readme updated.
+
 = Version 2.2.5 =
 * Fix : Shop mania theme issue fixed
 * Update: Style improved.
