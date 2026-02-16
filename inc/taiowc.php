@@ -325,9 +325,13 @@ if ( ! class_exists( 'Taiowc' ) ):
 
                 ?>
                 <div class="taiowc-woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+                     <div class="item-image-wrapper">
+                        <?php echo wp_kses_post($thumbnail); ?>
+                    </div>
+
                     <div class="item-product-wrap">
                     <?php $remove_link = sprintf(
-    '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"><span class="dashicons dashicons-trash"></span></a>',
+    '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></a>',
     esc_attr__( 'Remove this item', 'th-all-in-one-woo-cart' ),
     esc_attr( $product_id ),
     esc_attr( $cart_item_key ),
@@ -335,9 +339,7 @@ if ( ! class_exists( 'Taiowc' ) ):
 );
 
 // Apply the filter and output with proper escaping
-echo wp_kses_post(
-    apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_item_key )
-);
+echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_item_key );
 ?>
 
                     <?php
@@ -345,42 +347,29 @@ echo wp_kses_post(
                      if ( empty( $product_permalink ) ) : ?>
 
                         <?php 
- 
 
-                        echo wp_kses($thumbnail, $allowed_img);
-
-                        echo esc_html($product_name); 
+                        echo '<h4>';
+                        echo wp_kses_post($product_name); 
+                        echo '</h4>';
 
                         echo wp_kses_post(apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key ));
 
                         ?>
 
                     <?php else : ?>
-
+                        <h4>
                         <a href="<?php echo esc_url( $product_permalink ); ?>">
-                       
-                        <div class="taiowc-image-wrap">
-
-                        <?php echo wp_kses($thumbnail, $allowed_img);?>
-
-                        </div>
-
-                        <div class="taiowc-contnet-wrap">
-
                         <?php echo esc_html($product_name); 
                         echo wp_kses_post(apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key )); ?>
 
                         <?php echo wp_kses_post(wc_get_formatted_cart_item_data( $cart_item ));?>
-
-                        </div>
-                       
                         </a>
+                        </h4>
 
                     <?php endif; 
-
                      ?>
-                </div>
-                <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
+
+                      <?php if(taiowc()->get_option( 'taiowc-show_prd_quantity' ) == true){ ?>
 
         <div class="item-product-quantity">
             <?php
@@ -471,6 +460,9 @@ echo wp_kses_post(
         </div>
 
         <?php } ?>
+        
+                </div>
+               
 
 
             </div>
