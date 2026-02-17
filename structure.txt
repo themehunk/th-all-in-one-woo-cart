@@ -1,0 +1,128 @@
+th-all-in-one-woo-cart/
+├── th-all-in-one-woo-cart.php          # Main plugin file (entry point)
+├── package.json                         # NPM package configuration
+├── package-lock.json                    # NPM lock file
+├── webpack.config.js                    # Webpack build configuration
+├── README.txt                           # Plugin readme
+├── .gitignore                           # Git ignore rules
+│
+├── assets/                              # Frontend & admin assets
+│   ├── css/
+│   │   ├── admin.css                    # Admin panel styles
+│   │   ├── style.css                    # Frontend cart styles
+│   │   └── nano.min.css                 # Color picker (Nano) styles
+│   └── js/
+│       ├── taiowc-cart.js               # Frontend cart JavaScript
+│       ├── taiowc-setting.js            # Admin settings JavaScript
+│       └── pickr.min.js                 # Color picker library
+│
+├── build/                               # Compiled/built assets (Webpack output)
+│   ├── block/
+│   │   └── taiowc/
+│   │       └── block.json               # Block metadata
+│   ├── component-editor.asset.php       # Editor component dependencies
+│   ├── component-editor.css             # Editor component styles
+│   ├── component-editor.js              # Editor component script
+│   ├── style-taiowc.css                 # Block frontend styles
+│   ├── taiowc.asset.php                 # Block dependencies
+│   ├── taiowc.css                       # Block editor styles
+│   └── taiowc.js                        # Block editor script
+│
+├── images/                              # Plugin images
+│   ├── cart-pro-side-banner.png         # Pro version banner
+│   ├── custom-icon.png                  # Custom cart icon
+│   ├── fixed-cart.png                   # Fixed cart preview
+│   ├── floating-cart.png                # Floating cart preview
+│   ├── icon.png                         # Default cart icon
+│   ├── icon-1.png ~ icon-6.png         # Cart icon variations
+│   ├── product.jpg                      # Sample product image
+│   ├── product2.jpg                     # Sample product image
+│   ├── th-logo.png                      # ThemeHunk logo
+│   ├── th-shop-mania-ad.png            # Advertisement banner
+│   └── x.png                           # Close/remove icon
+│
+├── inc/                                 # PHP includes (core logic)
+│   ├── taiowc.php                       # Main class / initialization
+│   ├── taiowc-option.php                # Plugin options/defaults
+│   ├── taiowc-setting.php               # Admin settings page
+│   ├── taiowc-admin-style.php           # Admin styles enqueue
+│   ├── taiowc-style.php                 # Frontend styles enqueue
+│   ├── taiowc-cart.php                  # Cart functionality (AJAX handlers)
+│   ├── taiowc-cart-fragment.php         # WooCommerce cart fragments
+│   ├── taiowc-markup.php                # Cart HTML markup/templates
+│   ├── taiowc-block.php                 # Gutenberg block registration
+│   ├── taiowcp-live-cart-panel.php      # Live preview - Cart panel settings
+│   ├── taiowcp-live-cart-analytics.php  # Live preview - Cart analytics
+│   ├── taiowcp-live-fixed-cart.php      # Live preview - Fixed cart settings
+│   ├── taiowcp-live-menu-cart.php       # Live preview - Menu cart settings
+│   ├── taiowcp-live-mobile.php          # Live preview - Mobile settings
+│   ├── taiowcp-reset.php               # Reset settings functionality
+│   └── themehunk-menu/                  # ThemeHunk shared admin menu
+│       ├── admin-menu.php               # Admin menu registration
+│       ├── plugins-list.php             # Plugins listing page
+│       └── th-option/                   # ThemeHunk options framework
+│           ├── th-option.php            # Options framework core
+│           ├── header.php               # Options page header
+│           ├── sidebar.php              # Options page sidebar
+│           ├── tab-html.php             # Options page tabs
+│           ├── assets/
+│           │   ├── css/
+│           │   │   └── started.css      # Getting started styles
+│           │   ├── images/
+│           │   │   ├── ico.png
+│           │   │   ├── icon.png
+│           │   │   └── th-shop-mania.png
+│           │   └── js/
+│           │       └── th-options.js    # Options page scripts
+│
+├── languages/                           # Translations (i18n)
+│   ├── th-all-in-one-woo-cart.pot       # Translation template
+│   ├── th-all-in-one-woo-cart-en_GB.*   # English (GB) translations
+│   └── th-all-in-one-woo-cart-en_US.*   # English (US) translations
+│
+├── src/                                 # Source files (pre-build)
+│   ├── index.js                         # Webpack entry point
+│   └── block/
+│       └── taiowc/
+│           ├── block.json               # Block metadata (source)
+│           ├── index.js                  # Block registration
+│           ├── edit.js                   # Block editor component
+│           ├── controls.js              # Block inspector controls
+│           ├── settings.js              # Block settings panel
+│           ├── editor.scss              # Block editor styles (source)
+│           ├── editor.css               # Block editor styles (compiled)
+│           ├── style.scss               # Block frontend styles (source)
+│           ├── style.css                # Block frontend styles (compiled)
+│           └── components/              # Reusable block components
+│               ├── index.js             # Components barrel export
+│               ├── icon.js              # Icon component
+│               ├── component-editor.scss
+│               ├── component-editor.css
+│               ├── component-editor.css.map
+│               ├── clear-button/
+│               │   └── index.js
+│               ├── control-panel-control/
+│               │   └── index.js
+│               ├── icon-picker/
+│               │   ├── index.js
+│               │   ├── svgs-list.js
+│               │   ├── editor.css
+│               │   └── editor.css.map
+│               ├── ins-setting-header/
+│               │   └── index.js
+│               ├── responsive-control/
+│               │   └── index.js
+│               ├── sizing-control/
+│               │   ├── index.js
+│               │   └── field.js
+│               ├── toogle-group-control/
+│               │   └── index.js
+│               └── unit-picker/
+│                   └── index.js
+│
+└── th-icon/                             # Custom icon font
+    ├── style.css                        # Icon font styles
+    └── fonts/
+        ├── th-icon.eot
+        ├── th-icon.ttf
+        └── th-icon.woff

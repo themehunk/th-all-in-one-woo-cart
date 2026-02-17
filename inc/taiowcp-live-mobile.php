@@ -64,8 +64,8 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
         <!-- FLASH SALE -->
         <div class="flash">
-            <h2>Flash Sale</h2>
-            <p>ENDING IN 02:45:00</p>
+            <h2><?php esc_html_e( 'Flash Sale', 'th-all-in-one-woo-cart' ); ?></h2>
+            <p><?php esc_html_e( 'ENDING IN 02:45:00', 'th-all-in-one-woo-cart' ); ?></p>
         </div>
 
         <!-- PRODUCTS -->
@@ -165,50 +165,50 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
     <div class="cart-items">
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product.jpg'; ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product.jpg' ); ?>" alt="">
             <div class="item-info">
-                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr">Classic Red Sneakers</h4>
-                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr">★★★★★</div>
+                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></h4>
+                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
                 <div class="qty">
                     <span >-</span>
                     <span>1</span>
                     <span>+</span>
                 </div>
             </div>
-            <div class="price">₹400.00</div>
+            <div class="price"><?php esc_html_e( '₹400.00', 'th-all-in-one-woo-cart' ); ?></div>
         </div>
 
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product2.jpg'; ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product2.jpg' ); ?>" alt="">
             <div class="item-info">
-                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr">Minimalist White Tee</h4>
-                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr">★★★★★</div>
+                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></h4>
+                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
                 <div class="qty">
                     <span>-</span>
                     <span>1</span>
                     <span>+</span>
                 </div>
             </div>
-            <div class="price">₹250.00</div>
+            <div class="price"><?php esc_html_e( '₹250.00', 'th-all-in-one-woo-cart' ); ?></div>
         </div>
     </div>
 
     <div class="summary" data-th-bg="taiowc-cart_pan_pay_bg_clr" data-th-color="taiowc-cart_pan_pay_txt_clr">
-        <p class="summary-title" data-th-bg="taiowc-cart_pan_pay_hd_bg_clr" data-th-color="taiowc-cart_pan_pay_hd_clr">ORDER SUMMARY</p>
+        <p class="summary-title" data-th-bg="taiowc-cart_pan_pay_hd_bg_clr" data-th-color="taiowc-cart_pan_pay_hd_clr"><?php esc_html_e( 'ORDER SUMMARY', 'th-all-in-one-woo-cart' ); ?></p>
 
         <div class="row">
-            <span>Subtotal</span>
-            <span>₹1,220.00</span>
+            <span><?php esc_html_e( 'Subtotal', 'th-all-in-one-woo-cart' ); ?></span>
+            <span><?php esc_html_e( '₹1,220.00', 'th-all-in-one-woo-cart' ); ?></span>
         </div>
 
         <div class="row total">
-            <span>ORDER TOTAL</span>
-            <span>₹720.00</span>
+            <span><?php esc_html_e( 'ORDER TOTAL', 'th-all-in-one-woo-cart' ); ?></span>
+            <span><?php esc_html_e( '₹720.00', 'th-all-in-one-woo-cart' ); ?></span>
         </div>
     </div>
 
     <button type="button"class="checkout-btn" data-th-bg="taiowc-cart_pan_pay_btn_bg_clr" data-th-color="taiowc-cart_pan_pay_btn_clr">
-        PROCEED TO CHECKOUT →
+        <?php esc_html_e( 'PROCEED TO CHECKOUT →', 'th-all-in-one-woo-cart' ); ?>
     </button>
 </div>
 

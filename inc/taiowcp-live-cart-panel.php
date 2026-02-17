@@ -75,7 +75,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
     <div class="cart-items">
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product.jpg'; ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
@@ -89,7 +89,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
         </div>
 
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product2.jpg'; ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product2.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
@@ -118,7 +118,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
         <div class="btn-wrapper">
         <button type="button"class="cart btn" data-th-bg="taiowc-cart_pan_pay_cart_bg_clr" data-th-color="taiowc-cart_pan_pay_cart_clr" data-th-radius="taiowc-cart_pan_btn_brd_rds-field" data-th-toggle="taiowc-cart_pan_cart_shw-field">
-        View Cart
+        <?php esc_html_e( 'View Cart', 'th-all-in-one-woo-cart' ); ?>
     </button>
     <button type="button"class="checkout btn" data-th-bg="taiowc-cart_pan_pay_btn_bg_clr" data-th-color="taiowc-cart_pan_pay_btn_clr" data-th-radius="taiowc-cart_pan_btn_brd_rds-field">
        <?php esc_html_e( 'Checkout →', 'th-all-in-one-woo-cart' ); ?> 

@@ -598,7 +598,7 @@ echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_ite
         
         $classes = $notice_type === 'error' ? 'taiowc-notice-error' : 'taiowc-notice-success';
         
-        $html = '<li class="'.esc_attr($classes).'">'.$message.'</li>';
+        $html = '<li class="'.esc_attr($classes).'">'.wp_kses_post($message).'</li>';
         
         return apply_filters( 'taiowc_notice_html', $html, $message, $notice_type );
 
@@ -606,7 +606,7 @@ echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_ite
 
      public function taiowc_print_notices_html( $section = 'cart', $wc_cart_notices = true ){
 
-        if( isset( $_POST['noticeSection'] ) && $_POST['noticeSection'] !== $section ) return;
+        if( isset( $_POST['noticeSection'] ) && sanitize_text_field( wp_unslash( $_POST['noticeSection'] ) ) !== $section ) return;
 
         if( $wc_cart_notices ){
 

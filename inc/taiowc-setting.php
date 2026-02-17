@@ -27,7 +27,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
              add_action( 'admin_enqueue_scripts', array( $this, 'script_enqueue' ) );
 
              add_action('wp_ajax_taiowc_form_setting', array($this, 'taiowc_form_setting'));
-			 add_action( 'wp_ajax_nopriv_taiowc_form_setting', array($this, 'taiowc_form_setting'));
 
             }
         
@@ -132,14 +131,16 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		}
 	    public function taiowc_form_setting(){  
 
-	    	if ( ! current_user_can( 'administrator' ) ) {
+	    	if ( ! current_user_can( 'manage_options' ) ) {
 
 		            wp_die( - 1, 403 );
-		            
+
 		      }
 		      check_ajax_referer( 'taiowc_plugin_nonce','_wpnonce');
 			  $sanitize_data_array = array();
-	          $sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash( $_POST['taiowc'] ) );
+			  if ( isset( $_POST['taiowc'] ) && is_array( $_POST['taiowc'] ) ) {
+	          	$sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash( $_POST['taiowc'] ) );
+			  }
 	          update_option('taiowc', $sanitize_data_array);         
 		      die();  
 	    }
@@ -892,12 +893,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 
         public function is_reset_all() {
-			return isset( $_GET['page'] ) && ( $_GET['page'] == 'taiowc' ) && isset( $_GET[ $this->setting_reset_name ] );
+			return isset( $_GET['page'] ) && ( sanitize_text_field( wp_unslash( $_GET['page'] ) ) == 'taiowc' ) && isset( $_GET[ $this->setting_reset_name ] );
 		}  
 
         public function delete_settings() {
 
-        	if ( ! current_user_can( 'administrator' ) ) {
+        	if ( ! current_user_can( 'manage_options' ) ) {
 
             wp_die( - 1, 403 );
 
@@ -957,7 +958,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		
         public function script_enqueue(){
 			//get_current_screen()->base
-        	if (isset($_GET['page']) && $_GET['page'] == 'taiowc') {
+        	if (isset($_GET['page']) && sanitize_text_field( wp_unslash( $_GET['page'] ) ) == 'taiowc') {
 
 				// STYEL
 				wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. 'assets/css/admin.css', array(), TAIOWC_VERSION );
