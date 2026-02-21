@@ -152,7 +152,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                             <?php do_action('taiowc_cart_show_icon');?>
 
                            <?php if(taiowc()->get_option( 'taiowc-cart_hd' )!==''){ ?>
-                          <h4><?php echo esc_html(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
+                          <h4><?php echo wp_kses_post(taiowc()->get_option( 'taiowc-cart_hd' ));?></h4>
                            <?php } ?>
 
                         </div> 
