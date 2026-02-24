@@ -516,7 +516,7 @@ box-shadow: -4px 2px 6px #dddddd1a;
 
 
 .cart_fixed_1 .taiowc-cart-item {
-    padding: 0.4rem;
+    padding: 0;
     background: rgba(255, 255, 255, 0.44);
     border-radius: 6px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -1591,22 +1591,22 @@ margin-left:0.1rem;
     justify-content: space-between;
 }
 
-.copyright{
+.taiowc-cart-model-wrap .copyright{
     text-align: center;
     font-size: .7rem;
-    line-height: .7rem;
-    color: #9ca3af;
-    letter-spacing: .9px;
-    font-weight: 900;
+    line-height: .5rem;
+    color: #737373;
+    letter-spacing: 0.03rem;
+    font-weight: 400;
     opacity: .5;
     padding: 1rem;
     padding-bottom: 0;
 }
-.copyright a{
+.taiowc-cart-model-wrap .copyright a{
     text-decoration: none;
     color: #111;
 }
-.copyright:hover{
+.taiowc-cart-model-wrap .copyright:hover{
     opacity: 1;
 }
 
