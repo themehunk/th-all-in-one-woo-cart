@@ -84,99 +84,6 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                             ),
 
 
-                            array(
-                                'id'      => 'cart_style',
-                                'type'    => 'radio-image',
-                                'title'   => esc_html__( 'Cart Style', 'th-all-in-one-woo-cart' ),
-                                
-                                'options' => array(
-                                    'style-1' => esc_url( TAIOWC_IMAGES_URI.'floating-cart.png' ),
-                                    'style-2' => esc_url( TAIOWC_IMAGES_URI.'fixed-cart.png' ),
-                                    
-                                ),
-
-                                'default' => 'style-1'
-                            ),
-                            array(
-                                'id'      => 'taiowc-fxd_cart_position',
-                                'type'    => 'select',
-                                'title'   => esc_html__( 'Fixed Cart Position', 'th-all-in-one-woo-cart' ),
-                                'default' => 'fxd-right',
-                                'options' => array(
-
-                                    'fxd-right' => esc_html__( 'Right', 'th-all-in-one-woo-cart' ),
-                                    'fxd-left'  => esc_html__( 'Left', 'th-all-in-one-woo-cart'),
-                                    
-                                ),
-                                
-                            ),
-
-                            array(
-                                'id'      => 'taiowc-fxd_cart_frm_right',
-                                'type'    => 'number',
-                                'title'   => esc_html__( 'Fixed Cart Position From Right', 'th-all-in-one-woo-cart' ),
-                                'default' => 36,
-                                'min'     => 1,
-                                'max'     => 400,
-                                'suffix'  => 'px',
-                                
-                            ),
-                            array(
-                                'id'      => 'taiowc-fxd_cart_frm_left',
-                                'type'    => 'number',
-                                'title'   => esc_html__( 'Fixed Cart Position From Left', 'th-all-in-one-woo-cart' ),
-                                'default' => 36,
-                                'min'     => 1,
-                                'max'     => 400,
-                                'suffix'  => 'px',
-                                
-                            ),
-
-                             array(
-                                'id'      => 'taiowc-fxd_cart_frm_btm',
-                                'type'    => 'number',
-                                'title'   => esc_html__( 'Fixed Cart Position From Bottom', 'th-all-in-one-woo-cart' ),
-                                'default' => 36,
-                                'min'     => 1,
-                                'max'     => 400,
-                                'suffix'  => 'px',
-
-                            ),
-
-                            
-                            array(
-                                'id'      => 'taiowc-cart_hd',
-                                'type'    => 'text',
-                                'title'   => esc_html__( 'Cart Heading', 'th-all-in-one-woo-cart' ),
-                                
-                                'default' => esc_html__( 'Cart', 'th-all-in-one-woo-cart' ),
-
-                                
-                                
-                            ),
-
-                            array(
-                                'id'      => 'taiowc-empty_cart_txt',
-                                'type'    => 'text',
-                                'title'   => esc_html__( 'Empty Cart Button Text', 'th-all-in-one-woo-cart' ),
-                                
-                                'default' => esc_html__( 'Back To Shop', 'th-all-in-one-woo-cart' ),
-
-                                
-                                
-                            ),
-
-                            array(
-                                'id'      => 'taiowc-empty_cart_url',
-                                'type'    => 'text',
-                                'title'   => esc_html__( 'Empty Cart Button URL', 'th-all-in-one-woo-cart' ),
-                                'desc'   => esc_html__( 'Add URL to which you want to redirect user in case of empty cart. By default user will be redirected to shop page.', 'th-all-in-one-woo-cart' ),
-                                
-                                'default' =>'',
-                                
-                                
-                            ),
-
                                 array(
                                 'id'      => 'taiowc-cart_open',
                                 'type'    => 'select',
@@ -387,8 +294,8 @@ taiowc()->add_setting(
                     'fields' => apply_filters(
                         'taiowc_top_cart_setting_fields', array(
 
-                        array(
-                                'id'      => 'taiowc-cart_style',
+                          array(
+                                'id'      => 'cart_style',
                                 'type'    => 'radio-image',
                                 'title'   => esc_html__( 'Cart Style', 'th-all-in-one-woo-cart' ),
                                 
@@ -409,6 +316,52 @@ taiowc()->add_setting(
                                 'desc'    => '',
                                 'default' => true
                               ),
+
+                         array(
+                                'id'      => 'taiowc-fxd_cart_position',
+                                'type'    => 'select',
+                                'title'   => esc_html__( 'Fixed Cart Position', 'th-all-in-one-woo-cart' ),
+                                'default' => 'fxd-right',
+                                'options' => array(
+
+                                    'fxd-right' => esc_html__( 'Right', 'th-all-in-one-woo-cart' ),
+                                    'fxd-left'  => esc_html__( 'Left', 'th-all-in-one-woo-cart'),
+                                    
+                                ),
+                                
+                            ),
+
+                            array(
+                                'id'      => 'taiowc-fxd_cart_frm_right',
+                                'type'    => 'number',
+                                'title'   => esc_html__( 'Fixed Cart Position From Right', 'th-all-in-one-woo-cart' ),
+                                'default' => 36,
+                                'min'     => 1,
+                                'max'     => 400,
+                                'suffix'  => 'px',
+                                
+                            ),
+                            array(
+                                'id'      => 'taiowc-fxd_cart_frm_left',
+                                'type'    => 'number',
+                                'title'   => esc_html__( 'Fixed Cart Position From Left', 'th-all-in-one-woo-cart' ),
+                                'default' => 36,
+                                'min'     => 1,
+                                'max'     => 400,
+                                'suffix'  => 'px',
+                                
+                            ),
+
+                             array(
+                                'id'      => 'taiowc-fxd_cart_frm_btm',
+                                'type'    => 'number',
+                                'title'   => esc_html__( 'Fixed Cart Position From Bottom', 'th-all-in-one-woo-cart' ),
+                                'default' => 36,
+                                'min'     => 1,
+                                'max'     => 400,
+                                'suffix'  => 'px',
+
+                            ),
                         
                             
                              
@@ -547,6 +500,17 @@ taiowc()->add_setting(
                             ),
 
                             array(
+                                'id'      => 'taiowc-cart_hd',
+                                'type'    => 'text',
+                                'title'   => esc_html__( 'Cart Heading', 'th-all-in-one-woo-cart' ),
+                                
+                                'default' => esc_html__( 'Cart', 'th-all-in-one-woo-cart' ),
+
+                                
+                                
+                            ),
+
+                              array(
                                 'id'      => 'taiowc-cart_item_order',
                                 'type'    => 'select',
                                 'title'   => esc_html__( 'Product Order', 'th-all-in-one-woo-cart' ),
@@ -559,6 +523,28 @@ taiowc()->add_setting(
                                     
                                     
                                 ),
+                                
+                            ),
+
+                            array(
+                                'id'      => 'taiowc-empty_cart_txt',
+                                'type'    => 'text',
+                                'title'   => esc_html__( 'Empty Cart Button Text', 'th-all-in-one-woo-cart' ),
+                                
+                                'default' => esc_html__( 'Back To Shop', 'th-all-in-one-woo-cart' ),
+
+                                
+                                
+                            ),
+
+                            array(
+                                'id'      => 'taiowc-empty_cart_url',
+                                'type'    => 'text',
+                                'title'   => esc_html__( 'Empty Cart Button URL', 'th-all-in-one-woo-cart' ),
+                                'desc'   => esc_html__( 'Add URL to which you want to redirect user in case of empty cart. By default user will be redirected to shop page.', 'th-all-in-one-woo-cart' ),
+                                
+                                'default' =>'',
+                                
                                 
                             ),
                             
