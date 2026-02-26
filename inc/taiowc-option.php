@@ -1450,6 +1450,22 @@ taiowc()->add_setting(
             )
           );
 
+
+          taiowc()->add_setting(
+            'taiowc_help', esc_html__( 'Help', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_help_settings_section', array(
+                array(
+                    'title'  => esc_html__( 'Help', 'th-all-in-one-woo-cart' ),
+                    'fields' => apply_filters(
+                        'taiowc_help_setting_fields', array(
+                            
+                        )
+                    )
+                 )
+              )
+            )
+          );
+
         }
 
     }

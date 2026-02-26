@@ -42,7 +42,7 @@
 
             <div class="taiowc-total" data-th-color="taiowc-price_clr" data-th-font-size="taiowc-prc_font_size-field" data-th-unit="px" data-th-toggle="taiowc-show_price-field">
                 <span class="woocommerce-Price-amount amount">
-                    <span class="woocommerce-Price-currencySymbol"> <?php esc_html_e( '$', 'th-all-in-one-woo-cart' ); ?></span> <?php esc_html_e( '1008.00', 'th-all-in-one-woo-cart' ); ?>
+                    <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
                 </span>
             </div>
 
