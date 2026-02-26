@@ -50,7 +50,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
             <div class="taiowc-total" data-th-color="taiowc-price_clr" data-th-font-size="taiowc-prc_font_size-field" data-th-unit="px" data-th-toggle="taiowc-dsble_mnu_crt_price-field" data-th-toggle-mode="hide">
                 <span class="woocommerce-Price-amount amount">
-                    <span class="woocommerce-Price-currencySymbol"> <?php esc_html_e( '$', 'th-all-in-one-woo-cart' ); ?></span> <?php esc_html_e( '1008.00', 'th-all-in-one-woo-cart' ); ?>
+                     <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
                 </span>
             </div>
 
@@ -71,28 +71,28 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
         <!-- PRODUCTS -->
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb" />
+                <img src="<?php echo esc_url(TAIOWC_PLUGIN_URI.'/images/product-1.jpg'); ?>" />
                 <span class="add">+</span >
                 <div class="skeleton title"></div>
                 <div class="skeleton price"></div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" />
+                <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product-2.jpg'; ?>" />
                 <span class="add">+</span>
                 <div class="skeleton title"></div>
                 <div class="skeleton price"></div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+                <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product-3.jpg'; ?>" />
                 <span class="add">+</span>
                 <div class="skeleton title"></div>
                 <div class="skeleton price"></div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" />
+                <img src="<?php echo TAIOWC_PLUGIN_URI.'/images/product-4.jpg'; ?>" />
                 <span class="add">+</span>
                 <div class="skeleton title"></div>
                 <div class="skeleton price"></div>
@@ -130,11 +130,8 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
             </div>
 
             <div class="taiowc-total" data-th-color="taiowc-fxcrt_cart_tle_clr" data-th-toggle="taiowc-show_price-field">
-                <span>
-                    <span class="woocommerce-Price-amount amount">
-                        <span class="woocommerce-Price-currencySymbol">$</span>
-                        63.00
-                    </span>
+                <span class="woocommerce-Price-amount amount">
+                    <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
                 </span>
             </div>
 
@@ -165,7 +162,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
     <div class="cart-items">
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product.jpg' ); ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product-1.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
@@ -179,7 +176,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
         </div>
 
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product2.jpg' ); ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product-2.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>

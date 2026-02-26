@@ -45,7 +45,7 @@ if (!function_exists('themehunk_admin_menu')) {
        }
 
     function taiowc_admin_menu(){
-            add_menu_page(__('ThemeHunk', 'th-all-in-one-woo-cart'), __('ThemeHunk', 'th-all-in-one-woo-cart'), 'manage_options', 'themehunk-plugins', 'taiowc_plugins',  THEMEHUNK_PURL . '/th-option/assets/images/ico.png', 59);
+            add_menu_page(__('ThemeHunk', 'th-all-in-one-woo-cart'), __('ThemeHunk', 'th-all-in-one-woo-cart'), 'manage_options', 'themehunk-plugins', 'taiowc_plugins',  THEMEHUNK_PURL . '/th-option/assets/images/themehunk-icon.svg', 59);
         }
 
     function taiowc_plugins(){

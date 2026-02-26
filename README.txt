@@ -111,6 +111,10 @@ These plugin have been tested and are compatible with all WordPress themes witho
 4. Color Design
 5. Cart Product Design
 
+License for images:
+product-1.png,product-2.png,product-3.png,product-4.png are made with SORA AI.
+https://sora.chatgpt.com/explore
+
 == Installation ==
 
 1. Upload the `th-all-in-one-woo-cart.zip` to the `/wp-content/plugins/` directory

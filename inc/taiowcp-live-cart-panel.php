@@ -43,7 +43,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
             <div class="taiowc-total" data-th-color="taiowc-price_clr" data-th-font-size="taiowc-prc_font_size-field" data-th-unit="px">
                 <span class="woocommerce-Price-amount amount">
-                    <span class="woocommerce-Price-currencySymbol"> <?php esc_html_e( '$', 'th-all-in-one-woo-cart' ); ?></span> <?php esc_html_e( '1008.00', 'th-all-in-one-woo-cart' ); ?>
+                    <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
                 </span>
             </div>
 
@@ -75,7 +75,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
     <div class="cart-items">
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product.jpg' ); ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product-1.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
@@ -85,11 +85,13 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
                 <span><?php esc_html_e( '+', 'th-all-in-one-woo-cart' ); ?></span>
                 </div>
             </div>
-            <div class="price"><?php esc_html_e( '₹400.00', 'th-all-in-one-woo-cart' ); ?></div>
+            <div class="price"><span class="woocommerce-Price-amount amount">
+                    <?php echo wp_kses_post( wc_price( 900 ) ); ?>
+                </span></div>
         </div>
 
         <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product2.jpg' ); ?>" alt="">
+            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI.'/images/product-2.jpg' ); ?>" alt="">
             <div class="item-info">
                 <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></h4>
                 <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
@@ -99,7 +101,9 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
                 <span><?php esc_html_e( '+', 'th-all-in-one-woo-cart' ); ?></span>
                 </div>
             </div>
-            <div class="price"><?php esc_html_e( '₹250.00', 'th-all-in-one-woo-cart' ); ?></div>
+            <div class="price"><span class="woocommerce-Price-amount amount">
+                    <?php echo wp_kses_post( wc_price( 108 ) ); ?>
+                </span></div>
         </div>
     </div>
 
@@ -108,12 +112,12 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
 
         <div class="row">
             <span><?php esc_html_e( 'Subtotal', 'th-all-in-one-woo-cart' ); ?></span>
-            <span><?php esc_html_e( '₹1,220.00', 'th-all-in-one-woo-cart' ); ?></span>
+            <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
         </div>
 
         <div class="row total">
             <span><?php esc_html_e( 'ORDER TOTAL', 'th-all-in-one-woo-cart' ); ?></span>
-            <span><?php esc_html_e( '₹720.00', 'th-all-in-one-woo-cart' ); ?></span>
+            <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
         </div>
 
         <div class="btn-wrapper">
@@ -161,8 +165,7 @@ $openStyle = taiowc()->get_option( 'taiowc-cart_effect' );
             <div class="taiowc-total" data-th-color="taiowc-fxcrt_cart_tle_clr" data-th-toggle="taiowc-show_price-field">
                 <span>
                     <span class="woocommerce-Price-amount amount">
-                        <span class="woocommerce-Price-currencySymbol"><?php esc_html_e( '$', 'th-all-in-one-woo-cart' ); ?> </span>
-                        <?php esc_html_e( '63.00', 'th-all-in-one-woo-cart' ); ?> 
+                         <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
                     </span>
                 </span>
             </div>

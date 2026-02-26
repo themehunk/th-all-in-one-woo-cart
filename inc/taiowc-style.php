@@ -10,10 +10,6 @@ if(taiowc()->get_option( 'taiowc-tpcrt_show_quantity' ) != true){
 }
 
 
-if(taiowc()->get_option( 'taiowc-fxcrt_show_quantity' ) != true){
- $taiowc_custom_css.=".cart_fixed_1 .cart-count-item{display:none;}";
-}
-
 // cart panel style
 
 $taiowc_cart_pan_icon_shw    = taiowc()->get_option( 'taiowc-cart_pan_icon_shw' );

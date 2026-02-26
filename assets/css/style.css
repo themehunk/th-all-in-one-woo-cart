@@ -234,6 +234,7 @@ font-size: 3rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
+    cursor: pointer;
 }
 
 .taiowc-woocommerce-mini-cart-item:hover a.taiowc-remove-item{
@@ -241,7 +242,7 @@ font-size: 3rem;
     visibility: visible;
 }
 
-.taiowc-cart-model-body a.taiowc-remove-item:hover {
+.taiowc-cart-model-body .woocommerce-mini-cart a.taiowc-remove-item:hover {
     background-color: rgb(254 242 242 / 1);
     color: rgb(239 68 68 / 1);
 }
@@ -523,6 +524,8 @@ box-shadow: -4px 2px 6px #dddddd1a;
     backdrop-filter: blur(7.9px);
     -webkit-backdrop-filter: blur(7.9px);
     border: 1px solid rgba(255, 255, 255, 0.27);
+    width: 36px;
+    height: 36px;
 }
 .cart_fixed_1 .taiowc-icon .th-icon {
     font-size: 2rem;
@@ -833,6 +836,7 @@ position: absolute;
     margin: 0;
     padding: 0;
     text-align: center;
+    list-style-type: none;
 }
 .taiowc-notice-container .taiowc-notices li{
     padding: 0.6rem;

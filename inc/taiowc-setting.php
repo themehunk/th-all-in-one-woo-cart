@@ -115,6 +115,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-cart-panel.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-mobile.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-reset.php';
+					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-help.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-cart-analytics.php';
 					?> 
 					
@@ -253,6 +254,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			'taiowc_cart_analyst'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-column" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>',
 
 			'taiowc_reset'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>',
+
+			'taiowc_help'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+            </svg>',
 		);
 
 			return $icon[$id];
@@ -303,7 +310,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					continue;
 				}
 
-				echo '<div class="form-table taiowc-form-table" id='.esc_attr($section['id']).'>';
+				echo '<div class="form-table taiowc-form-table" id="'.esc_attr($section['id']).'" data-layout="form-table">';
 
 				if ( $section['title'] ) {
 
