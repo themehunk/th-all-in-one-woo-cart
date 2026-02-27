@@ -181,13 +181,7 @@ taiowc()->add_setting(
                         'taiowc_top_cart_setting_fields', array(
 
 
-                            array(
-                                'id'      => 'taiowc-premium-badge',
-                                'type'    => 'premium',
-                                'title'   => '',
-                                'desc'    => '',
-                                'default' => true
-                            ),
+                           
 
                             array(
 

@@ -121,6 +121,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-reset.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-help.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowcp-live-cart-analytics.php';
+					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-premium.php';
 					?> 
 					
 					</form>
