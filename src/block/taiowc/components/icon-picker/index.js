@@ -63,7 +63,7 @@ class IconPicker extends Component {
 
 		let iconSVGSets = {
 			general: {
-				group: __( 'Icon Library', 'vayu-blocks' ),
+				group: __( 'Icon Library', 'th-all-in-one-woo-cart' ),
 				svgs: generalSvgs,
 			}
 		};

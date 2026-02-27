@@ -662,8 +662,8 @@ background: #d14b35;
 }
 
 .th-cart-track-wrap  h2 {
-    padding-bottom: 1.5rem;
-     border-bottom: none;
+    padding: 1.5rem .75rem;     
+    border-bottom: none;
     margin: 0 !important;
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -1337,6 +1337,7 @@ input[type="text"]{
     padding: 0;
     margin: 0 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 .taiowc-setting-form.preview-taiowc-cart_style_set{
@@ -1525,7 +1526,7 @@ position: absolute;
     border-radius: 16px;
 }
 .setting-preview-wrap{
-    width: 60%;
+    width: 55%;
     display: none;
     margin-right: 2rem;
 }
@@ -1533,7 +1534,7 @@ position: absolute;
 .preview-taiowc_fixed_cart #settings-tabs,
 .preview-taiowc-cart_style_set #settings-tabs,
 .preview-taiowc_mobile_cart #settings-tabs{
-    width: 40%;
+    width: 35%;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 2rem;
@@ -1655,6 +1656,9 @@ position: absolute;
     width: 90px;
     outline: 1px solid #f0f0f1;
     padding: 0.3rem;
+}
+.th-save-btn .reset{
+    display: none!important;
 }
 @media (max-width: 782px) {
   .form-table[data-layout="form-table"] 
@@ -2206,9 +2210,6 @@ position: absolute;
 /*.th-cart-track-wrap thead tr{
     background-color: rgb(42 117 187 / 1);
 }*/
-.taiowc-cart-track-wrapper{
-    background: #FFF;
-}
 .th-cart-track-wrap{
     max-width: 1008px;
     margin: 0 auto;
@@ -2266,7 +2267,6 @@ position: absolute;
   border-radius: 21px;
   background-color: var(--highlight-color);
   color: #fff;
-  margin-bottom: 2rem;
 }
 
 .th-track-text{
@@ -3012,15 +3012,130 @@ a.link_.upgrade-button::before {
 a.x-gropup {
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: #2a2929;
     color: #FFF;
-    padding: 2px 0px 1px 12px;
+    padding: 9px;
     margin: 0 !important;
     color: #fff;
     line-height: normal;
     text-decoration: none;
     box-shadow: 0 0 0 0 #3b5998;
     transition: .3s ease;
-    border-radius: 58px;
-    width: 179px;
+    border-radius: 1.2rem;
+    gap: 9px;
+    font-size: 16px;
+}
+a.x-gropup svg{
+    fill: currentColor;
+    text-transform: capitalize;
+}
+
+
+
+
+/* Premium Tab CSS Starts     */
+.th-premium-box{
+    position:relative;
+    background:#f1ece6;
+    border-radius:18px;
+    padding:38px 42px;
+    max-width:920px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin-bottom: 21px;
+}
+
+.th-premium-crown{
+    position:absolute;
+    right:22px;
+    top:22px;
+    width:46px;
+    height:46px;
+    background:#ffffff;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+}
+
+.th-premium-title{
+    margin:0 0 16px;
+    font-size:28px;
+    font-weight:600;
+    color:#1c1c1c;
+}
+
+.th-premium-badge{
+    display:inline-block;
+    background:#0fa87a;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+}
+
+.th-premium-desc{
+    margin:0 0 26px;
+    color:#5a5a5a;
+    font-size:15px;
+    line-height:1.7;
+    max-width:760px;
+}
+
+.th-premium-actions{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.th-premium-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:600;
+    transition:all .2s ease;
+    text-decoration: none!important;
+}
+
+.th-premium-btn:hover,
+.th-premium-btn:focus{
+    background:#000;
+    color: #FFF;
+    outline: 0;
+    box-shadow: none;
+    opacity: .8;
+}
+
+.th-premium-link{
+    color:#1c1c1c;
+    text-decoration:none;
+    border-bottom:1px solid #bdb6ae;
+    padding-bottom:2px;
+    font-weight:500;
+}
+
+.th-premium-link:hover{
+    border-color:#000;
+}
+
+#taiowc-premium-badge-wrapper{
+    display: none;
+}
+.active-tab-taiowc_menu_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_fixed_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc-cart_style_set #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_hide_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_mobile_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_cart_analyst #taiowc-premium-badge-wrapper{
+    display: block!important;;
 }

@@ -554,9 +554,9 @@ echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_ite
 
         check_ajax_referer( 'taiowc_update_qty_nonce', 'security' );
 
-        $cart_key   = isset($_POST['cart_key']) ? sanitize_key($_POST['cart_key']) : '';
+        $cart_key   = isset($_POST['cart_key']) ? sanitize_key(wp_unslash($_POST['cart_key'])) : '';
 
-        $new_qty = isset( $_POST['new_qty'] ) ? floatval( $_POST['new_qty'] ) : 0;
+        $new_qty = isset( $_POST['new_qty'] ) ? floatval( wp_unslash($_POST['new_qty'] )) : 0;
 
         
         $validated = apply_filters( 'taiowc_update_quantity', true, $cart_key, $new_qty );
@@ -625,7 +625,7 @@ echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_ite
 
         $notices = apply_filters('taiowc_notices_before_print', $this->notices, $section );
 
-        $notices_html = sprintf('<div class="taiowc-notice-container" data-section="%1$s"><ul class="taiowc-notices">%2$s</ul></div>', $section, implode( '' , $notices )  );
+        $notices_html = sprintf('<div class="taiowc-notice-container" data-section="%1$s"><ul class="taiowc-notices">%2$s</ul></div>', esc_attr( $section ), implode( '' , $notices )  );
 
         echo wp_kses_post(apply_filters('taiowc_print_notices_html', $notices_html, $notices, $section ));
         

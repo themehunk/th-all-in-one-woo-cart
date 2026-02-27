@@ -180,6 +180,15 @@ taiowc()->add_setting(
                     'fields' => apply_filters(
                         'taiowc_top_cart_setting_fields', array(
 
+
+                            array(
+                                'id'      => 'taiowc-premium-badge',
+                                'type'    => 'premium',
+                                'title'   => '',
+                                'desc'    => '',
+                                'default' => true
+                            ),
+
                             array(
 
                                 'id'      => 'taiowc-show_price',

@@ -32,7 +32,7 @@ export default class UnitChooser extends Component {
 		return (
 			<BaseControl label={ label } id={ id } className="components-th-blocks-units-control-header__units">
 				<div className="components-th-blocks-control__units">
-					<ButtonGroup className="components-th-blocks-control-buttons__units" aria-label={ __( 'Select Units', 'vayu-blocks' ) }>
+					<ButtonGroup className="components-th-blocks-control-buttons__units" aria-label={ __( 'Select Units', 'th-all-in-one-woo-cart' ) }>
 						{ allUnits.map( ( unit ) => {
 							let unitName = unit;
 

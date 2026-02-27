@@ -374,6 +374,20 @@ LiveCartEffectPreview: function () {
 
                   }
 
+                  // ===== header title change =====
+                  var tabText = $(this).clone().children().remove().end().text().trim();
+                  $('.tabheading').text(tabText);
+    
+                   /* ===== ADD THIS PART ===== */
+
+            // remove old dynamic classes but keep setting-wrap
+            $('.setting-wrap').removeClass(function(index, className) {
+                return (className.match(/(^|\s)active-tab-\S+/g) || []).join(' ');
+            });
+
+            // add new dynamic class to closest setting-wrap
+            $('#' + target).closest('.setting-wrap').addClass('active-tab-' + target);
+
                         /* --------- DYNAMIC PREVIEW (REPLACED PART) --------- */
 
             var $preview = $('.setting-preview-wrap[data-tab="' + target + '"]');
@@ -603,3 +617,41 @@ $form.removeClass(function (i, cls) {
 }
 TAIOWCsettingLib.init();
 })(jQuery);
+
+
+jQuery(function ($) {
+
+    function taiowc_move_premium_boxes() {
+
+        var $form = $('form.taiowc-setting-form');
+
+        if (!$form.length) return;
+
+        $('#settings-tabs')
+            .find('div[id*="taiowc-premium-badge-wrapper"]')
+            .each(function () {
+
+                var $box = $(this);
+
+                // prevent duplicate move
+                if ($box.data('taiowc-moved')) return;
+
+                $box.prependTo($form);
+                $box.data('taiowc-moved', true);
+            });
+    }
+
+    // run on load
+    taiowc_move_premium_boxes();
+
+    // run again after ajax/customizer/tab change (important in WP admin)
+    $(document).on('click', '.nav-tab, .ui-tabs-tab a', function () {
+        setTimeout(taiowc_move_premium_boxes, 120);
+    });
+
+    // optional — for dynamic rendering plugins
+    $(document).ajaxComplete(function () {
+        taiowc_move_premium_boxes();
+    });
+
+});
