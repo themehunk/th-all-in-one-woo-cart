@@ -177,12 +177,12 @@ function plugin_install_button($plugin){
 </div>
 
 
-<button data-activated="Activated" data-msg="Activating" data-init="<?php echo esc_attr( $plugin['plugin_init'] );?>" data-slug="<?php echo esc_attr( $plugin['slug'] );?>" class="button <?php echo esc_attr( $plugin['button_class'] );?>"><?php echo esc_html( $plugin['button_txt'] );?>
+<button data-activated="Activated" data-msg="<?php echo esc_attr__( 'Activating', 'th-all-in-one-woo-cart' ); ?>" data-init="<?php echo esc_attr( $plugin['plugin_init'] );?>" data-slug="<?php echo esc_attr( $plugin['slug'] );?>" class="button <?php echo esc_attr( $plugin['button_class'] );?>"><?php echo esc_html( $plugin['button_txt'] );?>
 </button>
 
 <?php if($plugin['free_pro']=='Free' && $slug !='themehunk-megamenu-plus'){?>
 
-    <a class="upgrade-to-pro button" target="_blank" href="<?php echo esc_url($plugin['detail_pro']);?>"><?php echo esc_html__('Upgrade To Pro','th-all-in-one-woo-cart');?></a>
+    <a class="upgrade-to-pro button" target="_blank" href="<?php echo esc_url($plugin['detail_pro']);?>"><?php echo esc_html_e('Upgrade To Pro','th-all-in-one-woo-cart');?></a>
 
 <?php } ?>
 

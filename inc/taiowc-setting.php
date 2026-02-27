@@ -67,7 +67,11 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					<div class="top-header">
                 <h2 class="tabheading"><?php esc_html_e("Configuration Engine", 'th-all-in-one-woo-cart'); ?></h2>
                
-               <a href="<?php echo esc_url('https://themehunk.com/th-all-in-one-woo-cart/'); ?>" title="Get Premium Version" target="_blank"><?php esc_html_e('Get Premium Version','th-all-in-one-woo-cart'); ?></a>
+           <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
+			   title="<?php esc_attr_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>"
+			   target="_blank">
+				<?php esc_html_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>
+			</a>
 					<p class="submit taiowc-button-wrapper th-save-btn">
 						
 						<span class="reset" href="#">
@@ -483,7 +487,11 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					break;
 				case 'usefullplugin':
 					$this->usefullplugin_field_callback( $field );
-					break;						
+					break;	
+
+				case 'premium':
+					$this->premium_field_callback( $field );
+					break;					
 
 				default:
 					$this->text_field_callback( $field );
@@ -575,6 +583,46 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 	           }
 				
 		}
+
+		public function premium_field_callback( $args ) {
+			if($args[ 'id' ]=='taiowc-premium-badge'){ ?>
+
+				<div class="th-premium-box">
+
+
+    <h2 class="th-premium-title">
+        <?php esc_html_e( 'Unlock This Feature with Premium', 'th-all-in-one-woo-cart' ); ?>
+    </h2>
+
+    <span class="th-premium-badge">
+        <?php esc_html_e( 'Premium Feature', 'th-all-in-one-woo-cart' ); ?>
+    </span>
+
+    <p class="th-premium-desc">
+        <?php esc_html_e( 'These options are available for preview purposes only. You can explore and test them here, but they will not be applied to the live frontend of the website. To activate these advanced features on your site, please upgrade to the Pro version.', 'th-all-in-one-woo-cart' ); ?>
+    </p>
+
+    <div class="th-premium-actions">
+        <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
+           class="th-premium-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+            <?php esc_html_e( 'Go Premium', 'th-all-in-one-woo-cart' ); ?>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
+           class="th-premium-link"
+           target="_blank"
+           rel="noopener noreferrer">
+            <?php esc_html_e( 'Learn more', 'th-all-in-one-woo-cart' ); ?>
+        </a>
+    </div>
+
+</div>
+
+		<?php	}
+		}
 		
 		public function html_field_callback( $args ) {
 
@@ -636,13 +684,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
     </p>
 
     <div class="shortcode-box">
-      <code>[taiowc]</code>
-      <button type="button"
-          class="taiowc-copy-btn"
-          aria-label="Copy shortcode"
-          data-copy-target="code">
-    <?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?>
-  </button>
+     <code><?php echo esc_html_e( '[taiowc]' ); ?></code>
+		<button type="button"
+		        class="taiowc-copy-btn"
+		        aria-label="<?php esc_attr_e( 'Copy shortcode', 'th-all-in-one-woo-cart' ); ?>"
+		        data-copy-target="code">
+		    <?php esc_html_e( 'Copy', 'th-all-in-one-woo-cart' ); ?>
+		</button>
       <span class="shortcode-label"><?php esc_html_e('SHORTCODE','th-all-in-one-woo-cart'); ?></span>
     </div>
 
@@ -672,7 +720,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
     <code>&lt;?php echo do_shortcode('[taiowc]'); ?&gt;</code>
      <button type="button"
           class="taiowc-copy-btn"
-          aria-label="Copy PHP code"
+          aria-label="<?php esc_attr_e( 'Copy PHP code', 'th-all-in-one-woo-cart' ); ?>"
           data-copy-target="code">
       <span><?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?></span>
     

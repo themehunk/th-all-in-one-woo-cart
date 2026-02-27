@@ -394,13 +394,13 @@ const getPadding = type => {
         <InsSettingHeader value={ tab }
 					options={[
 						{
-							label: __( 'Setting', 'taiowc' ),
+							label: __( 'Setting', 'th-all-in-one-woo-cart' ),
 							value: 'setting',
                             icon:''
 							
 						},
 						{
-							label: __( 'Style', 'taiowc' ),
+							label: __( 'Style', 'th-all-in-one-woo-cart' ),
 							value: 'style',
                             icon:''
 							
