@@ -374,6 +374,10 @@ LiveCartEffectPreview: function () {
 
                   }
 
+                  // ===== header title change =====
+                  var tabText = $(this).clone().children().remove().end().text().trim();
+                  $('.tabheading').text(tabText);
+    
                    /* ===== ADD THIS PART ===== */
 
             // remove old dynamic classes but keep setting-wrap

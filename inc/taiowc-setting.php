@@ -65,7 +65,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                    <div class="setting-wrap">
                    <div class="setting-content">
 					<div class="top-header">
-                <h2 class="tabheading"><?php esc_html_e("Configuration Engine", 'th-all-in-one-woo-cart'); ?></h2>
+                <h2 class="tabheading"><?php esc_html_e("Integration", 'th-all-in-one-woo-cart'); ?></h2>
                
            <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
 			   title="<?php esc_attr_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>"
