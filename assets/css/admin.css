@@ -1337,7 +1337,6 @@ input[type="text"]{
     padding: 0;
     margin: 0 1rem;
     justify-content: center;
-    flex-wrap: wrap;
 
 }
 .taiowc-setting-form.preview-taiowc-cart_style_set{
@@ -1526,7 +1525,7 @@ position: absolute;
     border-radius: 16px;
 }
 .setting-preview-wrap{
-    width: 55%;
+    width: 60%;
     display: none;
     margin-right: 2rem;
 }
@@ -1534,7 +1533,7 @@ position: absolute;
 .preview-taiowc_fixed_cart #settings-tabs,
 .preview-taiowc-cart_style_set #settings-tabs,
 .preview-taiowc_mobile_cart #settings-tabs{
-    width: 35%;
+    width: 40%;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 2rem;
@@ -2638,6 +2637,114 @@ a[title="Get Premium Version"]:hover::before {
     left: 125%;
 }
 
+/* Premium Tab CSS Starts     */
+.th-premium-box{
+    position:relative;
+    background:#f1ece6;
+    border-radius:18px;
+    padding:38px 42px;
+    max-width:920px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    margin-bottom: 21px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.th-premium-crown{
+    position:absolute;
+    right:22px;
+    top:22px;
+    width:46px;
+    height:46px;
+    background:#ffffff;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+}
+
+.th-premium-title{
+    margin:0 0 16px;
+    font-size:28px;
+    font-weight:600;
+    color:#1c1c1c;
+}
+
+.th-premium-badge{
+    display:inline-block;
+    background:#0fa87a;
+    color:#fff;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+}
+
+.th-premium-desc{
+    margin:0 0 26px;
+    color:#5a5a5a;
+    font-size:15px;
+    line-height:1.7;
+    max-width:760px;
+}
+
+.th-premium-actions{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.th-premium-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:600;
+    transition:all .2s ease;
+    text-decoration: none!important;
+}
+
+.th-premium-btn:hover,
+.th-premium-btn:focus{
+    background:#000;
+    color: #FFF;
+    outline: 0;
+    box-shadow: none;
+    opacity: .8;
+}
+
+.th-premium-link{
+    color:#1c1c1c;
+    text-decoration:none;
+    border-bottom:1px solid #bdb6ae;
+    padding-bottom:2px;
+    font-weight:500;
+}
+
+.th-premium-link:hover{
+    border-color:#000;
+}
+
+.th-premium-box{
+    display: none;
+}
+.active-tab-taiowc_menu_cart .th-premium-box,
+.active-tab-taiowc_fixed_cart .th-premium-box,
+.active-tab-taiowc-cart_style_set .th-premium-box,
+.active-tab-taiowc_cart .th-premium-box,
+.active-tab-taiowc_hide_cart .th-premium-box,
+.active-tab-taiowc_mobile_cart .th-premium-box,
+.active-tab-taiowc_cart_analyst .th-premium-box{
+    display: block!important;;
+}
+
 @media (max-width: 1250px) {
     #settings-tabs{
        width: 95%; 
@@ -2736,6 +2843,14 @@ a[title="Get Premium Version"]:hover::before {
     .cart-panel-preview .item-info h4,
     .cart-panel-preview .price{
         font-size: 10px;
+    }
+    .th-premium-title{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+    .th-premium-box{
+        padding: 2rem;
+        max-width: 87%;
     }
 }
 @media (max-width: 1024px) {
@@ -2879,8 +2994,26 @@ a[title="Get Premium Version"]:hover::before {
 .top-header .tabheading{
     display: none;
 }
-
-
+.th-premium-title{
+    line-height: 1.8;
+}
+.th-premium-desc {
+    font-size: 12px;
+    line-height: 1.6;
+}
+a[title="Get Premium Version"]{
+    font-size: 0;
+    position: relative;
+    line-height: .9;
+    padding: 10px;
+}
+a[title="Get Premium Version"]:after{
+    content: 'Get Pro';
+    font-size: 12px;
+}
+#cart_style-wrapper .radio-image [type=radio] + img{
+    width: 54px;
+}
 /* ===============================
    MOBILE TABLE RESPONSIVE FIX
 ================================= */
@@ -3031,111 +3164,7 @@ a.x-gropup svg{
     text-transform: capitalize;
 }
 
-
-
-
-/* Premium Tab CSS Starts     */
-.th-premium-box{
-    position:relative;
-    background:#f1ece6;
-    border-radius:18px;
-    padding:38px 42px;
-    max-width:920px;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    margin-bottom: 21px;
+a.x-gropup svg{
+    width: 18px;
 }
 
-.th-premium-crown{
-    position:absolute;
-    right:22px;
-    top:22px;
-    width:46px;
-    height:46px;
-    background:#ffffff;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 6px 14px rgba(0,0,0,0.08);
-}
-
-.th-premium-title{
-    margin:0 0 16px;
-    font-size:28px;
-    font-weight:600;
-    color:#1c1c1c;
-}
-
-.th-premium-badge{
-    display:inline-block;
-    background:#0fa87a;
-    color:#fff;
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:.5px;
-    margin-bottom:18px;
-}
-
-.th-premium-desc{
-    margin:0 0 26px;
-    color:#5a5a5a;
-    font-size:15px;
-    line-height:1.7;
-    max-width:760px;
-}
-
-.th-premium-actions{
-    display:flex;
-    align-items:center;
-    gap:22px;
-}
-
-.th-premium-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-    padding:12px 22px;
-    border-radius:30px;
-    font-weight:600;
-    transition:all .2s ease;
-    text-decoration: none!important;
-}
-
-.th-premium-btn:hover,
-.th-premium-btn:focus{
-    background:#000;
-    color: #FFF;
-    outline: 0;
-    box-shadow: none;
-    opacity: .8;
-}
-
-.th-premium-link{
-    color:#1c1c1c;
-    text-decoration:none;
-    border-bottom:1px solid #bdb6ae;
-    padding-bottom:2px;
-    font-weight:500;
-}
-
-.th-premium-link:hover{
-    border-color:#000;
-}
-
-#taiowc-premium-badge-wrapper{
-    display: none;
-}
-.active-tab-taiowc_menu_cart #taiowc-premium-badge-wrapper,
-.active-tab-taiowc_fixed_cart #taiowc-premium-badge-wrapper,
-.active-tab-taiowc-cart_style_set #taiowc-premium-badge-wrapper,
-.active-tab-taiowc_cart #taiowc-premium-badge-wrapper,
-.active-tab-taiowc_hide_cart #taiowc-premium-badge-wrapper,
-.active-tab-taiowc_mobile_cart #taiowc-premium-badge-wrapper,
-.active-tab-taiowc_cart_analyst #taiowc-premium-badge-wrapper{
-    display: block!important;;
-}

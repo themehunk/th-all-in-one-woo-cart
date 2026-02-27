@@ -621,37 +621,35 @@ TAIOWCsettingLib.init();
 
 jQuery(function ($) {
 
-    function taiowc_move_premium_boxes() {
+    function taiowc_move_premium_outside_form() {
 
-        var $form = $('form.taiowc-setting-form');
+        $('.taiowc-setting-form .th-premium-box').each(function () {
 
-        if (!$form.length) return;
+            var $box = $(this);
 
-        $('#settings-tabs')
-            .find('div[id*="taiowc-premium-badge-wrapper"]')
-            .each(function () {
+            // already moved? skip
+            if ($box.data('moved-outside')) return;
 
-                var $box = $(this);
+            var $form = $box.closest('form.taiowc-setting-form');
+            var $header = $form.prevAll('.top-header').first();
 
-                // prevent duplicate move
-                if ($box.data('taiowc-moved')) return;
-
-                $box.prependTo($form);
-                $box.data('taiowc-moved', true);
-            });
+            if ($header.length) {
+                $box.insertAfter($header);
+                $box.data('moved-outside', true);
+            }
+        });
     }
 
-    // run on load
-    taiowc_move_premium_boxes();
+    // on load
+    taiowc_move_premium_outside_form();
 
-    // run again after ajax/customizer/tab change (important in WP admin)
-    $(document).on('click', '.nav-tab, .ui-tabs-tab a', function () {
-        setTimeout(taiowc_move_premium_boxes, 120);
+    // tabs / ajax reload
+    $(document).on('click', '.nav-tab', function(){
+        setTimeout(taiowc_move_premium_outside_form, 120);
     });
 
-    // optional — for dynamic rendering plugins
-    $(document).ajaxComplete(function () {
-        taiowc_move_premium_boxes();
+    $(document).ajaxComplete(function(){
+        taiowc_move_premium_outside_form();
     });
 
 });
