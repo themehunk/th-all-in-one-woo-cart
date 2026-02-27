@@ -1657,6 +1657,9 @@ position: absolute;
     outline: 1px solid #f0f0f1;
     padding: 0.3rem;
 }
+.th-save-btn .reset{
+    display: none!important;
+}
 @media (max-width: 782px) {
   .form-table[data-layout="form-table"] 
   .taiowc-settings-row {
@@ -3100,10 +3103,16 @@ a.x-gropup svg{
     border-radius:30px;
     font-weight:600;
     transition:all .2s ease;
+    text-decoration: none!important;
 }
 
-.th-premium-btn:hover{
+.th-premium-btn:hover,
+.th-premium-btn:focus{
     background:#000;
+    color: #FFF;
+    outline: 0;
+    box-shadow: none;
+    opacity: .8;
 }
 
 .th-premium-link{
@@ -3121,7 +3130,12 @@ a.x-gropup svg{
 #taiowc-premium-badge-wrapper{
     display: none;
 }
-.preview-taiowc_menu_cart #taiowc-premium-badge-wrapper,
-.preview-taiowc_fixed_cart #taiowc-premium-badge-wrapper{
+.active-tab-taiowc_menu_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_fixed_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc-cart_style_set #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_hide_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_mobile_cart #taiowc-premium-badge-wrapper,
+.active-tab-taiowc_cart_analyst #taiowc-premium-badge-wrapper{
     display: block!important;;
 }

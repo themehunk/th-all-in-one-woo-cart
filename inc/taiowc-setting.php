@@ -608,7 +608,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
            target="_blank"
            rel="noopener noreferrer">
             <?php esc_html_e( 'Go Premium', 'th-all-in-one-woo-cart' ); ?>
-            <span class="arrow">→</span>
         </a>
 
         <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"

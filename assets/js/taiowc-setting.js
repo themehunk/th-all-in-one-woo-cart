@@ -374,6 +374,16 @@ LiveCartEffectPreview: function () {
 
                   }
 
+                   /* ===== ADD THIS PART ===== */
+
+            // remove old dynamic classes but keep setting-wrap
+            $('.setting-wrap').removeClass(function(index, className) {
+                return (className.match(/(^|\s)active-tab-\S+/g) || []).join(' ');
+            });
+
+            // add new dynamic class to closest setting-wrap
+            $('#' + target).closest('.setting-wrap').addClass('active-tab-' + target);
+
                         /* --------- DYNAMIC PREVIEW (REPLACED PART) --------- */
 
             var $preview = $('.setting-preview-wrap[data-tab="' + target + '"]');
