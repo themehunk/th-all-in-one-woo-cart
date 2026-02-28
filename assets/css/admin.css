@@ -1656,9 +1656,6 @@ position: absolute;
     outline: 1px solid #f0f0f1;
     padding: 0.3rem;
 }
-.th-save-btn .reset{
-    display: none!important;
-}
 @media (max-width: 782px) {
   .form-table[data-layout="form-table"] 
   .taiowc-settings-row {
