@@ -155,12 +155,14 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.3.0 =
-* New: New user friendly admin ui updated.
-* New: Live Preview of cart and its settings added to make easy to use for settings and its effect to see.
-* New: Front style updated with sticky bottom.
-* New: Security added to make code more secure.
-* Update: Other style related issues resolved.
-* Update: Other code issues resolved and improved.
+
+* New: Brand-New Admin UI – A completely redesigned, modern, and user-friendly interface for a better management experience.
+* New: Live Cart Preview – Instantly see how your cart settings look and behave in real time. No more guesswork!
+* New: Sticky Bottom Cart Design – Enhanced front-end experience with a sleek sticky bottom cart layout that keeps checkout within reach.
+* New: Enhanced Security – Strengthened security measures to ensure safer and more reliable performance.
+* New: Resolved various styling issues for a more consistent appearance.
+* New:Optimized and improved overall code performance and stability.
+* Update:Removed the Cart Title from the Fixed Cart 2 style for a cleaner layout.
 
 
 = Version 2.2.7 =
