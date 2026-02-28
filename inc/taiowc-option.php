@@ -133,36 +133,6 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                                 'desc'    => esc_html__( 'Check when you want to enable floating cart when no product is in cart', 'th-all-in-one-woo-cart' ),
                                 'default' => true
                             ),
-                            
-                            
-
-                            
-
-                            // array(
-                            //  'id'      => 'taiowc-basket_count',
-                            //  'type'    => 'select',
-                            //  'title'   => esc_html__( 'Cart Item Count', 'th-all-in-one-woo-cart' ),
-                            //  'default' =>'numb_prd',
-                            //  'options' => array(
-
-                            //      'numb_prd'   => esc_html__( 'Number of Product', 'th-all-in-one-woo-cart' ),
-                            //      'quant_prd' => esc_html__( 'Sum of quantity of all products', 'th-all-in-one-woo-cart' ),
-                                    
-                            //  ),
-                                
-                            // ),
-
-                            array(
-                                'id'      => 'taiowc-cart_fxd_2_hd',
-                                'type'    => 'text',
-                                'title'   => esc_html__( 'Cart Title', 'th-all-in-one-woo-cart' ),
-                                'default' => esc_html__( 'Cart', 'th-all-in-one-woo-cart' ),
-                            ),
-
-                        
-
-        
-                        
     
                         )
                      )
