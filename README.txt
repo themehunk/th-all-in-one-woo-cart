@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
@@ -154,8 +154,10 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
-= Version 2.3.0 =
+= Version 2.3.1 =
+* Update:cart and checkout button loader added.
 
+= Version 2.3.0 =
 * New: Brand-New Admin UI – A completely redesigned, modern, and user-friendly interface for a better management experience.
 * New: Live Cart Preview – Instantly see how your cart settings look and behave in real time. No more guesswork!
 * New: Sticky Bottom Cart Design – Enhanced front-end experience with a sleek sticky bottom cart layout that keeps checkout within reach.

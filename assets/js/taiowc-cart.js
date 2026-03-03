@@ -11,6 +11,7 @@
             $this.AddCartProduct();
             $this.refreshMyFragments();
             $this.UpdateCart();
+            $this.cartButtonLoader();
 
         },
         cartopen: function (){
@@ -239,6 +240,22 @@
 
 
           },
+
+        cartButtonLoader: function () {
+            // Inject loader overlay once
+            if ( !$('#taiowc-page-loader').length ) {
+                $('body').append(
+                    '<div id="taiowc-page-loader">' +
+                        '<div class="taiowc-page-loader-spinner"></div>' +
+                    '</div>'
+                );
+            }
+
+            // Show loader on View Cart or Checkout button click
+            $(document).on('click', '.cart-button .buttons a', function () {
+                $('#taiowc-page-loader').addClass('active');
+            });
+        },
 
          UpdateCart: function () {
     var $this = this;
