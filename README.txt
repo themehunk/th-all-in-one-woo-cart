@@ -156,6 +156,7 @@ Yes, You can translate our plugin to desired language.
 
 = Version 2.3.2 =
 * Update: Powered by think updated.
+* Update: Feedback added.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.
