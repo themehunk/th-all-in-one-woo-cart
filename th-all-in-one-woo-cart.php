@@ -64,6 +64,7 @@ if (!class_exists('Taiowc') && !class_exists('Taiowcp_Main')){
 include_once(TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php');
 require_once("inc/taiowc.php");
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-block.php';
+require_once TAIOWC_PLUGIN_PATH . 'inc/deactivate-feedback.php';
 
 }              
 
