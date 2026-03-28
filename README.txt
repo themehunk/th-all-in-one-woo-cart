@@ -155,10 +155,10 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.3.3 =
-* Update: P tag removef from copyright.
+* Update: P tag removed from copyright.
 
 = Version 2.3.2 =
-* Update: Powered by think updated.
+* Update: Powered by link updated.
 * Update: Feedback added.
 
 = Version 2.3.1 =
@@ -311,7 +311,7 @@ Yes, You can translate our plugin to desired language.
 == Upgrade Notice ==
 
 = Version 2.0.5 =
-* Update : Admin stle improved.
+* Update : Admin style improved.
 * Fix: Active plugin issue resolved.
 
 
