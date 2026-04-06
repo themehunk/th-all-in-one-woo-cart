@@ -4,7 +4,7 @@ Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
 Requires at least: 5.5
 Tested up to: 6.9
-Stable tag: 2.3.3
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
@@ -154,12 +154,12 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
-= Version 2.3.3 =
-* Update: P tag removed from copyright.
-
 = Version 2.3.2 =
 * Update: Powered by link updated.
 * Update: Feedback added.
+* Update: P tag removed from copyright.
+* Update: Overlay Style issues resolved.
+* New : TH Store One Added.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.

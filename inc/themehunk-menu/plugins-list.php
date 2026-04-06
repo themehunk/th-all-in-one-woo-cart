@@ -1,5 +1,12 @@
 <?php
  return array(
+    'th-store-one' => array(
+        'name' => esc_html__('TH Store One', 'th-all-in-one-woo-cart'),
+        'img' => 'icon-128x128.png',
+        'admin_link' =>   'th-store-one',
+        'details' => esc_url('https://themehunk.com/th-store-one/'),
+        'active_filename' => 'th-store-one/th-store-one.php',
+    ),
      'vayu-blocks' => array(
         'name' => esc_html__('Vayu Blocks', 'th-all-in-one-woo-cart'),
         'img' => 'icon-128x128.png',
