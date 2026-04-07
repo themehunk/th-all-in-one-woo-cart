@@ -160,6 +160,7 @@ Yes, You can translate our plugin to desired language.
 * Update: P tag removed from copyright.
 * Update: Overlay Style issues resolved.
 * New : TH Store One Added.
+* New: taiowc-collapse-sidebar Added.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.

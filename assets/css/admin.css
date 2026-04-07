@@ -3165,3 +3165,82 @@ a.x-gropup svg{
     width: 18px;
 }
 
+
+/*  Collapse CSS */
+/* Normal sidebar */
+#taiowc .nav-tab-wrapper{
+    
+    transition:all .3s ease;
+}
+#taiowc .taiowc-sidebar-collapsed + .setting-wrap{
+    margin-left: 70px;
+}
+/* collapsed sidebar */
+#taiowc .nav-tab-wrapper.taiowc-sidebar-collapsed{
+    width:70px;
+}
+
+/* hide text when collapsed */
+#taiowc .taiowc-sidebar-collapsed .nav-tab{
+    font-size:0;
+}
+
+/* keep icons visible */
+#taiowc .nav-tab span svg{
+    width:18px;
+    height:18px;
+}
+
+/* center icons */
+#taiowc .taiowc-sidebar-collapsed .nav-tab{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* hide title + logo */
+#taiowc .taiowc-sidebar-collapsed h1{
+    display:none;
+}
+
+/* collapse button */
+.taiowc-collapse-sidebar{
+    padding:10px;
+}
+
+.taiowc-collapse-sidebar button{
+    width:100%;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+/* hide collapse text */
+.taiowc-sidebar-collapsed .collapse-text{
+    display:none;
+}
+#taiowc .taiowc-sidebar-collapsed .resp-logo{
+    width: 90%;
+    margin: auto;
+    display: block!important;
+}
+.taiowc-sidebar-collapsed .th-logo{
+    display: none;
+}
+.taiowc-sidebar-collapsed.nav-tab-wrapper span{
+    margin-right: 0;
+}
+.collapse-text{
+    font-weight: 500;
+    color: #6a7282;
+}
+.taiowc-collapse-sidebar:hover{
+    background: #e9e9e959;
+    border-radius: 9px;  
+}
+.taiowc-collapse-sidebar:hover span{
+    color: #111;
+}

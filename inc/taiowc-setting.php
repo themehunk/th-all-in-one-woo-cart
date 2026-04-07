@@ -166,6 +166,14 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			    <?php echo esc_html( $tabs['title'] ); ?>
 </a>
 				<?php endforeach; ?>
+
+				<div class="taiowc-collapse-sidebar">
+				    <button id="taiowc-toggle-sidebar">
+				        <span class="dashicons dashicons-arrow-left-alt2"></span>
+				        <span class="collapse-text">Collapse Sidebar</span>
+				    </button>
+				</div>
+				
 			</div>
 			<?php
 		}
