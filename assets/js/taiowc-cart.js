@@ -242,18 +242,12 @@
           },
 
         cartButtonLoader: function () {
-            // Inject loader overlay once
-            if ( !$('#taiowc-page-loader').length ) {
-                $('body').append(
-                    '<div id="taiowc-page-loader">' +
-                        '<div class="taiowc-page-loader-spinner"></div>' +
-                    '</div>'
-                );
-            }
-
-            // Show loader on View Cart or Checkout button click
+            // Show spinner inside the clicked button only
             $(document).on('click', '.cart-button .buttons a', function () {
-                $('#taiowc-page-loader').addClass('active');
+                var $btn = $(this);
+                if ( $btn.hasClass('taiowc-btn-loading') ) return;
+                $btn.addClass('taiowc-btn-loading');
+                $btn.append('<span class="taiowc-btn-spinner"></span>');
             });
         },
 
