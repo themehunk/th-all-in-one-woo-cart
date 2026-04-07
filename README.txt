@@ -155,8 +155,11 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.3.2 =
-* Update: Powered by think updated.
+* Update: Powered by link updated.
 * Update: Feedback added.
+* Update: P tag removed from copyright.
+* Update: Overlay Style issues resolved.
+* New : TH Store One Added.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.
@@ -308,7 +311,7 @@ Yes, You can translate our plugin to desired language.
 == Upgrade Notice ==
 
 = Version 2.0.5 =
-* Update : Admin stle improved.
+* Update : Admin style improved.
 * Fix: Active plugin issue resolved.
 
 
