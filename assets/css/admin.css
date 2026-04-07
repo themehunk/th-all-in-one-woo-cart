@@ -2973,6 +2973,9 @@ a[title="Get Premium Version"]:hover::before {
     margin: 0 auto;
     display: flex;
   }
+   .taiowc-sidebar-collapsed.nav-tab-wrapper span{
+    margin: 0;
+  }
   .reset-wrapper .taiowc-button-wrapper a{
     font-size: 0.72rem;
     padding: 9px;
