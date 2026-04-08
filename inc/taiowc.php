@@ -242,11 +242,31 @@ if ( ! class_exists( 'Taiowc' ) ):
               
               $icon_svg = taiowc()->get_option( 'taiowc-cart-icon' );
 
-              if($icon_svg=='icon-1'){?>
+             if($icon_svg=='icon-1'){ ?>
                  
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>
-
-              <?php }        
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag w-6 h-6 stroke-[1.5px]" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg>
+      
+                    <?php }elseif($icon_svg=='icon-2'){?>
+      
+                    <span class="th-icon th-icon-Shopping_icons-11"></span>
+                     
+                    <?php }elseif($icon_svg=='icon-3'){?>
+      
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.153 4L6.01 15.146a.993.993 0 0 0 .327.603.997.997 0 0 0 .679.251H18a1 1 0 0 0 .949-.684l3-9A1 1 0 0 0 21 5H6.347L5.99 2.85a.993.993 0 0 0-.357-.625A.998.998 0 0 0 4.984 2H3a1 1 0 0 0 0 2h1.153zm3.694 10L6.68 7h12.933l-2.334 7H7.847zM10 20a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm9 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" fill="currentColor"></path></svg>
+      
+                    <?php }elseif($icon_svg=='icon-4'){?>
+      
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6H20V22H4V6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M9 9V6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+      
+                    <?php }elseif($icon_svg=='icon-5'){?>
+      
+                   <span class="th-icon th-icon-Shopping-Bag-Cart-Icons-11"></span>
+      
+                   <?php }elseif($icon_svg=='icon-6'){ ?>
+      
+                   <svg fill="currentColor" width="24" height="24" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"><path d="M8.5,19A1.5,1.5,0,1,0,10,20.5,1.5,1.5,0,0,0,8.5,19ZM19,16H7a1,1,0,0,1,0-2h8.49121A3.0132,3.0132,0,0,0,18.376,11.82422L19.96143,6.2749A1.00009,1.00009,0,0,0,19,5H6.73907A3.00666,3.00666,0,0,0,3.92139,3H3A1,1,0,0,0,3,5h.92139a1.00459,1.00459,0,0,1,.96142.7251l.15552.54474.00024.00506L6.6792,12.01709A3.00006,3.00006,0,0,0,7,18H19a1,1,0,0,0,0-2ZM17.67432,7l-1.2212,4.27441A1.00458,1.00458,0,0,1,15.49121,12H8.75439l-.25494-.89221L7.32642,7ZM16.5,19A1.5,1.5,0,1,0,18,20.5,1.5,1.5,0,0,0,16.5,19Z"></path></svg>
+                      
+                   <?php }        
 
          }
 
@@ -497,9 +517,20 @@ echo apply_filters( 'woocommerce_cart_item_remove_link', $remove_link, $cart_ite
 
         ?>
      
+            <div class="back-toshop-wrap">
+                <div class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag text-gray-300" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg></div>
              <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'th-all-in-one-woo-cart' ); ?></p>
 
              <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc()->get_option( 'taiowc-empty_cart_txt' )); ?></a>
+            </div>
+            
+            <a class="taiowc-continue-shop"><?php esc_html_e('Continue Shopping','th-all-in-one-woo-cart'); ?></a>
+            
+
+             
+
+             
 
     <?php }
 

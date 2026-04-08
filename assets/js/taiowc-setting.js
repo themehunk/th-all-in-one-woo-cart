@@ -604,12 +604,17 @@ $form.removeClass(function (i, cls) {
                    
              });
 
-            $('input#cart_style[value="style-2"]').attr("disabled", true);
+            // $('input#cart_style[value="style-2"]').attr("disabled", true);
             $('#taiowc-cart_effect-field option[value="taiowc-slide-left"]').attr("disabled", true);
             $('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').attr("disabled", true);
             $('#taiowc-cart_item_order-field option[value="prd_last"]').attr("disabled", true);
             $('#taiowc-cart_open-field option[value="fly-image-open"]').attr("disabled", true);
-            $('input#taiowc-cart-icon[value="icon-2"], input#taiowc-cart-icon[value="icon-3"], input#taiowc-cart-icon[value="icon-4"], input#taiowc-cart-icon[value="icon-5"], input#taiowc-cart-icon[value="icon-6"], input#taiowc-cart-icon[value="icon-7"]').attr("disabled", true);
+            $('input#taiowc-cart-icon[value="icon-7"]').attr("disabled", true);
+
+             $('#taiowc-prc_font_size-field,#taiowc-icon_size-field').attr("disabled", true);
+             $('#taiowc_fixed_cart input,#taiowc_cart input,#taiowc_hide_cart input,#taiowc-fxd_cart_position-field').attr("disabled", true);
+
+             $('input#cart_style').attr("disabled", false);
 
         },
   

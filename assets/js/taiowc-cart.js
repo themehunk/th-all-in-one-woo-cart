@@ -12,8 +12,17 @@
             $this.refreshMyFragments();
             $this.UpdateCart();
             $this.cartButtonLoader();
-
+            $this.handleBodyScroll();
         },
+        handleBodyScroll: function () {
+    var $wrap = $('.taiowc-model-wrap');
+
+    if ($wrap.hasClass('model-cart-active')) {
+        $('body').addClass('no-scroll');
+    } else {
+        $('body').removeClass('no-scroll');
+    }
+},
         cartopen: function (){
             $(document).on('click','a.taiowc-content',function(e){
                 e.preventDefault();
@@ -22,18 +31,21 @@
 
                 // Remove active class from all first (optional cleanup)
                 $('.taiowc-model-wrap').removeClass('model-cart-active');
+                TAIOWCscriptLib.handleBodyScroll();
 
                 // Then activate the modal wrapper
                 $('.taiowc-model-wrap').addClass('model-cart-active');
+                TAIOWCscriptLib.handleBodyScroll();
 
                 
             });
         },
         cartclose: function () {
             // Close button inside cart
-            $(document).on('click', 'a.taiowc-cart-close', function (e) {
+            $(document).on('click', 'a.taiowc-cart-close,.taiowc-continue-shop', function (e) {
                 e.preventDefault();
                 $('.taiowc-model-wrap').removeClass('model-cart-active');
+                TAIOWCscriptLib.handleBodyScroll();
             });
 
             // Click outside the cart closes it
@@ -41,6 +53,7 @@
                 if ($(evt.target).closest('a.taiowc-content, .taiowc-cart-model').length)
                     return;
                 $('.taiowc-model-wrap').removeClass('model-cart-active');
+                TAIOWCscriptLib.handleBodyScroll();
             });
         },
 
@@ -261,6 +274,7 @@
 
         // ✅ Open the modal cart
         $('.taiowc-model-wrap').addClass('model-cart-active');
+        TAIOWCscriptLib.handleBodyScroll();
 
         // ✅ Refresh checkout page
         if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {
@@ -281,6 +295,7 @@
     $(document).on('added_to_cart', function (event, fragments, hash, atc_btn) {
         // ✅ Open the modal cart
         $('.taiowc-model-wrap').addClass('model-cart-active');
+        TAIOWCscriptLib.handleBodyScroll();
 
         // ✅ Refresh checkout page
         if (window.wc_checkout_params && wc_checkout_params.is_checkout === "1") {

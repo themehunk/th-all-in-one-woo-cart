@@ -67,10 +67,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					<div class="top-header">
                 <h2 class="tabheading"><?php esc_html_e("Integration", 'th-all-in-one-woo-cart'); ?></h2>
                
-           <a href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
-			   title="<?php esc_attr_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>"
+           <a class="upgradebutton" href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
+			   title="<?php esc_attr_e( 'Upgrade', 'th-all-in-one-woo-cart' ); ?>"
 			   target="_blank">
-				<?php esc_html_e( 'Get Premium Version', 'th-all-in-one-woo-cart' ); ?>
+				<?php esc_html_e( 'Upgrade', 'th-all-in-one-woo-cart' ); ?>
 			</a>
 					<p class="submit taiowc-button-wrapper th-save-btn">
 						 <button disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'th-all-in-one-woo-cart' ) ?>"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span><?php esc_html_e( 'Save All Changes', 'th-all-in-one-woo-cart' ) ?></span>

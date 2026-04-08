@@ -1060,7 +1060,9 @@ body{
     box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)!important;
 }
 
-
+.wp-core-ui .taiowc-button-wrapper .button-primary:disabled{
+    background: #7DA6FF!important;
+}
 .th-save-btn #submit span{
     font-size: 12px;
     line-height: initial;
@@ -2584,7 +2586,7 @@ background: linear-gradient(135deg, #020617, #444444ad);
 
 
 /* Premium Green Upgrade Button */
-a[title="Get Premium Version"] {
+.upgradebutton {
     position: relative;
     display: inline-block;
     padding: 10px 24px;
@@ -2595,13 +2597,15 @@ a[title="Get Premium Version"] {
     border-radius: 1.25rem;
     background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
     background-size: 200% 200%;
-    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);
+/*    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);*/
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     animation: gradientMove 4s ease infinite;
     margin-left: auto;
     margin-right: 9px;
     letter-spacing: .16rem;
+    outline: 0 !important;
+    box-shadow: initial !important;
 }
 
 /* Gradient Animation */
@@ -2612,13 +2616,9 @@ a[title="Get Premium Version"] {
 }
 
 /* Hover Effect */
-a[title="Get Premium Version"]:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(0, 200, 83, 0.6);
-}
 
 /* Shine Effect */
-a[title="Get Premium Version"]::before {
+.upgradebutton::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2630,7 +2630,7 @@ a[title="Get Premium Version"]::before {
     transition: 0.7s;
 }
 
-a[title="Get Premium Version"]:hover::before {
+.upgradebutton:hover::before {
     left: 125%;
 }
 
@@ -2732,8 +2732,8 @@ a[title="Get Premium Version"]:hover::before {
 .th-premium-box{
     display: none;
 }
-.active-tab-taiowc_menu_cart .th-premium-box,
-.active-tab-taiowc_fixed_cart .th-premium-box,
+
+
 .active-tab-taiowc-cart_style_set .th-premium-box,
 .active-tab-taiowc_cart .th-premium-box,
 .active-tab-taiowc_hide_cart .th-premium-box,
@@ -2906,7 +2906,7 @@ a[title="Get Premium Version"]:hover::before {
     .taiowc-setting-form label{
         font-size: 10px;
     }
-    a[title="Get Premium Version"]{
+    .upgradebutton{
         font-size: 10px;
     }
 }
@@ -3001,13 +3001,13 @@ a[title="Get Premium Version"]:hover::before {
     font-size: 12px;
     line-height: 1.6;
 }
-a[title="Get Premium Version"]{
+.upgradebutton{
     font-size: 0;
     position: relative;
     line-height: .9;
     padding: 10px;
 }
-a[title="Get Premium Version"]:after{
+.upgradebutton:after{
     content: 'Get Pro';
     font-size: 12px;
 }
@@ -3246,4 +3246,9 @@ a.x-gropup svg{
 }
 .taiowc-collapse-sidebar:hover span{
     color: #111;
+}
+.taiowc-cart-track-wrapper{
+    opacity: .7;
+    pointer-events: none;
+
 }
