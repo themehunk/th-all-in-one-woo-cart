@@ -653,3 +653,32 @@ jQuery(function ($) {
     });
 
 });
+
+jQuery(document).ready(function ($) {
+
+    $('#taiowc-toggle-sidebar').on('click', function () {
+
+        $('#taiowc .nav-tab-wrapper').toggleClass('taiowc-sidebar-collapsed');
+
+        // change arrow direction
+        $(this).find('.dashicons')
+        .toggleClass('dashicons-arrow-left-alt2 dashicons-arrow-right-alt2');
+
+    });
+
+       function handleSidebarOnResize() {
+            if ($(window).width() <= 768) {
+                $('#taiowc .nav-tab-wrapper').addClass('taiowc-sidebar-collapsed');
+            } else {
+                $('#taiowc .nav-tab-wrapper').removeClass('taiowc-sidebar-collapsed');
+            }
+        }
+
+        // Run on load
+        handleSidebarOnResize();
+
+        // Run on resize
+        $(window).on('resize', handleSidebarOnResize);
+
+
+});
