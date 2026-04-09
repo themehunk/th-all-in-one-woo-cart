@@ -1,0 +1,15 @@
+== Changelog ==
+
+= 3.3.0 =
+* Fix - Cart analytics backend data not showing issue resolved
+* Fix - Database table creation error due to invalid SQL text type
+* Fix - REST API query compatibility with WordPress 6.x
+* Fix - Script asset loading failure on admin pages
+* New - New design implemented for backend settings panel
+* New - New design implemented for frontend cart layout
+* New - Mobile view new layout update
+* Improvement - Updated admin CSS styles
+
+= 3.2.7 =
+* Fix - Button style update
+* Improvement - UI style improvements

@@ -132,8 +132,7 @@ function openTab(evt, tabName) {
                 data : {
                     action : 'themehunk_activeplugin',
                     init   :  $init,
-                    slug   :  $slug,
-                    nonce  : TAIOWCAdmin.nonce,
+                    slug   :  $slug
                 }
             }).done(function ( response ){
             	if( response.success) {

@@ -1,21 +1,21 @@
 <?php
  return array(
     'th-store-one' => array(
-        'name' => esc_html__('TH Store One', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('TH Store One', 'taiowc'),
         'img' => 'icon-128x128.png',
         'admin_link' =>   'th-store-one',
         'details' => esc_url('https://themehunk.com/th-store-one/'),
         'active_filename' => 'th-store-one/th-store-one.php',
     ),
-     'vayu-blocks' => array(
-        'name' => esc_html__('Vayu Blocks', 'th-all-in-one-woo-cart'),
+      'vayu-blocks' => array(
+        'name' => esc_html__('Vayu Blocks', 'taiowc'),
         'img' => 'icon-128x128.png',
         'admin_link' =>   'vayu-blocks',
         'details' => esc_url('https://themehunk.com/vayu-blocks/'),
         'active_filename' => 'vayu-blocks/vayu-blocks.php',
     ),
     'th-advance-product-search' => array(
-        'name' => esc_html__('TH Advance Product Search', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('TH Advance Product Search', 'taiowc'),
         'img' => 'icon-128x128.gif',
         'admin_link' =>   'th-advance-product-search',
         'details' => esc_url('https://themehunk.com/th-product-compare-plugin/'),
@@ -28,20 +28,20 @@
     ),
 
     'th-all-in-one-woo-cart' => array(
-        'name' => esc_html__('Th All In One Woo Cart', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('Th All In One Woo Cart', 'taiowc'),
         'img' => 'icon-128x128.gif',
         'details' => esc_url('https://themehunk.com/th-all-in-one-woo-cart/'),
-        'admin_link' =>   'th-all-in-one-woo-cart',
+        'admin_link' =>   'taiowc',
         'active_filename' => 'th-all-in-one-woo-cart/th-all-in-one-woo-cart.php',
         'pro-plugin' => array(
             'init' => 'th-all-in-one-woo-cart-pro/th-all-in-one-woo-cart-pro.php',
-            'admin_link' => 'taiowc-pro',
+            'admin_link' => 'taiowc',
             'docs' => esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/')
         )
     ),
 
     'th-product-compare' => array(
-        'name' => esc_html__('Th Product Compare', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('Th Product Compare', 'taiowc'),
         'img' => 'icon-128x128.gif',
         'details' => esc_url('https://themehunk.com/th-product-compare-plugin/'),
         'active_filename' => 'th-product-compare/th-product-compare.php',
@@ -54,7 +54,7 @@
     ),
 
     'th-variation-swatches' => array(
-        'name' => esc_html__('TH Variation Swatches', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('TH Variation Swatches', 'taiowc'),
         'img' => 'icon-128x128.gif',
         'details' => esc_url('https://themehunk.com/th-variation-swatches/'),
         'active_filename' => 'th-variation-swatches/th-variation-swatches.php',
@@ -66,8 +66,8 @@
         )
     ),
     'lead-form-builder' => array(
-        'name' => esc_html__('Lead Form Builder', 'th-all-in-one-woo-cart'),
-        'img' => 'icon-128x128.png',
+        'name' => esc_html__('Lead Form Builder', 'taiowc'),
+        'img' => 'icon-128x128.gif',
         'details' => esc_url('https://themehunk.com/product/lead-form-builder-pro/'),
         'active_filename' => 'lead-form-builder/lead-form-builder.php',
         'admin_link' =>   'wplf-plugin-menu',
@@ -78,7 +78,7 @@
         )
     ),
     'wp-popup-builder' => array(
-        'name' => esc_html__('WP Popup Builder – Popup Forms & Newsletter', 'th-all-in-one-woo-cart'),
+        'name' => esc_html__('WP Popup Builder – Popup Forms & Newsletter', 'taiowc'),
         'img' => 'icon-128x128.png',
         'details' => esc_url('https://themehunk.com/wp-popup-builder-pro/'),
         'active_filename' => 'wp-popup-builder/wp-popup-builder.php',
@@ -88,5 +88,6 @@
             'admin_link' => 'wppb',
             'docs' => esc_url('https://themehunk.com/docs/wp-popup-builder-pro/'),
         )
-    ),
+    )
+
 );
