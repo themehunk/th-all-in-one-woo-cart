@@ -54,7 +54,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                            
                         
 
-                            <?php if ( ! WC()->cart->is_empty() ) { ?>
+                            <?php if ( (! WC()->cart->is_empty()) && taiowc()->get_option( 'taiowc-show_quantity' ) == true ) { ?>
 
                             <div class="cart-count-item">
                                 
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Taiowc_Markup' ) ):
                                  </div>
 
                                  <?php if ( ! WC()->cart->is_empty() ) {  
-                                    if(taiowc()->get_option( 'taiowc-tpcrt_show_price' ) == true){ 
+                                    if(taiowc()->get_option( 'taiowc-show_price' ) == true){ 
                                         ?>
                                  <div class="taiowc-total">
 

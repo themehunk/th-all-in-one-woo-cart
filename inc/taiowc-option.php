@@ -84,21 +84,21 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
                             ),
 
 
-                                array(
-                                'id'      => 'taiowc-cart_open',
-                                'type'    => 'select',
-                                'title'   => esc_html__( 'Cart Open With', 'th-all-in-one-woo-cart' ),
-                                'default' =>'simple-open',
-                                'options' => array(
+                            //     array(
+                            //     'id'      => 'taiowc-cart_open',
+                            //     'type'    => 'select',
+                            //     'title'   => esc_html__( 'Cart Open With', 'th-all-in-one-woo-cart' ),
+                            //     'default' =>'simple-open',
+                            //     'options' => array(
 
-                                    'simple-open'   => esc_html__( 'Auto Open with Ajax', 'th-all-in-one-woo-cart' ),
-                                    'fly-image-open' => esc_html__( 'Auto Open with Image fly Effect', 'th-all-in-one-woo-cart' ),
+                            //         'simple-open'   => esc_html__( 'Auto Open with Ajax', 'th-all-in-one-woo-cart' ),
+                            //         'fly-image-open' => esc_html__( 'Auto Open with Image fly Effect', 'th-all-in-one-woo-cart' ),
                                     
                                     
-                                ),
-                                'desc'    => esc_html__( 'These options will open cart panel as soon as product added to the cart.', 'th-all-in-one-woo-cart' ),
+                            //     ),
+                            //     'desc'    => esc_html__( 'These options will open cart panel as soon as product added to the cart.', 'th-all-in-one-woo-cart' ),
                                 
-                            ),
+                            // ),
 
                                 array(
                                 'id'      => 'taiowc-cart-icon',
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
            );
 
 taiowc()->add_setting(
-            'taiowc_menu_cart', esc_html__( 'Menu Cart (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_menu_cart', esc_html__( 'Menu Cart (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc_menu_cart_section', array(
                 array(
                     'title'  => esc_html__( 'Menu Cart Configuration', 'th-all-in-one-woo-cart' ),
@@ -260,7 +260,7 @@ taiowc()->add_setting(
          
 
         taiowc()->add_setting(
-            'taiowc_fixed_cart', esc_html__( 'Fixed Cart (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_fixed_cart', esc_html__( 'Fixed Cart (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc_fixed_cart_section', array(
                 array(
                     'title'  => esc_html__( 'Fixed Cart Configuration', 'th-all-in-one-woo-cart' ),
@@ -427,7 +427,7 @@ taiowc()->add_setting(
     
 
     taiowc()->add_setting(
-            'taiowc-cart_style_set', esc_html__( 'Cart Side Panel (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc-cart_style_set', esc_html__( 'Cart Side Panel (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc-cart_style_settings_section', array(
                     array(
                     'title'  => esc_html__( 'FIXED CART / FLOATING CART', 'th-all-in-one-woo-cart' ),
@@ -504,7 +504,7 @@ taiowc()->add_setting(
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Empty Cart Button Text', 'th-all-in-one-woo-cart' ),
                                 
-                                'default' => esc_html__( 'Back To Shop', 'th-all-in-one-woo-cart' ),
+                                'default' => esc_html__( 'Start Shopping', 'th-all-in-one-woo-cart' ),
 
                                 
                                 
@@ -977,7 +977,7 @@ taiowc()->add_setting(
 
 
           taiowc()->add_setting(
-            'taiowc_cart', esc_html__( 'Content Visibility (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_cart', esc_html__( 'Content Visibility (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc_cart_settings_section', array(
                 array(
                     'title'  => esc_html__( 'Product List', 'th-all-in-one-woo-cart' ),
@@ -1201,7 +1201,7 @@ taiowc()->add_setting(
           );
 
           taiowc()->add_setting(
-            'taiowc_hide_cart', esc_html__( 'Visibility Rules (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_hide_cart', esc_html__( 'Visibility Rules (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc_cart_hide_section', array(
                 array(
                     'title'  => esc_html__( 'Page Exclusion List', 'th-all-in-one-woo-cart' ),
@@ -1278,7 +1278,7 @@ taiowc()->add_setting(
 
 
           taiowc()->add_setting(
-            'taiowc_mobile_cart', esc_html__( 'Mobile Experience (Premium)', 'th-all-in-one-woo-cart' ), apply_filters(
+            'taiowc_mobile_cart', esc_html__( 'Mobile Experience (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
             'taiowc_mobile_cart_settings_section', array(
                 array(
                     'title'  => esc_html__( 'Menu Cart / Shortcode Cart', 'th-all-in-one-woo-cart' ),
@@ -1393,7 +1393,7 @@ taiowc()->add_setting(
         ));
 
         taiowc()->add_setting(
-            'taiowc_cart_analyst', esc_html__( 'Cart Analytics (Premium)', 'th-all-in-one-woo-cart' ),
+            'taiowc_cart_analyst', esc_html__( 'Cart Analytics (Pro)', 'th-all-in-one-woo-cart' ),
             apply_filters(
             'taiowc_cart_analyst_settings_section', array(
                 array(
