@@ -97,7 +97,7 @@
 
         cartclose: function () {
             // Close button inside cart
-            $(document).on('click', 'a.taiowc-cart-close', function (e) {
+            $(document).on('click', 'a.taiowc-cart-close,.taiowc-continue-shop', function (e) {
                 e.preventDefault();
                 $('.taiowc-model-wrap,.taiowc-wrap.cart_fixed_2').removeClass('model-cart-active');
                 taiowcscriptLib.handleBodyScroll();

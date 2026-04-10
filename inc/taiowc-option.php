@@ -1211,7 +1211,7 @@ taiowc_main()->taiowc_add_setting(
 								'type'    => 'text',
 								'title'   => esc_html__( 'Link', 'taiowc' ),
 								
-								'default' => esc_html__( 'https://themehunk.com/', 'taiowc' ),	
+								'default' => esc_html__( 'https://themehunk.com/th-all-in-one-woo-cart/', 'taiowc' ),	
 								
 							), 
 							
@@ -1464,6 +1464,21 @@ taiowc_main()->taiowc_add_setting(
 			  )
 		    )
 		  );
+
+		  taiowc_main()->taiowc_add_setting(
+            'taiowc_help', esc_html__( 'Help', 'taiowc' ), apply_filters(
+            'taiowc_help_settings_section', array(
+                array(
+                    'title'  => esc_html__( 'Help', 'taiowc' ),
+                    'fields' => apply_filters(
+                        'taiowc_help_setting_fields', array(
+                            
+                        )
+                    )
+                 )
+              )
+            )
+          );
 
 		}
 

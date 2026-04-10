@@ -907,20 +907,20 @@ table.taiowc-user-product .th-product-title{
                     float: none;
                 }
 
-a.x-gropup{
+.preview-taiowc_help a.x-gropup{
+    width: max-content;
+    padding: 5px 18px;
     display: flex;
     align-items: center;
     background-color: #2a2929;
     color: #FFF;
-    padding: 2px 0px 1px 12px;
-    margin: 0 auto!important;
+    margin: 0 !important;
     color: #fff;
     line-height: normal;
     text-decoration: none;
     box-shadow: 0 0 0 0 #3b5998;
     transition: .3s ease;
     border-radius: 58px;
-    width: 179px;
 }
 
 a.x-gropup:hover{
@@ -935,7 +935,12 @@ a .x-image{
 .x-gropup span{
   margin: 0;
 }
-
+.preview-taiowc_help a.x-gropup svg{
+    fill: #FFF;
+    width: 18px;
+    height: 18px;
+    margin-right: 9px;
+}
 
 /*************** New CSS STARTS     */
 body{
@@ -955,7 +960,7 @@ display: flex;
     border-right: 1px solid var(--border-color);
     position: fixed;
     width: 250px;
-    height: 100vh;
+    min-height: 100vh;
     z-index: 2;
     top: 32px;
     overflow-y: auto;
@@ -1804,7 +1809,7 @@ position: absolute;
 
 .cart-panel-preview .summary {
     color: #111;
-    padding: 20px;
+    padding: 20px 29px;
     margin-top: auto;
     box-shadow: 0 0 #0000, 0 0 #0000, 0 -10px 40px -15px rgba(0, 0, 0, 0.1);
     border-top: 1px solid transparent;
@@ -2703,13 +2708,10 @@ background: linear-gradient(135deg, #020617, #444444ad);
     }
     .taiowc-setting-form label{
         font-size: 10px;
+        line-height: 18px;
     }
 }
 @media (max-width: 767px) {
-  .form-table[data-layout="form-table"] 
-  .taiowc-settings-row {
-    grid-template-columns: 1fr;
-  }
 
   .form-table[data-layout="form-table"] 
   .taiowc-settings-label {
@@ -2719,9 +2721,23 @@ background: linear-gradient(135deg, #020617, #444444ad);
     display: none;
   }
   .wp-core-ui .th-save-btn .button-primary{
-    padding-left: 1rem;
-    padding-right: 1rem;
+    width: 100%;
   }
+  .upgradebutton,.taiowc-button-wrapper{
+    width: 49%!important;
+  }
+  .taiowc-settings-field-content .color_picker{
+    min-height: initial;
+  }
+  .th-save-btn .text{
+    display: none!important;
+  }
+ /* .taiowc-upload-wrap{
+    flex-direction: column;
+  }
+  .wp-core-ui .taiowc-remove-image{
+    position: relative;
+  }*/
   #taiowc .nav-tab-wrapper{
     width: 54px;
   }
@@ -2748,6 +2764,15 @@ background: linear-gradient(135deg, #020617, #444444ad);
   .taiowc-form-table .taiowc-settings-row{
     gap: 9px;
   }
+  .taiowc-form-table .taiowc-settings-row {
+        grid-template-columns: 79px 1fr;
+    }
+    #taiowc .setting-wrap .form-table{
+        padding: .9rem;
+    }
+    #taiowc .setting-wrap .form-table{
+        padding: .5rem;
+    }
   .step-header h3{
     font-size: 12px;
   }
@@ -2956,4 +2981,91 @@ background: linear-gradient(135deg, #020617, #444444ad);
     opacity: .7;
     pointer-events: none;
 
+}
+
+/* Premium Green Upgrade Button */
+.upgradebutton {
+    width: 200px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
+    background-size: 200% 200%;
+    /* box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35); */
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    animation: gradientMove 4s ease infinite;
+    margin-left: auto;
+    margin-right: 9px;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover Effect */
+
+/* Shine Effect */
+.upgradebutton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.upgradebutton:hover::before {
+    left: 125%;
+}
+
+/* Help TAB CSS START   */
+.help-wrapper.setting-preview-wrap{
+    width: 100%;
+}
+.help-wrapper .page-wrapper{
+    background: transparent!important;
+    box-shadow: initial!important;
+    padding: 0 1rem;
+}
+.th-help-wrap a{
+    text-decoration: none;
+}
+.th-help-wrap .blocks {
+    display: flex;
+    grid-gap: 20px;
+    flex-wrap: wrap;
+}
+.th-help-wrap .blocks > div {
+    padding: 18px;
+    box-shadow: 0px 0px 5px 1px #eff8fd;
+    width: 31.33%;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 12px;
+    justify-content: flex-start;
+    border-radius: 9px;
+    border: 1px solid var(--border-color);
+    background: #FFF;
+}
+.th-help-wrap .bold-heading {
+    color: #111;
+    font-size: 14px;
+    font-weight: 500;
+}
+.preview-taiowc_help #settings-tabs{
+    display: none!important;
 }

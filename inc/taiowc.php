@@ -668,6 +668,8 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
              <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-empty_cart_txt' )); ?></a>
             </div>
 
+            <a class="taiowc-continue-shop"><?php esc_html_e('Continue Shopping','th-all-in-one-woo-cart'); ?></a>
+
     <?php }
 
     public function taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item){ 

@@ -844,6 +844,7 @@ padding: 2px;
     line-height: 1.75rem;
     color: #111;
     font-weight: 900;
+    letter-spacing: 0;
 }
 /*loading effect*/
 .taiowc-cart-model-body.loading::after {
@@ -1451,55 +1452,6 @@ display:block!important;
     padding-top: 1.5em;
 }
 
-/* Premium Green Upgrade Button */
-.upgradebutton {
-    position: relative;
-    display: inline-block;
-    padding: 10px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    border-radius: 1.25rem;
-    background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
-    background-size: 200% 200%;
-/*    box-shadow: 0 8px 25px rgba(0, 200, 83, 0.35);*/
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-    animation: gradientMove 4s ease infinite;
-    margin-left: auto;
-    margin-right: 9px;
-    letter-spacing: .16rem;
-    outline: 0 !important;
-    box-shadow: initial !important;
-}
-
-/* Gradient Animation */
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Hover Effect */
-
-/* Shine Effect */
-.upgradebutton::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.35);
-    transform: skewX(-25deg);
-    transition: 0.7s;
-}
-
-.upgradebutton:hover::before {
-    left: 125%;
-}
-
 @media screen and (max-width:1024px) {
     .responsive-main-header .taiowc-cart-model-footer .cart-total, .sticky-header-bar .taiowc-cart-model-footer .cart-total {
         display: block!important;
@@ -1771,7 +1723,11 @@ margin-left:0.1rem;
     display: block;
     opacity: 1;
 }
-
+body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
 
 
 /*  Checkout and view loader CSS Starts  */
@@ -1810,12 +1766,11 @@ margin-left:0.1rem;
     z-index: 9;
 }
 
-.wp-core-ui .taiowc-button-wrapper .button-primary:disabled{
-    background: #7DA6FF!important;
-}
-
-.taiowc-cart-track-wrapper{
-    opacity: .7;
-    pointer-events: none;
-
+.taiowc .taiowc-cart-model-body a.taiowc-continue-shop{
+    background: #111;
+    color: #FFF;
+    text-align: center;
+    padding: 9px 0 !important;
+    margin: 0 1.5rem 9px 1.5rem;
+    border-radius: 1rem;
 }
