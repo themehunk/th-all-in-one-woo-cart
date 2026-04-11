@@ -202,6 +202,8 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                     'wc_ajax_url'          => esc_url(WC_Ajax::get_endpoint( "%%endpoint%%" )),
 
+                    'update_qty_nonce'     => wp_create_nonce( 'taiowc_update_qty_nonce' ),
+
                     'apply_coupon_nonce'   => wp_create_nonce('apply-coupon'),
 
                     'remove_coupon_nonce'  => wp_create_nonce('remove-coupon'),
@@ -735,12 +737,15 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
         public function taiowc_add_item_cart(){
 
-        $product_id   = sanitize_text_field( $_POST['product_id'] );
+        check_ajax_referer( 'taiowc_update_qty_nonce', 'security' );
 
-        $new_qty      = (int) $_POST['new_qty'];
+        $product_id = isset($_POST['product_id']) ? absint( wp_unslash($_POST['product_id']) ) : 0;
+
+        $new_qty = isset( $_POST['new_qty'] ) ? (int)( wp_unslash($_POST['new_qty'] )) : 0;
         
 
-        $added = WC()->cart->add_to_cart( $product_id );
+            // ✅ Add to cart with quantity
+            $added = WC()->cart->add_to_cart( $product_id);
 
          if( $added ){
 
@@ -760,9 +765,11 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
         public function taiowc_update_item_quantity(){
 
-        $cart_key   = sanitize_text_field( $_POST['cart_key'] );
+        check_ajax_referer( 'taiowc_update_qty_nonce', 'security' );
 
-        $new_qty    = (float) $_POST['new_qty'];
+    $cart_key   = isset($_POST['cart_key']) ? sanitize_key(wp_unslash($_POST['cart_key'])) : '';
+
+        $new_qty = isset( $_POST['new_qty'] ) ? floatval( wp_unslash($_POST['new_qty'] )) : 0;
 
         if( !is_numeric( $new_qty ) || $new_qty < 0 || !$cart_key ){
 
@@ -803,27 +810,31 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
       //undo item
 
-      public function taiowc_undo_item(){
+        public function taiowc_undo_item() {
 
-            $cart_key = sanitize_text_field($_POST['cart_key']);
+            // ✅ Nonce verification (MOST IMPORTANT)
+            check_ajax_referer( 'taiowc_undo_nonce', 'security' );
 
-            if(!$cart_key) return;
+            // ✅ Validate + sanitize input properly
+            $cart_key = isset($_POST['cart_key']) 
+                ? sanitize_key( wp_unslash($_POST['cart_key']) ) 
+                : '';
 
-            $cart_success = WC()->cart->restore_cart_item($cart_key);
+            if ( empty($cart_key) ) {
+                wp_die();
+            }
 
-            if($cart_success){
+            $cart_success = WC()->cart->restore_cart_item( $cart_key );
 
+            if ( $cart_success ) {
                 $notice = esc_html__( 'Product restore', 'taiowc' );
-                
                 $this->taiowc_set_notice( $notice, 'success' );
-
             }
 
             WC_AJAX::get_refreshed_fragments();
-            
-            die();
 
-        }
+            wp_die(); // ✅ WordPress standard
+}
 
         public function taiowc_set_notice( $notice, $type = 'success' ){
 
@@ -878,7 +889,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
         $notices_html = sprintf('<div class="taiowc-notice-container" data-section="%1$s"><ul class="taiowc-notices">%2$s</ul></div>', $section, implode( '' , $taiowc_notices )  );
 
-        echo apply_filters('taiowc_print_notices_html', $notices_html, $taiowc_notices, $section );
+        echo wp_kses_post(apply_filters('taiowc_print_notices_html', $notices_html, $taiowc_notices, $section ));
         
         $this->taiowc_notices = array();
 

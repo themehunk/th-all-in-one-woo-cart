@@ -10,13 +10,13 @@
             </div>
             <div class="col-2">
                 <div class="th-option-heading">
-                <h3><?php echo $theme_header['welcome']; ?></h3>
-                    <p><?php echo $theme_header['welcome_desc']; ?></p>
+                <h3><?php echo esc_html($theme_header['welcome']); ?></h3>
+                    <p><?php echo esc_html($theme_header['welcome_desc']); ?></p>
                 </div>
             </div>
         </div>
         <div class="th-option-bottom-hdr">
-            <a class="tablinks active <?php echo esc_attr($tabActiveRp) ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php _e('Plugins', 'th-product-compare'); ?> </a>
+            <a class="tablinks active <?php echo esc_attr($tabActiveRp) ?>" onclick="openTab(event, 'Recommended-Plugin')"><?php esc_html_e('Plugins', 'th-all-in-one-woo-cart'); ?> </a>
         </div>
     </div>
 
@@ -28,10 +28,10 @@
         </a>
     </div>
         <div class="thunk-notice-text">
-            <h3><?php _e('TH Shop Mania Free Theme','th-product-compare'); ?></h3>
-            <p><?php _e('Elementor + WooCommerce Free WordPress Theme.','th-product-compare'); ?>
+            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-product-compare'); ?></h3>
+            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-product-compare'); ?>
             </p>
-            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php _e('View Detail','th-product-compare'); ?></a>
+            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-product-compare'); ?></a>
 
         </div>
     </div>

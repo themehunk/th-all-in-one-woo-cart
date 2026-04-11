@@ -36,7 +36,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
              add_action('wp_ajax_taiowc_form_setting', array($this, 'taiowc_form_setting'));
 
-			 add_action( 'wp_ajax_nopriv_taiowc_form_setting', array($this, 'taiowc_form_setting'));
+			 // add_action( 'wp_ajax_nopriv_taiowc_form_setting', array($this, 'taiowc_form_setting'));
 
             }
         
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 	    public function taiowc_form_setting(){  
 
-	    	if ( ! current_user_can( 'administrator' ) ) {
+	    	if ( ! current_user_can( 'manage_options' ) ) {
 
 		            wp_die( - 1, 403 );
 		            
@@ -188,9 +188,9 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		      check_ajax_referer( 'taiowc_plugin_nonce','_wpnonce');
 
 
-	             if( isset($_POST['taiowc']) ){
+	             if( isset($_POST['taiowc']) && is_array( $_POST['taiowc'] ) ){
 
-	                      $sanitize_data_array = $this->taiowc_form_sanitize($_POST['taiowc']);
+	                      $sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash($_POST['taiowc'] ));
 
 	                      update_option('taiowc',$sanitize_data_array); 
 
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			if ( isset( $_GET['tab'] ) && ! empty( $_GET['tab'] ) ) {
 
-				$last_tab = trim( sanitize_key($_GET['tab']) );
+				$last_tab = trim( sanitize_key(wp_unslash($_GET['tab'])) );
 
 			}
 
@@ -979,27 +979,26 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 
         public function taiowc_is_reset_all() {
-			return isset( $_GET['page'] ) && ( $_GET['page'] == 'taiowc' ) && isset( $_GET[ $this->setting_reset_name ] );
+			return isset( $_GET['page'] ) && ( sanitize_text_field( wp_unslash( $_GET['page'] ) ) == 'taiowc' ) && isset( $_GET[ $this->setting_reset_name ] );
 		}  
 
-        public function taiowc_delete_settings() {
+		public function taiowc_delete_settings() {
 
-        	if ( ! current_user_can( 'administrator' ) ) {
+		    if ( ! current_user_can( 'manage_options' ) ) {
+		        wp_die( -1, 403 );
+		    }
 
-            wp_die( - 1, 403 );
+		    if ( ! isset($_REQUEST['delete_wpnonce']) ) {
+		        wp_die( 'Nonce missing', 403 );
+		    }
 
-            }
+		    if ( ! wp_verify_nonce($_REQUEST['delete_wpnonce'], 'delete_nonce') ) {
+		        wp_die( 'Invalid nonce', 403 );
+		    }
 
-            if (isset($_GET['delete_wpnonce']) || wp_verify_nonce($_REQUEST['delete_wpnonce'], 'delete_nonce' ) ) {
+		    do_action( sprintf( 'delete_%s_settings', $this->setting_name ), $this );
 
-			do_action( sprintf( 'delete_%s_settings', $this->setting_name ), $this );
-
-			// license_key should not updated
-
-			return delete_option( $this->setting_name );
-
-		   }
-
+		    return delete_option( $this->setting_name );
 		}
 
 		public function taiowc_get_option( $option ) {

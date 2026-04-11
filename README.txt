@@ -118,6 +118,7 @@ https://sora.chatgpt.com/explore
 = 3.3.4 =
 * Update: Style improved.
 * New: taiowc-collapse-sidebar Added.
+* New: security issues updated & Premium features integrated.
 
 = 3.3.3=
 * Update: P tag removed from copyright.

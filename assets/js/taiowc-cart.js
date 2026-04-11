@@ -224,7 +224,8 @@
 
                     var $undo       = $(e.currentTarget),
                         formData    = {
-                            cart_key: $undo.data('key')
+                            cart_key: $undo.data('key'),
+                            security: taiowc_param.update_qty_nonce
                         }
 
                     $.ajax({
@@ -254,7 +255,8 @@
                     type: 'POST',
                     data: {
                             product_id: product_id,
-                            new_qty: qty
+                            new_qty: qty,
+                            security: taiowc_param.update_qty_nonce
                           },
                     success: function(response){ 
 
@@ -313,7 +315,8 @@
                     type: 'POST',
                     data: {
                             cart_key: cart_key,
-                            new_qty: qty
+                            new_qty: qty,
+                            security: taiowc_param.update_qty_nonce
                           },
                     success: function(response){ 
                     hide_loader();

@@ -65,7 +65,9 @@ class WooCommerce_Cart_Tracker {
             $user_ip = $this->get_user_ip_addres();
         }
         
-        $server_request = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : null;
+        $server_request = isset($_SERVER['HTTP_USER_AGENT']) 
+    ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) 
+    : null;
         $date = current_time('mysql');
     
         $wpdb->query(

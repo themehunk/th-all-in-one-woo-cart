@@ -1503,7 +1503,7 @@ right: -300px;
     font-size: 1rem;
 }
 .cart-heading{
-    padding: 0.7rem 0.5rem;
+    padding: 0.7rem 1.2rem;
 }
 
 .cart-heading h4 {
@@ -1553,8 +1553,12 @@ input[type=number].taiowc-quantity {
     justify-content: space-between;
     align-items: center;
 }
+.taiowc-cart-model-footer{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 .taiowc-total-wrap {
-    padding: 1rem;
+    padding: .9rem;
     font-size: 0.69rem;
 }
 .taiowc-coupon-remove-coupon {
