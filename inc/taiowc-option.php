@@ -1303,7 +1303,7 @@ taiowc_main()->taiowc_add_setting(
 
 
           taiowc_main()->taiowc_add_setting(
-			'taiowc_mobile_cart', esc_html__( 'Mobile Experience', 'taiowc' ), apply_filters(
+			'taiowc_mobile_cart', esc_html__( 'Mobile Experience (Pro)', 'taiowc' ), apply_filters(
 			'taiowc_mobile_cart_settings_section', array(
                 array(
 					'title'  => esc_html__( 'Menu Cart / Shortcode Cart', 'taiowc' ),
@@ -1418,7 +1418,7 @@ taiowc_main()->taiowc_add_setting(
 		));
 
 		taiowc_main()->taiowc_add_setting(
-			'taiowc_cart_analyst', esc_html__( 'Cart Analytics', 'taiowc' ),
+			'taiowc_cart_analyst', esc_html__( 'Cart Analytics (Pro)', 'taiowc' ),
 			apply_filters(
 			'taiowc_cart_analyst_settings_section', array(
 				array(

@@ -375,7 +375,6 @@ LiveCartEffectPreview: function () {
 
                   if ($("a[data-target='taiowc_cart_analyst']").hasClass('nav-tab-active')){
                     $('#taiowc_cart_analys').show();
-                    $('.setting-content').hide();
                   }else{
                     $('#taiowc_cart_analys').hide();
                     
