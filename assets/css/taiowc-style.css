@@ -141,6 +141,10 @@ font-size: 2rem;
     justify-content: center;
     margin-left: 9px;
     font-weight: 700;
+    position: relative;
+    right: initial;
+    top: initial;
+    left: initial;
 }
 .cart-heading h4 {
     margin: 0;

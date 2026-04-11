@@ -58,7 +58,6 @@ function taiowc_hpos_compatibility() {
 }
 add_action( 'before_woocommerce_init', 'taiowc_hpos_compatibility');
 
-require_once TAIOWC_PLUGIN_PATH . 'inc/license/init.php';
 require_once TAIOWC_PLUGIN_PATH . 'inc/taiowc-block.php';
 require_once TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php';
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-option.php';

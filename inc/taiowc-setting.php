@@ -148,9 +148,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				?>
 			</div>
 
-			<div id="taiowc_license_wrap" style="display:none;">
-				<?php require_once TAIOWC_PLUGIN_PATH . 'inc/license/license-page.php'; ?>
-			</div>
+			
             
             </div>
 
@@ -189,12 +187,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 		      check_ajax_referer( 'taiowc_plugin_nonce','_wpnonce');
 
-		     
-		    if ( ! class_exists('Taiowc_License') || ! Taiowc_License::is_active() ) {
-		        wp_send_json_error(array(
-		            'message' => 'License required to modify these settings.'
-		        ));
-		    }
 
 	             if( isset($_POST['taiowc']) ){
 
@@ -283,7 +275,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                 <path d="M12 17h.01"></path>
             </svg>',
 
-		'taiowc_license'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zM11 11V7m4 4V7"></path></svg>',
 		);
 
 			return $icon[$id];
@@ -522,9 +513,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 				case 'html':
 						$this->taiowc_cart_analyst_field_callback( $field );
-						break;
-				case 'license':
-						$this->taiowc_license_field_callback( $field );
 						break;
 			    case 'file':
 					$this->taiowc_file_field_callback( $field );
@@ -867,10 +855,6 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			   endif;
    
 		   }
-
-	public function taiowc_license_field_callback( $args ) {
-		require_once TAIOWC_PLUGIN_PATH . 'inc/license/license-page.php';
-	}
 
 	 
 	//*********************************/	

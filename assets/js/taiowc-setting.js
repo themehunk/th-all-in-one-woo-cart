@@ -378,9 +378,7 @@ LiveCartEffectPreview: function () {
                     $('.setting-content').hide();
                   }else{
                     $('#taiowc_cart_analys').hide();
-                    if (!$("a[data-target='taiowc_license']").hasClass('nav-tab-active')) {
-                      $('.setting-content').show();
-                    }
+                    
                   }
 
                   if ($("a[data-target='taiowc_license']").hasClass('nav-tab-active')){

@@ -1437,18 +1437,6 @@ taiowc_main()->taiowc_add_setting(
 		    )
 		  );
          
-		 taiowc_main()->taiowc_add_setting(
-			'taiowc_license', esc_html__( 'License', 'taiowc' ), apply_filters(
-			'taiowc_license_settings_section', array(
-				array(
-					'title'  => esc_html__( '', 'taiowc' ),
-					'fields' => apply_filters(
-						'taiowc_license_setting_fields', array()
-					)
-				 )
-			  )
-		    )
-		  );
 
 		 taiowc_main()->taiowc_add_setting(
 			'taiowc_reset', esc_html__( 'Reset All Setting', 'taiowc' ), apply_filters(
