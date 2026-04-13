@@ -143,9 +143,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			<div id="taiowc_cart_analys" class="taiowc-cart-track-wrapper">
 				<?php 
-					taiowc_track_table();
-					do_action('taiowc_cart_track'); 
+					// taiowc_track_table();
+					// do_action('taiowc_cart_track'); 
 				?>
+				<div class="th-woo-analtics-wrapper">
+				<img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/woo-analytics.png' ); ?>">
+				</div>
 			</div>
 
 			

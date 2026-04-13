@@ -2553,6 +2553,9 @@ background: linear-gradient(135deg, #020617, #444444ad);
 .top-header .th-save-btn .reset{
     display: none!important;
 }
+#taiowc_cart_analyst{
+    display: none!important;
+}
 @media (max-width: 1250px) {
     #settings-tabs{
        width: 95%; 
@@ -2977,11 +2980,6 @@ background: linear-gradient(135deg, #020617, #444444ad);
     background: #7DA6FF!important;
 }
 
-.taiowc-cart-track-wrapper{
-    opacity: .7;
-    pointer-events: none;
-
-}
 
 /* Premium Green Upgrade Button */
 .upgradebutton {
@@ -3069,3 +3067,31 @@ background: linear-gradient(135deg, #020617, #444444ad);
 .preview-taiowc_help #settings-tabs{
     display: none!important;
 }
+
+.th-woo-analtics-wrapper{
+    position: relative;
+    text-align: center;
+}
+.th-woo-analtics-wrapper img{
+    max-width: 100%;
+    height: auto;
+}
+.th-woo-analtics-wrapper:after{
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    top: -5px;
+    left: 9px;
+    content: "Pro";
+    color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 99px;
+    background: linear-gradient(135deg, #00c853, #009127, #00bfa5);
+}
+/*.taiowc-cart-track-wrapper{
+    opacity: .7;
+    pointer-events: none;
+
+}*/
