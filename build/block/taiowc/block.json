@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "taiowc/taiowc",
   "version": "0.1.0",
-  "title": "Woo Cart",
+  "title": "All In One Woo Cart Pro",
   "category": "vayu-blocks",
   "keywords": [
     "woo-cart",
@@ -17,7 +17,7 @@
   "supports": {
     "html": false
   },
-  "textdomain": "th-all-in-one-woo-cart",
+  "textdomain": "taiowc",
   "attributes": {
     "id": {
       "type": "string"
@@ -25,9 +25,9 @@
     "uniqueID": {
       "type": "string"
     },
-    "cartStyle": {
+    "cartIcon": {
       "type": "string",
-      "default": "[taiowc]"
+      "default": "icon-1"
     },
     "cartPrice": {
       "type": "boolean",
@@ -36,10 +36,6 @@
     "cartCount": {
       "type": "boolean",
       "default": true
-    },
-    "countPosition": {
-      "type": "string",
-      "default": "left"
     },
     "marginType": {
       "type": "string",
@@ -254,6 +250,10 @@
     "countFontSizeUnit": {
       "type": "string",
       "default": "px"
+    },
+    "countPosition": {
+      "type": "string",
+      "default": "left"
     },
     "borderRadius": {
       "type": "number"

@@ -24,14 +24,14 @@
     <div class="th-heade th-right-header">
         <div class="th-noticetheme">
         <a target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/');?>">
-        <img src="<?php echo esc_url(THEMEHUNK_PURL); ?>th-option/assets/images/th-shop-mania.png">
+        <img src="<?php echo THEMEHUNK_PURL; ?>th-option/assets/images/th-shop-mania.png">
         </a>
     </div>
         <div class="thunk-notice-text">
-            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-all-in-one-woo-cart'); ?></h3>
-            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-all-in-one-woo-cart'); ?>
+            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-product-compare'); ?></h3>
+            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-product-compare'); ?>
             </p>
-            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-all-in-one-woo-cart'); ?></a>
+            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-product-compare'); ?></a>
 
         </div>
     </div>

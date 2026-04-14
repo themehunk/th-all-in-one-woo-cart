@@ -1,5 +1,8 @@
 (function ($){
-    var TAIOWCsettingLib = {
+
+  "use strict";
+  
+    var taiowcsettingLib = {
         init: function (){
             this.bindEvents();
         },
@@ -10,7 +13,6 @@
             $this.ImageAdd();
             $this.SaveSetting();
             $this.ChangeSettinghideshow();
-
             $this.CopyToClipboard();
             $this.LiveStylePreview();
             $this.LiveTogglePreview();
@@ -19,9 +21,10 @@
             $this.LiveMobileCartEffectPreview();
             $this.LiveMobileSwitcher();
             $this.HeaderResetTrigger();
+
         },
 
-         HeaderResetTrigger: function () {
+        HeaderResetTrigger: function () {
 
     $(document).on('click', 'span.reset', function (e) {
         // e.preventDefault();
@@ -360,11 +363,7 @@ LiveCartEffectPreview: function () {
                   $(this).addClass('nav-tab-active').siblings().removeClass('nav-tab-active')
                   $('#' + target).show().siblings().hide()
                   $('#_last_active_tab').val(target)
-                  if ($("a[data-target='taiowc_style']").hasClass('nav-tab-active')){
-                         $('.setting-preview-wrap').show();
-                    }else{
-                         $('.setting-preview-wrap').hide();
-                    }
+                 
                   if ($("a[data-target='taiowc_reset']").hasClass('nav-tab-active')){
                         $('a.reset').show();
                         $('button#submit').hide();
@@ -374,21 +373,28 @@ LiveCartEffectPreview: function () {
 
                   }
 
-                  // ===== header title change =====
+                  if ($("a[data-target='taiowc_cart_analyst']").hasClass('nav-tab-active')){
+                    $('#taiowc_cart_analys').show();
+                  }else{
+                    $('#taiowc_cart_analys').hide();
+                    
+                  }
+
+                  if ($("a[data-target='taiowc_license']").hasClass('nav-tab-active')){
+                    $('#taiowc_license_wrap').show();
+                    $('.setting-content').hide();
+                    $('button#submit').hide();
+                    $('a.reset').hide();
+                  }else{
+                    $('#taiowc_license_wrap').hide();
+                  }
+
+
+                   // ===== header title change =====
                   var tabText = $(this).clone().children().remove().end().text().trim();
                   $('.tabheading').text(tabText);
-    
-                   /* ===== ADD THIS PART ===== */
-
-            // remove old dynamic classes but keep setting-wrap
-            $('.setting-wrap').removeClass(function(index, className) {
-                return (className.match(/(^|\s)active-tab-\S+/g) || []).join(' ');
-            });
-
-            // add new dynamic class to closest setting-wrap
-            $('#' + target).closest('.setting-wrap').addClass('active-tab-' + target);
-
-                        /* --------- DYNAMIC PREVIEW (REPLACED PART) --------- */
+                  
+                /* --------- DYNAMIC PREVIEW (REPLACED PART) --------- */
 
             var $preview = $('.setting-preview-wrap[data-tab="' + target + '"]');
             var $form = $('.setting-preview-wrap').closest('.taiowc-setting-form');
@@ -441,15 +447,18 @@ $form.removeClass(function (i, cls) {
                 },
               })
                 .on("change", (color, instance) => {
-                  let color_ = color.toRGBA().toString(0);
-                  // preview css on input editor item
-                  inputElement.css("background-color", color_);
-                  // apply color on selected item
-                  inputElement.val(color_);
-                  //_this.onColorChangeHandler(inputElement,color_);
-                  //save button active
-                  $("#submit").removeAttr("disabled");
-                })
+                let color_ = color.toRGBA().toString(0);
+
+                // update input UI + value
+                inputElement.css("background-color", color_);
+                inputElement.val(color_);
+
+                // 🔥 FORCE EVENT (THIS IS THE FIX)
+                inputElement.trigger('keyup');
+
+                $("#submit").removeAttr("disabled");
+              })
+
                 .on("init", (instance) => {
                   $(instance._root.app).addClass("visible");
                 })
@@ -463,11 +472,15 @@ $form.removeClass(function (i, cls) {
         ImageAdd:function (){
             
            $(document).on('click', '.button.taiowc_upload_image_button', function (event){
-
+                  
                     event.preventDefault();
 
+                    var attachment;
+
                     var self = $(this);
+
                     // Create the media frame.
+                    
                     var file_frame = wp.media.frames.file_frame = wp.media({
                         title: self.data('uploader_title'),
                         button: {
@@ -478,7 +491,7 @@ $form.removeClass(function (i, cls) {
                     file_frame.on('select', function () {
                         attachment = file_frame.state().get('selection').first().toJSON();
 
-                        self.prev('.icon_url').val(attachment.url);
+                        self.prev('.taiowc-icon_url').val(attachment.url);
                     });
 
                     // Finally, open the modal
@@ -489,27 +502,38 @@ $form.removeClass(function (i, cls) {
           });
         },
         SaveSetting:function(){
+
         $(document).on('keyup change paste', '.taiowc-setting-form input, .taiowc-setting-form select, .taiowc-setting-form textarea', function () {
         
               $('#submit').removeAttr("disabled");
               
-        });  
+        }); 
+
         $(document).on("click", ".taiowc-button-wrapper #submit", function (e) {
+
         e.preventDefault();
+
         $(this).addClass('loader');
         
         var form_settting = $(".taiowc-setting-form").serialize();
         $.ajax({
+
           url: taiowcluginObject.ajaxurl,
+
           type: "POST",
-          data: form_settting +'&_wpnonce=' + taiowcluginObject.nonce +'',
+
+          data: form_settting +'&_wpnonce=' + taiowcluginObject.taiowc_nonce +'',
+
           success: function (response) {
            
             $('#submit').removeClass('loader');
+
             $('#submit').attr("disabled","disabled");
 
-          },
+          }
+
         });
+
       });
     },
     ChangeSettinghideshow:function(){
@@ -518,35 +542,11 @@ $form.removeClass(function (i, cls) {
 
                     if($(this).is(':checked')){
 
-                      $('#cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').show(500);
+                      $('#taiowc-cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc-cart_styletaiowc-cart_style-section-1, .taiowc-cart_styletaiowc-cart_style-section-1').show(500);
 
                     }else{
 
-                      $('#cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc_cart_styletaiowc_cart_style-section-1, .taiowc_cart_styletaiowc_cart_style-section-1').hide(500);
-
-                   }
-                   
-             });
-
-           $(document).on('click', '#cart_style', function (event){
-
-                    if($("input[id=cart_style]:checked").val() == "style-1"){
-
-                      if($('#taiowc-fxd_cart_position-field').find("option:selected").val() == "fxd-left"){
-
-                          $('#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show(500);
-                          $('#taiowc-fxd_cart_frm_right-wrapper').hide(500);
-
-                      }else{
-
-                         $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show(500);
-                         $('#taiowc-fxd_cart_frm_left-wrapper').hide(500);
-                      }
-                      
-             
-                    }else{
-
-                      $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').hide(500);
+                      $('#taiowc-cart_style-wrapper, #taiowc-cart_open-wrapper, #taiowc-cart_styletaiowc-cart_style-section-1, .taiowc-cart_styletaiowc-cart_style-section-1').hide(500);
 
                    }
                    
@@ -556,108 +556,259 @@ $form.removeClass(function (i, cls) {
 
                     if($(this).find("option:selected").val() == "fxd-left"){
 
-                       if($("input[id=cart_style]:checked").val() == "style-1"){
-                          $('#taiowc-fxd_cart_frm_left-wrapper').show(500);
-                          $('#taiowc-fxd_cart_frm_btm-wrapper').show(500);
-                          $('#taiowc-fxd_cart_frm_right-wrapper').hide(500);
+                       if($("input[id=taiowc-cart_style]:checked").val() == "style-1"){
+                          $('#taiowc-fxd_cart_frm_left-wrapper').show();
+                          $('#taiowc-fxd_cart_frm_btm-wrapper').show();
+                          $('#taiowc-fxd_cart_frm_right-wrapper').hide();
                         }
+                        $(".taiowc-wrap").removeClass("fxd-right");
+                        $(".taiowc-wrap").addClass("fxd-left");
 
                     }else{
 
-                          if($("input[id=cart_style]:checked").val() == "style-1"){
-                          $('#taiowc-fxd_cart_frm_left-wrapper').hide(500);
-                          $('#taiowc-fxd_cart_frm_right-wrapper').show(500);
-                          $('#taiowc-fxd_cart_frm_btm-wrapper').show(500);
+                          if($("input[id=taiowc-cart_style]:checked").val() == "style-1"){
+                          $('#taiowc-fxd_cart_frm_left-wrapper').hide();
+                          $('#taiowc-fxd_cart_frm_right-wrapper').show();
+                          $('#taiowc-fxd_cart_frm_btm-wrapper').show();
                         }
+                        $(".taiowc-wrap").removeClass("fxd-left");
+                        $(".taiowc-wrap").addClass("fxd-right");
                         
 
                    }
                    
              });
 
-           $(document).on('click', '#taiowc-cart-icon', function (event){
+           // Mobile Position Settings
 
-                    if($("input[id=taiowc-cart-icon]:checked").val() == "icon-7"){
+           $(document).on('change', '#taiowc-fxd_cart_mobile_position-field', function (event){
 
-                      $('#icon_url-wrapper').show(500);
+                if($(this).find("option:selected").val() == "fxd-left"){
+
+                        $(".taiowc-wrap").removeClass("th-mobile-fxd-right");
+                        $(".taiowc-wrap").addClass("th-mobile-fxd-left");
 
                     }else{
 
-                      $('#icon_url-wrapper').hide(500);
+                        $(".taiowc-wrap").removeClass("th-mobile-fxd-left");
+                        $(".taiowc-wrap").addClass("th-mobile-fxd-right");
+                        
 
                    }
-                   
-             });
 
-       
-            $(document).on('click', '#taiowc-cart_pan_icon_shw-field', function (event){
+           });
+
+          $(document).on('click', '#taiowc-cart-icon', function () {
+
+              if ($("input[id=taiowc-cart-icon]:checked").val() === "icon-7") {
+                  $('#taiowc-icon_url-wrapper').css('display', 'grid');
+              } else {
+                  $('#taiowc-icon_url-wrapper').css('display', 'none');
+              }
+
+          });
+
+          // Image Uploader
+
+ // Image Uploader + Live Preview (SIMPLE & SAFE)
+
+$(document).on('click', '.taiowc-upload-drop', function () {
+
+  var $wrap = $(this).closest('.taiowc-upload-wrap');
+  var $button = $wrap.find('.taiowc_upload_image_button');
+  var $input  = $wrap.find('input[type="text"]');
+  var $previewImg = $wrap.find('.taiowc-upload-preview img');
+
+  // Store old value
+  var oldVal = $input.val();
+
+  // Trigger existing uploader
+  $button.trigger('click');
+
+  // 🔥 POLL FOR VALUE CHANGE (THIS IS THE KEY)
+  var checkInterval = setInterval(function () {
+
+    var newVal = $input.val();
+
+    if (newVal && newVal !== oldVal) {
+      $previewImg.attr('src', newVal).show();
+      clearInterval(checkInterval);
+    }
+
+  }, 300); // check every 300ms
+
+});
+
+
+// Remove image + live preview update (simple & safe)
+$(document).on('click', '.taiowc-remove-image', function (e) {
+  e.preventDefault();
+
+  var $wrap = $(this).closest('.taiowc-upload-wrap');
+  var $input = $wrap.find('input[type="text"]');
+  var $previewImg = $wrap.find('.taiowc-upload-preview img');
+
+  // Clear value
+  $input.val('');
+
+  // Hide preview
+  $previewImg.attr('src', '').hide();
+});
+
+
+            $(document).on('click', '#taiowc-show_rld_product-field', function (event){
 
                     if($(this).is(':checked')){
 
-                      $('#taiowc-cart_pan_icon_clr-wrapper').show(500);
+                      $('#taiowc-product_may_like_tle-wrapper, #taiowc-choose_prdct_like-wrapper, #taiowc-product_may_like_id-wrapper, #taiowc-cart_styletaiowc-cart_style-section-3, .taiowc-cart_styletaiowc-cart_style-section-3').show(500);
 
                     }else{
 
-                      $('#taiowc-cart_pan_icon_clr-wrapper').hide(500);
+                      $('#taiowc-product_may_like_tle-wrapper, #taiowc-choose_prdct_like-wrapper, #taiowc-product_may_like_id-wrapper, #taiowc-cart_styletaiowc-cart_style-section-3, .taiowc-cart_styletaiowc-cart_style-section-3').hide(500);
 
                    }
                    
              });
 
-            // $('input#cart_style[value="style-2"]').attr("disabled", true);
-            $('#taiowc-cart_effect-field option[value="taiowc-slide-left"]').attr("disabled", true);
-            $('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').attr("disabled", true);
-            $('#taiowc-cart_item_order-field option[value="prd_last"]').attr("disabled", true);
-            $('#taiowc-cart_open-field option[value="fly-image-open"]').attr("disabled", true);
-            $('input#taiowc-cart-icon[value="icon-7"]').attr("disabled", true);
+            $(document).on('click', '#taiowc-show_shipping-field', function (event){
 
-             $('#taiowc-prc_font_size-field,#taiowc-icon_size-field').attr("disabled", true);
-             $('#taiowc_fixed_cart input,#taiowc_cart input,#taiowc_hide_cart input,#taiowc-fxd_cart_position-field').attr("disabled", true);
+                    if($(this).is(':checked')){
 
-             $('input#cart_style').attr("disabled", false);
+                      $('#taiowc-ship_txt-wrapper').show(500);
+
+                    }else{
+
+                      $('#taiowc-ship_txt-wrapper').hide(500);
+
+                   }
+                   
+             });
+
+            $(document).on('click', '#taiowc-show_discount-field', function (event){
+
+                    if($(this).is(':checked')){
+
+                      $('#taiowc-discount_txt-wrapper').show(500);
+
+                    }else{
+
+                      $('#taiowc-discount_txt-wrapper').hide(500);
+
+                   }
+                   
+             });
+
+            $(document).on('click', '#taiowc-show_coupon-field', function (event){
+
+                    if($(this).is(':checked')){
+
+                      $('#taiowc-coupon_plchdr_txt-wrapper, #taiowc-coupon_aply_txt-wrapper, #taiowc-show_coupon_list-wrapper, #taiowc-coupon_btn_txt-wrapper, #taiowc-show_added_coupon-wrapper, #taiowc-cart_styletaiowc-cart_style-section-5, .taiowc-cart_styletaiowc-cart_style-section-5').show(500);
+
+                    }else{
+
+                      $('#taiowc-coupon_plchdr_txt-wrapper, #taiowc-coupon_aply_txt-wrapper, #taiowc-show_coupon_list-wrapper, #taiowc-coupon_btn_txt-wrapper, #taiowc-show_added_coupon-wrapper, #taiowc-cart_styletaiowc-cart_style-section-5, .taiowc-cart_styletaiowc-cart_style-section-5').hide(500);
+
+                   }
+                   
+             });
+
+            $(document).on('click', '#taiowc-cart_pan_notify_shw-field', function (event){
+
+                    if($(this).is(':checked')){
+
+                      $('#taiowc-success_mgs_bg_clr-wrapper, #taiowc-success_mgs_txt_clr-wrapper, #taiowc-error_mgs_bg_clr-wrapper, #taiowc-error_mgs_txt_clr-wrapper').show(500);
+
+                    }else{
+
+                      $('#taiowc-success_mgs_bg_clr-wrapper, #taiowc-success_mgs_txt_clr-wrapper, #taiowc-error_mgs_bg_clr-wrapper, #taiowc-error_mgs_txt_clr-wrapper').hide(500);
+
+                   }
+                   
+             });
+
+            $(document).on('click', '#taiowc-cart_pan_icon_shw-field', function () {
+              
+                if ($(this).is(':checked')) {
+                    $('#taiowc-cart_pan_icon_clr-wrapper')
+                        .css('display', 'grid')
+                       
+                } else {
+                    $('#taiowc-cart_pan_icon_clr-wrapper').css('display', 'none')
+                }
+
+            });
+
+
+
+                $(document).ready(function() {
+    // Function to toggle settings based on selected radio button
+    function toggleSettings() {
+        var selectedStyle = $("input[name='taiowc[taiowc-cart_style]']:checked").val();
+
+        if (selectedStyle == "style-1") {
+            // Show/hide left/right cart position settings based on the selected position
+            if ($('#taiowc-fxd_cart_position-field').find("option:selected").val() == "fxd-left") {
+                $('#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show();
+                $('#taiowc-fxd_cart_frm_right-wrapper').hide();
+            } else {
+                $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').show();
+                $('#taiowc-fxd_cart_frm_left-wrapper').hide();
+            }
+
+            // Hide the third option (taiowc-click-dropdown) for style-1
+            $('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').css('display', 'none');
+
+            // Automatically set the dropdown value to "taiowc-slide-right" when the "click-dropdown" is hidden
+            if ($('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').css('display') === 'none') {
+                $('#taiowc-cart_effect-field').val('taiowc-slide-right');
+            }
+
+            // Hide the header section for style-1
+            $('#taiowc-cart_fxd_2_hd-wrapper').hide();
+            
+        
+            $(".taiowc-wrap").removeClass("style-2");
+            $(".taiowc-wrap").addClass("style-1");
+            // $('.taiowc-fixed-cart .taiowc-cart-item .label').remove();
+
+
+        } else {
+            // Show both options (taiowc-click-dropdown and taiowc-slide-right) for style-2
+            $('#taiowc-cart_effect-field option[value="taiowc-click-dropdown"]').css('display', 'block');
+            $('#taiowc-cart_effect-field option[value="taiowc-slide-right"]').css('display', 'block');
+
+            // Show the header section for style-2
+            $('#taiowc-cart_fxd_2_hd-wrapper').show();
+
+            // Hide position settings (left/right) for style-2
+            $('#taiowc-fxd_cart_frm_right-wrapper,#taiowc-fxd_cart_frm_left-wrapper,#taiowc-fxd_cart_frm_btm-wrapper').hide();
+        
+            $(".taiowc-wrap").removeClass("style-1");
+            $(".taiowc-wrap").addClass("style-2");
+            // $('.taiowc-fixed-cart .taiowc-cart-item').prepend('<p class="label">Cart</p>');
+
+        }
+    }
+
+    // Bind change event on radio button to toggle settings
+    $(document).on('change', "input[name='taiowc[taiowc-cart_style]']", function(event) {
+        toggleSettings();  // Update settings when radio button value changes
+    });
+
+    // Call toggleSettings on page load to handle default state
+    toggleSettings();  // Ensure default state is set when page loads
+});
+
+$('#taiowc_mobile_cart input,#taiowc_mobile_cart select').attr("disabled", true);
+
 
         },
+        
   
 
 }
-TAIOWCsettingLib.init();
+taiowcsettingLib.init();
 })(jQuery);
-
-
-jQuery(function ($) {
-
-    function taiowc_move_premium_outside_form() {
-
-        $('.taiowc-setting-form .th-premium-box').each(function () {
-
-            var $box = $(this);
-
-            // already moved? skip
-            if ($box.data('moved-outside')) return;
-
-            var $form = $box.closest('form.taiowc-setting-form');
-            var $header = $form.prevAll('.top-header').first();
-
-            if ($header.length) {
-                $box.insertAfter($header);
-                $box.data('moved-outside', true);
-            }
-        });
-    }
-
-    // on load
-    taiowc_move_premium_outside_form();
-
-    // tabs / ajax reload
-    $(document).on('click', '.nav-tab', function(){
-        setTimeout(taiowc_move_premium_outside_form, 120);
-    });
-
-    $(document).ajaxComplete(function(){
-        taiowc_move_premium_outside_form();
-    });
-
-});
 
 jQuery(document).ready(function ($) {
 
