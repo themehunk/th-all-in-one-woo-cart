@@ -120,6 +120,7 @@ https://sora.chatgpt.com/explore
 * New: taiowc-collapse-sidebar Added.
 * New: security issues updated & Premium features integrated.
 * New: Pro label added.
+* Update: Model popup Transition issue resolved.
 
 = 3.3.3=
 * Update: P tag removed from copyright.
