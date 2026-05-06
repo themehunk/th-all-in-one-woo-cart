@@ -1782,3 +1782,105 @@ body.no-scroll {
     margin: 0 1.5rem 9px 1.5rem;
     border-radius: 1rem;
 }
+
+
+
+/* Shipping Style  */
+.taiowc-label .pencil{
+    cursor: pointer;
+}
+/* Container */
+.taiowc-cart-model .taiowc-shptgl-cont {
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 1rem;
+}
+
+/* Remove default list styles */
+.taiowc-cart-model ul#shipping_method {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Each option as card */
+.taiowc-cart-model ul#shipping_method li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Hide default radio */
+.taiowc-cart-model ul#shipping_method input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Card label */
+.taiowc-cart-model ul#shipping_method label {
+    display: flex !important;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    background: #f2f2f2;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.25s ease;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hover effect */
+.taiowc-cart-model ul#shipping_method label:hover {
+    background: #e5e5e5;
+}
+
+/* Active (checked) state */
+.taiowc-cart-model ul#shipping_method input[type="radio"]:checked + label {
+    border-color: #000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #FFF;
+}
+
+/* Price styling */
+.taiowc-cart-model .woocommerce-shipping-methods .woocommerce-Price-amount {
+    margin-left: auto;
+}
+
+/* Free shipping subtle look */
+.taiowc-cart-model input[value*="free_shipping"]:checked + label {
+    background: #f9f9f9;
+}
+
+/* Shipping title area */
+.taiowc-cart-model .taiowc-shptgl-cont > p,
+.taiowc-cart-model .taiowc-shptgl-cont strong {
+    ont-size: 12px;
+    color: #111;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+/* Change address link */
+.taiowc-cart-model .shipping-calculator-button {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #9ca3af;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.taiowc-cart-model .shipping-calculator-button:hover {
+    color: #005177;
+}
+
+/* Optional: add icon-like spacing */
+.taiowc-cart-model ul#shipping_method label::before {
+    content: "🚚";
+    margin-right: 10px;
+    font-size: 16px;
+    display: none;
+}

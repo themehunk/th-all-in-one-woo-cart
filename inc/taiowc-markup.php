@@ -594,7 +594,11 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                     $package = $packages[0];
 
 
-                    $chosen_method = isset( WC()->session->chosen_shipping_methods[ 0 ] ) ? WC()->session->chosen_shipping_methods[ 0 ] : '';
+                    // $chosen_method = isset( WC()->session->chosen_shipping_methods[ 0 ] ) ? WC()->session->chosen_shipping_methods[ 0 ] : '';
+
+                    $chosen_methods = WC()->session->get( 'chosen_shipping_methods', array() );
+                    $chosen_method  = isset( $chosen_methods[ $index ] ) ? $chosen_methods[ $index ] : '';
+
                     $product_names = array();
 
                     if ( count( $packages ) > 1 ) {
