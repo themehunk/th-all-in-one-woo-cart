@@ -162,8 +162,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
            
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'th-all-in-one-woo-cart' ) ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart//&text=Hey, I just tried this amazing WordPress Plugin for <?php echo esc_url(home_url()); ?> to inetgrate cart in it. Show off your amazing website with such amazing functionality with this awesome plugin: TH All In One Woo Cart Pro By 
 @ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
-        <span class="x-image"><img src="<?php echo(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
-        <span><?php _e(' Click to Tweet','th-shop-mania'); ?></span></a>
+        <span class="x-image"><img src="<?php echo esc_url(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
+        <span><?php esc_html_e(' Click to Tweet','th-all-in-one-woo-cart'); ?></span></a>
             	</div>
             	
             	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'th-all-in-one-woo-cart' ) ?></a>
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 				<div class="taiowc-collapse-sidebar">
 				    <button id="taiowc-toggle-sidebar">
 				        <span class="dashicons dashicons-arrow-left-alt2"></span>
-				        <span class="collapse-text">Collapse Sidebar</span>
+				        <span class="collapse-text"><?php esc_html_e('Collapse Sidebar','th-all-in-one-woo-cart'); ?></span>
 				    </button>
 				</div>
 
@@ -1062,7 +1062,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
         
         	    // STYEL
 
-			    if (isset($_GET['page']) && $_GET['page'] == 'taiowc') {
+			    if (isset($_GET['page']) && sanitize_text_field( wp_unslash( $_GET['page'] ) ) == 'taiowc') {
 
 				wp_enqueue_style( 'taiowc-admin', TAIOWC_PLUGIN_URI. '/assets/css/taiowc-admin.css', array(), TAIOWC_VERSION );
 

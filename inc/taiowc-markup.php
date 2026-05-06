@@ -236,10 +236,8 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                             <?php if(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' )!==''){ ?>
 
-                          <h4>
-
-                            <?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' ));?>
-                                
+                             <h4>
+                                <?php echo wp_kses_post(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' ));?>                      
                             </h4>
 
                            <?php } ?>

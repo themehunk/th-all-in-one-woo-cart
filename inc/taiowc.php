@@ -519,7 +519,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                         'woocommerce_cart_item_remove_link',
                         sprintf(
                             '<a class="taiowc-remove-item taiowc_remove_from_cart_button" aria-label="%s" data-product_id="%s" data-key="%s" data-product_sku="%s"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg> </a>',
-                            esc_attr__( 'Remove this item', 'woocommerce' ),
+                            esc_attr__( 'Remove this item', 'th-all-in-one-woo-cart' ),
                             esc_attr( $product_id ),
                             esc_attr( $cart_item_key ),
                             esc_attr( $_product->get_sku() )

@@ -1502,7 +1502,6 @@ position: absolute;
     border-radius: 0.75rem;
     box-shadow: 0 0 0 0px #FFF, 0 0 0 calc(1px + 0px) rgb(0 0 0 / 0.05), 0 1px 2px 0 rgb(0 0 0 / 0.05);
   display: flex;
-  gap: 1rem;
 }
 .style-2 .taiowc-cart-item{
     transition: all .2s linear;
@@ -2556,6 +2555,31 @@ background: linear-gradient(135deg, #020617, #444444ad);
 #taiowc_cart_analyst{
     display: none!important;
 }
+
+.setting-preview-wrap[data-tab="taiowc_general"] .card-product-info {
+    padding: 4px 6px;
+}
+.setting-preview-wrap[data-tab="taiowc_general"] .card-product-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.setting-preview-wrap[data-tab="taiowc_general"] .card-product-price {
+    font-size: 9px;
+    color: #555;
+    margin: 0;
+}
+.setting-preview-wrap[data-tab="taiowc_general"] .general-cart-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
 @media (max-width: 1250px) {
     #settings-tabs{
        width: 95%; 

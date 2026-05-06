@@ -126,28 +126,4 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 	</div>
 </div>
 <!-- preview wrapper -->
-<style>
-.setting-preview-wrap[data-tab="taiowc_general"] .card-product-info {
-	padding: 4px 6px;
-}
-.setting-preview-wrap[data-tab="taiowc_general"] .card-product-title {
-	font-size: 10px;
-	font-weight: 600;
-	color: #222;
-	margin: 0 0 2px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.setting-preview-wrap[data-tab="taiowc_general"] .card-product-price {
-	font-size: 9px;
-	color: #555;
-	margin: 0;
-}
-.setting-preview-wrap[data-tab="taiowc_general"] .general-cart-icon-img {
-	width: 24px;
-	height: 24px;
-	object-fit: contain;
-	display: block;
-}
-</style>
+
