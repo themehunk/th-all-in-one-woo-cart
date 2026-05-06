@@ -8,10 +8,10 @@ function get_plugin(){
 function tab_constant(){
     $theme_data = wp_get_theme();
     $tab_array = array();
-    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','th-product-compare'),
+    $tab_array['header'] = array('theme_brand' => __('ThemeHunk','th-all-in-one-woo-cart'),
     'theme_brand_url' => esc_url($theme_data->get( 'AuthorURI' )),
-    'welcome'=>esc_html__('ThemeHunk Marketplace', 'th-product-compare' ),
-    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'th-product-compare' ),
+    'welcome'=>esc_html__('ThemeHunk Marketplace', 'th-all-in-one-woo-cart' ),
+    'welcome_desc' => esc_html__('Grow your business with ThemeHunk free/pro themes & plugins.', 'th-all-in-one-woo-cart' ),
     'v'=> 'Version '.$theme_data->get( 'Version' )
     );
     return $tab_array;
@@ -63,14 +63,14 @@ function tab_page() {
 
              if ( is_plugin_active( $plugin_init ) ) {
                    $button_class = 'button disabled '.$slug;
-                   $button_txt = esc_html__( 'Activated', 'th-product-compare' );
+                   $button_txt = esc_html__( 'Activated', 'th-all-in-one-woo-cart' );
                    $detail_link = $install_url = '';
                    $pro_active = 1; 
 
                 }
 
             if ( ! is_plugin_active( $plugin_init ) ){
-                    $button_txt = esc_html__( 'Install Now', 'th-product-compare' );
+                    $button_txt = esc_html__( 'Install Now', 'th-all-in-one-woo-cart' );
                     if ( ! $status ) {
                         $install_url = wp_nonce_url(
                             add_query_arg(
@@ -92,7 +92,7 @@ function tab_page() {
                             '_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_init ),
                         ), network_admin_url('plugins.php'));
                         $button_class = 'activate-now button-primary '.$slug;
-                        $button_txt = esc_html__( 'Activate Now', 'th-product-compare' );
+                        $button_txt = esc_html__( 'Activate Now', 'th-all-in-one-woo-cart' );
                     }
                 }
                 $detail_link = add_query_arg(

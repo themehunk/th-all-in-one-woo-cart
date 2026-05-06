@@ -43,9 +43,9 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
         public function taiowc_add_menu(){
 
-						$page_title = esc_html__( 'AIO Woo Cart', 'taiowc' );
+						$page_title = esc_html__( 'AIO Woo Cart', 'th-all-in-one-woo-cart' );
 
-						// $menu_title = esc_html__( 'TH All In One Woo Cart', 'taiowc' );
+						// $menu_title = esc_html__( 'TH All In One Woo Cart', 'th-all-in-one-woo-cart' );
 
 						// add_menu_page( $page_title, $menu_title, 'edit_theme_options', 'taiowc', array(
 						// 	$this,
@@ -61,13 +61,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 
-				wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','taiowc' ) );
+				wp_die( esc_html__( 'You do not have sufficient permissions to access this page.','th-all-in-one-woo-cart' ) );
 
 			}
 
 			if( ! class_exists( 'WooCommerce' ) ){
 
-				   printf('<h2 class="requirement-notice">%s</h2>',esc_html__('TH All In One Woo Cart requires WooCommerce to work. Make sure that you have installed and activated WooCommerce Plugin.','taiowc' ) );
+				   printf('<h2 class="requirement-notice">%s</h2>',esc_html__('TH All In One Woo Cart requires WooCommerce to work. Make sure that you have installed and activated WooCommerce Plugin.','th-all-in-one-woo-cart' ) );
 
              return;
 
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                    <div class="setting-wrap">
                    <div class="setting-content">
 					<div class="top-header">
-                <h2 class="tabheading"><?php esc_html_e("Integration", 'th-product-compare-pro'); ?></h2>
+                <h2 class="tabheading"><?php esc_html_e("Integration", 'th-all-in-one-woo-cart'); ?></h2>
                
                		 <a class="upgradebutton" href="<?php echo esc_url( 'https://themehunk.com/th-all-in-one-woo-cart/' ); ?>"
 					   title="<?php esc_attr_e( 'Upgrade', 'th-all-in-one-woo-cart' ); ?>"
@@ -91,10 +91,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					<p class="submit taiowc-button-wrapper th-save-btn">
 						
 						<span class="reset" href="#">
-							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg><?php esc_html_e( 'Reset all', 'taiowc' ); ?>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg><?php esc_html_e( 'Reset all', 'th-all-in-one-woo-cart' ); ?>
 						</span>
 
-						 <button disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'taiowc' ) ?>"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span class="text"><?php esc_html_e( 'Save All Changes', 'taiowc' ) ?></span>
+						 <button disabled id="submit" class="button button-primary" value="<?php esc_html_e( 'Save Changes', 'th-all-in-one-woo-cart' ) ?>"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-save transition-transform group-hover:scale-110" aria-hidden="true"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"></path><path d="M7 3v4a1 1 0 0 0 1 1h7"></path></svg></span><span class="text"><?php esc_html_e( 'Save All Changes', 'th-all-in-one-woo-cart' ) ?></span>
 						 </button>
 					</p> 
 					</div>
@@ -157,19 +157,19 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
             <div class="taiowc-notes-wrap">
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Documentation', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'Want to know how this plugin works. Read our Documentation.', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/docs/th-all-in-one-woo-cart/');?>"><?php esc_html_e( 'Check Doc', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
            
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'taiowc' ) ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart//&text=Hey, I just tried this amazing WordPress Plugin for <?php echo esc_url(home_url()); ?> to inetgrate cart in it. Show off your amazing website with such amazing functionality with this awesome plugin: TH All In One Woo Cart Pro By 
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Spread the News', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'Enjoying this plugin? Help spread the the creation and show off your amazing website with such amazing functionality.', 'th-all-in-one-woo-cart' ) ?></p><a href="https://twitter.com/intent/tweet?url=https://themehunk.com/th-all-in-one-woo-cart//&text=Hey, I just tried this amazing WordPress Plugin for <?php echo esc_url(home_url()); ?> to inetgrate cart in it. Show off your amazing website with such amazing functionality with this awesome plugin: TH All In One Woo Cart Pro By 
 @ThemeHunk %20%23WooCommerce%20%23WordPress" target="_blank" rel="external noreferrer noopener" class="x-gropup is-link">
         <span class="x-image"><img src="<?php echo(TAIOWC_PLUGIN_URI . 'images/x.png'); ?>" /></span>
         <span><?php _e(' Click to Tweet','th-shop-mania'); ?></span></a>
             	</div>
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'taiowc' ) ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Contact Support', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'If you need any help you can contact to our support team', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://themehunk.com/contact-us/');?>"><?php esc_html_e( 'Need Help ?', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
             	
-            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'taiowc' ) ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'taiowc' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'taiowc' ) ?></a>
+            	<div class="taiowc-wrap-doc"><h4 class="wrp-title"><?php esc_html_e( 'Review', 'th-all-in-one-woo-cart' ) ?></h4><p><?php esc_html_e( 'Give us your valuable feedback', 'th-all-in-one-woo-cart' ) ?></p><a target="_blank" href="<?php echo esc_url('https://www.trustpilot.com/review/themehunk.com');?>"><?php esc_html_e( 'Submit a review', 'th-all-in-one-woo-cart' ) ?></a>
             	</div>
 
             </div>
@@ -634,13 +634,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
         $attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';
 
-        $label = ( isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : esc_html__( 'Choose File','taiowc' ) );?>
+        $label = ( isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : esc_html__( 'Choose File','th-all-in-one-woo-cart' ) );?>
 
         <div class="taiowc-upload-wrap">
 
   <!-- Preview box -->
   <div class="taiowc-upload-preview">
-    <span class="taiowc-preview-label"><?php esc_html_e('PREVIEW','taiowc'); ?></span>
+    <span class="taiowc-preview-label"><?php esc_html_e('PREVIEW','th-all-in-one-woo-cart'); ?></span>
     <img src="<?php echo esc_url($value); ?>" alt="" />
   </div>
 
@@ -649,8 +649,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
     <div class="taiowc-upload-icon">
       ↑
     </div>
-    <p><strong><?php esc_html_e('Click to upload','taiowc'); ?></strong> <?php esc_html_e('or drag and drop','taiowc'); ?></p>
-    <small><?php esc_html_e('SVG, PNG, JPG (max. 500kb)','taiowc'); ?></small>
+    <p><strong><?php esc_html_e('Click to upload','th-all-in-one-woo-cart'); ?></strong> <?php esc_html_e('or drag and drop','th-all-in-one-woo-cart'); ?></p>
+    <small><?php esc_html_e('SVG, PNG, JPG (max. 500kb)','th-all-in-one-woo-cart'); ?></small>
   </div>
 
 
@@ -674,7 +674,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
   <?php } ?>
 
   <button type="button" class="taiowc-remove-image button">
-  <?php esc_html_e('Remove','taiowc'); ?>
+  <?php esc_html_e('Remove','th-all-in-one-woo-cart'); ?>
 </button>
 
 </div>
@@ -765,25 +765,25 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
     <div class="taiowc-step">
       <span class="step-number">1</span>
       <div class="step-header">
-        <h3><?php esc_html_e('Display cart in the header menu','taiowc'); ?></h3>
-        <span class="badge pro"><?php esc_html_e('PRO FEATURE','taiowc'); ?></span>
-        <span class="badge success"><?php esc_html_e('VISUAL EDITOR READY','taiowc'); ?></span>
+        <h3><?php esc_html_e('Display cart in the header menu','th-all-in-one-woo-cart'); ?></h3>
+        <span class="badge pro"><?php esc_html_e('PRO FEATURE','th-all-in-one-woo-cart'); ?></span>
+        <span class="badge success"><?php esc_html_e('VISUAL EDITOR READY','th-all-in-one-woo-cart'); ?></span>
       </div>
     </div>
 
     <p class="step-desc">
-      <?php esc_html_e('Recommended for standard WordPress themes.','taiowc'); ?>
+      <?php esc_html_e('Recommended for standard WordPress themes.','th-all-in-one-woo-cart'); ?>
     </p>
 
     <p class="step-text">
-      <?php esc_html_e('Navigate to your dashboard','taiowc'); ?> <b><?php esc_html_e('Appearance → Menus','taiowc'); ?></b>.  
-       <b><?php esc_html_e('Locate the TH All In One Woo Cart','taiowc'); ?></b> <?php esc_html_e('item in the left panel and click','taiowc'); ?>
-      <b><?php esc_html_e('Add to Menu','taiowc'); ?></b>.
+      <?php esc_html_e('Navigate to your dashboard','th-all-in-one-woo-cart'); ?> <b><?php esc_html_e('Appearance → Menus','th-all-in-one-woo-cart'); ?></b>.  
+       <b><?php esc_html_e('Locate the TH All In One Woo Cart','th-all-in-one-woo-cart'); ?></b> <?php esc_html_e('item in the left panel and click','th-all-in-one-woo-cart'); ?>
+      <b><?php esc_html_e('Add to Menu','th-all-in-one-woo-cart'); ?></b>.
     </p>
 
     <div class="note-box">
-      <strong><?php esc_html_e('NOTE','taiowc'); ?></strong><br>
-      <?php esc_html_e('Position the cart element as the last item in your primary navigation for optimal UI balance.','taiowc'); ?>
+      <strong><?php esc_html_e('NOTE','th-all-in-one-woo-cart'); ?></strong><br>
+      <?php esc_html_e('Position the cart element as the last item in your primary navigation for optimal UI balance.','th-all-in-one-woo-cart'); ?>
     </div>
   </div>
 
@@ -792,13 +792,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
     <div class="taiowc-step">
       <span class="step-number">2</span>
       <div class="step-header">
-        <h3><?php esc_html_e('Use Shortcode Component','taiowc'); ?></h3>
-        <span class="badge universal"><?php esc_html_e('UNIVERSAL','taiowc'); ?></span>
+        <h3><?php esc_html_e('Use Shortcode Component','th-all-in-one-woo-cart'); ?></h3>
+        <span class="badge universal"><?php esc_html_e('UNIVERSAL','th-all-in-one-woo-cart'); ?></span>
       </div>
     </div>
 
     <p class="step-text">
-      <?php esc_html_e('Inject the cart into any page builder (Elementor, Divi, Gutenberg) or standard text block.','taiowc'); ?>
+      <?php esc_html_e('Inject the cart into any page builder (Elementor, Divi, Gutenberg) or standard text block.','th-all-in-one-woo-cart'); ?>
     </p>
 
     <div class="shortcode-box">
@@ -807,15 +807,15 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
           class="taiowc-copy-btn"
           aria-label="Copy shortcode"
           data-copy-target="code">
-    <?php esc_html_e('Copy','taiowc'); ?>
+    <?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?>
   </button>
-      <span class="shortcode-label"><?php esc_html_e('SHORTCODE','taiowc'); ?></span>
+      <span class="shortcode-label"><?php esc_html_e('SHORTCODE','th-all-in-one-woo-cart'); ?></span>
     </div>
 
     <div class="supported">
-      <span><?php esc_html_e('✔ Widgets','taiowc'); ?></span>
-      <span><?php esc_html_e('✔ Blocks','taiowc'); ?></span>
-      <span><?php esc_html_e('✔ Elementor','taiowc'); ?></span>
+      <span><?php esc_html_e('✔ Widgets','th-all-in-one-woo-cart'); ?></span>
+      <span><?php esc_html_e('✔ Blocks','th-all-in-one-woo-cart'); ?></span>
+      <span><?php esc_html_e('✔ Elementor','th-all-in-one-woo-cart'); ?></span>
     </div>
   </div>
 
@@ -824,13 +824,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
   <div class="taiowc-step">
     <span class="step-number">3</span>
     <div class="step-header">
-      <h3><?php esc_html_e('Direct Template Integration','taiowc'); ?></h3>
-      <span class="badge advanced"><?php esc_html_e('ADVANCED','taiowc'); ?></span>
+      <h3><?php esc_html_e('Direct Template Integration','th-all-in-one-woo-cart'); ?></h3>
+      <span class="badge advanced"><?php esc_html_e('ADVANCED','th-all-in-one-woo-cart'); ?></span>
     </div>
   </div>
 
   <p class="step-desc">
-      <span><?php esc_html_e('For theme developers. Paste this snippet directly into your header.php or custom template files.','taiowc'); ?></span>
+      <span><?php esc_html_e('For theme developers. Paste this snippet directly into your header.php or custom template files.','th-all-in-one-woo-cart'); ?></span>
  
   </p>
 
@@ -840,10 +840,10 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
           class="taiowc-copy-btn"
           aria-label="Copy PHP code"
           data-copy-target="code">
-      <span><?php esc_html_e('Copy','taiowc'); ?></span>
+      <span><?php esc_html_e('Copy','th-all-in-one-woo-cart'); ?></span>
     
   </button>
-    <span class="shortcode-label"><?php esc_html_e('PHP','taiowc'); ?></span>
+    <span class="shortcode-label"><?php esc_html_e('PHP','th-all-in-one-woo-cart'); ?></span>
   </div>
 
 </div>
@@ -1082,9 +1082,9 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 				wp_localize_script(
 					'taiowc-setting-script', 'taiowcluginObject', array(
-						'media_title'   => esc_html__( 'Choose an Image', 'taiowc' ),
-						'button_title'  => esc_html__( 'Use Image', 'taiowc' ),
-						'add_media'     => esc_html__( 'Add Media', 'taiowc' ),
+						'media_title'   => esc_html__( 'Choose an Image', 'th-all-in-one-woo-cart' ),
+						'button_title'  => esc_html__( 'Use Image', 'th-all-in-one-woo-cart' ),
+						'add_media'     => esc_html__( 'Add Media', 'th-all-in-one-woo-cart' ),
 						'ajaxurl'       => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
 						'taiowc_nonce' => wp_create_nonce( 'taiowc_plugin_nonce' ),
 					)

@@ -28,10 +28,10 @@
         </a>
     </div>
         <div class="thunk-notice-text">
-            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-product-compare'); ?></h3>
-            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-product-compare'); ?>
+            <h3><?php esc_html_e('TH Shop Mania Free Theme','th-all-in-one-woo-cart'); ?></h3>
+            <p><?php esc_html_e('Elementor + WooCommerce Free WordPress Theme.','th-all-in-one-woo-cart'); ?>
             </p>
-            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-product-compare'); ?></a>
+            <a class="button" target="_blank" href="<?php echo esc_url('https://themehunk.com/th-shop-mania/'); ?>"> <?php esc_html_e('View Detail','th-all-in-one-woo-cart'); ?></a>
 
         </div>
     </div>

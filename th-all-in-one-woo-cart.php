@@ -11,7 +11,7 @@
  * WC requires at least:    3.3
  * WC tested up to:         9.9
  * Domain Path:             /languages
- * Text Domain:             taiowc
+ * Text Domain:             th-all-in-one-woo-cart
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

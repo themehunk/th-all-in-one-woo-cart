@@ -83,7 +83,7 @@ if ( ! class_exists( 'Taiowc_Nav_Menu' ) ):
 		 */
 		public function taiowc_addNavMenuMetaBoxes() {
 
-			add_meta_box( 'thaps_nav_link', esc_html__( 'TH All In One Woo Cart', 'taiowc' ), array( $this, 'taiowc_navMenuLinks' ), 'nav-menus', 'side',
+			add_meta_box( 'thaps_nav_link', esc_html__( 'TH All In One Woo Cart', 'th-all-in-one-woo-cart' ), array( $this, 'taiowc_navMenuLinks' ), 'nav-menus', 'side',
 				'low' );
 
 		}
@@ -160,7 +160,7 @@ if ( ! class_exists( 'Taiowc_Nav_Menu' ) ):
 				<div id="posttype-taiowc-endpoints" class="posttypediv">
 					<p>
 
-					<?php esc_html_e( 'Add TH All In One Woo Cart as a menu item.', 'taiowc' ) ?>
+					<?php esc_html_e( 'Add TH All In One Woo Cart as a menu item.', 'th-all-in-one-woo-cart' ) ?>
 						
 					</p>
 
@@ -171,7 +171,7 @@ if ( ! class_exists( 'Taiowc_Nav_Menu' ) ):
 							<li>
 		<label class="menu-item-title">
 		<input type="checkbox" class="menu-item-checkbox" name="menu-item[-1][menu-item-object-id]" value="-1"/> 
-		<?php esc_html_e( 'TH All In One Woo Cart', 'taiowc' ); ?>
+		<?php esc_html_e( 'TH All In One Woo Cart', 'th-all-in-one-woo-cart' ); ?>
 		</label>
 								<input type="hidden" class="menu-item-type" name="menu-item[-1][menu-item-type]" value="custom"/>
 								<input type="hidden" class="menu-item-title" name="menu-item[-1][menu-item-title]" value="<?php echo esc_attr(self::SEARCH_PLACEHOLDER); ?>"/>
@@ -181,8 +181,8 @@ if ( ! class_exists( 'Taiowc_Nav_Menu' ) ):
 					</div>
 					<p class="button-controls">
 		                <span class="add-to-menu">
-							<button type="submit" class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to menu', 'taiowc' ); ?>"
-							        name="add-post-type-menu-item" id="submit-posttype-taiowc-endpoints"><?php esc_html_e( 'Add to menu', 'taiowc' ); ?></button>
+							<button type="submit" class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to menu', 'th-all-in-one-woo-cart' ); ?>"
+							        name="add-post-type-menu-item" id="submit-posttype-taiowc-endpoints"><?php esc_html_e( 'Add to menu', 'th-all-in-one-woo-cart' ); ?></button>
 							<span class="spinner"></span>
 						</span>
 					</p>
@@ -246,9 +246,9 @@ if ( ! class_exists( 'Taiowc_Nav_Menu' ) ):
 
 								var $menuItem = $(this).closest('.menu-item');
 
-								$menuItem.find('.menu-item-title').text(<?php esc_html_e('TH All In One Woo Cart', 'taiowc');?>);
+								$menuItem.find('.menu-item-title').text(<?php esc_html_e('TH All In One Woo Cart', 'th-all-in-one-woo-cart');?>);
 
-								$menuItem.find('.item-type').text('<?php esc_html_e( 'TH-Cart', 'taiowc' ); ?>');
+								$menuItem.find('.item-type').text('<?php esc_html_e( 'TH-Cart', 'th-all-in-one-woo-cart' ); ?>');
 
 								$menuItem.find('.menu-item-settings .edit-menu-item-title').closest('label').hide();
 

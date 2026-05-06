@@ -19,7 +19,7 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
         <div class="header">
             <div class="logo">
                 <span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg></span>
-                <span class="logo-text"><?php esc_html_e('MEGASTORE','taiowc');  ?></span>
+                <span class="logo-text"><?php esc_html_e('MEGASTORE','th-all-in-one-woo-cart');  ?></span>
             </div>
 
             

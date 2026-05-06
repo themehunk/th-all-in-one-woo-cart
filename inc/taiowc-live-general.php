@@ -31,14 +31,14 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 			<!-- Logo -->
 			<div class="logo">
 				<span class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panels-top-left" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg></span>
-				<span class="logo-text"><?php esc_html_e( 'MEGASTORE', 'taiowc' ); ?></span>
+				<span class="logo-text"><?php esc_html_e( 'MEGASTORE', 'th-all-in-one-woo-cart' ); ?></span>
 			</div>
 
 			<!-- Navigation -->
 			<nav class="main-nav">
-				<a href="#"><?php esc_html_e( 'Home', 'taiowc' ); ?></a>
-				<a href="#"><?php esc_html_e( 'Shop', 'taiowc' ); ?></a>
-				<a href="#"><?php esc_html_e( 'Categories', 'taiowc' ); ?></a>
+				<a href="#"><?php esc_html_e( 'Home', 'th-all-in-one-woo-cart' ); ?></a>
+				<a href="#"><?php esc_html_e( 'Shop', 'th-all-in-one-woo-cart' ); ?></a>
+				<a href="#"><?php esc_html_e( 'Categories', 'th-all-in-one-woo-cart' ); ?></a>
 			</nav>
 
 			<!-- Cart -->
@@ -88,7 +88,7 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 					<img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-1.jpg' ); ?>" alt="">
 					<span class="add">+</span>
 					<div class="card-product-info">
-						<p class="card-product-title"><?php esc_html_e( 'Classic Red Sneakers', 'taiowc' ); ?></p>
+						<p class="card-product-title"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></p>
 						<p class="card-product-price"><?php echo wp_kses_post( wc_price( 900 ) ); ?></p>
 					</div>
 				</div>
@@ -97,7 +97,7 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 					<img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-2.jpg' ); ?>" alt="">
 					<span class="add">+</span>
 					<div class="card-product-info">
-						<p class="card-product-title"><?php esc_html_e( 'Minimalist White Tee', 'taiowc' ); ?></p>
+						<p class="card-product-title"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></p>
 						<p class="card-product-price"><?php echo wp_kses_post( wc_price( 108 ) ); ?></p>
 					</div>
 				</div>
@@ -106,7 +106,7 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 					<img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-3.jpg' ); ?>" alt="">
 					<span class="add">+</span>
 					<div class="card-product-info">
-						<p class="card-product-title"><?php esc_html_e( 'Summer Dress', 'taiowc' ); ?></p>
+						<p class="card-product-title"><?php esc_html_e( 'Summer Dress', 'th-all-in-one-woo-cart' ); ?></p>
 						<p class="card-product-price"><?php echo wp_kses_post( wc_price( 250 ) ); ?></p>
 					</div>
 				</div>
@@ -115,7 +115,7 @@ $_gen_current_icon = ! empty( $_gen_icon_map[ $_gen_saved_val ] )
 					<img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-4.jpg' ); ?>" alt="">
 					<span class="add">+</span>
 					<div class="card-product-info">
-						<p class="card-product-title"><?php esc_html_e( 'Leather Bag', 'taiowc' ); ?></p>
+						<p class="card-product-title"><?php esc_html_e( 'Leather Bag', 'th-all-in-one-woo-cart' ); ?></p>
 						<p class="card-product-price"><?php echo wp_kses_post( wc_price( 499 ) ); ?></p>
 					</div>
 				</div>

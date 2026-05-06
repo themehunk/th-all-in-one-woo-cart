@@ -80,7 +80,7 @@ function taiowc_register_blocks() {
         [
             [
                 'slug'  => 'vayu-blocks',
-                'title' => __( 'ThemeHunk', 'taiowc' ),
+                'title' => __( 'ThemeHunk', 'th-all-in-one-woo-cart' ),
             ],
         ],
         $categories

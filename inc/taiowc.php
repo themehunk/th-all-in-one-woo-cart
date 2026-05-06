@@ -478,7 +478,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                 $rating         = apply_filters( 'woocommerce_cart_item_rating', wc_get_rating_html( $average, $rating_count ), $cart_item, $cart_item_key );
 
-                $quantity_text = esc_html__('Quantity','taiowc');
+                $quantity_text = esc_html__('Quantity','th-all-in-one-woo-cart');
 
                 $quant = $this->taiowc_mini_cart_add_quantity($_product,$cart_item_key,$cart_item);
 
@@ -665,7 +665,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
             <div class="back-toshop-wrap">
                 <div class="svg-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag text-gray-300" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg></div>
-             <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'taiowc' ); ?></p>
+             <p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'Your Cart is Empty', 'th-all-in-one-woo-cart' ); ?></p>
 
              <a href="<?php echo esc_url($empty_btn_url);?>" class="woocommerce-back-to-shop"><?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-empty_cart_txt' )); ?></a>
             </div>
@@ -749,7 +749,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
          if( $added ){
 
-                $notice = esc_html__( 'Product Added', 'taiowc' );
+                $notice = esc_html__( 'Product Added', 'th-all-in-one-woo-cart' );
 
                 $this->taiowc_set_notice( $notice, 'success' );
            }
@@ -773,7 +773,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
         if( !is_numeric( $new_qty ) || $new_qty < 0 || !$cart_key ){
 
-        $this->taiowc_set_notice( esc_html__( 'Something went wrong', 'taiowc' ) );
+        $this->taiowc_set_notice( esc_html__( 'Something went wrong', 'th-all-in-one-woo-cart' ) );
 
         }
         
@@ -787,14 +787,14 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                 if( $new_qty == 0 ){
 
-                    $notice = esc_html__( 'Product removed', 'taiowc' );
+                    $notice = esc_html__( 'Product removed', 'th-all-in-one-woo-cart' );
 
-                    $notice .= ' <span class="taiowc-undo-item" data-key="'.$cart_key.'">'.esc_html__('Undo?','taiowc').'</span>';  
+                    $notice .= ' <span class="taiowc-undo-item" data-key="'.$cart_key.'">'.esc_html__('Undo?','th-all-in-one-woo-cart').'</span>';  
 
                 }
                 else{
 
-                    $notice = esc_html__( 'Cart Updated', 'taiowc' );
+                    $notice = esc_html__( 'Cart Updated', 'th-all-in-one-woo-cart' );
                 }
 
                 $this->taiowc_set_notice( $notice, 'success' );
@@ -827,7 +827,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
             $cart_success = WC()->cart->restore_cart_item( $cart_key );
 
             if ( $cart_success ) {
-                $notice = esc_html__( 'Product restore', 'taiowc' );
+                $notice = esc_html__( 'Product restore', 'th-all-in-one-woo-cart' );
                 $this->taiowc_set_notice( $notice, 'success' );
             }
 
