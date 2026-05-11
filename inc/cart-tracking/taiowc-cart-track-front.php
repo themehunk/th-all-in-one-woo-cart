@@ -227,10 +227,10 @@ function cart_handle_delete_user($data) {
     );
 
     if ($deleted === false) {
-        return new WP_Error('delete_failed', __('Failed to delete records', 'taiowc'), array('status' => 500));
+        return new WP_Error('delete_failed', __('Failed to delete records', 'th-all-in-one-woo-cart'), array('status' => 500));
     }
 
-    return rest_ensure_response(array('message' => __('Records deleted successfully', 'taiowc')));
+    return rest_ensure_response(array('message' => __('Records deleted successfully', 'th-all-in-one-woo-cart')));
 }
 
 

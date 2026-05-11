@@ -200,7 +200,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                     ?>
                        <?php if (taiowc_main()->taiowc_get_option( 'taiowc-show_copyright' )) { ?>
                      
-                    <span class="copyright"><?php esc_html_e( 'Powered by ', 'taiowc' ); ?><a href="<?php echo esc_url(taiowc_main()->taiowc_get_option( 'taiowc-custom_copyright_link' )); ?>"><?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-custom_copyright' )); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></span>
+                    <span class="copyright"><?php esc_html_e( 'Powered by ', 'th-all-in-one-woo-cart' ); ?><a href="<?php echo esc_url(taiowc_main()->taiowc_get_option( 'taiowc-custom_copyright_link' )); ?>"><?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-custom_copyright' )); ?> <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></span>
 
                 <?php } ?>
 
@@ -236,10 +236,8 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                             <?php if(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' )!==''){ ?>
 
-                          <h4>
-
-                            <?php echo esc_html(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' ));?>
-                                
+                             <h4>
+                                <?php echo wp_kses_post(taiowc_main()->taiowc_get_option( 'taiowc-cart_hd' ));?>                      
                             </h4>
 
                            <?php } ?>
@@ -272,6 +270,15 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                      $this->taiowc_add_coupon();
 
                      $this->taiowc_cart_button(); 
+
+                      $taiowc_show_free_shipping_bar = taiowc_main()->taiowc_get_option('taiowc-show_free_shipping_bar');
+                           
+
+                    if( $taiowc_show_free_shipping_bar == true ){
+
+                    $this->taiowc_free_shipping_bar();
+                        
+                    }
 
                     ?>
         <?php }
@@ -427,7 +434,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                             <?php foreach ($coupons as $code => $coupon): ?>
 
-                                <li class="taiowc-coupon-remove-coupon" data-coupon="<?php echo esc_attr($code); ?>"><?php esc_html_e('Coupon :','taiowc'); ?> <?php echo esc_html($code); ?>
+                                <li class="taiowc-coupon-remove-coupon" data-coupon="<?php echo esc_attr($code); ?>"><?php esc_html_e('Coupon :','th-all-in-one-woo-cart'); ?> <?php echo esc_html($code); ?>
                                     <span class="dashicons dashicons-no-alt"></span>
                                 </li>
 
@@ -527,7 +534,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                             <button class="taiowc-coupon-apply-btn button btn  <?php echo esc_attr($cls); ?>" value="<?php echo esc_attr($coupon_data->get_code()); ?>">
 
-                            <?php printf( esc_html__( '%s', 'taiowc' ), esc_html( $cls ) ); ?>
+                            <?php printf( esc_html__( '%s', 'th-all-in-one-woo-cart' ), esc_html( $cls ) ); ?>
   
 
                             </button> 
@@ -583,7 +590,184 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
          <?php   }
 
-         
+          // Shipping Progress bar
+         public function taiowc_free_shipping_bar(){
+
+            $style = taiowc_main()->taiowc_get_option(
+                    'taiowc-free_shipping_style'
+                );
+
+        if( empty( $style ) ){
+            $style = 'style-1';
+        }
+
+    $unlock_message = taiowc_main()->taiowc_get_option('taiowc-free_shipping_unlock_message');
+
+
+    $goal_amount = (float) taiowc_main()->taiowc_get_option('taiowc-free_shipping_amount');
+
+    if( empty( $goal_amount ) ){
+        $goal_amount = 200;
+    }
+
+    $subtotal = WC()->cart->get_displayed_subtotal();
+
+    $remaining = $goal_amount - $subtotal;
+
+    $progress = 0;
+
+    if( $subtotal > 0 ){
+
+        $progress = ( $subtotal / $goal_amount ) * 100;
+    }
+
+    if( $progress > 100 ){
+        $progress = 100;
+    }
+
+     /*
+    |--------------------------------------------------------------------------
+    | STYLE 5
+    |--------------------------------------------------------------------------
+    */
+
+    if( $style === 'style-5' ){
+
+        ?>
+
+        <div class="taiowc-free-shipping-wrap style-5">
+
+            <div class="taiowc-free-shipping-heading">
+
+                <?php if( $remaining > 0 ): ?>
+
+                    <?php
+                    printf(
+                        wp_kses_post(
+                            __('Spend %s more for free shipping', 'th-all-in-one-woo-cart')
+                        ),
+                        '<span>' . wc_price($remaining) . '</span>'
+                    );
+                    ?>
+
+                <?php else: ?>
+                    <div class="taiowc-free-success-wrap">
+                        <span class="taiowc-free-success">
+
+                            <?php echo esc_html($unlock_message); ?>
+
+                        </span>
+                    </div>
+
+                <?php endif; ?>
+
+            </div>
+
+            <div class="taiowc-progress-area">
+
+                <div class="taiowc-progress-line">
+
+                    <div class="taiowc-progress-fill"
+                         style="width:<?php echo esc_attr($progress); ?>%">
+                    </div>
+
+                    <div class="taiowc-progress-truck"
+                         style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+
+                        <span class="dashicons dashicons-car"></span>
+
+                    </div>
+
+                    <div class="taiowc-goal-icon">
+
+                        ⚑
+
+                    </div>
+
+                </div>
+
+                <div class="taiowc-progress-labels">
+
+                    <span>$0</span>
+
+                    <span>
+                        <?php echo wp_kses_post( wc_price($subtotal) ); ?>
+                    </span>
+
+                    <span>
+                        <?php echo wp_kses_post( wc_price($goal_amount) ); ?>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <?php
+
+        return;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | DEFAULT STYLES
+    |--------------------------------------------------------------------------
+    */
+
+    ?>
+
+    <div class="taiowc-free-shipping-wrap <?php echo esc_attr($style); ?>">
+
+        <div class="taiowc-free-shipping-bar">
+
+            <div class="taiowc-free-shipping-fill"
+                 style="width:<?php echo esc_attr($progress); ?>%">
+            </div>
+
+            <div class="taiowc-free-shipping-icon"
+                 style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+
+                🚚
+
+            </div>
+
+        </div>
+
+        <div class="taiowc-free-shipping-msg">
+
+            <?php if( $remaining > 0 ): ?>
+
+                <?php
+                echo wp_kses_post(
+                    sprintf(
+                        __('Buy %s more get <strong>Free Shipping</strong>', 'th-all-in-one-woo-cart'),
+                        wc_price($remaining)
+                    )
+                );
+                ?>
+
+            <?php else: ?>
+
+                <div class="taiowc-free-success-wrap">
+
+                    <span class="taiowc-free-success">
+
+                        <?php echo esc_html($unlock_message); ?>
+
+                    </span>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+
+    <?php
+}
+
         // shipping
          public function taiowc_shipping_markup(){
 
@@ -593,8 +777,14 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                     $package = $packages[0];
 
+                    $index = 0;
 
-                    $chosen_method = isset( WC()->session->chosen_shipping_methods[ 0 ] ) ? WC()->session->chosen_shipping_methods[ 0 ] : '';
+
+                    // $chosen_method = isset( WC()->session->chosen_shipping_methods[ 0 ] ) ? WC()->session->chosen_shipping_methods[ 0 ] : '';
+
+                    $chosen_methods = WC()->session->get( 'chosen_shipping_methods', array() );
+                    $chosen_method  = isset( $chosen_methods[ $index ] ) ? $chosen_methods[ $index ] : '';
+
                     $product_names = array();
 
                     if ( count( $packages ) > 1 ) {
@@ -655,7 +845,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                         <?php else: ?>
 
-                            <a href="#" class="taiowc-shp-tgle"><?php esc_html_e( 'Shipping Calculate', 'taiowc' ); ?></a>
+                            <a href="#" class="taiowc-shp-tgle"><?php esc_html_e( 'Shipping Calculate', 'th-all-in-one-woo-cart' ); ?></a>
 
                         <?php endif; ?>
 
@@ -688,13 +878,13 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                             if ( $formatted_destination ) {
 
-                                $toggle_html .=  sprintf( esc_html__( 'Shipping to %s.', 'taiowc' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' );
+                                $toggle_html .=  sprintf( esc_html__( 'Shipping to %s.', 'th-all-in-one-woo-cart' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' );
 
-                                $calculator_text = esc_html__( 'Change address', 'taiowc' );
+                                $calculator_text = esc_html__( 'Change address', 'th-all-in-one-woo-cart' );
 
                             } else {
 
-                                $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_estimate_html', esc_html__( 'Shipping options will be updated during checkout.', 'taiowc' ) ) );
+                                $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_estimate_html', esc_html__( 'Shipping options will be updated during checkout.', 'th-all-in-one-woo-cart' ) ) );
                             }
 
                             ?>
@@ -707,19 +897,19 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                                 if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) ) {
 
-                                    $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_not_enabled_on_cart_html',esc_html__( 'Shipping costs are calculated during checkout.', 'taiowc' ) ) );
+                                    $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_not_enabled_on_cart_html',esc_html__( 'Shipping costs are calculated during checkout.', 'th-all-in-one-woo-cart' ) ) );
 
                                 } else {
 
-                                    $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_may_be_available_html',esc_html__( 'Enter your address to view shipping options.', 'taiowc' ) ) );
+                                    $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_shipping_may_be_available_html',esc_html__( 'Enter your address to view shipping options.', 'th-all-in-one-woo-cart' ) ) );
 
                                 }
 
                             else :
                                 
-                                $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_cart_no_shipping_available_html', sprintf( esc_html__( 'No shipping options were found for %s.', 'taiowc' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' ) ) );
+                                $toggle_html .= wp_kses_post( apply_filters( 'woocommerce_cart_no_shipping_available_html', sprintf( esc_html__( 'No shipping options were found for %s.', 'th-all-in-one-woo-cart' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' ) ) );
 
-                                $calculator_text = esc_html__( 'Enter a different address', 'taiowc' );
+                                $calculator_text = esc_html__( 'Enter a different address', 'th-all-in-one-woo-cart' );
 
                             endif;
 
@@ -1031,7 +1221,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                 <?php } 
                 // else{
 
-                //           esc_html_e( 'No products found','taiowc' );
+                //           esc_html_e( 'No products found','th-all-in-one-woo-cart' );
 
                 //         } 
 
