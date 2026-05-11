@@ -271,6 +271,15 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                      $this->taiowc_cart_button(); 
 
+                      $taiowc_show_free_shipping_bar = taiowc_main()->taiowc_get_option('taiowc-show_free_shipping_bar');
+                           
+
+                    if( $taiowc_show_free_shipping_bar == true ){
+
+                    $this->taiowc_free_shipping_bar();
+                        
+                    }
+
                     ?>
         <?php }
         
@@ -581,7 +590,184 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
          <?php   }
 
-         
+          // Shipping Progress bar
+         public function taiowc_free_shipping_bar(){
+
+            $style = taiowc_main()->taiowc_get_option(
+                    'taiowc-free_shipping_style'
+                );
+
+        if( empty( $style ) ){
+            $style = 'style-1';
+        }
+
+    $unlock_message = taiowc_main()->taiowc_get_option('taiowc-free_shipping_unlock_message');
+
+
+    $goal_amount = (float) taiowc_main()->taiowc_get_option('taiowc-free_shipping_amount');
+
+    if( empty( $goal_amount ) ){
+        $goal_amount = 200;
+    }
+
+    $subtotal = WC()->cart->get_displayed_subtotal();
+
+    $remaining = $goal_amount - $subtotal;
+
+    $progress = 0;
+
+    if( $subtotal > 0 ){
+
+        $progress = ( $subtotal / $goal_amount ) * 100;
+    }
+
+    if( $progress > 100 ){
+        $progress = 100;
+    }
+
+     /*
+    |--------------------------------------------------------------------------
+    | STYLE 5
+    |--------------------------------------------------------------------------
+    */
+
+    if( $style === 'style-5' ){
+
+        ?>
+
+        <div class="taiowc-free-shipping-wrap style-5">
+
+            <div class="taiowc-free-shipping-heading">
+
+                <?php if( $remaining > 0 ): ?>
+
+                    <?php
+                    printf(
+                        wp_kses_post(
+                            __('Spend %s more for free shipping', 'th-all-in-one-woo-cart')
+                        ),
+                        '<span>' . wc_price($remaining) . '</span>'
+                    );
+                    ?>
+
+                <?php else: ?>
+                    <div class="taiowc-free-success-wrap">
+                        <span class="taiowc-free-success">
+
+                            <?php echo esc_html($unlock_message); ?>
+
+                        </span>
+                    </div>
+
+                <?php endif; ?>
+
+            </div>
+
+            <div class="taiowc-progress-area">
+
+                <div class="taiowc-progress-line">
+
+                    <div class="taiowc-progress-fill"
+                         style="width:<?php echo esc_attr($progress); ?>%">
+                    </div>
+
+                    <div class="taiowc-progress-truck"
+                         style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+
+                        <span class="dashicons dashicons-car"></span>
+
+                    </div>
+
+                    <div class="taiowc-goal-icon">
+
+                        ⚑
+
+                    </div>
+
+                </div>
+
+                <div class="taiowc-progress-labels">
+
+                    <span>$0</span>
+
+                    <span>
+                        <?php echo wp_kses_post( wc_price($subtotal) ); ?>
+                    </span>
+
+                    <span>
+                        <?php echo wp_kses_post( wc_price($goal_amount) ); ?>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <?php
+
+        return;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | DEFAULT STYLES
+    |--------------------------------------------------------------------------
+    */
+
+    ?>
+
+    <div class="taiowc-free-shipping-wrap <?php echo esc_attr($style); ?>">
+
+        <div class="taiowc-free-shipping-bar">
+
+            <div class="taiowc-free-shipping-fill"
+                 style="width:<?php echo esc_attr($progress); ?>%">
+            </div>
+
+            <div class="taiowc-free-shipping-icon"
+                 style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+
+                🚚
+
+            </div>
+
+        </div>
+
+        <div class="taiowc-free-shipping-msg">
+
+            <?php if( $remaining > 0 ): ?>
+
+                <?php
+                echo wp_kses_post(
+                    sprintf(
+                        __('Buy %s more get <strong>Free Shipping</strong>', 'th-all-in-one-woo-cart'),
+                        wc_price($remaining)
+                    )
+                );
+                ?>
+
+            <?php else: ?>
+
+                <div class="taiowc-free-success-wrap">
+
+                    <span class="taiowc-free-success">
+
+                        <?php echo esc_html($unlock_message); ?>
+
+                    </span>
+
+                </div>
+
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+
+    <?php
+}
+
         // shipping
          public function taiowc_shipping_markup(){
 

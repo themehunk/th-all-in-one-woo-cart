@@ -164,6 +164,7 @@ Yes, You can translate our plugin to desired language.
 * New: shipping style added in popup modal.
 * New: Shipping issue resolved.
 * New: premium features added.
+* New: New shipping bar added.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.

@@ -1219,6 +1219,52 @@ taiowc_main()->taiowc_add_setting(
 					  )
 				  ),	
 
+				   array(
+					'title'  => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_shipping_bar_fields', array(   
+						   array(
+								'id'      => 'taiowc-show_free_shipping_bar',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+
+							array(
+								'id'      => 'taiowc-free_shipping_style',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Bar Style', 'th-all-in-one-woo-cart' ),
+								'default' =>'prd_first',
+								'options' => array(
+
+									'style-1' => esc_html__( 'Default', 'th-all-in-one-woo-cart' ),
+									'style-2'   => esc_html__( 'Progressing Bar', 'th-all-in-one-woo-cart' ),
+									'style-4'   => esc_html__( 'Neon Bar', 'th-all-in-one-woo-cart' ),
+									'style-5'   => esc_html__( 'Premium', 'th-all-in-one-woo-cart' ),
+									
+									
+								),
+								
+							),
+
+							array(
+								'id'      => 'taiowc-free_shipping_amount',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Free Shipping Amount', 'th-all-in-one-woo-cart' ),
+								'default' => '200'
+							),
+
+							array(
+								'id'      => 'taiowc-free_shipping_unlock_message',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Shipping UnLock text', 'th-all-in-one-woo-cart' ),
+								'default' => 'You unlocked Free Shipping!'
+							),
+							
+						 )
+					  )
+				  ),
+
 
 			  )
 

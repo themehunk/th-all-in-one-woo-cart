@@ -1525,7 +1525,7 @@ position: absolute;
     border-radius: 16px;
 }
 .setting-preview-wrap{
-    width: 60%;
+    width: 52%;
     display: none;
     margin-right: 2rem;
 }
@@ -1533,7 +1533,7 @@ position: absolute;
 .preview-taiowc_fixed_cart #settings-tabs,
 .preview-taiowc-cart_style_set #settings-tabs,
 .preview-taiowc_mobile_cart #settings-tabs{
-    width: 40%;
+    width: 48%;
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 2rem;
@@ -1604,6 +1604,10 @@ position: absolute;
 .preview-taiowc-cart_style_set .taiowc-settings-field-content select,
 .preview-taiowc-cart_style_set  input[type=text]{
     width: 12rem;
+}
+.preview-taiowc-cart_style_set .taiowcp-settings-field-content select, 
+.preview-taiowc-cart_style_set input[type=text]:not(.color_picker){
+    width: 100%;
 }
 .preview-taiowc-cart_style_set .taiowc-form-table .taiowc-settings-label{
     width: 40%;
