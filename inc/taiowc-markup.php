@@ -591,41 +591,285 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
          <?php   }
 
           // Shipping Progress bar
-         public function taiowc_free_shipping_bar(){
+         public function taiowc_get_active_free_shipping_method(){
 
-            $style = taiowc_main()->taiowc_get_option(
-                    'taiowc-free_shipping_style'
-                );
+    $packages = WC()->shipping()->get_packages();
 
-        if( empty( $style ) ){
-            $style = 'style-1';
-        }
-
-    $unlock_message = taiowc_main()->taiowc_get_option('taiowc-free_shipping_unlock_message');
-
-
-    $goal_amount = (float) taiowc_main()->taiowc_get_option('taiowc-free_shipping_amount');
-
-    if( empty( $goal_amount ) ){
-        $goal_amount = 200;
+    if( empty( $packages ) ){
+        return false;
     }
 
-    $subtotal = WC()->cart->get_displayed_subtotal();
+    foreach( $packages as $package ){
 
-    $remaining = $goal_amount - $subtotal;
+        $zone = WC_Shipping_Zones::get_zone_matching_package(
+            $package
+        );
+
+        if( ! $zone ){
+            continue;
+        }
+
+        $methods = $zone->get_shipping_methods( true );
+
+        foreach( $methods as $method ){
+
+            if(
+                $method->id === 'free_shipping' &&
+                $method->enabled === 'yes'
+            ){
+                return $method;
+            }
+        }
+    }
+
+    return false;
+}
+
+        public function taiowc_free_shipping_bar(){
+
+    /*
+    |--------------------------------------------------------------------------
+    | STYLE
+    |--------------------------------------------------------------------------
+    */
+
+    $style = taiowc_main()->taiowc_get_option(
+        'taiowc-free_shipping_style'
+    );
+
+    if( empty( $style ) ){
+        $style = 'style-1';
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | CART
+    |--------------------------------------------------------------------------
+    */
+
+    if( ! WC()->cart ){
+        return;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SHIPPING METHOD
+    |--------------------------------------------------------------------------
+    */
+
+    $method = $this->taiowc_get_active_free_shipping_method();
+
+    if( ! $method ){
+        return;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SETTINGS
+    |--------------------------------------------------------------------------
+    */
+
+    $requires = isset( $method->requires )
+        ? $method->requires
+        : '';
+
+    if( empty( $requires ) ){
+
+    return;
+    }
+    
+    $goal_amount = isset( $method->min_amount )
+        ? (float) $method->min_amount
+        : 0;
+
+    $ignore_discounts = isset( $method->ignore_discounts )
+        ? $method->ignore_discounts
+        : 'no';
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUBTOTAL
+    |--------------------------------------------------------------------------
+    */
+
+    if( $ignore_discounts === 'yes' ){
+
+        // Before discount
+
+        $subtotal = WC()->cart->get_subtotal();
+
+    }else{
+
+        // After discount
+
+        $subtotal =
+            WC()->cart->get_displayed_subtotal()
+            - WC()->cart->get_discount_total();
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | COUPON CHECK
+    |--------------------------------------------------------------------------
+    */
+
+    $has_coupon = false;
+
+    foreach( WC()->cart->get_coupons() as $coupon ){
+
+        if(
+            method_exists( $coupon, 'get_free_shipping' ) &&
+            $coupon->get_free_shipping()
+        ){
+            $has_coupon = true;
+            break;
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ELIGIBILITY
+    |--------------------------------------------------------------------------
+    */
+
+    $is_unlocked = false;
+
+    switch( $requires ){
+
+        case 'min_amount':
+
+            $is_unlocked =
+                $subtotal >= $goal_amount;
+
+        break;
+
+        case 'coupon':
+
+            $is_unlocked =
+                $has_coupon;
+
+        break;
+
+        case 'either':
+
+            $is_unlocked =
+                (
+                    $subtotal >= $goal_amount
+                    || $has_coupon
+                );
+
+        break;
+
+        case 'both':
+
+            $is_unlocked =
+                (
+                    $subtotal >= $goal_amount
+                    && $has_coupon
+                );
+
+        break;
+
+        default:
+
+            // No requirement
+
+            $is_unlocked = true;
+
+        break;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | REMAINING
+    |--------------------------------------------------------------------------
+    */
+
+    $remaining = max(
+        0,
+        $goal_amount - $subtotal
+    );
+
+    /*
+    |--------------------------------------------------------------------------
+    | PROGRESS
+    |--------------------------------------------------------------------------
+    */
 
     $progress = 0;
 
-    if( $subtotal > 0 ){
+    if( $goal_amount > 0 ){
 
-        $progress = ( $subtotal / $goal_amount ) * 100;
+        $progress =
+            ( $subtotal / $goal_amount ) * 100;
     }
 
-    if( $progress > 100 ){
-        $progress = 100;
+    $progress = min( 100, $progress );
+
+    /*
+    |--------------------------------------------------------------------------
+    | TRUCK SAFE POSITION
+    |--------------------------------------------------------------------------
+    */
+
+    $truck_position = $progress;
+
+    if( $truck_position >= 100 ){
+        $truck_position = 100;
     }
 
-     /*
+    /*
+    |--------------------------------------------------------------------------
+    | MESSAGE
+    |--------------------------------------------------------------------------
+    */
+
+    $message = '';
+
+    if( $is_unlocked ){
+
+        $message = __( 'Free shipping unlocked!', 'th-all-in-one-woo-cart' );
+
+    }else{
+
+        switch( $requires ){
+
+            case 'coupon':
+
+                $message = __(
+                    'Apply a free shipping coupon to unlock free shipping',
+                    'th-all-in-one-woo-cart'
+                );
+
+            break;
+
+            case 'both':
+
+                $message = sprintf(
+                    __(
+                        'Spend %s more and apply free shipping coupon',
+                        'th-all-in-one-woo-cart'
+                    ),
+                    wc_price( $remaining )
+                );
+
+            break;
+
+            default:
+
+                $message = sprintf(
+                    __(
+                        'Spend %s more for free shipping',
+                        'th-all-in-one-woo-cart'
+                    ),
+                    wc_price( $remaining )
+                );
+
+            break;
+        }
+    }
+
+    /*
     |--------------------------------------------------------------------------
     | STYLE 5
     |--------------------------------------------------------------------------
@@ -639,27 +883,20 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
             <div class="taiowc-free-shipping-heading">
 
-                <?php if( $remaining > 0 ): ?>
-
-                    <?php
-                    printf(
-                        wp_kses_post(
-                            __('Spend %s more for free shipping', 'th-all-in-one-woo-cart')
-                        ),
-                        '<span>' . wc_price($remaining) . '</span>'
-                    );
-                    ?>
-
-                <?php else: ?>
-                    <div class="taiowc-free-success-wrap">
+                <?php 
+                    if ($is_unlocked) { ?>
+                       <div class="taiowc-free-success-wrap">
                         <span class="taiowc-free-success">
 
-                            <?php echo esc_html($unlock_message); ?>
+                            <?php echo wp_kses_post( $message ); ?>
 
                         </span>
                     </div>
-
-                <?php endif; ?>
+                 <?php   }
+                    else{
+                        echo wp_kses_post( $message );
+                    }
+                 ?>
 
             </div>
 
@@ -668,11 +905,11 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                 <div class="taiowc-progress-line">
 
                     <div class="taiowc-progress-fill"
-                         style="width:<?php echo esc_attr($progress); ?>%">
+                         style="width:<?php echo esc_attr( $progress ); ?>%">
                     </div>
 
                     <div class="taiowc-progress-truck"
-                         style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+                         style="left:calc(<?php echo esc_attr( $truck_position ); ?>% - 12px)">
 
                         <span class="dashicons dashicons-car"></span>
 
@@ -691,11 +928,11 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                     <span>$0</span>
 
                     <span>
-                        <?php echo wp_kses_post( wc_price($subtotal) ); ?>
+                        <?php echo wp_kses_post( wc_price( $subtotal ) ); ?>
                     </span>
 
                     <span>
-                        <?php echo wp_kses_post( wc_price($goal_amount) ); ?>
+                        <?php echo wp_kses_post( wc_price( $goal_amount ) ); ?>
                     </span>
 
                 </div>
@@ -717,16 +954,16 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
     ?>
 
-    <div class="taiowc-free-shipping-wrap <?php echo esc_attr($style); ?>">
+    <div class="taiowc-free-shipping-wrap <?php echo esc_attr( $style ); ?>">
 
         <div class="taiowc-free-shipping-bar">
 
             <div class="taiowc-free-shipping-fill"
-                 style="width:<?php echo esc_attr($progress); ?>%">
+                 style="width:<?php echo esc_attr( $progress ); ?>%">
             </div>
 
             <div class="taiowc-free-shipping-icon"
-                 style="left:calc(<?php echo esc_attr($progress); ?>% - 12px)">
+                 style="left:calc(<?php echo esc_attr( $truck_position ); ?>% - 12px)">
 
                 🚚
 
@@ -736,30 +973,20 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
         <div class="taiowc-free-shipping-msg">
 
-            <?php if( $remaining > 0 ): ?>
+            <?php 
+                    if ($is_unlocked) { ?>
+                       <div class="taiowc-free-success-wrap">
+                        <span class="taiowc-free-success">
 
-                <?php
-                echo wp_kses_post(
-                    sprintf(
-                        __('Buy %s more get <strong>Free Shipping</strong>', 'th-all-in-one-woo-cart'),
-                        wc_price($remaining)
-                    )
-                );
-                ?>
+                            <?php echo wp_kses_post( $message ); ?>
 
-            <?php else: ?>
-
-                <div class="taiowc-free-success-wrap">
-
-                    <span class="taiowc-free-success">
-
-                        <?php echo esc_html($unlock_message); ?>
-
-                    </span>
-
-                </div>
-
-            <?php endif; ?>
+                        </span>
+                    </div>
+                 <?php   }
+                    else{
+                        echo wp_kses_post( $message );
+                    }
+                 ?>
 
         </div>
 
