@@ -1227,6 +1227,7 @@ taiowc_main()->taiowc_add_setting(
 								'id'      => 'taiowc-show_free_shipping_bar',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'After enable please configure shipping settings at woocommerce > settings > shipping', 'th-all-in-one-woo-cart' ),
 								'default' => true
 							),
 
@@ -1247,19 +1248,6 @@ taiowc_main()->taiowc_add_setting(
 								
 							),
 
-							array(
-								'id'      => 'taiowc-free_shipping_amount',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Free Shipping Amount', 'th-all-in-one-woo-cart' ),
-								'default' => '200'
-							),
-
-							array(
-								'id'      => 'taiowc-free_shipping_unlock_message',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Shipping UnLock text', 'th-all-in-one-woo-cart' ),
-								'default' => 'You unlocked Free Shipping!'
-							),
 							
 						 )
 					  )
