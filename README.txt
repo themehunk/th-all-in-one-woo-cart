@@ -165,6 +165,8 @@ Yes, You can translate our plugin to desired language.
 * New: Shipping issue resolved.
 * New: premium features added.
 * New: New shipping bar added.
+* Update: Tested with WordPress 7.0.
+* Update: Variation style updated in mini cart modal.
 
 = Version 2.3.1 =
 * Update:cart and checkout button loader added.
