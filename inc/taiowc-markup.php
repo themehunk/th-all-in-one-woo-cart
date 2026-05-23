@@ -205,7 +205,11 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                             $this->taiowc_free_shipping_bar();
                         }
 
-                        do_action('taiowc_mini_cart'); 
+                        if ( taiowc_main()->taiowc_get_option( 'taiowc-show_milestones_bar' ) == true ) {
+                            $this->taiowc_milestones_bar();
+                        }
+
+                        do_action('taiowc_mini_cart');
 
                         $this->taiowc_get_suggest_product();
 
@@ -296,7 +300,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                     ?>
         <?php }
         
-          public function taiowc_cart_total(){  
+          public function taiowc_cart_total(){
 
           if(WC()->cart){
 
@@ -312,35 +316,44 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
            $taiowc_show_discount = taiowc_main()->taiowc_get_option('taiowc-show_discount');
 
+           // Collect milestone discount fees (negative fees added by rewards engine)
+           $milestone_fees = array();
+           foreach ( WC()->cart->get_fees() as $fee ) {
+               if ( $fee->amount < 0 ) {
+                   $milestone_fees[] = $fee;
+               }
+           }
+           $has_milestone_discount = ! empty( $milestone_fees );
+
             ?>
                 <div class="cart-total">
 
                     <span class="taiowc-payment-title">
 
                         <?php echo esc_html(taiowc_main()->taiowc_get_option('taiowc-pay_hd')); ?>
-                        
+
                     </span>
 
                      <div class="taiowc-total-wrap">
-                                
+
                             <div class="taiowc-subtotal">
 
                                 <span class="taiowc-label">
 
                                     <?php echo esc_html(taiowc_main()->taiowc_get_option('taiowc-sub_total')); ?>
-                                        
+
                                     </span>
 
                                 <span class="taiowc-value">
 
                                     <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
-                                        
+
                                     </span>
 
                               </div>
 
-               
-                  
+
+
                    <?php if( $has_shipping == 1 && $taiowc_show_shipping == true ): ?>
 
                    <?php $this->taiowc_shipping_markup();?>
@@ -354,27 +367,40 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                         <span class="taiowc-label">
 
                             <?php echo esc_html(taiowc_main()->taiowc_get_option('taiowc-discount_txt')); ?>
-                                
+
                             </span>
 
                         <span class="taiowc-value">
 
                          <?php echo wp_kses_post(wc_price(WC()->cart->get_discount_total())); ?>
-                                
+
                         </span>
 
                     </div>
 
                    <?php endif; ?>
 
-                    <?php if($tax_enabled || $has_shipping || $has_discount): ?>
+                    <?php if ( $has_milestone_discount ) : ?>
+                        <?php foreach ( $milestone_fees as $fee ) : ?>
+                        <div class="taiowc-milestone-discount-row">
+                            <span class="taiowc-label taiowc-milestone-discount-label">
+                                <?php echo esc_html( $fee->name ); ?>
+                            </span>
+                            <span class="taiowc-value taiowc-milestone-discount-value">
+                                <?php echo wp_kses_post( wc_price( $fee->amount ) ); ?>
+                            </span>
+                        </div>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <?php if($tax_enabled || $has_shipping || $has_discount || $has_milestone_discount): ?>
 
                         <div class="taiowc-total">
 
                             <span class="taiowc-label">
 
                                 <?php echo esc_html(taiowc_main()->taiowc_get_option('taiowc-total_txt')); ?>
-                                    
+
                                 </span>
 
                             <span class="taiowc-value"><?php echo wp_kses_post(WC()->cart->get_total()); ?></span>
@@ -1501,6 +1527,136 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
        }
 
+    }
+
+    public function taiowc_milestones_bar() {
+
+        if ( ! WC()->cart ) {
+            return;
+        }
+
+        // Collect configured milestones
+        $raw_milestones = array();
+        for ( $i = 1; $i <= 3; $i++ ) {
+            $amount = taiowc_main()->taiowc_get_option( "taiowc-milestone_{$i}_amount" );
+            if ( $amount === '' || $amount === false || $amount === null ) {
+                continue;
+            }
+            $amount = (float) $amount;
+            if ( $amount <= 0 ) {
+                continue;
+            }
+            $raw_milestones[] = array(
+                'amount' => $amount,
+                'label'  => taiowc_main()->taiowc_get_option( "taiowc-milestone_{$i}_label" ),
+                'icon'   => taiowc_main()->taiowc_get_option( "taiowc-milestone_{$i}_icon" ),
+            );
+        }
+
+        if ( empty( $raw_milestones ) ) {
+            return;
+        }
+
+        // Sort by amount ascending
+        usort( $raw_milestones, function( $a, $b ) {
+            return $a['amount'] <=> $b['amount'];
+        } );
+
+        $max_amount = end( $raw_milestones )['amount'];
+
+        $subtotal = WC()->cart->get_subtotal();
+
+        // Find next incomplete milestone for the message
+        $next_milestone = null;
+        foreach ( $raw_milestones as $ms ) {
+            if ( $subtotal < $ms['amount'] ) {
+                $next_milestone = $ms;
+                break;
+            }
+        }
+
+        if ( $next_milestone ) {
+            $remaining = $next_milestone['amount'] - $subtotal;
+            $message   = sprintf(
+                /* translators: 1: price, 2: milestone label */
+                esc_html__( "You're %s away from %s", 'th-all-in-one-woo-cart' ),
+                wc_price( $remaining ),
+                esc_html( $next_milestone['label'] )
+            );
+        } else {
+            $message = esc_html__( 'All rewards unlocked! Congrats!', 'th-all-in-one-woo-cart' );
+        }
+
+        $progress = ( $max_amount > 0 ) ? min( 100, ( $subtotal / $max_amount ) * 100 ) : 0;
+
+        $icon_map = array(
+            'discount' => '<span class="taiowc-ms-icon-inner taiowc-ms-discount">$</span>',
+            'gift'     => '<span class="taiowc-ms-icon-inner taiowc-ms-gift">🎁</span>',
+            'shipping' => '<span class="taiowc-ms-icon-inner taiowc-ms-shipping">🚚</span>',
+            'star'     => '<span class="taiowc-ms-icon-inner taiowc-ms-star">⭐</span>',
+        );
+
+        ?>
+        <style>
+        .taiowc-milestones-wrap{padding:12px 14px;background:#fff;border-bottom:1px solid #f0f0f0;font-size:13px}
+        .taiowc-milestones-message{text-align:center;margin-bottom:14px;color:#444;font-size:12px}
+        .taiowc-milestones-message strong{color:#222}
+        .taiowc-milestones-track-area{position:relative;padding-bottom:38px}
+        .taiowc-milestones-rail{position:relative;height:6px;background:#e0e0e0;border-radius:4px;margin:0 10px}
+        .taiowc-milestones-fill{position:absolute;top:0;left:0;height:100%;background:#27ae60;border-radius:4px;transition:width .4s ease}
+        .taiowc-milestones-marker{position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center}
+        .taiowc-ms-icon-wrap{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;transition:border-color .3s,background .3s}
+        .taiowc-milestones-marker.unlocked .taiowc-ms-icon-wrap{border-color:#27ae60;background:#eafaf1}
+        .taiowc-ms-icon-inner{display:flex;align-items:center;justify-content:center}
+        .taiowc-ms-discount{font-weight:700;color:#555;font-size:11px}
+        .taiowc-milestones-label-row{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
+        .taiowc-milestones-label-item{position:absolute;transform:translateX(-50%);text-align:center;font-size:10px;color:#888;line-height:1.3;white-space:nowrap}
+        .taiowc-milestones-marker.unlocked + .taiowc-milestones-label-item{color:#27ae60}
+        .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px dashed #e8e8e8;margin-top:4px}
+        .taiowc-milestone-discount-label{color:#27ae60;font-size:13px;font-weight:500}
+        .taiowc-milestone-discount-value{color:#27ae60;font-weight:600;font-size:13px}
+        </style>
+
+        <div class="taiowc-milestones-wrap">
+
+            <div class="taiowc-milestones-message">
+                <?php echo wp_kses_post( $message ); ?>
+            </div>
+
+            <div class="taiowc-milestones-track-area">
+
+                <div class="taiowc-milestones-rail">
+                    <div class="taiowc-milestones-fill" style="width:<?php echo esc_attr( $progress ); ?>%"></div>
+
+                    <?php foreach ( $raw_milestones as $ms ) :
+                        $pos       = ( $max_amount > 0 ) ? ( $ms['amount'] / $max_amount ) * 100 : 100;
+                        $unlocked  = ( $subtotal >= $ms['amount'] );
+                        $icon_html = isset( $icon_map[ $ms['icon'] ] ) ? $icon_map[ $ms['icon'] ] : $icon_map['discount'];
+                    ?>
+                    <div class="taiowc-milestones-marker <?php echo $unlocked ? 'unlocked' : ''; ?>"
+                         style="left:<?php echo esc_attr( $pos ); ?>%">
+                        <div class="taiowc-ms-icon-wrap">
+                            <?php echo wp_kses_post( $icon_html ); ?>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="taiowc-milestones-label-row" style="top:20px">
+                    <?php foreach ( $raw_milestones as $ms ) :
+                        $pos = ( $max_amount > 0 ) ? ( $ms['amount'] / $max_amount ) * 100 : 100;
+                    ?>
+                    <div class="taiowc-milestones-label-item" style="left:<?php echo esc_attr( $pos ); ?>%">
+                        <?php echo wp_kses_post( wc_price( $ms['amount'] ) ); ?><br>
+                        <?php echo esc_html( $ms['label'] ); ?>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+
+            </div>
+
+        </div>
+        <?php
     }
 
     public function taiowc_add_to_cart_url($product){

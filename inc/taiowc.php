@@ -50,7 +50,8 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-markup.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-cart-fragment.php';
                 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-style.php';
-                
+                require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-milestone-rewards.php';
+
         }
 
         public function taiowc_hooks() {

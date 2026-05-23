@@ -122,10 +122,12 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
                 taiowc_markup_pro()->taiowc_free_shipping_bar();
             }
-                        
-      
 
-        do_action('taiowc_mini_cart'); 
+            if ( taiowc_main()->taiowc_get_option( 'taiowc-show_milestones_bar' ) == true ) {
+                taiowc_markup_pro()->taiowc_milestones_bar();
+            }
+
+        do_action('taiowc_mini_cart');
 
         taiowc_markup_pro()->taiowc_get_suggest_product();
 
