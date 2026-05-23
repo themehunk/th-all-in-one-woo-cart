@@ -40,6 +40,18 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                 add_action( 'wp_footer', [ $this, 'render_cart_modal_once' ],999 );
             }
 
+            remove_action(
+    'woocommerce_widget_shopping_cart_buttons',
+    'woocommerce_widget_shopping_cart_proceed_to_checkout',
+    20
+);
+
+            add_action(
+                'woocommerce_widget_shopping_cart_buttons',
+                [ $this, 'taiowc_custom_proceed_to_checkout' ],
+                20
+            );
+
         }
 
         public function render_cart_modal_once() {
@@ -183,9 +195,21 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                         
                         <?php 
 
+                        $taiowc_show_free_shipping_bar =
+                            taiowc_main()->taiowc_get_option(
+                                'taiowc-show_free_shipping_bar'
+                            );
+
+                        if ( $taiowc_show_free_shipping_bar == true ) {
+
+                            $this->taiowc_free_shipping_bar();
+                        }
+
                         do_action('taiowc_mini_cart'); 
 
                         $this->taiowc_get_suggest_product();
+
+                        $this->taiowc_cart_total(); 
 
                         ?>
 
@@ -263,22 +287,11 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
         public function taiowc_cart_footer(){ ?>
 
-                    <?php   
-
-                     $this->taiowc_cart_total();
+                    <?php       
 
                      $this->taiowc_add_coupon();
 
                      $this->taiowc_cart_button(); 
-
-                      $taiowc_show_free_shipping_bar = taiowc_main()->taiowc_get_option('taiowc-show_free_shipping_bar');
-                           
-
-                    if( $taiowc_show_free_shipping_bar == true ){
-
-                    $this->taiowc_free_shipping_bar();
-                        
-                    }
 
                     ?>
         <?php }
@@ -378,6 +391,38 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
        <?php } }
 
         
+        public function taiowc_custom_proceed_to_checkout() {
+
+            $checkout_url = wc_get_checkout_url();
+
+            $total = '';
+
+            if ( WC()->cart ) {
+                $total = wp_strip_all_tags( WC()->cart->get_total() );
+            }
+
+            ?>
+
+            <a href="<?php echo esc_url( $checkout_url ); ?>"
+                class="button checkout wc-forward">
+
+                <span class="taiowc-checkout-text">
+                    <?php esc_html_e( 'Checkout', 'th-all-in-one-woo-cart' ); ?>
+                </span>
+
+                <span class="taiowc-checkout-separator">
+                    <?php esc_html_e( ' - ','th-all-in-one-woo-cart' ); ?>
+                </span>
+
+                <span class="taiowc-checkout-total">
+                    <?php echo esc_html( $total ); ?>
+                </span>
+
+            </a>
+
+            <?php
+}
+
         public function taiowc_cart_button(){ ?>
                 
 

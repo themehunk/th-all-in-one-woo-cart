@@ -719,8 +719,8 @@ display:none;
 } */
 /*cart button*/
 .taiowc-cart-model-footer .cart-button .buttons a{
-background: #000!important;
-    padding: 0.8rem 1.5rem!important;
+    background: #000!important;
+    padding: 0.8rem 0.5rem!important;
     font-size: .8rem!important;
     text-decoration: none!important;
     color: #fff!important;
@@ -734,6 +734,7 @@ background: #000!important;
 .taiowc-cart-model-footer .checkout:after{
     content: "→";
     margin-left: 9px;
+    display: none;
 }
 .taiowc-cart-model-footer .checkout:hover:after{
     margin-left: 12px;
@@ -1269,6 +1270,9 @@ padding:0;
 .taiowc-related-product-right-area .price {
     font-size: 0.79rem;
 }
+.taiowc-related-product-right-area .price del{
+    color: #a6a6a6;
+}
 
 .taiowc-related-product-cont ul li .taiowc-related-product-left-area {
     width: 24%;
@@ -1509,7 +1513,7 @@ right: -300px;
     top: 100%;
 }
 .model-cart-active.mobiletopslide .taiowc-cart-model{
-   top: 99px; 
+   top: 0;
 }
 .mobiletopslide .buttons a:not(.checkout){
     display: none;
@@ -1523,7 +1527,7 @@ right: -300px;
     padding: 0!important;
 }*/
 .taiowc-cart-close:after {
-    font-size: 1rem;
+    font-size: 1.6rem;
 }
 .cart-heading{
     padding: 0.7rem 1.2rem;
@@ -1701,6 +1705,7 @@ margin-left:0.1rem;
 }
 .taiowc-cart-model-footer{
     margin-top: auto;
+    padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 1.2rem;
     padding-right: 1.2rem;
@@ -2119,8 +2124,6 @@ body.no-scroll {
     position:relative;
     padding:18px;
     border-radius:18px;
-    overflow:hidden;
-
     background:
         linear-gradient(
             135deg,
@@ -2303,7 +2306,6 @@ body.no-scroll {
     border-radius: 1rem;
     padding: 12px 22px;
     position:relative;
-    overflow:hidden;
     box-shadow:
         0 4px 14px rgba(30,35,90,.04);
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
