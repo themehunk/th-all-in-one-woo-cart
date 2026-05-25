@@ -968,6 +968,208 @@ taiowc_main()->taiowc_add_setting(
 		    )
 		  );
 
+	taiowc_main()->taiowc_add_setting(
+			'taiowc-shipping_bar_set', esc_html__( 'Shipping Bar & Milestone', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc-cart_style_settings_section', array(
+				
+				 array(
+					'title'  => esc_html__( 'Shipping Bar & Milestone', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_shipping_bar_fields', array(
+						  	array(
+								'id'      => 'taiowc_free_shipping_style_type',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Choose Bar', 'th-all-in-one-woo-cart' ),
+								'default' =>'shipping-bar',
+								'options' => array(
+
+									'shipping-bar' => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
+									'miletone'   => esc_html__( 'Milestone Bar', 'th-all-in-one-woo-cart' ),
+
+
+								),
+
+							),
+
+						
+
+
+						 )
+					  )
+				  ),
+
+				  array(
+					'title'  => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_shipping_bar_fields', array(
+						   array(
+								'id'      => 'taiowc-show_free_shipping_bar',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'After enable please configure shipping settings at woocommerce > settings > shipping', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+
+							array(
+								'id'      => 'taiowc-free_shipping_style',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Bar Style', 'th-all-in-one-woo-cart' ),
+								'default' =>'prd_first',
+								'options' => array(
+
+									'style-1' => esc_html__( 'Default', 'th-all-in-one-woo-cart' ),
+									'style-22'   => esc_html__( 'Progressing Bar (Pro)', 'th-all-in-one-woo-cart' ),
+									'style-33'   => esc_html__( 'Neon Bar (Pro)', 'th-all-in-one-woo-cart' ),
+									'style-44'   => esc_html__( 'Premium (Pro)', 'th-all-in-one-woo-cart' ),
+
+
+								),
+
+							),
+
+
+						 )
+					  )
+				  ),
+
+				  array(
+					'title'  => esc_html__( 'Milestones Bar', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_milestones_bar_fields', array(
+							array(
+								'id'      => 'taiowc-show_milestones_bar',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Enable Milestones Bar', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Show a multi-goal progress bar with up to 3 reward breakpoints (e.g. discount, free gift, free shipping).', 'th-all-in-one-woo-cart' ),
+								'default' => false,
+							),
+
+							array(
+								'id'      => 'taiowc-milestone_1_amount',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 1 — Amount', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Spend amount to unlock milestone 1 (e.g. 50)', 'th-all-in-one-woo-cart' ),
+								'default' => '50',
+							),
+							array(
+								'id'      => 'taiowc-milestone_1_label',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 1 — Label', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Reward label shown below the milestone icon (e.g. 10% Discount)', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( '10% Discount', 'th-all-in-one-woo-cart' ),
+							),
+							array(
+								'id'      => 'taiowc-milestone_1_icon',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Milestone 1 — Icon', 'th-all-in-one-woo-cart' ),
+								'default' => 'discount',
+								'options' => array(
+									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
+									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
+									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
+									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+								),
+							),
+							array(
+								'id'      => 'taiowc-milestone_1_discount_pct',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 1 — Discount %', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100 (e.g. 10 for 10% off).', 'th-all-in-one-woo-cart' ),
+								'default' => '10',
+							),
+							array(
+								'id'      => 'taiowc-milestone_1_gift_product',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 1 — Gift Product ID', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+							),
+
+							array(
+								'id'      => 'taiowc-milestone_2_amount',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 2 — Amount', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Leave blank to disable milestone 2', 'th-all-in-one-woo-cart' ),
+								'default' => '75',
+							),
+							array(
+								'id'      => 'taiowc-milestone_2_label',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 2 — Label', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( 'Free Gift', 'th-all-in-one-woo-cart' ),
+							),
+							array(
+								'id'      => 'taiowc-milestone_2_icon',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Milestone 2 — Icon', 'th-all-in-one-woo-cart' ),
+								'default' => 'gift',
+								'options' => array(
+									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
+									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
+									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
+									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+								),
+							),
+							array(
+								'id'      => 'taiowc-milestone_2_discount_pct',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 2 — Discount %', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+							),
+							array(
+								'id'      => 'taiowc-milestone_2_gift_product',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 2 — Gift Product ID', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+							),
+
+							array(
+								'id'      => 'taiowc-milestone_3_amount',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 3 — Amount', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Leave blank to disable milestone 3', 'th-all-in-one-woo-cart' ),
+								'default' => '100',
+							),
+							array(
+								'id'      => 'taiowc-milestone_3_label',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 3 — Label', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( 'Free Shipping', 'th-all-in-one-woo-cart' ),
+							),
+							array(
+								'id'      => 'taiowc-milestone_3_icon',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Milestone 3 — Icon', 'th-all-in-one-woo-cart' ),
+								'default' => 'shipping',
+								'options' => array(
+									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
+									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
+									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
+									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+								),
+							),
+							array(
+								'id'      => 'taiowc-milestone_3_discount_pct',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 3 — Discount %', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+							),
+							array(
+								'id'      => 'taiowc-milestone_3_gift_product',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Milestone 3 — Gift Product ID', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+							),
+						)
+					)
+				  ),
+		)
+	)
+);
 
           taiowc_main()->taiowc_add_setting(
 			'taiowc_cart', esc_html__( 'Content Visibility', 'th-all-in-one-woo-cart' ), apply_filters(
@@ -1219,175 +1421,7 @@ taiowc_main()->taiowc_add_setting(
 					  )
 				  ),	
 
-				   array(
-					'title'  => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_shipping_bar_fields', array(
-						   array(
-								'id'      => 'taiowc-show_free_shipping_bar',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'After enable please configure shipping settings at woocommerce > settings > shipping', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-
-							array(
-								'id'      => 'taiowc-free_shipping_style',
-								'type'    => 'select',
-								'title'   => esc_html__( 'Bar Style', 'th-all-in-one-woo-cart' ),
-								'default' =>'prd_first',
-								'options' => array(
-
-									'style-1' => esc_html__( 'Default', 'th-all-in-one-woo-cart' ),
-									'style-2'   => esc_html__( 'Progressing Bar', 'th-all-in-one-woo-cart' ),
-									'style-4'   => esc_html__( 'Neon Bar', 'th-all-in-one-woo-cart' ),
-									'style-5'   => esc_html__( 'Premium', 'th-all-in-one-woo-cart' ),
-
-
-								),
-
-							),
-
-
-						 )
-					  )
-				  ),
-
-				  array(
-					'title'  => esc_html__( 'Milestones Bar', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_milestones_bar_fields', array(
-							array(
-								'id'      => 'taiowc-show_milestones_bar',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Enable Milestones Bar', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Show a multi-goal progress bar with up to 3 reward breakpoints (e.g. discount, free gift, free shipping).', 'th-all-in-one-woo-cart' ),
-								'default' => false,
-							),
-
-							array(
-								'id'      => 'taiowc-milestone_1_amount',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 1 — Amount', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Spend amount to unlock milestone 1 (e.g. 50)', 'th-all-in-one-woo-cart' ),
-								'default' => '50',
-							),
-							array(
-								'id'      => 'taiowc-milestone_1_label',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 1 — Label', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Reward label shown below the milestone icon (e.g. 10% Discount)', 'th-all-in-one-woo-cart' ),
-								'default' => esc_html__( '10% Discount', 'th-all-in-one-woo-cart' ),
-							),
-							array(
-								'id'      => 'taiowc-milestone_1_icon',
-								'type'    => 'select',
-								'title'   => esc_html__( 'Milestone 1 — Icon', 'th-all-in-one-woo-cart' ),
-								'default' => 'discount',
-								'options' => array(
-									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
-									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
-									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
-								),
-							),
-							array(
-								'id'      => 'taiowc-milestone_1_discount_pct',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 1 — Discount %', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100 (e.g. 10 for 10% off).', 'th-all-in-one-woo-cart' ),
-								'default' => '10',
-							),
-							array(
-								'id'      => 'taiowc-milestone_1_gift_product',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 1 — Gift Product ID', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-							),
-
-							array(
-								'id'      => 'taiowc-milestone_2_amount',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 2 — Amount', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Leave blank to disable milestone 2', 'th-all-in-one-woo-cart' ),
-								'default' => '75',
-							),
-							array(
-								'id'      => 'taiowc-milestone_2_label',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 2 — Label', 'th-all-in-one-woo-cart' ),
-								'default' => esc_html__( 'Free Gift', 'th-all-in-one-woo-cart' ),
-							),
-							array(
-								'id'      => 'taiowc-milestone_2_icon',
-								'type'    => 'select',
-								'title'   => esc_html__( 'Milestone 2 — Icon', 'th-all-in-one-woo-cart' ),
-								'default' => 'gift',
-								'options' => array(
-									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
-									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
-									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
-								),
-							),
-							array(
-								'id'      => 'taiowc-milestone_2_discount_pct',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 2 — Discount %', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-							),
-							array(
-								'id'      => 'taiowc-milestone_2_gift_product',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 2 — Gift Product ID', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-							),
-
-							array(
-								'id'      => 'taiowc-milestone_3_amount',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 3 — Amount', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Leave blank to disable milestone 3', 'th-all-in-one-woo-cart' ),
-								'default' => '100',
-							),
-							array(
-								'id'      => 'taiowc-milestone_3_label',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 3 — Label', 'th-all-in-one-woo-cart' ),
-								'default' => esc_html__( 'Free Shipping', 'th-all-in-one-woo-cart' ),
-							),
-							array(
-								'id'      => 'taiowc-milestone_3_icon',
-								'type'    => 'select',
-								'title'   => esc_html__( 'Milestone 3 — Icon', 'th-all-in-one-woo-cart' ),
-								'default' => 'shipping',
-								'options' => array(
-									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
-									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
-									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
-								),
-							),
-							array(
-								'id'      => 'taiowc-milestone_3_discount_pct',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 3 — Discount %', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-							),
-							array(
-								'id'      => 'taiowc-milestone_3_gift_product',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Milestone 3 — Gift Product ID', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-							),
-						)
-					)
-				  ),
+				 
 
 
 			  )

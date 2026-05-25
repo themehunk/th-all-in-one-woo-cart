@@ -608,6 +608,35 @@ $form.removeClass(function (i, cls) {
 
           });
 
+          // Free shipping style change
+    $(document).on('change', '#taiowc_free_shipping_style_type-field', function () {
+
+        var selectedValue = $(this).val();
+
+        if(selectedValue == 'shipping-bar'){
+
+            $('.setting-preview-wrap .taiowc-free-shipping-wrap.style-1').css('display', 'block');
+            $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'none');
+
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'block');
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2").css('display', 'none');
+
+        }else if(selectedValue == 'miletone'){
+
+            $('.setting-preview-wrap  .taiowc-free-shipping-wrap.style-1').css('display', 'none');
+            $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'block');
+
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'none');
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2").css('display', 'block');
+
+        }
+
+    });
+
+
+    // Trigger on page load
+    $('#taiowc_free_shipping_style_type-field').trigger('change');
+
           // Image Uploader
 
  // Image Uploader + Live Preview (SIMPLE & SAFE)

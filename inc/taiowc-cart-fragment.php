@@ -113,12 +113,17 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
         <div class="taiowc-cart-model-body">
               <?php 
 
-                    $taiowc_show_free_shipping_bar =
+                $taiowc_show_free_shipping_bar =
                 taiowc_main()->taiowc_get_option(
                     'taiowc-show_free_shipping_bar'
                 );
 
-            if ( $taiowc_show_free_shipping_bar == true ) {
+                $taiowc_free_shipping_style_type =
+                 taiowc_main()->taiowc_get_option(
+                    'taiowc_free_shipping_style_type'
+                );
+
+            if ( $taiowc_show_free_shipping_bar == true && $taiowc_free_shipping_style_type == 'shipping-bar' ) {
 
                 taiowc_markup_pro()->taiowc_free_shipping_bar();
             }

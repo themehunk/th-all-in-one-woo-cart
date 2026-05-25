@@ -200,7 +200,12 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                                 'taiowc-show_free_shipping_bar'
                             );
 
-                        if ( $taiowc_show_free_shipping_bar == true ) {
+                        $taiowc_free_shipping_style_type =
+                            taiowc_main()->taiowc_get_option(
+                                'taiowc_free_shipping_style_type'
+                            );
+
+                        if ( $taiowc_show_free_shipping_bar == true && $taiowc_free_shipping_style_type == 'shipping-bar'  ) {
 
                             $this->taiowc_free_shipping_bar();
                         }
@@ -1615,6 +1620,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
         .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px dashed #e8e8e8;margin-top:4px}
         .taiowc-milestone-discount-label{color:#27ae60;font-size:13px;font-weight:500}
         .taiowc-milestone-discount-value{color:#27ae60;font-weight:600;font-size:13px}
+        .taiowc-milestones-label-item .woocommerce-Price-amount{font-weight: 900; color:#111;}
         </style>
 
         <div class="taiowc-milestones-wrap">
