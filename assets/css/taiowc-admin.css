@@ -1343,7 +1343,8 @@ input[type="text"]{
     position: relative;
 
 }
-.taiowc-setting-form.preview-taiowc-cart_style_set{
+.taiowc-setting-form.preview-taiowc-cart_style_set,
+.taiowc-setting-form.preview-taiowc-shipping_bar_set{
     align-items: stretch;
 }
 /* Outer container */
@@ -1532,7 +1533,8 @@ position: absolute;
 .preview-taiowc_menu_cart #settings-tabs,
 .preview-taiowc_fixed_cart #settings-tabs,
 .preview-taiowc-cart_style_set #settings-tabs,
-.preview-taiowc_mobile_cart #settings-tabs{
+.preview-taiowc_mobile_cart #settings-tabs,
+.preview-taiowc-shipping_bar_set #settings-tabs{
     width: 48%;
     margin-top: 0;
     margin-bottom: 0;
@@ -1542,7 +1544,8 @@ position: absolute;
 }
 .setting-content #taiowc_menu_cart,
 .setting-content #taiowc_fixed_cart,
-.setting-content #taiowc-cart_style_set {
+.setting-content #taiowc-cart_style_set,
+.setting-content #taiowc-shipping_bar_set{
     max-height: 599px;
     padding: 21px;
     overflow: auto;
@@ -3123,3 +3126,284 @@ background: linear-gradient(135deg, #020617, #444444ad);
     pointer-events: none;
 
 }*/
+
+
+
+
+/* Shipping Bar Style  */
+/* Shipping Style  */
+.taiowc-label .pencil{
+    cursor: pointer;
+}
+/* Container */
+.taiowc-cart-model .taiowc-shptgl-cont {
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 1rem;
+}
+
+/* Remove default list styles */
+.taiowc-cart-model ul#shipping_method {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Each option as card */
+.taiowc-cart-model ul#shipping_method li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+/* Hide default radio */
+.taiowc-cart-model ul#shipping_method input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Card label */
+.taiowc-cart-model ul#shipping_method label {
+    display: flex !important;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    background: #f2f2f2;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.25s ease;
+    color: #111;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hover effect */
+.taiowc-cart-model ul#shipping_method label:hover {
+    background: #e5e5e5;
+}
+
+/* Active (checked) state */
+.taiowc-cart-model ul#shipping_method input[type="radio"]:checked + label {
+    border-color: #000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background: #FFF;
+}
+
+/* Price styling */
+.taiowc-cart-model .woocommerce-shipping-methods .woocommerce-Price-amount {
+    margin-left: auto;
+}
+
+/* Free shipping subtle look */
+.taiowc-cart-model input[value*="free_shipping"]:checked + label {
+    background: #f9f9f9;
+}
+
+/* Shipping title area */
+.taiowc-cart-model .taiowc-shptgl-cont > p,
+.taiowc-cart-model .taiowc-shptgl-cont strong {
+    ont-size: 12px;
+    color: #111;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+
+/* Change address link */
+.taiowc-cart-model .shipping-calculator-button {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #9ca3af;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.taiowc-cart-model .shipping-calculator-button:hover {
+    color: #005177;
+}
+
+/* Optional: add icon-like spacing */
+.taiowc-cart-model ul#shipping_method label::before {
+    content: "🚚";
+    margin-right: 10px;
+    font-size: 16px;
+    display: none;
+}
+
+
+/* Shipping BAR css  */
+.taiowc-free-shipping-wrap{
+    background:#f5f4ec;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:18px;
+    margin: .7rem;
+}
+
+.taiowc-free-shipping-bar{
+    position:relative;
+    height:6px;
+    background:#e5e5e5;
+    border-radius:30px;
+    margin-bottom:12px;
+}
+
+.taiowc-free-shipping-fill{
+    height:100%;
+    background:#204d1c;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.taiowc-free-shipping-icon{
+    position:absolute;
+    top:50%;
+    transform:translate(-50%, -50%) scaleX(-1);
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#fff;
+    border:2px solid #46b450;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    transition:.3s;
+    z-index: 9;
+}
+
+.taiowc-free-shipping-msg{
+    font-size:14px;
+    line-height:1.5;
+    text-align: center;
+}
+
+.taiowc-free-success{
+    color:#2e7d32;
+    font-weight:600;
+}
+
+.taiowc-free-success-wrap{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    background:#f3fff3;
+    text-align:center;
+}
+
+.taiowc-free-success{
+    color:#2e7d32;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+/* LEFT PARTICLES */
+
+.taiowc-free-success-wrap:before,
+
+/* RIGHT PARTICLES */
+
+.taiowc-free-success-wrap:after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    z-index:1;
+    opacity:0;
+
+    box-shadow:
+        0 -30px #ff5252,
+        25px -20px #ffca28,
+        35px 0 #42a5f5,
+        20px 25px #66bb6a,
+        -10px 20px #ab47bc,
+        -25px 0 #ff7043,
+        -15px -20px #26c6da;
+
+    animation:taiowcConfettiBurst 1.2s ease-out;
+/*    animation:taiowcConfettiBurst 1.2s ease-out infinite;*/
+}
+
+/* LEFT SIDE */
+
+.taiowc-free-success-wrap:before{
+    left:20%;
+}
+
+/* RIGHT SIDE */
+
+.taiowc-free-success-wrap:after{
+    right:20%;
+    animation-delay:.3s;
+}
+
+@keyframes taiowcConfettiBurst{
+
+    0%{
+        transform:translateY(0) scale(.2);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-40px) scale(1.4);
+        opacity:0;
+    }
+}
+
+
+
+        .taiowc-milestones-wrap{padding:12px 14px;background:#fff;border-bottom:1px solid #f0f0f0;font-size:13px}
+        .taiowc-milestones-message{text-align:center;margin-bottom:14px;color:#444;font-size:12px}
+        .taiowc-milestones-message strong{color:#222}
+        .taiowc-milestones-track-area{position:relative;padding-bottom:38px}
+        .taiowc-milestones-rail{position:relative;height:6px;background:#e0e0e0;border-radius:4px;margin:0 10px}
+        .taiowc-milestones-fill{position:absolute;top:0;left:0;height:100%;background:#27ae60;border-radius:4px;transition:width .4s ease}
+        .taiowc-milestones-marker{position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center}
+        .taiowc-ms-icon-wrap{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid #e0e0e0;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1;transition:border-color .3s,background .3s}
+        .taiowc-milestones-marker.unlocked .taiowc-ms-icon-wrap{border-color:#27ae60;background:#eafaf1}
+        .taiowc-ms-icon-inner{display:flex;align-items:center;justify-content:center}
+        .taiowc-ms-discount{font-weight:700;color:#555;font-size:11px}
+        .taiowc-milestones-label-row{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
+        .taiowc-milestones-label-item{position:absolute;transform:translateX(-50%);text-align:center;font-size:10px;color:#888;line-height:1.3;white-space:nowrap}
+        .taiowc-milestones-marker.unlocked + .taiowc-milestones-label-item{color:#27ae60}
+        .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px dashed #e8e8e8;margin-top:4px}
+        .taiowc-milestone-discount-label{color:#27ae60;font-size:13px;font-weight:500}
+        .taiowc-milestone-discount-value{color:#27ae60;font-weight:600;font-size:13px}
+        .taiowc-milestones-marker:has(.taiowc-ms-discount){
+    left: 10%!important;
+    transform: translate(0%,-50%)!important;
+}
+
+.taiowc-milestones-marker:has(.taiowc-ms-gift) {
+    left: 50%!important;
+    transform: translate(-50%,-50%)!important;
+}
+
+.taiowc-milestones-marker:has(.taiowc-ms-shipping) {
+    left: initial!important;
+    right: 0!important;
+    transform: translate(0%,-50%)!important;
+}
+
+.taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(1){
+    left: 10%!important;
+    transform: translateX(-9px)!important;
+}
+.taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(2){
+    left: 50%!important;
+    transform: translateX(-50%)!important;
+}
+.taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(3){
+    left: initial!important;
+    right: 0!important;
+    transform: translateX(-9px);
+    text-align: right;
+}
+.taiowc-milestones-label-item span{
+    font-weight: 900;
+    color: #111;
+}

@@ -134,6 +134,7 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-live-fixed-cart.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-live-cart-panel.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-live-mobile.php';
+					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-live-shipping-bar.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-reset.php';
 					require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-help.php';
 					?> 
@@ -277,6 +278,8 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                 <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                 <path d="M12 17h.01"></path>
             </svg>',
+
+            'taiowc-shipping_bar_set'=>'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck" aria-hidden="true"><path d="M10 17h4"></path><path d="M1 3h15v13H1z"></path><path d="M16 8h4l3 3v5h-7z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>',
 
 		);
 
