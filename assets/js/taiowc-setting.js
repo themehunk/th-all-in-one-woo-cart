@@ -619,7 +619,7 @@ $form.removeClass(function (i, cls) {
             $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'none');
 
             $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'block');
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2").css('display', 'none');
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-3,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-4,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-5").css('display', 'none');
 
         }else if(selectedValue == 'miletone'){
 
@@ -627,7 +627,7 @@ $form.removeClass(function (i, cls) {
             $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'block');
 
             $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'none');
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2").css('display', 'block');
+            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-3,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-4,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-5").css('display', 'block');
 
         }
 

@@ -137,60 +137,56 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
         </div>
 
     <div class="cart-items">
-        <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-1.jpg' ); ?>" alt="">
-            <div class="item-info">
-                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Classic Red Sneakers', 'th-all-in-one-woo-cart' ); ?></h4>
-                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
-                <div class="qty">
-                <span><?php esc_html_e( '-', 'th-all-in-one-woo-cart' ); ?></span>
-                <span><?php esc_html_e( '1', 'th-all-in-one-woo-cart' ); ?></span>
-                <span><?php esc_html_e( '+', 'th-all-in-one-woo-cart' ); ?></span>
-                </div>
-            </div>
-            <div class="price"><span class="woocommerce-Price-amount amount">
-                    <?php echo wp_kses_post( wc_price( 900 ) ); ?>
-                </span></div>
-        </div>
+       <div class="cart-item skeleton-item">
+    <div class="skeleton skeleton-img"></div>
 
-        <div class="cart-item" data-th-bg="taiowc-cart_pan_prd_bg_clr" data-th-color="taiowc-cart_pan_prd_txt_clr" data-th-border="taiowc-cart_pan_prd_brd_clr">
-            <img src="<?php echo esc_url( TAIOWC_PLUGIN_URI . '/images/product-2.jpg' ); ?>" alt="">
-            <div class="item-info">
-                <h4 data-th-color="taiowc-cart_pan_prd_tle_clr"><?php esc_html_e( 'Minimalist White Tee', 'th-all-in-one-woo-cart' ); ?></h4>
-                <div class="rating" data-th-color="taiowc-cart_pan_prd_rat_clr"><?php esc_html_e( '★★★★★', 'th-all-in-one-woo-cart' ); ?></div>
-                <div class="qty">
-                <span><?php esc_html_e( '-', 'th-all-in-one-woo-cart' ); ?></span>
-                <span><?php esc_html_e( '1', 'th-all-in-one-woo-cart' ); ?></span>
-                <span><?php esc_html_e( '+', 'th-all-in-one-woo-cart' ); ?></span>
-                </div>
-            </div>
-            <div class="price"><span class="woocommerce-Price-amount amount">
-                    <?php echo wp_kses_post( wc_price( 108 ) ); ?>
-                </span></div>
+    <div class="item-info">
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-rating"></div>
+
+        <div class="qty">
+            <div class="skeleton skeleton-btn"></div>
+            <div class="skeleton skeleton-count"></div>
+            <div class="skeleton skeleton-btn"></div>
         </div>
     </div>
 
-    <div class="summary" data-th-bg="taiowc-cart_pan_pay_bg_clr" data-th-color="taiowc-cart_pan_pay_txt_clr">
-        <p class="summary-title" data-th-bg="taiowc-cart_pan_pay_hd_bg_clr" data-th-color="taiowc-cart_pan_pay_hd_clr"><?php esc_html_e( 'ORDER SUMMARY', 'th-all-in-one-woo-cart' ); ?></p>
+    <div class="skeleton skeleton-price"></div>
+</div>
 
-        <div class="row">
-            <span><?php esc_html_e( 'Subtotal', 'th-all-in-one-woo-cart' ); ?></span>
-            <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
+        <div class="cart-item skeleton-item">
+    <div class="skeleton skeleton-img"></div>
+
+    <div class="item-info">
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-rating"></div>
+
+        <div class="qty">
+            <div class="skeleton skeleton-btn"></div>
+            <div class="skeleton skeleton-count"></div>
+            <div class="skeleton skeleton-btn"></div>
         </div>
-
-        <div class="row total">
-            <span><?php esc_html_e( 'ORDER TOTAL', 'th-all-in-one-woo-cart' ); ?></span>
-                    <?php echo wp_kses_post( wc_price( 1008 ) ); ?>
-        </div>
-
-        <div class="btn-wrapper">
-        <button type="button"class="cart btn" data-th-bg="taiowc-cart_pan_pay_cart_bg_clr" data-th-color="taiowc-cart_pan_pay_cart_clr" data-th-radius="taiowc-cart_pan_btn_brd_rds-field" data-th-toggle="taiowc-cart_pan_cart_shw-field">
-        <?php esc_html_e( 'View Cart', 'th-all-in-one-woo-cart' ); ?>
-    </button>
-    <button type="button"class="checkout btn" data-th-bg="taiowc-cart_pan_pay_btn_bg_clr" data-th-color="taiowc-cart_pan_pay_btn_clr" data-th-radius="taiowc-cart_pan_btn_brd_rds-field">
-       <?php esc_html_e( 'Checkout →', 'th-all-in-one-woo-cart' ); ?> 
-    </button>
     </div>
+
+    <div class="skeleton skeleton-price"></div>
+</div>
+
+    <div class="cart-item skeleton-item">
+    <div class="skeleton skeleton-img"></div>
+
+    <div class="item-info">
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-rating"></div>
+
+        <div class="qty">
+            <div class="skeleton skeleton-btn"></div>
+            <div class="skeleton skeleton-count"></div>
+            <div class="skeleton skeleton-btn"></div>
+        </div>
+    </div>
+
+    <div class="skeleton skeleton-price"></div>
+</div>
 
     </div>
 

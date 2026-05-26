@@ -1985,7 +1985,7 @@ position: absolute;
 .skeleton {
     background: #e5e7eb;
     border-radius: 6px;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .skeleton.title {
@@ -3354,6 +3354,413 @@ background: linear-gradient(135deg, #020617, #444444ad);
     }
 }
 
+/* Style-2  */
+.taiowc-free-shipping-wrap.style-2 .taiowc-free-shipping-bar{
+    position:relative;
+    background:#e5e5e5;
+}
+
+.taiowc-free-shipping-wrap.style-2 .taiowc-free-shipping-fill{
+    position:relative;
+    background:linear-gradient(
+        90deg,
+        #2e7d32,
+        #66bb6a,
+        #2e7d32
+    );
+
+    background-size:200% 100%;
+
+    animation:taiowcMovingBar 2s linear infinite;
+    overflow: hidden;
+}
+
+.taiowc-free-shipping-wrap.style-2 .taiowc-free-shipping-fill:before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:repeating-linear-gradient(
+        -45deg,
+        rgba(255,255,255,.15) 0,
+        rgba(255,255,255,.15) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+
+    animation:taiowcStripeMove 1s linear infinite;
+}
+
+@keyframes taiowcMovingBar{
+
+    0%{
+        background-position:0% 0%;
+    }
+
+    100%{
+        background-position:200% 0%;
+    }
+}
+
+@keyframes taiowcStripeMove{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(30px);
+    }
+}
+
+
+/* Style-3 */
+.taiowc-free-shipping-wrap.style-3 .taiowc-free-shipping-fill{
+    box-shadow:
+        0 0 10px #4caf50,
+        0 0 20px #4caf50;
+        
+    animation:taiowcGlow 1s ease-in-out infinite alternate;
+}
+
+@keyframes taiowcGlow{
+
+    from{
+        opacity:.7;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+/* Style-4  */
+
+.taiowc-free-shipping-wrap.style-4{
+    position:relative;
+    padding:18px;
+    border-radius:18px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25,25,35,.95),
+            rgba(35,35,50,.95)
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+}
+
+/* Glow Background */
+
+/* Message */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-shipping-msg{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* Success */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-success{
+    color:#7dff8c;
+    font-weight:700;
+    text-shadow:
+        0 0 10px rgba(125,255,140,.8),
+        0 0 20px rgba(125,255,140,.5);
+}
+
+/* Bar */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-shipping-bar{
+    position:relative;
+    height:10px;
+    margin-bottom:16px;
+    background:
+        rgba(255,255,255,.08);
+    border-radius:999px;
+    z-index:2;
+}
+
+/* Fill */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-shipping-fill{
+    position:relative;
+    height:100%;
+    border-radius:999px;
+    background:
+        linear-gradient(
+            90deg,
+            #00ff87,
+            #60efff,
+            #00ff87
+        );
+    background-size:200% 100%;
+    animation:
+        taiowcGradientMove 3s linear infinite,
+        taiowcPulseGlow 1.5s ease-in-out infinite alternate;
+    box-shadow:
+        0 0 12px rgba(0,255,135,.8),
+        0 0 24px rgba(96,239,255,.5);
+}
+
+/* Moving Shine */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-shipping-fill:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-40%;
+    width:40%;
+    height:100%;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+        );
+    animation:taiowcShine 2s linear infinite;
+    display: none;
+}
+
+/* Truck */
+
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-shipping-icon{
+    position:absolute;
+    top:50%;
+
+    transform:
+        translate(-50%, -50%)
+        scaleX(-1);
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:#10151f;
+
+    border:2px solid #00ff87;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#00ff87;
+
+    box-shadow:
+        0 0 10px rgba(0,255,135,.8);
+
+    z-index:3;
+}
+.taiowc-free-shipping-wrap.style-4 .taiowc-free-success-wrap{
+    background: transparent;
+}
+
+/* ANIMATIONS */
+
+@keyframes taiowcGradientMove{
+
+    0%{
+        background-position:0% 0%;
+    }
+
+    100%{
+        background-position:200% 0%;
+    }
+}
+
+@keyframes taiowcPulseGlow{
+
+    from{
+        box-shadow:
+            0 0 8px rgba(0,255,135,.5),
+            0 0 16px rgba(96,239,255,.3);
+    }
+
+    to{
+        box-shadow:
+            0 0 16px rgba(0,255,135,.95),
+            0 0 28px rgba(96,239,255,.6);
+    }
+}
+
+@keyframes taiowcShine{
+
+    0%{
+        left: 0%;
+    }
+
+    100%{
+        left: 98%;
+    }
+}
+
+@keyframes taiowcNeonRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+
+/*  Style-5     */
+.taiowc-free-shipping-wrap.style-5{
+    background:#fff9f6;
+    border:1px solid #ececf3;
+    border-radius: 1rem;
+    padding: 12px 22px;
+    position:relative;
+    box-shadow:
+        0 4px 14px rgba(30,35,90,.04);
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Heading */
+
+.taiowc-free-shipping-wrap.style-5 
+.taiowc-free-shipping-heading{
+    text-align: center;
+    font-size: 16px;
+    color: #111;
+    margin-bottom: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.taiowc-free-shipping-wrap.style-5 
+.taiowc-free-shipping-heading span{
+    color: #ff5a12;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* Progress Area */
+
+.taiowc-progress-area{
+    position:relative;
+}
+
+/* Line */
+
+.taiowc-progress-line{
+    position:relative;
+
+    height:5px;
+
+    border-radius:999px;
+
+    background:#e8e9f3;
+
+    overflow:visible;
+}
+
+/* Fill */
+
+.taiowc-progress-fill{
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    border-radius:999px;
+    background: linear-gradient(90deg,#ff9a76,#ff5e3a);
+    transition:.4s ease;
+    box-shadow: 0 4px 14px rgba(108,99,255,.25);
+}
+
+/* Truck */
+
+.taiowc-progress-truck{
+    position:absolute;
+    top:50%;
+    transform:
+        translate(-50%, -50%)
+        scaleX(-1);
+    width:29px;
+    height:29px;
+    border-radius:50%;
+    background: linear-gradient(90deg,#ff9a76,#ff5e3a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+    box-shadow:
+        0 8px 24px rgba(108,99,255,.25);
+
+    transition:.4s ease;
+
+    z-index:3;
+}
+
+/* Goal */
+
+.taiowc-goal-icon{
+    position:absolute;
+
+    right:-15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:29px;
+    height:29px;
+
+    border-radius:50%;
+
+    border:2px dashed #c8cae5;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#8d90a8;
+
+    font-size:18px;
+
+    background:#fff;
+}
+
+/* Labels */
+
+.taiowc-progress-labels{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:18px;
+
+    color:#9ca0b3;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+/* Success */
+
+.taiowc-free-success{
+    color:#6c63ff;
+
+    font-weight:700;
+}
+
+.taiowc-free-shipping-wrap.style-5  .taiowc-free-success-wrap{
+    background: transparent;
+}
+
 
 
         .taiowc-milestones-wrap{padding:12px 14px;background:#fff;border-bottom:1px solid #f0f0f0;font-size:13px}
@@ -3378,9 +3785,13 @@ background: linear-gradient(135deg, #020617, #444444ad);
     transform: translate(0%,-50%)!important;
 }
 
+.taiowc-milestones-fill{
+    width: 51%!important;
+}
+
 .taiowc-milestones-marker:has(.taiowc-ms-gift) {
-    left: 50%!important;
-    transform: translate(-50%,-50%)!important;
+    left: 60%!important;
+    transform: translate(-60%,-50%)!important;
 }
 
 .taiowc-milestones-marker:has(.taiowc-ms-shipping) {
@@ -3394,16 +3805,114 @@ background: linear-gradient(135deg, #020617, #444444ad);
     transform: translateX(-9px)!important;
 }
 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(2){
-    left: 50%!important;
-    transform: translateX(-50%)!important;
+    left: 60%!important;
+    transform: translateX(-60%)!important;
 }
 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(3){
     left: initial!important;
     right: 0!important;
-    transform: translateX(-9px);
+    transform: translateX(0)!important;
     text-align: right;
 }
 .taiowc-milestones-label-item span{
     font-weight: 900;
     color: #111;
+}
+
+
+
+.cart-item.skeleton-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:18px;
+    border:1px solid #ebebeb;
+    border-radius:18px;
+    background:#fff;
+}
+
+/* Base Skeleton */
+.skeleton{
+    position:relative;
+    overflow:hidden;
+    background:#e5e5e5;
+    border-radius:8px;
+}
+
+.skeleton::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150px;
+    width:150px;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer{
+    100%{
+        left:100%;
+    }
+}
+
+/* Image */
+.skeleton-img{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    flex-shrink:0;
+}
+
+/* Content */
+.item-info{
+    flex:1;
+}
+
+.skeleton-title{
+    width:180px;
+    height:18px;
+    margin-bottom:10px;
+}
+
+.skeleton-rating{
+    width:90px;
+    height:14px;
+    margin-bottom:14px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.skeleton-btn{
+    width: 18px;
+    height: 18px;
+    border-radius:50%;
+}
+
+.skeleton-count{
+    width:20px;
+    height:16px;
+}
+
+/* Price */
+.skeleton-price{
+    width:80px;
+    height:22px;
+    border-radius:6px;
+}
+.preview-taiowc-shipping_bar_set .cart-panel-preview .page-wrapper{
+    min-height: 629px;
+}
+.preview-taiowc-shipping_bar_set .cart-panel-preview .cart-items{
+    max-height: initial;
+    overflow: initial;
 }
