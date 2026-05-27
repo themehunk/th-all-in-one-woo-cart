@@ -3909,6 +3909,15 @@ background: linear-gradient(135deg, #020617, #444444ad);
     height:22px;
     border-radius:6px;
 }
+.th-preview-button{
+    display: flex;
+    padding: 0 21px;
+}
+.skeleton-button{
+    width:180px;
+    height:29px;
+    margin: 0 9px;
+}
 .preview-taiowc-shipping_bar_set .cart-panel-preview .page-wrapper{
     min-height: 629px;
 }

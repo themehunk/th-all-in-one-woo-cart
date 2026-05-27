@@ -189,6 +189,10 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
 </div>
 
     </div>
+    <div class="th-preview-button">
+        <div class="skeleton skeleton-button"></div>
+        <div class="skeleton skeleton-button"></div>
+    </div>
 
     
 </div>
