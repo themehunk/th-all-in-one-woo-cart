@@ -1431,6 +1431,9 @@ input[type="text"]{
     outline: 0;
     box-shadow: none;
 }
+.taiowc-icon{
+    width: 24px;
+}
 .taiowc-cart-item, .taiowc-icon, .taiowc-total {
     display: flex;
     align-items: center;
@@ -2098,26 +2101,56 @@ position: absolute;
     display: none!important;
 }
 
-
 .live-mobile .cart-panel-preview .cart-wrapper{
-    position: absolute;
+    transition: all .2s linear;
+}
+/* RIGHT */
+.live-mobile .cart-panel-preview .cart-wrapper.taiowc-slide-right{
+    right: 0;
+    left: auto;
+    top: 0;
+    bottom: 0;
+    width: 380px;
+
+    transform: translateX(100%);
+}
+
+.live-mobile .cart-panel-preview .cart-wrapper.taiowc-slide-right.active{
+    transform: translateX(0);
+}
+
+/* LEFT */
+.live-mobile .cart-panel-preview .cart-wrapper.taiowc-slide-left{
+    left: 0;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 380px;
+
+    transform: translateX(-100%);
+}
+
+.live-mobile .cart-panel-preview .cart-wrapper.taiowc-slide-left.active{
+    transform: translateX(0);
+}
+
+/* MOBILE BOTTOM */
+.live-mobile .cart-panel-preview .cart-wrapper.mobiletopslide{
     left: 0;
     right: 0;
-    top: initial;
     bottom: 0;
-    height: calc(100% - 108px);
-    transform: translateY(100%);
-    transition: transform 0.4s ease-in-out;
-    will-change: transform;
+    top: auto;
 
+    width: 100%;
+    height: calc(100% - 108px);
+
+    transform: translateY(100%);
 }
-/* active = visible */
-.live-mobile .cart-panel-preview .cart-wrapper.mobiletopslide.active {
+
+.live-mobile .cart-panel-preview .cart-wrapper.mobiletopslide.active{
     transform: translateY(0);
 }
-.live-mobile .cart-header{
-    border-radius: 0;
-}
+
 
 .preview-taiowc_reset #settings-tabs{
     display: none;
@@ -3780,21 +3813,20 @@ background: linear-gradient(135deg, #020617, #444444ad);
         .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px dashed #e8e8e8;margin-top:4px}
         .taiowc-milestone-discount-label{color:#27ae60;font-size:13px;font-weight:500}
         .taiowc-milestone-discount-value{color:#27ae60;font-weight:600;font-size:13px}
-        .taiowc-milestones-marker:has(.taiowc-ms-discount){
-    left: 10%!important;
-    transform: translate(0%,-50%)!important;
-}
 
 .taiowc-milestones-fill{
     width: 51%!important;
 }
-
-.taiowc-milestones-marker:has(.taiowc-ms-gift) {
-    left: 60%!important;
-    transform: translate(-60%,-50%)!important;
+.taiowc-milestones-marker:nth-of-type(2){
+    left: 10%!important;
+    transform: translate(0%,-50%)!important;
+}
+.taiowc-milestones-marker:nth-of-type(3) {
+    left: 50%!important;
+    transform: translate(-50%,-50%)!important;
 }
 
-.taiowc-milestones-marker:has(.taiowc-ms-shipping) {
+.taiowc-milestones-marker:nth-of-type(4) {
     left: initial!important;
     right: 0!important;
     transform: translate(0%,-50%)!important;
@@ -3805,22 +3837,38 @@ background: linear-gradient(135deg, #020617, #444444ad);
     transform: translateX(-9px)!important;
 }
 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(2){
-    left: 60%!important;
-    transform: translateX(-60%)!important;
+    left: 50%!important;
+    transform: translateX(-50%)!important;
 }
 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(3){
     left: initial!important;
     right: 0!important;
     transform: translateX(0)!important;
     text-align: right;
+    margin-right: 18px;
 }
 .taiowc-milestones-label-item span{
     font-weight: 900;
     color: #111;
 }
+.taiowc-ms-label{
+    font-weight: initial!important;
+}
 
-
-
+.taiowc-milestones-wrap.style-2 .taiowc-milestones-track-area{
+    padding-top: 32px;
+}
+.taiowc-milestones-wrap.style-2 .taiowc-milestones-label-item > div span{
+    display: flex;
+    position: absolute;
+    top: -20px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+.taiowc-milestones-wrap.style-2 .taiowc-ms-label{
+    margin-top: 39px;
+    display: flex;
+}
 .cart-item.skeleton-item{
     display:flex;
     align-items:center;
@@ -3919,7 +3967,7 @@ background: linear-gradient(135deg, #020617, #444444ad);
     margin: 0 9px;
 }
 .preview-taiowc-shipping_bar_set .cart-panel-preview .page-wrapper{
-    min-height: 629px;
+    min-height: 701px;
 }
 .preview-taiowc-shipping_bar_set .cart-panel-preview .cart-items{
     max-height: initial;

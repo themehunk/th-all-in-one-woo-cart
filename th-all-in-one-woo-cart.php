@@ -69,8 +69,8 @@ require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-nav-menu.php';
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-admin-style.php';
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-setting.php';
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc.php';
-require_once TAIOWC_PLUGIN_PATH . '/inc/cart-tracking/taiowc-cart-track.php';
-require_once TAIOWC_PLUGIN_PATH . '/inc/cart-tracking/taiowc-cart-track-front.php';     
-register_activation_hook( __FILE__, 'taiowc_track_table');
+// require_once TAIOWC_PLUGIN_PATH . '/inc/cart-tracking/taiowc-cart-track.php';
+// require_once TAIOWC_PLUGIN_PATH . '/inc/cart-tracking/taiowc-cart-track-front.php';     
+// register_activation_hook( __FILE__, 'taiowc_track_table');
 
     

@@ -96,7 +96,7 @@ class Taiowc_Milestone_Rewards {
      * Check whether milestone rewards are globally enabled.
      */
     private function is_enabled() {
-        return (bool) taiowc_main()->taiowc_get_option( 'taiowc-show_milestones_bar' );
+        return (bool) taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' );
     }
 
     /* ------------------------------------------------------------------ */

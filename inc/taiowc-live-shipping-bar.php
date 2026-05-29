@@ -108,28 +108,33 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
 
                                         <div class="taiowc-milestones-marker unlocked" style="left:0.296296296296%">
                         <div class="taiowc-ms-icon-wrap">
-                            <span class="taiowc-ms-icon-inner taiowc-ms-discount">$</span>                        </div>
+                            <span class="taiowc-ms-icon-inner icon-1 taiowc-ms-discount">$</span>                        </div>
                     </div>
                                         <div class="taiowc-milestones-marker unlocked" style="left:51.592592592593%">
                         <div class="taiowc-ms-icon-wrap">
-                            <span class="taiowc-ms-icon-inner taiowc-ms-shipping"><img draggable="false" role="img" class="emoji" alt="🚚" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f69a.svg"></span>                        </div>
+                            <span class="taiowc-ms-icon-inner icon-2 taiowc-ms-shipping"><img draggable="false" role="img" class="emoji" alt="🚚" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f69a.svg"></span>                        </div>
                     </div>
                                         <div class="taiowc-milestones-marker unlocked" style="left:100%">
                         <div class="taiowc-ms-icon-wrap">
-                            <span class="taiowc-ms-icon-inner taiowc-ms-gift"><img draggable="false" role="img" class="emoji" alt="🎁" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f381.svg"></span>                        </div>
+                            <span class="taiowc-ms-icon-inner icon-3 taiowc-ms-gift"><img draggable="false" role="img" class="emoji" alt="🎁" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f381.svg"></span>                        </div>
                     </div>
                                     </div>
 
                 <div class="taiowc-milestones-label-row" style="top:20px">
                                         <div class="taiowc-milestones-label-item" style="left:7.296296296296%">
-                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>50.00</span><br>
-                        10% Discount                    </div>
+                        <div>
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_1_amount-field">50.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_1_label-field">10% Discount</span>                    </div>
                                         <div class="taiowc-milestones-label-item" style="left:51.592592592593%">
-                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>100.00</span><br>
-                        Free Shipping                    </div>
+                       <div>
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_2_amount-field">75.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_2_label-field"> Free Shipping    </span>  
+                                       </div>
                                         <div class="taiowc-milestones-label-item" style="left:95%">
-                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>108.00</span><br>
-                        Free Gift                    </div>
+                        <div>
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_3_amount-field">150.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_3_label-field">Free Gift </span>        
+                                           </div>
                                     </div>
 
             </div>

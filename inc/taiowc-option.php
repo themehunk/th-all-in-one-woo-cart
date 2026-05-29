@@ -64,7 +64,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 
           taiowc_main()->taiowc_add_setting(
 
-			'taiowc_general', esc_html__( 'General', 'th-all-in-one-woo-cart' ), 
+			'taiowc_general', esc_html__( 'General Settings', 'th-all-in-one-woo-cart' ), 
 
 			apply_filters(
 
@@ -172,7 +172,340 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 		   );
 
 taiowc_main()->taiowc_add_setting(
-			'taiowc_menu_cart', esc_html__( 'Menu Cart', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc_cart', esc_html__( 'Content Visibility', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc_cart_settings_section', array(
+				array(
+					'title'  => esc_html__( 'Product List', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_cart_setting_fields', array(
+							array(
+								'id'      => 'taiowc-show_prd_img',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Product Image', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product image from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+							array(
+								'id'      => 'taiowc-show_prd_title',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Product Title', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product Title from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+							array(
+								'id'      => 'taiowc-show_prd_price',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Product Price', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product Price from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+							array(
+								'id'      => 'taiowc-show_prd_quantity',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Product Quantity', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product Quantity from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+							array(
+								'id'      => 'taiowc-show_prd_rating',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Product Rating', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product Rating from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+							
+							
+						)
+					)
+				 ),
+
+
+				array(
+					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_related_product_setting_fields', array(
+							array(
+								'id'      => 'taiowc-show_rld_product',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Enable', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Enable/Disable “Product You May Also Like” Section on the Cart Panel Below Product List. (By Enabling this you will be able to display products from Cross Sell, Up Sell, Related or from Custom Products.)', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+
+							array(
+								'id'      => 'taiowcduct_may_like_tle',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Heading', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( 'Products you may like', 'th-all-in-one-woo-cart' ),
+									
+							),
+
+							array(
+
+								'id'      => 'taiowc-choose_prdct_like',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Choose Product', 'th-all-in-one-woo-cart' ),
+								'default' =>'croos-sell',
+								'options' => array(
+									'cross-sell'   => esc_html__( 'Cross Sell', 'th-all-in-one-woo-cart' ),
+									'up-sell'      => esc_html__( 'Up Sell', 'th-all-in-one-woo-cart' ),
+									'related'      => esc_html__( 'Related', 'th-all-in-one-woo-cart' ),
+									'product-by-slug'     => esc_html__( 'Your Products', 'th-all-in-one-woo-cart' ),		
+								),
+								
+							),	
+
+							array(
+								'id'      => 'taiowcduct_may_like_id',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Product Slug', 'th-all-in-one-woo-cart' ),
+								'default' => '',
+								'desc'    => esc_html__( 'Use Product Slug separated by comma. For eg: product-1, product-2 ', 'th-all-in-one-woo-cart' ),	
+							),
+							
+						)
+					)
+				 ),
+
+
+					array(
+					'title'  => esc_html__( 'Payment Settings', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_payment_setting_fields', array(
+							array(
+								'id'      => 'taiowc-pay_hd',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Payment Heading', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Payment Details', 'th-all-in-one-woo-cart' ),	
+								
+							),
+							array(
+								'id'      => 'taiowc-sub_total',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Sub Total Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Sub Total', 'th-all-in-one-woo-cart' ),	
+								
+							),	
+
+							array(
+								'id'      => 'taiowc-show_shipping',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Shipping', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide shipping details from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+							array(
+								'id'      => 'taiowc-ship_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Shipping Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Shipping', 'th-all-in-one-woo-cart' ),	
+								
+							),
+
+							array(
+								'id'      => 'taiowc-show_discount',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Discount', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide product discount from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+							array(
+								'id'      => 'taiowc-discount_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Discount Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Discount', 'th-all-in-one-woo-cart' ),	
+								
+							),
+							array(
+								'id'      => 'taiowc-total_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Total Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Total', 'th-all-in-one-woo-cart' ),	
+								
+							)
+
+							
+						)
+					)
+				 ),
+			     	array(
+					'title'  => esc_html__( 'COUPON SETTINGS', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_coupon_setting_fields', array(   
+						      array(
+
+								'id'      => 'taiowc-show_coupon',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Coupon', 'th-all-in-one-woo-cart' ),
+								'default' => true,
+								'desc'   => esc_html__( 'Uncheck to hide coupon details from cart panel.', 'th-all-in-one-woo-cart' ),
+							  ),
+
+						     array(
+
+								'id'      => 'taiowc-coupon_plchdr_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Placeholder Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Enter your Promo Code', 'th-all-in-one-woo-cart' ),	
+								
+							  ),
+
+						     array(
+
+								'id'      => 'taiowc-coupon_aply_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Apply Coupon Button Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'Apply', 'th-all-in-one-woo-cart' ),	
+								
+							  ),
+
+						      array(
+
+								'id'      => 'taiowc-show_coupon_list',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Coupon List', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide coupon list from cart panel.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+
+						      array(
+								'id'      => 'taiowc-coupon_btn_txt',
+								'type'    => 'text',
+								'title'   => esc_html__( 'View Coupon Link Text', 'th-all-in-one-woo-cart' ),
+								'default' =>esc_html__( 'View Coupons', 'th-all-in-one-woo-cart' ),	
+								
+							),
+
+						       array(
+
+								'id'      => 'taiowc-show_added_coupon',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Added Coupon', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Uncheck to hide applied coupons list.', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							  ),
+							
+						 )
+					  )
+				  ),	
+				  array(
+					'title'  => esc_html__( 'Footer Text', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_coupon_setting_fields', array(   
+						    array(
+								'id'      => 'taiowc-show_copyright',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Footer Text', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+
+							array(
+								'id'      => 'taiowc-custom_copyright',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Footer Text', 'th-all-in-one-woo-cart' ),
+								
+								'default' => esc_html__( 'ThemeHunk', 'th-all-in-one-woo-cart' ),	
+								
+							),
+
+							array(
+								'id'      => 'taiowc-custom_copyright_link',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Link', 'th-all-in-one-woo-cart' ),
+								
+								'default' => esc_html__( 'https://themehunk.com/th-all-in-one-woo-cart/', 'th-all-in-one-woo-cart' ),	
+								
+							), 
+							
+						 )
+					  )
+				  ),	
+
+				 
+
+
+			  )
+
+		    ),
+		  );
+
+		  taiowc_main()->taiowc_add_setting(
+			'taiowc_hide_cart', esc_html__( 'Visibility Rules', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc_cart_hide_section', array(
+				array(
+					'title'  => esc_html__( 'Page Exclusion List', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_cart_hide_fields', array(
+							array(
+								'id'      => 'taiowc-hide-cartp',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Cart Page', 'th-all-in-one-woo-cart' ),	
+								'desc'    => esc_html__( 'Prevents the floating cart from appearing when the customer is viewing their cart summary.', 'th-all-in-one-woo-cart' ),
+								'default' => false
+							),	
+							array(
+								'id'      => 'taiowc-hide-checkoutp',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Checkout Page', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Disables the cart widget during the checkout process to minimize distractions and improve conversion.', 'th-all-in-one-woo-cart' ),	
+								'default' => false
+							),	
+							array(
+								'id'      => 'taiowc-hide-shopp',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Shop Page', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Hides the cart on the main product archive/shop directory pages.', 'th-all-in-one-woo-cart' ),	
+								'default' => false
+							),
+							array(
+								'id'      => 'taiowc-hide-accountp',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Account Page', 'th-all-in-one-woo-cart' ),	
+								'desc'    => esc_html__( 'Removes visibility from the customer dashboard and account management areas.', 'th-all-in-one-woo-cart' ),
+								'default' => false
+							),
+							array(
+								'id'      => 'taiowc-hide-singlep',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Single Product Page', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Hides the widget specifically on individual product landing pages.', 'th-all-in-one-woo-cart' ),	
+								'default' => false
+							),	
+							array(
+								'id'      => 'taiowc-hide-homep',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Home Page', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Keep your landing page clean by hiding the cart widget on your root domain home page.', 'th-all-in-one-woo-cart' ),	
+								'default' => false
+							),
+							array(
+								'id'      => 'taiowc-hide-blogp',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Hide on Blog Feed', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Hides the cart widget when users are reading your blog posts or news feed.', 'th-all-in-one-woo-cart' ),	
+								'default' => false
+							),	
+							array(
+								'id'      => 'taiowc-not_showing_page',
+								'type'    => 'textarea',
+								'title'   => esc_html__( 'Hide Cart from Pages', 'th-all-in-one-woo-cart' ),
+								'desc'   => esc_html__( 'To Hide Cart from Selected Pages, Use Taxonomy/PageID/Slug Separated by Comma. For Eg: post,69,about-us.
+								To hide Cart from all Non WooCommerce Pages use no-woocommerce Same for Checkout Page use checkout, and for Cart page use cart', 'th-all-in-one-woo-cart' ),
+								'default' =>'',
+								
+								
+							),
+				
+						)
+					)
+				 ),
+
+				)
+			)
+		  );
+
+taiowc_main()->taiowc_add_setting(
+			'taiowc_menu_cart', esc_html__( 'Menu Cart Style', 'th-all-in-one-woo-cart' ), apply_filters(
 			'taiowc_menu_cart_section', array(
 				array(
 					'title'  => esc_html__( 'Menu Cart Configuration', 'th-all-in-one-woo-cart' ),
@@ -223,7 +556,7 @@ taiowc_main()->taiowc_add_setting(
 								'title'   => esc_html__( 'Icon Size', 'th-all-in-one-woo-cart' ),
 								'default' => 24,
 								'min'     => 1,
-								'max'     => 24,
+								'max'     => 500,
 								'suffix'  => 'px'
 							),
 
@@ -286,7 +619,7 @@ taiowc_main()->taiowc_add_setting(
          
 
 		taiowc_main()->taiowc_add_setting(
-			'taiowc_fixed_cart', esc_html__( 'Fixed Cart', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc_fixed_cart', esc_html__( 'Fixed Cart Style', 'th-all-in-one-woo-cart' ), apply_filters(
 			'taiowc_fixed_cart_section', array(
 				array(
 					'title'  => esc_html__( 'Fixed Cart Configuration', 'th-all-in-one-woo-cart' ),
@@ -379,7 +712,7 @@ taiowc_main()->taiowc_add_setting(
 								'title'   => esc_html__( 'Icon Size', 'th-all-in-one-woo-cart' ),
 								'default' => 24,
 								'min'     => 1,
-								'max'     => 24,
+								'max'     => 500,
 								'suffix'  => 'px'
 							),
 
@@ -452,7 +785,7 @@ taiowc_main()->taiowc_add_setting(
 	
 
 	taiowc_main()->taiowc_add_setting(
-			'taiowc-cart_style_set', esc_html__( 'Cart Side Panel', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc-cart_style_set', esc_html__( 'Side Cart Style', 'th-all-in-one-woo-cart' ), apply_filters(
 			'taiowc-cart_style_settings_section', array(
 					array(
 					'title'  => esc_html__( 'FIXED CART / FLOATING CART', 'th-all-in-one-woo-cart' ),
@@ -969,17 +1302,26 @@ taiowc_main()->taiowc_add_setting(
 		  );
 
 	taiowc_main()->taiowc_add_setting(
-			'taiowc-shipping_bar_set', esc_html__( 'Shipping Bar & Milestone', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc-shipping_bar_set', esc_html__( 'Shipping Bar Style', 'th-all-in-one-woo-cart' ), apply_filters(
 			'taiowc-cart_style_settings_section', array(
 				
 				 array(
 					'title'  => esc_html__( 'Shipping Bar & Milestone', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_shipping_bar_fields', array(
+							
+							 array(
+								'id'      => 'taiowc-show_free_shipping_bar',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),
+
 						  	array(
 								'id'      => 'taiowc_free_shipping_style_type',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Choose Bar', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'After  choosing Shipping Bar please configure shipping settings at woocommerce > settings > shipping', 'th-all-in-one-woo-cart' ),
 								'default' =>'shipping-bar',
 								'options' => array(
 
@@ -1002,25 +1344,18 @@ taiowc_main()->taiowc_add_setting(
 					'title'  => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_shipping_bar_fields', array(
-						   array(
-								'id'      => 'taiowc-show_free_shipping_bar',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Shipping Bar', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'After enable please configure shipping settings at woocommerce > settings > shipping', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-
+			
 							array(
 								'id'      => 'taiowc-free_shipping_style',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Bar Style', 'th-all-in-one-woo-cart' ),
-								'default' =>'prd_first',
+								'default' =>'style-1',
 								'options' => array(
 
 									'style-1' => esc_html__( 'Default', 'th-all-in-one-woo-cart' ),
-									'style-2'   => esc_html__( 'Progressing Bar (Pro)', 'th-all-in-one-woo-cart' ),
-									'style-3'   => esc_html__( 'Neon Bar (Pro)', 'th-all-in-one-woo-cart' ),
-									'style-4'   => esc_html__( 'Premium (Pro)', 'th-all-in-one-woo-cart' ),
+									'style-2'   => esc_html__( 'Progressing Bar', 'th-all-in-one-woo-cart' ),
+									'style-4'   => esc_html__( 'Neon Bar', 'th-all-in-one-woo-cart' ),
+									'style-5'   => esc_html__( 'Premium', 'th-all-in-one-woo-cart' ),
 
 
 								),
@@ -1036,12 +1371,28 @@ taiowc_main()->taiowc_add_setting(
 					'title'  => esc_html__( 'Milestones Bar', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_milestones_bar_fields', array(
+							// array(
+							// 	'id'      => 'taiowc-show_milestones_bar',
+							// 	'type'    => 'checkbox',
+							// 	'title'   => esc_html__( 'Enable Milestones Bar', 'th-all-in-one-woo-cart' ),
+							// 	'desc'    => esc_html__( 'Show a multi-goal progress bar with up to 3 reward breakpoints (e.g. discount, free gift, free shipping).', 'th-all-in-one-woo-cart' ),
+							// 	'default' => false,
+							// ),
+
+
 							array(
-								'id'      => 'taiowc-show_milestones_bar',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Enable Milestones Bar', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Show a multi-goal progress bar with up to 3 reward breakpoints (e.g. discount, free gift, free shipping).', 'th-all-in-one-woo-cart' ),
-								'default' => false,
+								'id'      => 'taiowc-show_milestones_bar_style',
+								'type'    => 'select',
+								'title'   => esc_html__( 'Milestone Style', 'th-all-in-one-woo-cart' ),
+								'default' =>'style-1',
+								'options' => array(
+
+									'style-1' => esc_html__( 'Style 1', 'th-all-in-one-woo-cart' ),
+									'style-2'   => esc_html__( 'Style 2', 'th-all-in-one-woo-cart' ),
+
+
+								),
+
 							),
 
 
@@ -1075,8 +1426,8 @@ taiowc_main()->taiowc_add_setting(
 								'options' => array(
 									'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
 									'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
-									'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-									'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+									// 'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
+									// 'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
 								),
 							),
 							array(
@@ -1126,7 +1477,7 @@ taiowc_main()->taiowc_add_setting(
                                     'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
                                     'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
                                     'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-                                    'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+                                    // 'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
                                 ),
                             ),
                             array(
@@ -1176,7 +1527,7 @@ taiowc_main()->taiowc_add_setting(
                                     'discount' => esc_html__( 'Discount ($)', 'th-all-in-one-woo-cart' ),
                                     'gift'     => esc_html__( 'Gift (🎁)', 'th-all-in-one-woo-cart' ),
                                     'shipping' => esc_html__( 'Shipping (🚚)', 'th-all-in-one-woo-cart' ),
-                                    'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
+                                    // 'star'     => esc_html__( 'Star (⭐)', 'th-all-in-one-woo-cart' ),
                                 ),
                             ),
                             array(
@@ -1200,344 +1551,8 @@ taiowc_main()->taiowc_add_setting(
 		)
 	)
 );
-
           taiowc_main()->taiowc_add_setting(
-			'taiowc_cart', esc_html__( 'Content Visibility', 'th-all-in-one-woo-cart' ), apply_filters(
-			'taiowc_cart_settings_section', array(
-				array(
-					'title'  => esc_html__( 'Product List', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_cart_setting_fields', array(
-							array(
-								'id'      => 'taiowc-show_prd_img',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Product Image', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product image from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-							array(
-								'id'      => 'taiowc-show_prd_title',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Product Title', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product Title from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-							array(
-								'id'      => 'taiowc-show_prd_price',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Product Price', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product Price from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-							array(
-								'id'      => 'taiowc-show_prd_quantity',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Product Quantity', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product Quantity from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-							array(
-								'id'      => 'taiowc-show_prd_rating',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Product Rating', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product Rating from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-							
-							
-						)
-					)
-				 ),
-
-
-				array(
-					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_related_product_setting_fields', array(
-							array(
-								'id'      => 'taiowc-show_rld_product',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Enable', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Enable/Disable “Product You May Also Like” Section on the Cart Panel Below Product List. (By Enabling this you will be able to display products from Cross Sell, Up Sell, Related or from Custom Products.)', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),	
-
-							array(
-								'id'      => 'taiowcduct_may_like_tle',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Heading', 'th-all-in-one-woo-cart' ),
-								'default' => esc_html__( 'Products you may like', 'th-all-in-one-woo-cart' ),
-									
-							),
-
-							array(
-
-								'id'      => 'taiowc-choose_prdct_like',
-								'type'    => 'select',
-								'title'   => esc_html__( 'Choose Product', 'th-all-in-one-woo-cart' ),
-								'default' =>'croos-sell',
-								'options' => array(
-									'cross-sell'   => esc_html__( 'Cross Sell', 'th-all-in-one-woo-cart' ),
-									'up-sell'      => esc_html__( 'Up Sell', 'th-all-in-one-woo-cart' ),
-									'related'      => esc_html__( 'Related', 'th-all-in-one-woo-cart' ),
-									'product-by-slug'     => esc_html__( 'Your Products', 'th-all-in-one-woo-cart' ),		
-								),
-								
-							),	
-
-							array(
-								'id'      => 'taiowcduct_may_like_id',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Product Slug', 'th-all-in-one-woo-cart' ),
-								'default' => '',
-								'desc'    => esc_html__( 'Use Product Slug separated by comma. For eg: product-1, product-2 ', 'th-all-in-one-woo-cart' ),	
-							),
-							
-						)
-					)
-				 ),
-
-
-					array(
-					'title'  => esc_html__( 'Payment Settings', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_payment_setting_fields', array(
-							array(
-								'id'      => 'taiowc-pay_hd',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Payment Heading', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Payment Details', 'th-all-in-one-woo-cart' ),	
-								
-							),
-							array(
-								'id'      => 'taiowc-sub_total',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Sub Total Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Sub Total', 'th-all-in-one-woo-cart' ),	
-								
-							),	
-
-							array(
-								'id'      => 'taiowc-show_shipping',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Shipping', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide shipping details from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-							array(
-								'id'      => 'taiowc-ship_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Shipping Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Shipping', 'th-all-in-one-woo-cart' ),	
-								
-							),
-
-							array(
-								'id'      => 'taiowc-show_discount',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Discount', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product discount from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-							array(
-								'id'      => 'taiowc-discount_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Discount Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Discount', 'th-all-in-one-woo-cart' ),	
-								
-							),
-							array(
-								'id'      => 'taiowc-total_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Total Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Total', 'th-all-in-one-woo-cart' ),	
-								
-							)
-
-							
-						)
-					)
-				 ),
-			     	array(
-					'title'  => esc_html__( 'COUPON SETTINGS', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_coupon_setting_fields', array(   
-						      array(
-
-								'id'      => 'taiowc-show_coupon',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Coupon', 'th-all-in-one-woo-cart' ),
-								'default' => true,
-								'desc'   => esc_html__( 'Uncheck to hide coupon details from cart panel.', 'th-all-in-one-woo-cart' ),
-							  ),
-
-						     array(
-
-								'id'      => 'taiowc-coupon_plchdr_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Placeholder Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Enter your Promo Code', 'th-all-in-one-woo-cart' ),	
-								
-							  ),
-
-						     array(
-
-								'id'      => 'taiowc-coupon_aply_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Apply Coupon Button Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'Apply', 'th-all-in-one-woo-cart' ),	
-								
-							  ),
-
-						      array(
-
-								'id'      => 'taiowc-show_coupon_list',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Coupon List', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide coupon list from cart panel.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-
-						      array(
-								'id'      => 'taiowc-coupon_btn_txt',
-								'type'    => 'text',
-								'title'   => esc_html__( 'View Coupon Link Text', 'th-all-in-one-woo-cart' ),
-								'default' =>esc_html__( 'View Coupons', 'th-all-in-one-woo-cart' ),	
-								
-							),
-
-						       array(
-
-								'id'      => 'taiowc-show_added_coupon',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Added Coupon', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide applied coupons list.', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							  ),
-							
-						 )
-					  )
-				  ),	
-				  array(
-					'title'  => esc_html__( 'Footer Text', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_coupon_setting_fields', array(   
-						    array(
-								'id'      => 'taiowc-show_copyright',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Show Footer Text', 'th-all-in-one-woo-cart' ),
-								'default' => true
-							),
-
-							array(
-								'id'      => 'taiowc-custom_copyright',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Footer Text', 'th-all-in-one-woo-cart' ),
-								
-								'default' => esc_html__( 'ThemeHunk', 'th-all-in-one-woo-cart' ),	
-								
-							),
-
-							array(
-								'id'      => 'taiowc-custom_copyright_link',
-								'type'    => 'text',
-								'title'   => esc_html__( 'Link', 'th-all-in-one-woo-cart' ),
-								
-								'default' => esc_html__( 'https://themehunk.com/th-all-in-one-woo-cart/', 'th-all-in-one-woo-cart' ),	
-								
-							), 
-							
-						 )
-					  )
-				  ),	
-
-				 
-
-
-			  )
-
-		    ),
-		  );
-
-		  taiowc_main()->taiowc_add_setting(
-			'taiowc_hide_cart', esc_html__( 'Visibility Rules', 'th-all-in-one-woo-cart' ), apply_filters(
-			'taiowc_cart_hide_section', array(
-				array(
-					'title'  => esc_html__( 'Page Exclusion List', 'th-all-in-one-woo-cart' ),
-					'fields' => apply_filters(
-						'taiowc_cart_hide_fields', array(
-							array(
-								'id'      => 'taiowc-hide-cartp',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Cart Page', 'th-all-in-one-woo-cart' ),	
-								'desc'    => esc_html__( 'Prevents the floating cart from appearing when the customer is viewing their cart summary.', 'th-all-in-one-woo-cart' ),
-								'default' => false
-							),	
-							array(
-								'id'      => 'taiowc-hide-checkoutp',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Checkout Page', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Disables the cart widget during the checkout process to minimize distractions and improve conversion.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
-							),	
-							array(
-								'id'      => 'taiowc-hide-shopp',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Shop Page', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Hides the cart on the main product archive/shop directory pages.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
-							),
-							array(
-								'id'      => 'taiowc-hide-accountp',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Account Page', 'th-all-in-one-woo-cart' ),	
-								'desc'    => esc_html__( 'Removes visibility from the customer dashboard and account management areas.', 'th-all-in-one-woo-cart' ),
-								'default' => false
-							),
-							array(
-								'id'      => 'taiowc-hide-singlep',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Single Product Page', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Hides the widget specifically on individual product landing pages.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
-							),	
-							array(
-								'id'      => 'taiowc-hide-homep',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Home Page', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Keep your landing page clean by hiding the cart widget on your root domain home page.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
-							),
-							array(
-								'id'      => 'taiowc-hide-blogp',
-								'type'    => 'checkbox',
-								'title'   => esc_html__( 'Hide on Blog Feed', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Hides the cart widget when users are reading your blog posts or news feed.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
-							),	
-							array(
-								'id'      => 'taiowc-not_showing_page',
-								'type'    => 'textarea',
-								'title'   => esc_html__( 'Hide Cart from Pages', 'th-all-in-one-woo-cart' ),
-								'desc'   => esc_html__( 'To Hide Cart from Selected Pages, Use Taxonomy/PageID/Slug Separated by Comma. For Eg: post,69,about-us.
-								To hide Cart from all Non WooCommerce Pages use no-woocommerce Same for Checkout Page use checkout, and for Cart page use cart', 'th-all-in-one-woo-cart' ),
-								'default' =>'',
-								
-								
-							),
-				
-						)
-					)
-				 ),
-
-				)
-			)
-		  );
-
-
-
-          taiowc_main()->taiowc_add_setting(
-			'taiowc_mobile_cart', esc_html__( 'Mobile Experience (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
+			'taiowc_mobile_cart', esc_html__( 'Mobile Style (Pro)', 'th-all-in-one-woo-cart' ), apply_filters(
 			'taiowc_mobile_cart_settings_section', array(
                 array(
 					'title'  => esc_html__( 'Menu Cart / Shortcode Cart', 'th-all-in-one-woo-cart' ),

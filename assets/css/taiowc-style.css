@@ -117,6 +117,9 @@ font-size: 2rem;
     background: #fff;
     border-color: rgb(243 244 246 / 1);
 }
+.taiowc-cart-model-header .cart-heading svg{
+    width: 24px;
+}
 .cart-heading span{
 font-size: 2rem;
 }
@@ -543,8 +546,8 @@ width:2rem;
 }
 
 .taiowc-fixed-cart.cart_fixed_1 .taiowc-cart-item{
-    width: 36px;
-    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
 }
 /*open fixed style1*/
 .cart_fixed_1 .taiowc-content{
@@ -976,7 +979,8 @@ display: flex;
 flex-direction: column;
 font-size: 1rem;
 }
-.taiowc-subtotal,.taiowc-discount,.taiowc-total,.taiowc-shipping{
+.taiowc-subtotal,.taiowc-discount,.taiowc-total,.taiowc-shipping,
+.taiowc-tax-row{
 display: flex;
 justify-content: space-between;
 margin-bottom: 0.7rem;
@@ -2445,17 +2449,17 @@ body.no-scroll {
     background: transparent;
 }
 
-.taiowc-milestones-marker:has(.taiowc-ms-discount){
+.taiowc-milestones-marker:nth-of-type(2){
     left: 10%!important;
     transform: translate(0%,-50%)!important;
 }
 
-.taiowc-milestones-marker:has(.taiowc-ms-gift) {
+.taiowc-milestones-marker:nth-of-type(3) {
     left: 50%!important;
     transform: translate(-50%,-50%)!important;
 }
 
-.taiowc-milestones-marker:has(.taiowc-ms-shipping) {
+.taiowc-milestones-marker:nth-of-type(4) {
     left: initial!important;
     right: 0!important;
     transform: translate(0%,-50%)!important;
@@ -2475,3 +2479,38 @@ body.no-scroll {
     transform: translateX(-9px);
     text-align: right;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COMMON */
+.taiowc-milestones-label-item{
+    position:absolute;
+    transform:translateX(-50%);
+    text-align:center;
+    white-space:nowrap;
+}
+
+.taiowc-ms-price{
+    display:block;
+    font-weight:900;
+    color:#111;
+}
+
+.taiowc-ms-label{
+    display:block;
+    color:#888;
+}
+

@@ -128,7 +128,7 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                 taiowc_markup_pro()->taiowc_free_shipping_bar();
             }
 
-            if ( taiowc_main()->taiowc_get_option( 'taiowc-show_milestones_bar' ) == true ) {
+            if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
                 taiowc_markup_pro()->taiowc_milestones_bar();
             }
 

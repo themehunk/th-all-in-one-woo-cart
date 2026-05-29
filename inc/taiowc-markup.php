@@ -210,7 +210,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                             $this->taiowc_free_shipping_bar();
                         }
 
-                        if ( taiowc_main()->taiowc_get_option( 'taiowc-show_milestones_bar' ) == true ) {
+                        if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
                             $this->taiowc_milestones_bar();
                         }
 
@@ -397,6 +397,27 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                         </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
+
+                            <!-- TAX ROW ADD  -->
+                <?php if ( $tax_enabled ) : ?>
+
+                    <?php foreach ( WC()->cart->get_tax_totals() as $code => $tax ) : ?>
+
+                        <div class="taiowc-tax-row">
+
+                            <span class="taiowc-label">
+                                <?php echo esc_html( $tax->label ); ?>
+                            </span>
+
+                            <span class="taiowc-value">
+                                <?php echo wp_kses_post( $tax->formatted_amount ); ?>
+                            </span>
+
+                        </div>
+
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
 
                     <?php if($tax_enabled || $has_shipping || $has_discount || $has_milestone_discount): ?>
 
