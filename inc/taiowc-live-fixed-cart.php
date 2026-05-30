@@ -70,8 +70,6 @@ $cartStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_style' );
             
             <div class="taiowc-icon" data-th-color="taiowc-fxcrt_cart_icon_clr" data-th-width="taiowc-fxcrt_icon_size-field">
                 <svg xmlns="http://www.w3.org/2000/svg"
-                     width="24"
-                     height="24"
                      viewBox="0 0 24 24"
                      fill="none"
                      stroke="currentColor"
