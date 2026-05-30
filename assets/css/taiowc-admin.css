@@ -3869,6 +3869,9 @@ background: linear-gradient(135deg, #020617, #444444ad);
     margin-top: 39px;
     display: flex;
 }
+.taiowc-milestones-wrap.style-2 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(3){
+    margin-right: initial;
+}
 .cart-item.skeleton-item{
     display:flex;
     align-items:center;
