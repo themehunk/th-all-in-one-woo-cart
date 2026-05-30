@@ -197,6 +197,7 @@ justify-content:space-between;
   border: 1px solid;
   border-color: rgb(226 232 240 / 0.5);
   border-radius: 1.25rem;
+  margin-right: 18px;
 }
 
 /* remove native checkbox */
@@ -1591,7 +1592,8 @@ position: absolute;
 }
 .preview-taiowc_menu_cart .taiowc-settings-row,
 .preview-taiowc_fixed_cart .taiowc-settings-row,
-.preview-taiowc-cart_style_set .taiowc-settings-row{
+.preview-taiowc-cart_style_set .taiowc-settings-row,
+.preview-taiowc-shipping_bar_set .taiowc-settings-row{
     display: flex!important;
     justify-content: space-between;
 }
@@ -3851,6 +3853,9 @@ background: linear-gradient(135deg, #020617, #444444ad);
     font-weight: 900;
     color: #111;
 }
+.taiowc-milestones-label-item span.amount:before{
+    content: "$";
+}
 .taiowc-ms-label{
     font-weight: initial!important;
 }
@@ -3872,6 +3877,7 @@ background: linear-gradient(135deg, #020617, #444444ad);
 .taiowc-milestones-wrap.style-2 .taiowc-milestones-label-row .taiowc-milestones-label-item:nth-of-type(3){
     margin-right: initial;
 }
+
 .cart-item.skeleton-item{
     display:flex;
     align-items:center;

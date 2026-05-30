@@ -169,7 +169,7 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
         public function taiowc_scripts(){
 
-              wp_enqueue_style( 'taiowc-style', TAIOWC_PLUGIN_URI. '/assets/css/taiowc-style.css', array(), '1.1.3' );
+              wp_enqueue_style( 'taiowc-style', TAIOWC_PLUGIN_URI. '/assets/css/taiowc-style.css', array(), TAIOWC_VERSION );
 
               wp_enqueue_style( 'taiowc-owl.carousel-style', TAIOWC_PLUGIN_URI. '/assets/css/owl.carousel.css', array(), TAIOWC_VERSION );
 

@@ -1155,7 +1155,13 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                         <?php if( $available_methods ): ?>
 
-                    <span class="taiowc-label"><?php echo esc_html(taiowc_main()->taiowc_get_option('taiowc-ship_txt')); ?>
+                    <span class="taiowc-label">
+
+                         <?php
+                    if ( ! empty( $chosen_method ) && isset( $available_methods[ $chosen_method ] ) ) {
+                        echo esc_html( $available_methods[ $chosen_method ]->get_label() );
+                    }
+                    ?>
 
                         <span class="dashicons dashicons-edit pencil"></span>
 

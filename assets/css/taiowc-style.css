@@ -1515,6 +1515,7 @@ right: -300px;
     max-width: 100%;
     right: 0;
     top: 100%;
+    transition: all .4s ease;
 }
 .model-cart-active.mobiletopslide .taiowc-cart-model{
    top: 0;

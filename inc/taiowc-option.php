@@ -1395,6 +1395,13 @@ taiowc_main()->taiowc_add_setting(
 
 							),
 
+							array(
+								'id'      => 'taiowc-milestone_unlock_text',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Unlock Reward Text', 'th-all-in-one-woo-cart' ),
+								'default' => 'All rewards unlocked! Congrats!',
+							),
+
 
 						 )
 					  )
@@ -1409,7 +1416,7 @@ taiowc_main()->taiowc_add_setting(
 								'type'    => 'text',
 								'title'   => esc_html__( 'Milestone 1 — Amount', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Spend amount to unlock milestone 1 (e.g. 50)', 'th-all-in-one-woo-cart' ),
-								'default' => '50',
+								'default' => '50.00',
 							),
 							array(
 								'id'      => 'taiowc-milestone_1_label',
@@ -1460,7 +1467,7 @@ taiowc_main()->taiowc_add_setting(
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 2 — Amount', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Leave blank to disable milestone 2', 'th-all-in-one-woo-cart' ),
-                                'default' => '75',
+                                'default' => '75.00',
                             ),
                             array(
                                 'id'      => 'taiowc-milestone_2_label',
@@ -1510,7 +1517,7 @@ taiowc_main()->taiowc_add_setting(
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 3 — Amount', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Leave blank to disable milestone 3', 'th-all-in-one-woo-cart' ),
-                                'default' => '100',
+                                'default' => '100.00',
                             ),
                             array(
                                 'id'      => 'taiowc-milestone_3_label',
