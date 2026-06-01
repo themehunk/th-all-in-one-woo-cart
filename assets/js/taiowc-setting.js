@@ -21,6 +21,7 @@
             $this.LiveMobileCartEffectPreview();
             $this.LiveMobileSwitcher();
             $this.HeaderResetTrigger();
+            $this.MilestoneLivePreview();
 
         },
 
@@ -69,45 +70,124 @@
     var $globalSelect = $('#taiowc-cart_effect-field');
     var $wrapper      = $('.live-mobile .cart-panel-preview .cart-wrapper');
 
-    function applyMobileEffect() {
-        var mobileEffect = $mobileSelect.val();
-        var globalEffect = $globalSelect.val();
+    var allClasses =
+        'taiowc-slide-right taiowc-slide-left mobiletopslide active';
 
-        // remove ALL effect classes
-        $wrapper.removeClass(function (i, cls) {
-            return (cls.match(/(taiowc-\S+|mobiletopslide)/g) || []).join(' ');
-        });
+    /*
+    GET EFFECT
+    */
+    function getEffect() {
 
-        if (mobileEffect === 'mobiletopslide') {
-            // mobile-only bottom slide
-            $wrapper.addClass('mobiletopslide');
-        } else {
-            // inherit global effect
-            if (globalEffect) {
-                $wrapper.addClass(globalEffect);
-            }
+        var mobile = $mobileSelect.val();
+        var global = $globalSelect.val();
+
+        // inherit global effect
+        if (mobile === 'global') {
+            return global;
         }
+
+        // mobile bottom
+        if (mobile === 'mobiletopslide') {
+            return 'mobiletopslide';
+        }
+
+        return global;
     }
 
-    // mobile effect change
-    $(document).on('change', '#taiowc-cart_mobile_effect-field', function () {
-        applyMobileEffect();
-    });
+    /*
+    INITIAL STATE
+    */
+    function initState() {
 
-    // global effect change (only when mobile = global)
-    $(document).on('change', '#taiowc-cart_effect-field', function () {
-        if ($mobileSelect.val() === 'global') {
-            applyMobileEffect();
+        var effect = getEffect();
+
+        $wrapper.removeClass(allClasses);
+        $wrapper.addClass(effect);
+
+        // keep CLOSED on page load
+    }
+
+    /*
+    PLAY ANIMATION
+    */
+    function animatePreview() {
+
+        var effect = getEffect();
+
+        /*
+        STEP 1
+        remove all classes completely
+        */
+        $wrapper.removeClass(allClasses);
+
+        /*
+        STEP 2
+        force hidden repaint
+        */
+        $wrapper.css('transition', 'none');
+
+        void $wrapper[0].offsetHeight;
+
+        /*
+        STEP 3
+        apply NEW effect in closed state
+        */
+        $wrapper.addClass(effect);
+
+        /*
+        STEP 4
+        browser repaint again
+        */
+        void $wrapper[0].offsetHeight;
+
+        /*
+        STEP 5
+        restore transition
+        */
+        $wrapper.css('transition', '');
+
+        /*
+        STEP 6
+        OPEN animation
+        */
+        requestAnimationFrame(function () {
+
+            $wrapper.addClass('active');
+
+        });
+    }
+
+    /*
+    MOBILE CHANGE
+    */
+    $(document).on(
+        'change',
+        '#taiowc-cart_mobile_effect-field',
+        function () {
+
+            animatePreview();
         }
-    });
+    );
 
-    // apply on page load
-    $(document).ready(function () {
-        applyMobileEffect();
-    });
+    /*
+    GLOBAL CHANGE
+    */
+    $(document).on(
+        'change',
+        '#taiowc-cart_effect-field',
+        function () {
 
+            if ($mobileSelect.val() === 'global') {
+                animatePreview();
+            }
+        }
+    );
+
+    /*
+    PAGE LOAD
+    */
+    initState();
 },
-
 
 
         LiveTogglePreview: function () {
@@ -314,7 +394,154 @@ LiveCartEffectPreview: function () {
 
 },
 
+MilestoneLivePreview: function () {
 
+    /*
+    |--------------------------------------------------------------------------
+    | CONFIG
+    |--------------------------------------------------------------------------
+    */
+
+    // Visibility rules
+    const visibilityRules = {
+
+        discount: {
+            show: ['discount'],
+            hide: ['gift']
+        },
+
+        gift: {
+            show: ['gift'],
+            hide: ['discount']
+        },
+
+        shipping: {
+            show: [],
+            hide: ['discount', 'gift']
+        },
+
+        star: {
+            show: [],
+            hide: ['discount', 'gift']
+        }
+    };
+
+    // Icon HTML
+    const milestoneIcons = {
+
+        discount : '$',
+
+        gift :
+            '<img draggable="false" role="img" class="emoji" alt="🎁" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f381.svg">',
+
+        shipping :
+            '<img draggable="false" role="img" class="emoji" alt="🚚" src="https://s.w.org/images/core/emoji/17.0.2/svg/1f69a.svg">',
+
+        star : '⭐'
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | TOGGLE FIELDS
+    |--------------------------------------------------------------------------
+    */
+
+    function toggleMilestoneFields(milestone, value) {
+
+        const selectors = {
+
+            discount :
+                '#taiowc-milestone_' + milestone + '_discount_pct-wrapper',
+
+            gift :
+                '#taiowc-milestone_' + milestone + '_gift_product-wrapper'
+        };
+
+        /*
+        hide all first
+        */
+        $.each(selectors, function (key, selector) {
+
+            $(selector).hide();
+        });
+
+        /*
+        apply current rule
+        */
+        if (visibilityRules[value]) {
+
+            // show fields
+            visibilityRules[value].show.forEach(function (key) {
+
+                $(selectors[key]).show();
+            });
+
+            // hide fields
+            visibilityRules[value].hide.forEach(function (key) {
+
+                $(selectors[key]).hide();
+            });
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | UPDATE ICON
+    |--------------------------------------------------------------------------
+    */
+
+    function updateMilestoneIcon(milestone) {
+
+        // selected type
+        const iconType = $(
+            '#taiowc-milestone_' + milestone + '_icon-field'
+        ).val();
+
+        // preview icon
+        const $icon = $('.taiowc-ms-icon-inner.icon-' + milestone);
+
+        // remove old classes
+        $icon.removeClass(
+            'taiowc-ms-discount taiowc-ms-gift taiowc-ms-shipping taiowc-ms-star'
+        );
+
+        // add new class
+        $icon.addClass('taiowc-ms-' + iconType);
+
+        // update html
+        $icon.html(milestoneIcons[iconType]);
+
+        // update visibility mapping
+        toggleMilestoneFields(milestone, iconType);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | HANDLE ALL MILESTONES
+    |--------------------------------------------------------------------------
+    */
+
+    [1, 2, 3].forEach(function (milestone) {
+
+        const $select = $(
+            '#taiowc-milestone_' + milestone + '_icon-field'
+        );
+
+        /*
+        initial load
+        */
+        updateMilestoneIcon(milestone);
+
+        /*
+        on change
+        */
+        $select.on('change', function () {
+
+            updateMilestoneIcon(milestone);
+        });
+    });
+
+},
 
 
         CopyToClipboard: function () {
@@ -375,9 +602,12 @@ LiveCartEffectPreview: function () {
 
                   if ($("a[data-target='taiowc_cart_analyst']").hasClass('nav-tab-active')){
                     $('#taiowc_cart_analys').show();
+                    $('.setting-content').hide();
                   }else{
                     $('#taiowc_cart_analys').hide();
-                    
+                    if (!$("a[data-target='taiowc_license']").hasClass('nav-tab-active')) {
+                      $('.setting-content').show();
+                    }
                   }
 
                   if ($("a[data-target='taiowc_license']").hasClass('nav-tab-active')){
@@ -609,33 +839,200 @@ $form.removeClass(function (i, cls) {
           });
 
           // Free shipping style change
-    $(document).on('change', '#taiowc_free_shipping_style_type-field', function () {
+         
+         // Save original shipping bar HTML
+const originalHtml = $('.taiowc-free-shipping-wrap').html();
 
-        var selectedValue = $(this).val();
+function updatePreview() {
 
-        if(selectedValue == 'shipping-bar'){
+    // -----------------------------
+    // Get Values
+    // -----------------------------
+    const isEnabled    = $('#taiowc-show_free_shipping_bar-field').is(':checked');
+    const selectedType = $('#taiowc_free_shipping_style_type-field').val();
+    const selectedStyle = $('#taiowc-free_shipping_style-field').val();
 
-            $('.setting-preview-wrap .taiowc-free-shipping-wrap.style-1').css('display', 'block');
-            $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'none');
+    // -----------------------------
+    // Elements
+    // -----------------------------
+    const $shippingWrap  = $('.taiowc-free-shipping-wrap');
+    const $milestoneWrap = $('.taiowc-milestones-wrap');
 
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'block');
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-3,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-4,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-5").css('display', 'none');
+    const $section1 = $('#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1');
 
-        }else if(selectedValue == 'miletone'){
+    const $otherSections = $(
+        '#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2,\
+         #taiowc-shipping_bar_settaiowc-shipping_bar_set-section-3,\
+         #taiowc-shipping_bar_settaiowc-shipping_bar_set-section-4,\
+         #taiowc-shipping_bar_settaiowc-shipping_bar_set-section-5',
+    );
 
-            $('.setting-preview-wrap  .taiowc-free-shipping-wrap.style-1').css('display', 'none');
-            $('.setting-preview-wrap  .taiowc-milestones-wrap').css('display', 'block');
+    const $typeWrapper = $('#taiowc_free_shipping_style_type-wrapper');
 
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-1").css('display', 'none');
-            $("#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-2,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-3,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-4,#taiowc-shipping_bar_settaiowc-shipping_bar_set-section-5").css('display', 'block');
+    // -----------------------------
+    // MAIN TOGGLE OFF
+    // -----------------------------
+    if (!isEnabled) {
 
+        // Hide everything
+        $shippingWrap.hide();
+        $milestoneWrap.hide();
+
+        $section1.hide();
+        $otherSections.hide();
+
+        $typeWrapper.hide();
+
+        return;
+    }
+
+    // show again when enabled
+    $typeWrapper.show();
+    // -----------------------------
+    // Apply style class
+    // -----------------------------
+    $shippingWrap
+        .removeClass('style-1 style-2 style-3 style-4 style-5')
+        .addClass(selectedStyle);
+
+    // ==================================================
+    // SHIPPING BAR
+    // ==================================================
+    if (selectedType === 'shipping-bar') {
+
+        // Preview
+        $shippingWrap.show();
+        $milestoneWrap.hide();
+
+        // Settings
+        $section1.show();
+        $otherSections.hide();
+
+        // Style 5 custom layout
+        if (selectedStyle === 'style-5') {
+
+            $shippingWrap.html(`
+                <div class="taiowc-free-shipping-heading">
+                    Spend 
+                    <span class="woocommerce-Price-amount amount">
+                        <span class="woocommerce-Price-currencySymbol">$</span>1,008.00
+                    </span>
+                    more for free shipping
+                </div>
+
+                <div class="taiowc-progress-area">
+
+                    <div class="taiowc-progress-line">
+
+                        <div class="taiowc-progress-fill" style="width:0%"></div>
+
+                        <div class="taiowc-progress-truck" style="left:calc(0% - 0px)">
+                            <span class="dashicons dashicons-car"></span>
+                        </div>
+
+                        <div class="taiowc-goal-icon">⚑</div>
+
+                    </div>
+
+                    <div class="taiowc-progress-labels">
+                        <span>$0</span>
+                        <span class="woocommerce-Price-amount amount">$0.00</span>
+                        <span class="woocommerce-Price-amount amount">$1,008.00</span>
+                    </div>
+
+                </div>
+            `);
+
+        } else {
+
+            // Restore original HTML
+            $shippingWrap.html(originalHtml);
         }
+    }
 
+    // ==================================================
+    // MILESTONE
+    // ==================================================
+    else if (selectedType === 'miletone') {
+
+        // Preview
+        $shippingWrap.hide();
+        $milestoneWrap.show();
+
+        // Settings
+        $section1.hide();
+        $otherSections.show();
+
+        // Restore original HTML
+        $shippingWrap.html(originalHtml);
+    }
+}
+
+
+// ==================================================
+// EVENTS
+// ==================================================
+
+// Main toggle ON/OFF
+$(document).on('change', '#taiowc-show_free_shipping_bar-field', updatePreview);
+
+// Shipping type change
+$(document).on('change', '#taiowc_free_shipping_style_type-field', updatePreview);
+
+// Style change
+$(document).on('change', '#taiowc-free_shipping_style-field', updatePreview);
+
+// Initial load
+updatePreview();
+
+    // Milestone
+
+    function updateMilestoneClass() {
+
+        var selectedStyle = $('#taiowc-show_milestones_bar_style-field').val();
+
+        $('.taiowc-milestones-wrap')
+            .removeClass('style-1 style-2')
+            .addClass(selectedStyle);
+    }
+
+    // Page load par
+    updateMilestoneClass();
+
+    // Dropdown change par
+    $('#taiowc-show_milestones_bar_style-field').on('change', function () {
+        updateMilestoneClass();
     });
 
 
-    // Trigger on page load
-    $('#taiowc_free_shipping_style_type-field').trigger('change');
+
+
+// Milestone Gift
+
+
+    function toggleDescription() {
+        let value = $('#taiowc_free_shipping_style_type-field').val();
+
+        if (value !== 'shipping-bar') {
+            $('#taiowc_free_shipping_style_type-field')
+                .next('p.description')
+                .hide();
+        } else {
+            $('#taiowc_free_shipping_style_type-field')
+                .next('p.description')
+                .show();
+        }
+    }
+
+    // Page load par
+    toggleDescription();
+
+    // Select change par
+    $('#taiowc_free_shipping_style_type-field').on('change', function () {
+        toggleDescription();
+    });
+
+
 
           // Image Uploader
 
