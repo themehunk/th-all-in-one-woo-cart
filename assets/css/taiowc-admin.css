@@ -1592,8 +1592,7 @@ position: absolute;
 }
 .preview-taiowc_menu_cart .taiowc-settings-row,
 .preview-taiowc_fixed_cart .taiowc-settings-row,
-.preview-taiowc-cart_style_set .taiowc-settings-row,
-.preview-taiowc-shipping_bar_set .taiowc-settings-row{
+.preview-taiowc-cart_style_set .taiowc-settings-row{
     display: flex!important;
     justify-content: space-between;
 }
@@ -2827,6 +2826,7 @@ background: linear-gradient(135deg, #020617, #444444ad);
   .preview-taiowc_fixed_cart #settings-tabs, 
   .preview-taiowc-cart_style_set #settings-tabs, 
   .preview-taiowc_mobile_cart #settings-tabs,
+  .preview-taiowc-shipping_bar_set #settings-tabs,
   .setting-preview-wrap{
     width: 100%;
   }

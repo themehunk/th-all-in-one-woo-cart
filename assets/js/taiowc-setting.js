@@ -1225,7 +1225,7 @@ $(document).on('click', '.taiowc-remove-image', function (e) {
     toggleSettings();  // Ensure default state is set when page loads
 });
 
-
+$('#taiowc_mobile_cart input,#taiowc_mobile_cart select').attr("disabled", true);
 
 
         },

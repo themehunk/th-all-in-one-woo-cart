@@ -887,21 +887,13 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
         $goal_amount - $subtotal
     );
 
-    /*
+    
+
+     /*
     |--------------------------------------------------------------------------
     | PROGRESS
     |--------------------------------------------------------------------------
-    */
 
-    $progress = 0;
-
-    if( $goal_amount > 0 ){
-
-        $progress =
-            ( $subtotal / $goal_amount ) * 100;
-    }
-
-    $progress = min( 100, $progress );
 
     /*
     |--------------------------------------------------------------------------
@@ -1616,10 +1608,58 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                 esc_html( $next_milestone['label'] )
             );
         } else {
-            $message = esc_html__( 'All rewards unlocked! Congrats!', 'th-all-in-one-woo-cart' );
+            $message = taiowc_main()->taiowc_get_option( "taiowc-milestone_unlock_text" );
         }
 
-        $progress = ( $max_amount > 0 ) ? min( 100, ( $subtotal / $max_amount ) * 100 ) : 0;
+        // $progress = ( $max_amount > 0 ) ? min( 100, ( $subtotal / $max_amount ) * 100 ) : 0;
+
+        /*
+|--------------------------------------------------------------------------
+| Progress Based On Milestone Completion
+|--------------------------------------------------------------------------
+*/
+
+$marker_positions = array( 10, 50, 100 );
+
+$progress = 0;
+
+foreach ( $raw_milestones as $index => $ms ) {
+
+    $current_amount = (float) $ms['amount'];
+
+    $prev_amount = isset( $raw_milestones[ $index - 1 ] )
+        ? (float) $raw_milestones[ $index - 1 ]['amount']
+        : 0;
+
+    $prev_position = isset( $marker_positions[ $index - 1 ] )
+        ? $marker_positions[ $index - 1 ]
+        : 0;
+
+    $current_position = $marker_positions[ $index ];
+
+    // Current milestone incomplete
+    if ( $subtotal < $current_amount ) {
+
+        $range_total = $current_amount - $prev_amount;
+
+        $range_done = $subtotal - $prev_amount;
+
+        $ratio = ( $range_total > 0 )
+            ? ( $range_done / $range_total )
+            : 0;
+
+        $progress = $prev_position + (
+            ( $current_position - $prev_position ) * $ratio
+        );
+
+        break;
+    }
+
+    // Milestone completed
+    $progress = $current_position;
+}
+
+$progress = min( 100, max( 0, $progress ) );
 
         $icon_map = array(
             'discount' => '<span class="taiowc-ms-icon-inner taiowc-ms-discount">$</span>',
