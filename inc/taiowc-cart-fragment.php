@@ -123,14 +123,14 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                     'taiowc_free_shipping_style_type'
                 );
 
-            if ( $taiowc_show_free_shipping_bar == true && $taiowc_free_shipping_style_type == 'shipping-bar' ) {
+            if ( $taiowc_show_free_shipping_bar == true ) {
 
                 taiowc_markup_pro()->taiowc_free_shipping_bar();
             }
 
-            if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
-                taiowc_markup_pro()->taiowc_milestones_bar();
-            }
+            // if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
+            //     taiowc_markup_pro()->taiowc_milestones_bar();
+            // }
 
         do_action('taiowc_mini_cart');
 
