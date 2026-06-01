@@ -22,9 +22,66 @@
             $this.LiveMobileSwitcher();
             $this.HeaderResetTrigger();
             $this.MilestoneLivePreview();
+            $this.premiummesage();
 
         },
 
+premiummesage: function () {
+    function showProNotice($select) {
+
+        var $container = $select.closest('.taiowc-settings-field-content');
+
+        $container.find('.taiowc-pro-notice').remove();
+
+        $container.append(
+            '<p class="taiowc-pro-notice" style="color:#d63638;margin-top:8px;">🔒 This feature is available in Pro.</p>'
+        );
+
+        setTimeout(function () {
+            $container.find('.taiowc-pro-notice').fadeOut(300, function () {
+                $(this).remove();
+            });
+        }, 3000);
+    }
+
+    // Choose Bar
+    $('#taiowc_free_shipping_style_type-field option[value="miletone"]')
+        .text('Milestone Bar (Pro)');
+
+    $('#taiowc_free_shipping_style_type-field').on('change', function () {
+
+        if ($(this).val() === 'miletone') {
+
+            $(this).val('shipping-bar');
+
+            showProNotice($(this));
+        }
+    });
+
+   // Bar Style
+$('#taiowc-free_shipping_style-field option[value="style-2"]')
+    .text('Progressing Bar (Pro)');
+
+$('#taiowc-free_shipping_style-field option[value="style-4"]')
+    .text('Neon Bar (Pro)');
+
+$('#taiowc-free_shipping_style-field option[value="style-5"]')
+    .text('Premium (Pro)');
+
+$('#taiowc-free_shipping_style-field').on('change', function () {
+
+    const proStyles = ['style-2', 'style-4', 'style-5'];
+
+    if (proStyles.includes($(this).val())) {
+
+        $(this).val('style-1');
+
+        showProNotice($(this));
+    }
+});
+
+
+},
         HeaderResetTrigger: function () {
 
     $(document).on('click', 'span.reset', function (e) {
@@ -1264,3 +1321,9 @@ jQuery(document).ready(function ($) {
 
 
 });
+
+
+
+
+
+    

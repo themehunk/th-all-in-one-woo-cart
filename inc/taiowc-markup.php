@@ -210,9 +210,9 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                             $this->taiowc_free_shipping_bar();
                         }
 
-                        if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
-                            $this->taiowc_milestones_bar();
-                        }
+                        // if ( taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' ) == true ) {
+                        //     $this->taiowc_milestones_bar();
+                        // }
 
                         do_action('taiowc_mini_cart');
 
