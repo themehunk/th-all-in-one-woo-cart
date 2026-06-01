@@ -1326,7 +1326,7 @@ taiowc_main()->taiowc_add_setting(
 								'options' => array(
 
 									'shipping-bar' => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
-									'miletone'   => esc_html__( 'Milestone Bar', 'th-all-in-one-woo-cart' ),
+									'miletone'   => esc_html__( 'Milestone Bar (Pro)', 'th-all-in-one-woo-cart' ),
 
 
 								),
@@ -1353,9 +1353,9 @@ taiowc_main()->taiowc_add_setting(
 								'options' => array(
 
 									'style-1' => esc_html__( 'Default', 'th-all-in-one-woo-cart' ),
-									'style-2'   => esc_html__( 'Progressing Bar', 'th-all-in-one-woo-cart' ),
-									'style-4'   => esc_html__( 'Neon Bar', 'th-all-in-one-woo-cart' ),
-									'style-5'   => esc_html__( 'Premium', 'th-all-in-one-woo-cart' ),
+									'style-2'   => esc_html__( 'Progressing Bar (Pro)', 'th-all-in-one-woo-cart' ),
+									'style-4'   => esc_html__( 'Neon Bar (Pro)', 'th-all-in-one-woo-cart' ),
+									'style-5'   => esc_html__( 'Premium (Pro)', 'th-all-in-one-woo-cart' ),
 
 
 								),
