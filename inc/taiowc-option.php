@@ -1396,7 +1396,7 @@ taiowc_main()->taiowc_add_setting(
 							),
 
 							array(
-								'id'      => 'taiowc-milestone_unlock_text',
+								'id'      => 'taiowc-milestone_unlock_text_dummy',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Unlock Reward Text', 'th-all-in-one-woo-cart' ),
 								'default' => 'All rewards unlocked! Congrats!',
@@ -1412,21 +1412,21 @@ taiowc_main()->taiowc_add_setting(
 					'fields' => apply_filters(
 						'taiowc_milestones_bar_fields', array(
 							array(
-								'id'      => 'taiowc-milestone_1_amount',
+								'id'      => 'taiowc-milestone_1_amount_dummy',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Milestone 1 — Amount', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Spend amount to unlock milestone 1 (e.g. 50)', 'th-all-in-one-woo-cart' ),
 								'default' => '50.00',
 							),
 							array(
-								'id'      => 'taiowc-milestone_1_label',
+								'id'      => 'taiowc-milestone_1_label_dummy',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Milestone 1 — Label', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Reward label shown below the milestone icon (e.g. 10% Discount)', 'th-all-in-one-woo-cart' ),
 								'default' => esc_html__( '10% Discount', 'th-all-in-one-woo-cart' ),
 							),
 							array(
-								'id'      => 'taiowc-milestone_1_icon',
+								'id'      => 'taiowc-milestone_1_icon_dummy',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Milestone 1 — Icon', 'th-all-in-one-woo-cart' ),
 								'default' => 'discount',
@@ -1438,14 +1438,14 @@ taiowc_main()->taiowc_add_setting(
 								),
 							),
 							array(
-								'id'      => 'taiowc-milestone_1_discount_pct',
+								'id'      => 'taiowc-milestone_1_discount_pct_dummy',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Milestone 1 — Discount %', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100 (e.g. 10 for 10% off).', 'th-all-in-one-woo-cart' ),
 								'default' => '10',
 							),
 							array(
-								'id'      => 'taiowc-milestone_1_gift_product',
+								'id'      => 'taiowc-milestone_1_gift_product_dummy',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Milestone 1 — Gift Product ID', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
@@ -1463,20 +1463,20 @@ taiowc_main()->taiowc_add_setting(
 						'taiowc_milestones_bar_fields', array(
 
 							array(
-                                'id'      => 'taiowc-milestone_2_amount',
+                                'id'      => 'taiowc-milestone_2_amount_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 2 — Amount', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Leave blank to disable milestone 2', 'th-all-in-one-woo-cart' ),
                                 'default' => '75.00',
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_2_label',
+                                'id'      => 'taiowc-milestone_2_label_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 2 — Label', 'th-all-in-one-woo-cart' ),
                                 'default' => esc_html__( 'Free Gift', 'th-all-in-one-woo-cart' ),
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_2_icon',
+                                'id'      => 'taiowc-milestone_2_icon_dummy',
                                 'type'    => 'select',
                                 'title'   => esc_html__( 'Milestone 2 — Icon', 'th-all-in-one-woo-cart' ),
                                 'default' => 'gift',
@@ -1488,14 +1488,14 @@ taiowc_main()->taiowc_add_setting(
                                 ),
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_2_discount_pct',
+                                'id'      => 'taiowc-milestone_2_discount_pct_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 2 — Discount %', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
                                 'default' => '',
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_2_gift_product',
+                                'id'      => 'taiowc-milestone_2_gift_product_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 2 — Gift Product ID', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),
@@ -1513,20 +1513,20 @@ taiowc_main()->taiowc_add_setting(
 						'taiowc_milestones_bar_fields', array(
 
 							array(
-                                'id'      => 'taiowc-milestone_3_amount',
+                                'id'      => 'taiowc-milestone_3_amount_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 3 — Amount', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Leave blank to disable milestone 3', 'th-all-in-one-woo-cart' ),
                                 'default' => '100.00',
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_3_label',
+                                'id'      => 'taiowc-milestone_3_label_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 3 — Label', 'th-all-in-one-woo-cart' ),
                                 'default' => esc_html__( 'Free Shipping', 'th-all-in-one-woo-cart' ),
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_3_icon',
+                                'id'      => 'taiowc-milestone_3_icon_dummy',
                                 'type'    => 'select',
                                 'title'   => esc_html__( 'Milestone 3 — Icon', 'th-all-in-one-woo-cart' ),
                                 'default' => 'shipping',
@@ -1538,14 +1538,14 @@ taiowc_main()->taiowc_add_setting(
                                 ),
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_3_discount_pct',
+                                'id'      => 'taiowc-milestone_3_discount_pct_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 3 — Discount %', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Only used when Icon = Discount. Enter a number 1–100.', 'th-all-in-one-woo-cart' ),
                                 'default' => '',
                             ),
                             array(
-                                'id'      => 'taiowc-milestone_3_gift_product',
+                                'id'      => 'taiowc-milestone_3_gift_product_dummy',
                                 'type'    => 'text',
                                 'title'   => esc_html__( 'Milestone 3 — Gift Product ID', 'th-all-in-one-woo-cart' ),
                                 'desc'    => esc_html__( 'Only used when Icon = Gift. Enter the WooCommerce product ID to auto-add as a free item.', 'th-all-in-one-woo-cart' ),

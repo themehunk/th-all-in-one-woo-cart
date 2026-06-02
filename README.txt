@@ -162,6 +162,7 @@ Yes, You can translate our plugin to desired language.
 * Update: Fixed icon size issue resolved.
 * Update: Unlocking reward text added.
 * Update: Milstone live preview enabled in admin area.
+* Update: Milestone front working removed.
 
 = Version 2.3.2 =
 * Update: Powered by link updated.

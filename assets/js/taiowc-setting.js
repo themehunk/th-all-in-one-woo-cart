@@ -549,7 +549,7 @@ MilestoneLivePreview: function () {
 
         // selected type
         const iconType = $(
-            '#taiowc-milestone_' + milestone + '_icon-field'
+            '#taiowc-milestone_' + milestone + '_icon_dummy-field'
         ).val();
 
         // preview icon
@@ -579,7 +579,7 @@ MilestoneLivePreview: function () {
     [1, 2, 3].forEach(function (milestone) {
 
         const $select = $(
-            '#taiowc-milestone_' + milestone + '_icon-field'
+            '#taiowc-milestone_' + milestone + '_icon_dummy-field'
         );
 
         /*
