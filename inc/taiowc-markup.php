@@ -205,7 +205,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                                 'taiowc_free_shipping_style_type'
                             );
 
-                        if ( $taiowc_show_free_shipping_bar == true && $taiowc_free_shipping_style_type == 'shipping-bar'  ) {
+                        if ( $taiowc_show_free_shipping_bar == true  ) {
 
                             $this->taiowc_free_shipping_bar();
                         }

@@ -45,14 +45,13 @@ premiummesage: function () {
     }
 
     // Choose Bar
-    $('#taiowc_free_shipping_style_type-field option[value="miletone"]')
+    $('#taiowc_free_shipping_style_type-field option[value="milestone"]')
         .text('Milestone Bar (Pro)');
 
     $('#taiowc_free_shipping_style_type-field').on('change', function () {
 
-        if ($(this).val() === 'miletone') {
+        if ($(this).val() === 'milestone') {
 
-            $(this).val('shipping-bar');
 
             showProNotice($(this));
         }
@@ -74,7 +73,6 @@ $('#taiowc-free_shipping_style-field').on('change', function () {
 
     if (proStyles.includes($(this).val())) {
 
-        $(this).val('style-1');
 
         showProNotice($(this));
     }
@@ -1010,7 +1008,7 @@ function updatePreview() {
     // ==================================================
     // MILESTONE
     // ==================================================
-    else if (selectedType === 'miletone') {
+    else if (selectedType === 'milestone') {
 
         // Preview
         $shippingWrap.hide();

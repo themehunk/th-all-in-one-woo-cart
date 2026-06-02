@@ -1326,7 +1326,7 @@ taiowc_main()->taiowc_add_setting(
 								'options' => array(
 
 									'shipping-bar' => esc_html__( 'Shipping Bar', 'th-all-in-one-woo-cart' ),
-									'miletone'   => esc_html__( 'Milestone Bar (Pro)', 'th-all-in-one-woo-cart' ),
+									'milestone'   => esc_html__( 'Milestone Bar (Pro)', 'th-all-in-one-woo-cart' ),
 
 
 								),
