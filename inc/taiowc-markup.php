@@ -321,6 +321,12 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
            $taiowc_show_discount = taiowc_main()->taiowc_get_option('taiowc-show_discount');
 
+           $taiowc_show_free_shipping_bar = taiowc_main()->taiowc_get_option('taiowc-show_free_shipping_bar'
+                );
+
+           $taiowc_free_shipping_style_type = taiowc_main()->taiowc_get_option('taiowc_free_shipping_style_type'
+                );
+           
            // Collect milestone discount fees (negative fees added by rewards engine)
            $milestone_fees = array();
            foreach ( WC()->cart->get_fees() as $fee ) {
@@ -893,7 +899,17 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
     |--------------------------------------------------------------------------
     | PROGRESS
     |--------------------------------------------------------------------------
+*/
 
+    $progress = 0;
+
+    if( $goal_amount > 0 ){
+
+        $progress =
+            ( $subtotal / $goal_amount ) * 100;
+    }
+
+    $progress = min( 100, $progress );
 
     /*
     |--------------------------------------------------------------------------
