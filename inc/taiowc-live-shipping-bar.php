@@ -98,7 +98,7 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
 
     <div class="taiowc-milestones-wrap">
 
-            <div class="taiowc-milestones-message">
+            <div class="taiowc-milestones-message" data-th-text-html="taiowc-milestone_unlock_text_dummy-field">
                 All rewards unlocked! Congrats!            </div>
 
             <div class="taiowc-milestones-track-area">
@@ -123,17 +123,17 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
                 <div class="taiowc-milestones-label-row" style="top:20px">
                                         <div class="taiowc-milestones-label-item" style="left:7.296296296296%">
                         <div>
-                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_1_amount-field">50.00</span></div>
-                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_1_label-field">10% Discount</span>                    </div>
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_1_amount_dummy-field">50.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_1_label_dummy-field">10% Discount</span>                    </div>
                                         <div class="taiowc-milestones-label-item" style="left:51.592592592593%">
                        <div>
-                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_2_amount-field">75.00</span></div>
-                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_2_label-field"> Free Shipping    </span>  
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_2_amount_dummy-field">75.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_2_label_dummy-field"> Free Shipping    </span>  
                                        </div>
                                         <div class="taiowc-milestones-label-item" style="left:95%">
                         <div>
-                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_3_amount-field">150.00</span></div>
-                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_3_label-field">Free Gift </span>        
+                        <span class="woocommerce-Price-amount amount" data-th-text-html="taiowc-milestone_3_amount_dummy-field">150.00</span></div>
+                        <span class="taiowc-ms-label" data-th-text-html="taiowc-milestone_3_label_dummy-field">Free Gift </span>        
                                            </div>
                                     </div>
 
