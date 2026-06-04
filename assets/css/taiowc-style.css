@@ -1488,7 +1488,24 @@ display:block!important;
     position: absolute;
     padding-top: 1.5em;
 }
-
+/* STORE ONE CSSS STARTS   */
+.taiowc .taiowc-cart-model-body a.th-preorder-btn,
+.taiowc .taiowc-cart-model-body a.select-options{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 0 5px !important;
+    font-size: 0.575rem!important;
+}
+.taiowc .taiowc-cart-model-body a.select-options{
+    margin-top: 12px;
+    background: #111;
+    color: #FFF;
+}
+.taiowc-related-product-right-area a.th-preorder-btn .dashicons-plus-alt2{
+    font-size: 0.599rem;
+}
+/* STORE ONE CSSS END   */
 @media screen and (max-width:1024px) {
     .responsive-main-header .taiowc-cart-model-footer .cart-total, .sticky-header-bar .taiowc-cart-model-footer .cart-total {
         display: block!important;

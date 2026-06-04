@@ -469,7 +469,13 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                 $thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
-                $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+                // $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+
+
+                $live_price = $cart_item['data']->get_price(); 
+              
+
+                $product_price = apply_filters( 'woocommerce_cart_item_price', wc_price( $live_price ), $cart_item, $cart_item_key );
 
                 $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 
