@@ -95,9 +95,33 @@ class Taiowc_Milestone_Rewards {
     /**
      * Check whether milestone rewards are globally enabled.
      */
-    private function is_enabled() {
-        return (bool) taiowc_main()->taiowc_get_option( 'taiowc-show_free_shipping_bar' );
+       private function is_enabled() {
+
+    $taiowc_show_free_shipping_bar =
+        taiowc_main()->taiowc_get_option(
+            'taiowc-show_free_shipping_bar'
+        );
+
+    $taiowc_free_shipping_style_type =
+        taiowc_main()->taiowc_get_option(
+            'taiowc_free_shipping_style_type'
+        );
+
+    /*
+    |--------------------------------------------------------------------------
+    | Must be enabled + milestone mode selected
+    |--------------------------------------------------------------------------
+    */
+
+    if (
+        ! $taiowc_show_free_shipping_bar ||
+        $taiowc_free_shipping_style_type !== 'milestone'
+    ) {
+        return false;
     }
+
+    return true;
+}
 
     /* ------------------------------------------------------------------ */
     /* DISCOUNT                                                             */
