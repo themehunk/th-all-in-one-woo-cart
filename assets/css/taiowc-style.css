@@ -1494,7 +1494,7 @@ display:block!important;
     width: max-content;
     display: flex;
     align-items: center;
-    padding: 0 5px !important;
+    padding: 0 5px 0 9px!important;
     font-size: 0.575rem!important;
 }
 .taiowc .taiowc-cart-model-body a.select-options{
