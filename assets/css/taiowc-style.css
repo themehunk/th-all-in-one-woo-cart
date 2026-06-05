@@ -868,12 +868,12 @@ padding: 2px;
 
 .taiowc .quantity .amount{
     margin-left: 0.4rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 900;
 }
 .taiowc-subtotal .taiowc-value,.taiowc-total  {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1rem;
     color: #111;
     font-weight: 900;
     letter-spacing: 0;
@@ -988,9 +988,9 @@ justify-content: space-between;
 margin-bottom: 0.7rem;
 }
 .cart-total .taiowc-label{
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: #9ca3af;
+    font-size: 0.775rem;
+    line-height: 1rem;
+    color: #5a5a5a;
     font-weight: 500;
 }
 .cart-total .taiowc-total{
