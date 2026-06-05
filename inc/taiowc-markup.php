@@ -1700,7 +1700,7 @@ $progress = min( 100, max( 0, $progress ) );
         .taiowc-milestones-label-row{position:absolute;bottom:0;left:0;right:0;pointer-events:none}
         .taiowc-milestones-label-item{position:absolute;transform:translateX(-50%);text-align:center;font-size:10px;color:#888;line-height:1.3;white-space:nowrap}
         .taiowc-milestones-marker.unlocked + .taiowc-milestones-label-item{color:#27ae60}
-        .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-top:1px dashed #e8e8e8;margin-top:4px}
+        .taiowc-milestone-discount-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0 0 0;border-top:1px dashed #e8e8e8;}
         .taiowc-milestone-discount-label{color:#27ae60;font-size:13px;font-weight:500}
         .taiowc-milestone-discount-value{color:#27ae60;font-weight:600;font-size:13px}
         .taiowc-milestones-label-item .woocommerce-Price-amount{font-weight: 900; color:#111;}

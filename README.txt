@@ -164,6 +164,8 @@ Yes, You can translate our plugin to desired language.
 * Update: Milstone live preview enabled in admin area.
 * Update: Milestone front working removed.
 * Update: Bundle pricing and other style issue resolved.
+* Update: Discount percent added. 
+* Update: Regular price added.
 
 = Version 2.3.2 =
 * Update: Powered by link updated.
