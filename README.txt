@@ -1,7 +1,7 @@
 === Advance Side Cart, Ajax Cart & Floating Cart for WooCommerce   ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
-Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shopping cart
+Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shipping Bar
 Requires at least: 5.5
 Tested up to: 7.0
 Stable tag: 2.3.3
@@ -28,7 +28,14 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 **Key Features:-**
 
 ⭐ Cart Integration Using Shortcode
-⭐ Cart Integration Using PHP code
+⭐ Free Shipping Bar
+⭐ Gift & Milestone Bar
+⭐ Multiple Mobile Cart Style Layouts
+⭐ Fixed Cart Layout
+⭐ Menu Cart Layout
+⭐ Side Cart Layout
+⭐ Products Suggestions in Cart
+⭐ Coupon Suggestions in Cart
 ⭐ Side Cart for WooCommerce
 ⭐ Floating Cart Button
 ⭐ Ajax Cart for WooCommerce
@@ -38,6 +45,7 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 ⭐ Highly Responsive to each & every device.
 ⭐ Fully compatible with WordPress Themes.
 ⭐ User Friendly Customize Panel.
+⭐ Cart Integration Using PHP code
 ⭐ 24×7 support available for free product too
 
 
@@ -45,6 +53,8 @@ https://www.youtube.com/watch?v=b5Rj9Xyv1-8
 
 ⭐ Header Menu Integration
 ⭐ Cart Analytics
+⭐ Milestone Bar - Gift, Discount & Shipping Bar
+⭐ Shipping Bar - Free Shipping Bar Multiple layout
 ⭐ Show and Hide Cart
 ⭐ Using Shortcode Integration
 ⭐ Using PHP code Integration
@@ -106,10 +116,13 @@ These plugin have been tested and are compatible with all WordPress themes witho
 
 == Screenshots ==
 1. Dashboard
-2. Cart Icon
-3. Cart Layouts
-4. Color Design
-5. Cart Product Design
+2. Cart Layouts
+3. Free shipping bar
+4. Mobile Layout
+5. Milestone Bar
+6. Cart Sidebar Design
+7. Cart Product Design
+8. Cart analytics
 
 License for images:
 product-1.png,product-2.png,product-3.png,product-4.png are made with SORA AI.
