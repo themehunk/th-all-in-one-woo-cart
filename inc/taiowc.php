@@ -472,10 +472,37 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                 // $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 
 
-                $live_price = $cart_item['data']->get_price(); 
+                // $live_price = $cart_item['data']->get_price(); 
               
 
-                $product_price = apply_filters( 'woocommerce_cart_item_price', wc_price( $live_price ), $cart_item, $cart_item_key );
+                // $product_price = apply_filters( 'woocommerce_cart_item_price', wc_price( $live_price ), $cart_item, $cart_item_key );
+
+                $saved_text = '';
+                    $saved_amount = '';
+
+                    $regular_price = $cart_item['data']->get_regular_price();
+                    $live_price    = $cart_item['data']->get_price();
+
+                    if ( $regular_price && $regular_price > $live_price ) {
+
+                        $saved_amount = $regular_price - $live_price;
+                        $discount_percentage = round( ( ( $regular_price - $live_price ) / $regular_price ) * 100 );
+
+                        $product_price = '<del>' . wc_price( $regular_price ) . '</del> ';
+                        $product_price .= '<ins>' . wc_price( $live_price ) . '</ins>';
+
+                    } else {
+
+                        $product_price = wc_price( $live_price );
+
+                    }
+
+                    $product_price = apply_filters(
+                        'woocommerce_cart_item_price',
+                        $product_price,
+                        $cart_item,
+                        $cart_item_key
+                    );
 
                 $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 
@@ -582,6 +609,12 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                      ?>
 
                      <?php if(taiowc_main()->taiowc_get_option( 'taiowc-show_prd_quantity' ) || taiowc_main()->taiowc_get_option( 'taiowc-show_prd_price' ) == true){ ?>
+
+                    <div class="taiowc-saved-wrap">
+                        <span class="taiowc-saved-label"><?php esc_html_e('You Saved','taiowc'); ?> </span>
+                        
+                        <span class="taiowc-saved-percent"><?php echo esc_html( $discount_percentage); ?>%</span>
+                    </div>
 
                   <div class="item-product-quantity">
                     <?php 

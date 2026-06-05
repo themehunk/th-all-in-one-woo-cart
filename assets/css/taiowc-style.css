@@ -415,6 +415,21 @@ text-align: end;
     margin-right:0.5rem;
     display: none;
 }
+.taiowc-cart-model-body del{
+    font-size: .599rem;
+    margin-left: auto;
+    color: #9ca3af;
+}
+.taiowc-cart-model-body del .amount{
+    font-size: inherit!important;
+    color: #9ca3af;
+    font-weight: 500 !important;
+}
+.taiowc-saved-wrap{
+    font-size: .7rem;
+    font-weight: 700;
+    color: #9ca3af;
+}
 /* .taiowc-slide-right .taiowc-cart-model{
 right:-400px;
 left:auto;
@@ -996,8 +1011,8 @@ margin-bottom: 0.7rem;
 .cart-total .taiowc-total{
     border-top: 1px solid;
     border-color: rgba(129,129,129,.2);
-    margin-top: 0.7rem;
     padding-top: 0.7rem;
+    margin-bottom: 0;
 }
 
 /*coupon code list*/
