@@ -179,6 +179,7 @@ Yes, You can translate our plugin to desired language.
 * Update: Bundle pricing and other style issue resolved.
 * Update: Discount percent added. 
 * Update: Regular price added.
+* Update: Activation woo cart pro conflict issue resolved.
 
 = Version 2.3.2 =
 * Update: Powered by link updated.
