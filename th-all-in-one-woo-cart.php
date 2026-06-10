@@ -74,3 +74,28 @@ require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc.php';
 // register_activation_hook( __FILE__, 'taiowc_track_table');
 
     
+/**
+ * Taiowc_deactivate_Plugin
+ */
+
+if (!class_exists('Taiowc_deactivate_Plugin')) {
+
+class Taiowc_deactivate_Plugin{
+    /**
+     * Constructor.
+     */
+    public function __construct(){
+        register_activation_hook( __FILE__, array( $this , 'taiowc_deactivate' ) );  
+    }
+    
+    public function taiowc_deactivate() {
+       require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+       deactivate_plugins( plugin_basename('th-all-in-one-woo-cart-pro/th-all-in-one-woo-cart-pro.php' ) ); 
+    }
+
+    
+}
+
+new Taiowc_deactivate_Plugin(); 
+
+}   

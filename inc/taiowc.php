@@ -477,8 +477,9 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                 // $product_price = apply_filters( 'woocommerce_cart_item_price', wc_price( $live_price ), $cart_item, $cart_item_key );
 
-                $saved_text = '';
+                    $saved_text = '';
                     $saved_amount = '';
+                    $discount_percentage = '';
 
                     $regular_price = $cart_item['data']->get_regular_price();
                     $live_price    = $cart_item['data']->get_price();
@@ -609,12 +610,13 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                      ?>
 
                      <?php if(taiowc_main()->taiowc_get_option( 'taiowc-show_prd_quantity' ) || taiowc_main()->taiowc_get_option( 'taiowc-show_prd_price' ) == true){ ?>
-
+                    <?php if ( $discount_percentage > 0 ) { ?>
                     <div class="taiowc-saved-wrap">
                         <span class="taiowc-saved-label"><?php esc_html_e('You Saved','taiowc'); ?> </span>
                         
                         <span class="taiowc-saved-percent"><?php echo esc_html( $discount_percentage); ?>%</span>
                     </div>
+                    <?php } ?>
 
                   <div class="item-product-quantity">
                     <?php 
