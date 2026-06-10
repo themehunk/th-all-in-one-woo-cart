@@ -20,6 +20,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
+
 if (!defined('TAIOWC_PLUGIN_FILE')) {
     define('TAIOWC_PLUGIN_FILE', __FILE__);
 }
@@ -51,7 +53,7 @@ $plugin_data = get_file_data(__FILE__, array('version' => 'Version'), false);
 define('TAIOWC_VERSION', $plugin_data['version']);
 
 } 
-
+if (!defined( 'TAIOWCP_VERSION' ) ){
 /**
  * Declare the woo HPOS compatibility.
 */
@@ -99,3 +101,5 @@ class Taiowc_deactivate_Plugin{
 new Taiowc_deactivate_Plugin(); 
 
 }   
+
+}
