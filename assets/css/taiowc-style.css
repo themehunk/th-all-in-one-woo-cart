@@ -179,7 +179,7 @@ font-size: 2rem;
     margin: 0;
     list-style: none;
     text-align: left;
-    padding: 1rem 1.2rem;
+    padding: 0 1rem;
  
 }
 .taiowc .taiowc-cart-model-body .taiowc-woocommerce-mini-cart-item,
@@ -187,11 +187,11 @@ font-size: 2rem;
     position: relative;
     border: 1px solid transparent;
     border-radius: 1rem;
-    padding: 1rem!important;
+    padding: 0.4rem !important;
     background: #fff;
     margin-bottom: 1rem!important;
     display: flex;
-    gap: 1.25rem;
+    gap: 1rem;
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
@@ -207,8 +207,8 @@ font-size: 2rem;
 }
 .item-image-wrapper,
 .taiowc-related-wrap .taiowc-product-image{
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 0.75rem;
     border: 1px solid #f3f4f6;
     background-color: #f9fafb;
@@ -317,6 +317,8 @@ font-size: 2rem;
     display: flex;
     align-items: center;
     margin-top: 0.5rem;
+        font-weight: 600;
+    letter-spacing: 0;
 }
 .taiowc .taiowc-cart-model-body .woocommerce-mini-cart__total {
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
@@ -416,7 +418,7 @@ text-align: end;
     display: none;
 }
 .taiowc-cart-model-body del{
-    font-size: .599rem;
+    font-size: .725rem;
     margin-left: auto;
     color: #9ca3af;
 }
@@ -883,8 +885,8 @@ padding: 2px;
 
 .taiowc .quantity .amount{
     margin-left: 0.4rem;
-    font-size: 0.8rem;
-    font-weight: 900;
+    /* font-size: 0.8rem; */
+     font-weight: 600; 
 }
 .taiowc-subtotal .taiowc-value,.taiowc-total  {
     font-size: 1rem;
@@ -1255,7 +1257,7 @@ vertical-align: sub;
 
 /*related product show*/
 .taiowc-related-product-cont{
-padding: 1rem 1.2rem;
+padding: 0rem 1.2rem;
 }
 .taiowc-related-product-title{
     border-radius: 1rem;
@@ -1265,9 +1267,10 @@ padding: 1rem 1.2rem;
     margin: 0;
 }
 .taiowc-related-wrap .amount{
-    font-size: 0.9rem;
-    font-weight: 900;
+    font-size: 1rem;
     margin-left: 0;
+    font-weight: 600;
+    letter-spacing: 0;
 }
 .taiowc-related-product-cont ul{
 margin:0;
@@ -1302,6 +1305,9 @@ padding:0;
 }
 
 .taiowc-related-product-cont ul li .taiowc-related-product-right-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 75%;
     margin: 0;
     margin-left: 0.8rem;
@@ -1313,7 +1319,6 @@ padding:0;
 
 .taiowc-related-product-right-area h4{
     font-size: 1rem;
-    margin-bottom: 0.5rem;
     line-height: inherit;
 }
 
@@ -1322,16 +1327,15 @@ padding:0;
     display: block;
     font-size: 0.89rem;
     font-weight:500;
-    padding:0.7rem;
     text-align: center;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #ededed;
 }
 
 .taiowc-payment-title{
     background-color: transparent;
     font-weight: 700;
-    letter-spacing: .097rem;
+    letter-spacing: .03rem;
 }
 
 .woocommerce .taiowc-related-product-right-area .star-rating,
@@ -1740,7 +1744,7 @@ margin-left:0.1rem;
     flex-direction: column;
 /*    height: 99vh;*/
     height: 100%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .taiowc-cart-model-footer{
     margin-top: auto;
@@ -1972,7 +1976,7 @@ body.no-scroll {
 
 .taiowc-free-shipping-fill{
     height:100%;
-    background:#204d1c;
+    background:#0e9502;
     border-radius:30px;
     transition:.3s;
 }
@@ -2000,25 +2004,13 @@ body.no-scroll {
     text-align: center;
 }
 
-.taiowc-free-success{
-    color:#2e7d32;
-    font-weight:600;
-}
-
 .taiowc-free-success-wrap{
     position:relative;
     overflow:hidden;
     border-radius:10px;
-    background:#f3fff3;
     text-align:center;
 }
 
-.taiowc-free-success{
-    color:#2e7d32;
-    font-weight:700;
-    position:relative;
-    z-index:2;
-}
 
 /* LEFT PARTICLES */
 
@@ -2475,9 +2467,8 @@ body.no-scroll {
 /* Success */
 
 .taiowc-free-success{
-    color:#6c63ff;
-
-    font-weight:700;
+color: #464646;
+    font-weight: 500;
 }
 
 .taiowc-free-shipping-wrap.style-5  .taiowc-free-success-wrap{

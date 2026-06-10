@@ -1068,7 +1068,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
             </div>
 
             <div class="taiowc-free-shipping-icon"
-                 style="left:calc(<?php echo esc_attr( $truck_position ); ?>% - 12px)">
+                 style="left:calc(<?php echo esc_attr( $truck_position ); ?>% - 5px)">
 
                 🚚
 

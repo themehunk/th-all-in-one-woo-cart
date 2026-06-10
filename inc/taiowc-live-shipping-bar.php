@@ -80,7 +80,7 @@ $openStyle = taiowc_main()->taiowc_get_option( 'taiowc-cart_effect' );
                 <div class="taiowc-free-shipping-fill" style="width:74.404761904762%">
                 </div>
 
-                <div class="taiowc-free-shipping-icon" style="left:calc(74.404761904762% - 12px)">
+                <div class="taiowc-free-shipping-icon" style="left:calc(74.404761904762% - 5px)">
 
                     <img draggable="false" role="img" class="emoji" alt="🚚" src="<?php echo esc_url('https://s.w.org/images/core/emoji/17.0.2/svg/1f69a.svg'); ?>">
 
