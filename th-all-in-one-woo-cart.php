@@ -53,7 +53,6 @@ $plugin_data = get_file_data(__FILE__, array('version' => 'Version'), false);
 define('TAIOWC_VERSION', $plugin_data['version']);
 
 } 
-if (!defined( 'TAIOWCP_VERSION' ) ){
 /**
  * Declare the woo HPOS compatibility.
 */
@@ -64,6 +63,7 @@ function taiowc_hpos_compatibility() {
 }
 add_action( 'before_woocommerce_init', 'taiowc_hpos_compatibility');
 
+if (!defined( 'TAIOWCP_VERSION' ) ){
 require_once TAIOWC_PLUGIN_PATH . 'inc/taiowc-block.php';
 require_once TAIOWC_PLUGIN_PATH . 'inc/themehunk-menu/admin-menu.php';
 require_once TAIOWC_PLUGIN_PATH . '/inc/taiowc-option.php';
