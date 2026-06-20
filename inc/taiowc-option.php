@@ -1086,7 +1086,7 @@ taiowc_main()->taiowc_add_setting(
 										'id'      => 'taiowc-cart_pan_rltd_hd_bg_clr',
 										'type'    => 'colorpkr',
 										'title'   => esc_html__( 'Heading Background', 'th-all-in-one-woo-cart' ),
-										'default' => '#fff'
+										'default' => '#F5F4EC'
 										
 								),
 								array(

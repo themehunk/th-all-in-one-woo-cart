@@ -173,6 +173,7 @@ font-size: 2rem;
     overflow-y: auto;*/
 /*    border-bottom: 1px solid rgba(125, 87, 177, 0.1);*/
     height: 100%;
+    padding-top: .7rem;
 }
 
 .taiowc .taiowc-cart-model-body .woocommerce-mini-cart {
@@ -1262,6 +1263,7 @@ padding: 0rem 1.2rem;
 .taiowc-related-product-title{
     border-radius: 1rem;
     margin-bottom: 1rem;
+    padding: 5px 0;
 }
 .taiowc-related-wrap{
     margin: 0;
@@ -1963,7 +1965,7 @@ body.no-scroll {
     padding:15px;
     border-radius:10px;
     margin-bottom:18px;
-    margin: .7rem;
+    margin: 0 .7rem .7rem .7rem;
 }
 
 .taiowc-free-shipping-bar{
