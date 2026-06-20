@@ -478,8 +478,8 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                 // $product_price = apply_filters( 'woocommerce_cart_item_price', wc_price( $live_price ), $cart_item, $cart_item_key );
 
                     $saved_text = '';
-                    $saved_amount = '';
-                    $discount_percentage = '';
+                    $saved_amount = 0;
+                    $discount_percentage = 0;
 
                     $regular_price = $cart_item['data']->get_regular_price();
                     $live_price    = $cart_item['data']->get_price();
