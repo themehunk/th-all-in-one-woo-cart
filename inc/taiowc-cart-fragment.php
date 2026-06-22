@@ -136,7 +136,9 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
         taiowc_markup_pro()->taiowc_get_suggest_product();
 
-        taiowc_markup_pro()->taiowc_cart_total(); 
+        taiowc_markup_pro()->taiowc_ai_suggest_panel();
+
+        taiowc_markup_pro()->taiowc_cart_total();
 
         ?>
 

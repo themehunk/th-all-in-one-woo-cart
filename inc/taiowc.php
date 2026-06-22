@@ -84,7 +84,10 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
                 add_action( 'wc_ajax_taiowc_add_item_cart', array( $this,'taiowc_add_item_cart'));
 
                 add_action( 'wc_ajax_taiowc_undo_item', array( $this,'taiowc_undo_item'));
-                
+
+                add_action( 'wp_ajax_taiowc_ai_suggest',        array( $this, 'taiowc_ai_suggest_handler' ) );
+                add_action( 'wp_ajax_nopriv_taiowc_ai_suggest', array( $this, 'taiowc_ai_suggest_handler' ) );
+
             }
 
         }
@@ -211,11 +214,161 @@ if ( ! class_exists( 'Taiowc_Main' ) ):
 
                     'update_shipping_method_nonce' => wp_create_nonce( 'update-shipping-method' ),    
 
-                    'taiowc_cart_open' => esc_html(taiowc_main()->taiowc_get_option('taiowc-cart_open')),
+                    'taiowc_cart_open'  => esc_html(taiowc_main()->taiowc_get_option('taiowc-cart_open')),
                     'cart_effect'       => esc_html(taiowc_main()->taiowc_get_option('taiowc-cart_effect')),
-                    
+                    'ai_suggest_nonce'  => wp_create_nonce( 'taiowc_ai_suggest_nonce' ),
                 )
             );
+        }
+
+        public function taiowc_ai_suggest_handler() {
+
+            check_ajax_referer( 'taiowc_ai_suggest_nonce', 'nonce' );
+
+            if ( ! WC()->cart || WC()->cart->is_empty() ) {
+                wp_send_json_error( array( 'message' => __( 'Your cart is empty.', 'th-all-in-one-woo-cart' ) ) );
+            }
+
+            $cart        = WC()->cart->get_cart();
+            $exclude_ids = array();
+            $cat_ids     = array();
+            $tag_ids     = array();
+
+            foreach ( $cart as $item ) {
+                $pid           = (int) $item['product_id'];
+                $exclude_ids[] = $pid;
+
+                $cats = wp_get_post_terms( $pid, 'product_cat', array( 'fields' => 'ids' ) );
+                if ( ! is_wp_error( $cats ) ) {
+                    $cat_ids = array_merge( $cat_ids, $cats );
+                }
+
+                $tags = wp_get_post_terms( $pid, 'product_tag', array( 'fields' => 'ids' ) );
+                if ( ! is_wp_error( $tags ) ) {
+                    $tag_ids = array_merge( $tag_ids, $tags );
+                }
+            }
+
+            $cat_ids       = array_unique( $cat_ids );
+            $tag_ids       = array_unique( $tag_ids );
+            $suggested_ids = array();
+
+            $stock_meta = array( array(
+                'key'     => '_stock_status',
+                'value'   => 'instock',
+                'compare' => '=',
+            ) );
+
+            // Priority 1: Cross-sells
+            $cross = array_values( array_diff( WC()->cart->get_cross_sells(), $exclude_ids ) );
+            $suggested_ids = array_merge( $suggested_ids, $cross );
+
+            // Priority 2: Same category
+            if ( count( $suggested_ids ) < 3 && ! empty( $cat_ids ) ) {
+                $q = new WP_Query( array(
+                    'post_type'      => 'product',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => 6,
+                    'post__not_in'   => $exclude_ids,
+                    'orderby'        => 'rand',
+                    'meta_query'     => $stock_meta,
+                    'tax_query'      => array( array(
+                        'taxonomy' => 'product_cat',
+                        'field'    => 'term_id',
+                        'terms'    => $cat_ids,
+                    ) ),
+                ) );
+                while ( $q->have_posts() ) { $q->the_post(); $suggested_ids[] = get_the_ID(); }
+                wp_reset_postdata();
+            }
+
+            // Priority 3: Same tag
+            if ( count( $suggested_ids ) < 3 && ! empty( $tag_ids ) ) {
+                $q = new WP_Query( array(
+                    'post_type'      => 'product',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => 6,
+                    'post__not_in'   => $exclude_ids,
+                    'orderby'        => 'rand',
+                    'meta_query'     => $stock_meta,
+                    'tax_query'      => array( array(
+                        'taxonomy' => 'product_tag',
+                        'field'    => 'term_id',
+                        'terms'    => $tag_ids,
+                    ) ),
+                ) );
+                while ( $q->have_posts() ) { $q->the_post(); $suggested_ids[] = get_the_ID(); }
+                wp_reset_postdata();
+            }
+
+            // Priority 4: WooCommerce related products
+            if ( count( $suggested_ids ) < 3 ) {
+                foreach ( $cart as $item ) {
+                    $related       = wc_get_related_products( $item['product_id'], 6, $exclude_ids );
+                    $suggested_ids = array_merge( $suggested_ids, $related );
+                    if ( count( $suggested_ids ) >= 3 ) break;
+                }
+            }
+
+            // Deduplicate and remove cart items
+            $suggested_ids = array_slice(
+                array_unique( array_diff( $suggested_ids, $exclude_ids ) ),
+                0, 3
+            );
+
+            // Fallback: random in-stock products
+            if ( count( $suggested_ids ) < 3 ) {
+                $q = new WP_Query( array(
+                    'post_type'      => 'product',
+                    'post_status'    => 'publish',
+                    'posts_per_page' => 3 - count( $suggested_ids ),
+                    'post__not_in'   => array_merge( $exclude_ids, $suggested_ids ),
+                    'orderby'        => 'rand',
+                    'meta_query'     => $stock_meta,
+                ) );
+                while ( $q->have_posts() ) { $q->the_post(); $suggested_ids[] = get_the_ID(); }
+                wp_reset_postdata();
+            }
+
+            if ( empty( $suggested_ids ) ) {
+                wp_send_json_error( array( 'message' => __( 'No suggestions found.', 'th-all-in-one-woo-cart' ) ) );
+            }
+
+            // Build product card HTML
+            ob_start();
+            foreach ( $suggested_ids as $pid ) {
+                $product = wc_get_product( $pid );
+                if ( ! $product ) continue;
+
+                $img_url = $product->get_image_id()
+                    ? wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' )
+                    : wc_placeholder_img_src( 'woocommerce_thumbnail' );
+
+                $add_btn = taiowc_markup_pro()->taiowc_add_to_cart_url( $product );
+                ?>
+                <div class="taiowc-ai-product-card">
+                    <div class="taiowc-ai-product-thumb">
+                        <a href="<?php echo esc_url( get_permalink( $pid ) ); ?>">
+                            <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>">
+                        </a>
+                    </div>
+                    <div class="taiowc-ai-product-info">
+                        <a href="<?php echo esc_url( get_permalink( $pid ) ); ?>" class="taiowc-ai-product-name">
+                            <?php echo esc_html( $product->get_name() ); ?>
+                        </a>
+                        <div class="taiowc-ai-product-price">
+                            <?php echo wp_kses_post( $product->get_price_html() ); ?>
+                        </div>
+                    </div>
+                    <div class="taiowc-ai-product-btn">
+                        <?php echo wp_kses_post( $add_btn ); ?>
+                    </div>
+                </div>
+                <?php
+            }
+            $html = ob_get_clean();
+
+            wp_send_json_success( array( 'intro' => '', 'html' => $html ) );
         }
 
         public function taiowc_add_setting( $tab_id, $tab_title, $tab_sections, $active = false, $is_pro_tab = false, $is_new = false ) {

@@ -218,7 +218,9 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                         $this->taiowc_get_suggest_product();
 
-                        $this->taiowc_cart_total(); 
+                        $this->taiowc_ai_suggest_panel();
+
+                        $this->taiowc_cart_total();
 
                         ?>
 
@@ -1572,6 +1574,23 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
        }
 
+    }
+
+    public function taiowc_ai_suggest_panel() {
+
+        if ( ! WC()->cart || WC()->cart->is_empty() ) {
+            return;
+        }
+
+        ?>
+        <div class="taiowc-ai-suggest-wrap">
+            <button type="button" class="taiowc-ai-suggest-btn">
+                <span class="taiowc-ai-btn-icon">&#10024;</span>
+                <?php esc_html_e( 'AI Product Suggestions', 'th-all-in-one-woo-cart' ); ?>
+            </button>
+            <div class="taiowc-ai-suggest-result" style="display:none;"></div>
+        </div>
+        <?php
     }
 
     public function taiowc_milestones_bar() {

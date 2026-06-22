@@ -17,6 +17,7 @@
             $this.disableOverlayScroll();
             $this.CartRedirectLoader();
             $this.handleBodyScroll();
+            $this.aiSuggest();
         },
 
         handleBodyScroll: function () {
@@ -204,15 +205,16 @@
                 });
 
                 // related product add cart
-
                 $( document ).on('click','.taiowc-related-product-item .th-button', function(e){
-                    
                     e.preventDefault();
-
                     var quantity = $(this).val();
-
                     AddItem( $( e.currentTarget ).data('product_id'), quantity );
+                });
 
+                // AI suggested product add cart
+                $( document ).on('click', '.taiowc-ai-product-btn .th-button', function(e){
+                    e.preventDefault();
+                    AddItem( $( e.currentTarget ).data('product_id'), 1 );
                 });
 
 
@@ -921,9 +923,111 @@ disableOverlayScroll: function () {
             })
         }
 
-       
+
+        },
+
+        aiSuggest: function () {
+
+            var COOKIE = 'taiowc_ai_suggest';
+
+            function cartHashKey() {
+                return ( typeof wc_cart_fragments_params !== 'undefined' && wc_cart_fragments_params.cart_hash_key )
+                    ? wc_cart_fragments_params.cart_hash_key
+                    : 'wc_cart_hash';
+            }
+
+            function currentCartHash() {
+                return localStorage.getItem( cartHashKey() ) || '';
+            }
+
+            function saveCookie( data ) {
+                data.cartHash = currentCartHash();
+                var expires = new Date( Date.now() + 60 * 60 * 1000 ).toUTCString(); // 1 hour
+                document.cookie = COOKIE + '=' + encodeURIComponent( JSON.stringify( data ) )
+                    + '; expires=' + expires + '; path=/; SameSite=Lax';
+            }
+
+            function readCookie() {
+                var match = document.cookie.match( new RegExp( '(?:^|;\\s*)' + COOKIE + '=([^;]*)' ) );
+                if ( ! match ) return null;
+                try { return JSON.parse( decodeURIComponent( match[1] ) ); } catch(e) { return null; }
+            }
+
+            function deleteCookie() {
+                document.cookie = COOKIE + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            }
+
+            function renderSuggestion( $result, data ) {
+                var intro = data.intro ? '<p class="taiowc-ai-intro">' + data.intro + '</p>' : '';
+                $result.html( intro + ( data.html || '' ) ).show();
+            }
+
+            // Restore from cookie after every fragment refresh
+            function tryRestoreFromCookie() {
+                var $result = $( '.taiowc-ai-suggest-result' );
+                if ( ! $result.length ) return;
+
+                var data = readCookie();
+                if ( ! data ) return;
+
+                // Invalidate if cart changed since suggestion was saved
+                if ( data.cartHash && data.cartHash !== currentCartHash() ) {
+                    deleteCookie();
+                    return;
+                }
+
+                renderSuggestion( $result, data );
+            }
+
+            // Run after WooCommerce fragment refresh (covers page load + cart updates)
+            $( document.body ).on( 'wc_fragments_loaded wc_fragments_refreshed', function() {
+                tryRestoreFromCookie();
+            });
+
+            // Clear cookie whenever cart composition changes
+            $( document ).on( 'added_to_cart removed_from_cart', function() {
+                deleteCookie();
+                $( '.taiowc-ai-suggest-result' ).hide().html( '' );
+            });
+
+            // Button click — fetch fresh suggestions
+            $( document ).on( 'click', '.taiowc-ai-suggest-btn', function () {
+
+                var $btn    = $( this );
+                var $result = $btn.siblings( '.taiowc-ai-suggest-result' );
+
+                if ( $btn.hasClass( 'taiowc-ai-loading' ) ) return;
+
+                $btn.addClass( 'taiowc-ai-loading' ).prop( 'disabled', true );
+                $result.hide().html( '' );
+
+                $.ajax({
+                    url:  taiowc_param.ajax_url,
+                    type: 'POST',
+                    data: {
+                        action: 'taiowc_ai_suggest',
+                        nonce:  taiowc_param.ai_suggest_nonce
+                    },
+                    success: function ( res ) {
+                        if ( res && res.success ) {
+                            var data = { intro: res.data.intro || '', html: res.data.html || '' };
+                            saveCookie( data );
+                            renderSuggestion( $result, data );
+                        } else {
+                            var msg = ( res && res.data && res.data.message ) ? res.data.message : 'AI suggestion failed.';
+                            $result.html( '<span class="taiowc-ai-error">' + msg + '</span>' ).fadeIn( 'fast' );
+                        }
+                    },
+                    error: function () {
+                        $result.html( '<span class="taiowc-ai-error">Connection error. Please try again.</span>' ).fadeIn( 'fast' );
+                    },
+                    complete: function () {
+                        $btn.removeClass( 'taiowc-ai-loading' ).prop( 'disabled', false );
+                    }
+                });
+            });
         }
-   
+
 }
 
 taiowcscriptLib.init();
