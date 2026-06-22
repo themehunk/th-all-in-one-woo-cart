@@ -221,7 +221,7 @@ taiowc_main()->taiowc_add_setting(
 
 
 				array(
-					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE', 'th-all-in-one-woo-cart' ),
+					'title'  => esc_html__('PRODUCTS YOU MAY ALSO LIKE (Pro)', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_related_product_setting_fields', array(
 							array(
@@ -245,7 +245,7 @@ taiowc_main()->taiowc_add_setting(
 								'id'      => 'taiowc-choose_prdct_like',
 								'type'    => 'select',
 								'title'   => esc_html__( 'Choose Product', 'th-all-in-one-woo-cart' ),
-								'default' =>'croos-sell',
+								'default' =>'related',
 								'options' => array(
 									'cross-sell'   => esc_html__( 'Cross Sell', 'th-all-in-one-woo-cart' ),
 									'up-sell'      => esc_html__( 'Up Sell', 'th-all-in-one-woo-cart' ),
@@ -269,7 +269,7 @@ taiowc_main()->taiowc_add_setting(
 
 
 					array(
-					'title'  => esc_html__( 'Payment Settings', 'th-all-in-one-woo-cart' ),
+					'title'  => esc_html__( 'Payment Settings (Pro)', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_payment_setting_fields', array(
 							array(
@@ -329,7 +329,7 @@ taiowc_main()->taiowc_add_setting(
 					)
 				 ),
 			     	array(
-					'title'  => esc_html__( 'COUPON SETTINGS', 'th-all-in-one-woo-cart' ),
+					'title'  => esc_html__( 'COUPON SETTINGS (Pro)', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_coupon_setting_fields', array(   
 						      array(
@@ -441,14 +441,14 @@ taiowc_main()->taiowc_add_setting(
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Hide on Cart Page', 'th-all-in-one-woo-cart' ),	
 								'desc'    => esc_html__( 'Prevents the floating cart from appearing when the customer is viewing their cart summary.', 'th-all-in-one-woo-cart' ),
-								'default' => false
+								'default' => true
 							),	
 							array(
 								'id'      => 'taiowc-hide-checkoutp',
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Hide on Checkout Page', 'th-all-in-one-woo-cart' ),
 								'desc'    => esc_html__( 'Disables the cart widget during the checkout process to minimize distractions and improve conversion.', 'th-all-in-one-woo-cart' ),	
-								'default' => false
+								'default' => true
 							),	
 							array(
 								'id'      => 'taiowc-hide-shopp',
@@ -462,7 +462,7 @@ taiowc_main()->taiowc_add_setting(
 								'type'    => 'checkbox',
 								'title'   => esc_html__( 'Hide on Account Page', 'th-all-in-one-woo-cart' ),	
 								'desc'    => esc_html__( 'Removes visibility from the customer dashboard and account management areas.', 'th-all-in-one-woo-cart' ),
-								'default' => false
+								'default' => true
 							),
 							array(
 								'id'      => 'taiowc-hide-singlep',
@@ -488,7 +488,7 @@ taiowc_main()->taiowc_add_setting(
 							array(
 								'id'      => 'taiowc-not_showing_page',
 								'type'    => 'textarea',
-								'title'   => esc_html__( 'Hide Cart from Pages', 'th-all-in-one-woo-cart' ),
+								'title'   => esc_html__( 'Hide Cart from Pages (Pro)', 'th-all-in-one-woo-cart' ),
 								'desc'   => esc_html__( 'To Hide Cart from Selected Pages, Use Taxonomy/PageID/Slug Separated by Comma. For Eg: post,69,about-us.
 								To hide Cart from all Non WooCommerce Pages use no-woocommerce Same for Checkout Page use checkout, and for Cart page use cart', 'th-all-in-one-woo-cart' ),
 								'default' =>'',
