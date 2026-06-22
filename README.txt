@@ -175,6 +175,8 @@ Update: Cart modal body padding top added.
 Update: Related product title bg color modified.
 Update: Related Product Slider improved.
 
+* Update: COUPON SETTINGS (Pro),Payment Settings (Pro),PRODUCTS YOU MAY ALSO LIKE (Pro),Footer Text made allowed for pro users.
+
 
 = Version 2.3.3 =
 * Update: Modal layout modified.
