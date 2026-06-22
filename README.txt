@@ -171,6 +171,9 @@ Yes, You can translate our plugin to desired language.
 Update: Sidebar cart style and design improvements.
 Update: Shipping bar design enhancements.
 Fix: Resolved discount calculation issue.
+Update: Cart modal body padding top added.
+Update: Related product title bg color modified.
+Update: Related Product Slider improved.
 
 
 = Version 2.3.3 =

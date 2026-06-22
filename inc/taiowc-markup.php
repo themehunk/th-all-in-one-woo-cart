@@ -1531,24 +1531,29 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
 
                     jQuery('ul.taiowc-related-product-products').owlCarousel({
 
-                                rtl:false,
-                                items:1,
-                                loop:true,
-                                margin:0,
-                                nav:true,  
+                                rtl: false,
+                                items: 1,
+                                loop: true,
+                                margin: 0,
+
+                                nav: true,
                                 navText: [
-                                  "<span class='dashicons dashicons-arrow-left-alt'></span>",
-                                  "<span class='dashicons dashicons-arrow-right-alt'></span>",
-                                ], 
-                                autoHeight:true,
-                                loop:false,
-                                dots:false,
-                                smartSpeed:500,
-                                autoplay:false,
-                                autoplayTimeout:2000,
+                                    "<span class='dashicons dashicons-arrow-left-alt'></span>",
+                                    "<span class='dashicons dashicons-arrow-right-alt'></span>"
+                                ],
+
+                                dots: false,
+                                smartSpeed: 800,      // transition smooth
+                                slideTransition: 'ease',
+
+                                autoplay: true,       // auto slide
+                                autoplayTimeout: 3000,
                                 autoplayHoverPause: true,
-                                touchDrag  : false,
-                                mouseDrag  : false, 
+
+                                touchDrag: true,      // swipe support
+                                mouseDrag: true,      // drag support
+
+                                autoHeight: true 
                                 
                              
                          });
