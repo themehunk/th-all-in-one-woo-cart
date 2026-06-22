@@ -194,9 +194,21 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 	             if( isset($_POST['taiowc']) && is_array( $_POST['taiowc'] ) ){
 
-	                      $sanitize_data_array = $this->taiowc_form_sanitize( wp_unslash($_POST['taiowc'] ));
+	                      $sanitize_data_array = $this->taiowc_form_sanitize(
+						    wp_unslash($_POST['taiowc'])
+						);
 
-	                      update_option('taiowc',$sanitize_data_array); 
+						/*
+						|--------------------------------------------------------------------------
+						| Locked Lite Settings
+						|--------------------------------------------------------------------------
+						*/
+
+						foreach ( $this->get_locked_fields() as $key => $value ) {
+						    $sanitize_data_array[ $key ] = $value;
+						}
+
+						update_option( 'taiowc', $sanitize_data_array );
 
 		            }
 
@@ -216,6 +228,51 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		   return $new_input;
 
 	    }
+
+	    private function get_locked_fields() {
+
+    return array(
+
+    	 // PRODUCTS YOU MAY ALSO LIKE
+        'taiowc-show_rld_product'       => '1',
+        'taiowcduct_may_like_tle'       => 'Products you may like',
+        'taiowc-choose_prdct_like'      => 'related',
+        'taiowcduct_may_like_id'        => '',
+
+        // Footer Text
+        'taiowc-show_copyright'        => '1',
+        'taiowc-custom_copyright'      => 'ThemeHunk',
+        'taiowc-custom_copyright_link' => 'https://themehunk.com/th-all-in-one-woo-cart/',
+
+        // Payment Details
+        'taiowc-pay_hd'        	  		=> 'Payment Details',
+        'taiowc-sub_total'        		=> 'Sub Total',
+        'taiowc-show_shipping'        	=> '1',
+        'taiowc-ship_txt'         		=> 'Shipping',
+        'taiowc-show_discount'    		=> '1',
+        'taiowc-discount_txt'        	=> 'Discount',
+        'taiowc-total_txt'        		=> 'Total',
+
+        // Coupon Settings
+        'taiowc-show_coupon'        => '1',
+        'taiowc-coupon_plchdr_txt'  => 'Enter your Promo Code',
+        'taiowc-coupon_aply_txt'    => 'Apply',
+        'taiowc-show_coupon_list'   => '1',
+        'taiowc-coupon_btn_txt'     => 'View Coupons',
+        'taiowc-show_added_coupon'  => '1',
+
+        'taiowc-not_showing_page' => ''
+
+    );
+}
+
+private function is_locked_field( $field_id ) {
+
+    return array_key_exists(
+        $field_id,
+        $this->get_locked_fields()
+    );
+}
 
 		public function taiowc_options_tabs() {
 			?>
@@ -546,11 +603,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
                
 			$value = (bool)( $this->taiowc_get_option( $args['id'] ) );
 
+			$is_locked = $this->is_locked_field( $args['id'] );
+
 			$attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';?>
 
             <fieldset>
             	<label class="th-toggle">
-            		<input <?php echo esc_attr($attrs); ?> type="checkbox" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="1" <?php echo esc_attr(checked( $value, true, false ));?>> <?php if ( ! empty( $args['desc'] ) ) {  echo esc_html($args['desc']); } ?>
+            		<input <?php echo esc_attr($attrs); ?> <?php disabled( $is_locked ); ?> type="checkbox" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="1" <?php echo esc_attr(checked( $value, true, false ));?>> <?php if ( ! empty( $args['desc'] ) ) {  echo esc_html($args['desc']); } ?>
             	</label>     
             </fieldset>
 			
@@ -567,9 +626,11 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 			$size    = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
 			$attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';
+
+			$is_locked = $this->is_locked_field( $args['id'] );
 			?>
 
-			<select <?php echo esc_attr($attrs); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]">
+			<select <?php echo esc_attr($attrs); ?> <?php disabled( $is_locked ); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]">
 
 				<?php foreach($options as $key => $value){ ?>
 
@@ -592,11 +653,13 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			$value =  $this->taiowc_get_option( $args['id'] );
 
+			$is_locked = $this->is_locked_field( $args['id'] );
+
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
 			$attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';?>
 
-            <input type="text" class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"/>
+            <input type="text" <?php disabled( $is_locked ); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"/>
 
             <?php if ( ! empty( $args['desc'] ) ) { ?>
 
@@ -613,12 +676,14 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			$value = $this->taiowc_get_option( $args['id'] );
 
+			$is_locked = $this->is_locked_field( $args['id'] );
+
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 
 			$attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';
 			?>
 
-           <textarea class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]"><?php echo esc_attr($value); ?></textarea>
+           <textarea <?php disabled( $is_locked ); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]"><?php echo esc_attr($value); ?></textarea>
 
           <?php if ( ! empty( $args['desc'] ) ) { ?>
 
@@ -689,12 +754,14 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 
 			$value = $this->taiowc_get_option( $args['id'] );
 
+			$is_locked = $this->is_locked_field( $args['id'] );
+
 			$size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'small';
 
 			$attrs = isset( $args['attrs'] ) ? $this->taiowc_make_implode_html_attributes( $args['attrs'] ) : '';
             ?>
 
-			<input type="number"  <?php echo esc_attr($attrs); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"  min="<?php echo esc_attr($args['min']); ?>" max="<?php echo esc_attr($args['max']); ?>" step="<?php  if ( ! empty($args['step']) ) { 
+			<input type="number" <?php disabled( $is_locked ); ?> <?php echo esc_attr($attrs); ?> class="<?php echo esc_attr($size); ?>-text" id="<?php echo esc_attr($args['id']); ?>-field" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>"  min="<?php echo esc_attr($args['min']); ?>" max="<?php echo esc_attr($args['max']); ?>" step="<?php  if ( ! empty($args['step']) ) { 
 				echo esc_attr($args['step']); } ?>" />
 
               <?php if(isset( $args['suffix'] ) && ! is_null( $args['suffix'] ) ){ ?>
@@ -717,10 +784,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		public function taiowc_colorpkr_field_callback( $args ){
 
 			$value = $this->taiowc_get_option( $args['id'] );
+
+			$is_locked = $this->is_locked_field( $args['id'] );
 			
 			?>
 
-		  <input type="text" class="color_picker" id="<?php echo esc_attr($args['id']);?>" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>" style="background:<?php echo esc_attr($value); ?>" />
+		  <input type="text" <?php disabled( $is_locked ); ?> class="color_picker" id="<?php echo esc_attr($args['id']);?>" name="<?php echo esc_attr($this->setting_name);?>[<?php echo esc_attr($args['id']);?>]" value="<?php echo esc_attr($value); ?>" style="background:<?php echo esc_attr($value); ?>" />
           
           <?php if ( ! empty( $args['desc'] ) ) { ?>
 
@@ -1010,6 +1079,12 @@ if ( ! class_exists( 'Taiowc_Set' ) ):
 		public function taiowc_get_option( $option ) {
 
 			$default = $this->taiowc_get_default( $option );
+
+			$locked_fields = $this->get_locked_fields();
+
+		    if ( isset( $locked_fields[ $option ] ) ) {
+		        return $locked_fields[ $option ];
+		    }
 
 			$options = get_option( $this->setting_name );
 
