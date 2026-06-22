@@ -389,7 +389,7 @@ taiowc_main()->taiowc_add_setting(
 					  )
 				  ),	
 				  array(
-					'title'  => esc_html__( 'Footer Text', 'th-all-in-one-woo-cart' ),
+					'title'  => esc_html__( 'Footer Text (Pro)', 'th-all-in-one-woo-cart' ),
 					'fields' => apply_filters(
 						'taiowc_coupon_setting_fields', array(   
 						    array(
