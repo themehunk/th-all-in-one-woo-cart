@@ -40,8 +40,8 @@
 
        --taiowc-iconfontSize:32px;
        --taiowc-pricefontSize:14px;
-       --taiowc-countSize:25px;
-       --taiowc-countFontSize:12px;
+       --taiowc-countSize:1.125rem;
+       --taiowc-countFontSize:0.65rem;
        --taiowc-borderRadius:3px;
 
        --taiowc-iconfontSizeTablet:32px;
@@ -98,7 +98,7 @@
     display:none;
 }
 .wp-block-taiowc.th-showcount .cart-count-item{
-    display:block;
+    display: flex;
 }
 
 //Tablet
