@@ -40,20 +40,20 @@
 
        --taiowc-iconfontSize:32px;
        --taiowc-pricefontSize:14px;
-       --taiowc-countSize:25px;
-       --taiowc-countFontSize:12px;
+       --taiowc-countSize:1.125rem;
+       --taiowc-countFontSize:0.65rem;
        --taiowc-borderRadius:3px;
 
        --taiowc-iconfontSizeTablet:32px;
        --taiowc-pricefontSizeTablet:14px;
-       --taiowc-countSizeTablet:25px;
-       --taiowc-countFontSizeTablet:12px;
+       --taiowc-countSizeTablet:1.125rem;
+       --taiowc-countFontSizeTablet:0.65rem;
        --taiowc-borderRadiusTablet:3px;
 
        --taiowc-confontSizeMobile:32px;
        --taiowc-pricefontSizeMobile:14px;
-       --taiowc-countSizeMobile:25px;
-       --taiowc-countFontSizeMobile:12px;
+       --taiowc-countSizeMobile:1.125rem;
+       --taiowc-countFontSizeMobile:0.65rem;
        --taiowc-borderRadiusMobile:3px;
 
 }
@@ -98,7 +98,7 @@
     display:none;
 }
 .wp-block-taiowc.th-showcount .cart-count-item{
-    display:block;
+    display: flex;
 }
 
 //Tablet
