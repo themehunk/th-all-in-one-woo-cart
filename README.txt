@@ -170,6 +170,7 @@ Yes, You can translate our plugin to desired language.
 = Version 2.3.5 =
 * Update: Language files added.
 * Update: Count style in block cart updated.
+* Update: Deactivation Form added.
 
 = Version 2.3.4 =
 Update: Sidebar cart style and design improvements.
