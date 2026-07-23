@@ -1526,6 +1526,9 @@ display:block!important;
 .taiowc-related-product-right-area a.th-preorder-btn .dashicons-plus-alt2{
     font-size: 0.599rem;
 }
+.taiowc-icon svg{
+    width: inherit;
+}
 /* STORE ONE CSSS END   */
 @media screen and (max-width:1024px) {
     .responsive-main-header .taiowc-cart-model-footer .cart-total, .sticky-header-bar .taiowc-cart-model-footer .cart-total {
