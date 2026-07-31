@@ -123,6 +123,10 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
                     'taiowc_free_shipping_style_type'
                 );
 
+                 $ai_suggestion =  taiowc_main()->taiowc_get_option( 'taiowc-show_ai_suggestion' );
+
+                 $ai_suggestion = (int) $ai_suggestion;
+
             if ( $taiowc_show_free_shipping_bar == true ) {
 
                 taiowc_markup_pro()->taiowc_free_shipping_bar();
@@ -136,7 +140,9 @@ if ( ! class_exists( 'Taiowc_Cart_Fragment' ) ):
 
         taiowc_markup_pro()->taiowc_get_suggest_product();
 
+        if ( $ai_suggestion  ) {
         taiowc_markup_pro()->taiowc_ai_suggest_panel();
+        }
 
         taiowc_markup_pro()->taiowc_cart_total();
 
