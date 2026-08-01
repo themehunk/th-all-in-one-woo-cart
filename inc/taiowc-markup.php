@@ -1591,7 +1591,6 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
         ?>
         <div class="taiowc-ai-suggest-wrap">
             <button type="button" class="taiowc-ai-suggest-btn">
-                <span class="taiowc-ai-btn-icon">&#10024;</span>
                 <?php echo taiowc_main()->taiowc_get_option( 'taiowc_ai_heading' ); ?>
                 
             </button>

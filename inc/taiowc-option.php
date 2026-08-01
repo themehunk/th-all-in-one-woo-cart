@@ -185,7 +185,7 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 								'id'      => 'taiowc_ai_heading',
 								'type'    => 'text',
 								'title'   => esc_html__( 'Heading', 'th-all-in-one-woo-cart' ),
-								'default' => esc_html__( 'AI Product Suggestions', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( '✨ AI Product Suggestions', 'th-all-in-one-woo-cart' ),
 							),
 
 							 array(
