@@ -176,8 +176,8 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 							array(
 								'id'      => 'taiowc-show_ai_suggestion',
 								'type'    => 'checkbox',
-								'title'   => esc_html__( 'AI Suggestion', 'th-all-in-one-woo-cart' ),
-								'desc'    => esc_html__( 'Uncheck to hide product image from cart panel.', 'th-all-in-one-woo-cart' ),
+								'title'   => esc_html__( 'Enable AI Suggestion Products', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Check to show product recommendation with AI', 'th-all-in-one-woo-cart' ),
 								'default' => true
 							),	
 
