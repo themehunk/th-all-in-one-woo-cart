@@ -2551,7 +2551,7 @@ color: #464646;
     border-top:1px solid #f0f0f0;
     box-sizing: border-box;
 }
-.taiowc-ai-suggest-btn{
+.taiowc-ai-suggest-wrap .taiowc-ai-suggest-btn{
     display:flex;
     align-items:center;
     gap:6px;
@@ -2655,7 +2655,7 @@ color: #464646;
 .taiowc-ai-product-btn{
     flex:0 0 auto;
 }
-.woocommerce .taiowc-ai-product-btn .th-button{
+.taiowc-ai-suggest-result .taiowc-ai-product-btn .th-button{
     display:flex!important;
     align-items:center;
     justify-content:center;
