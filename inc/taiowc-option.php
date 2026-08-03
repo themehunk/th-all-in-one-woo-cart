@@ -167,6 +167,49 @@ if ( ! class_exists( 'Taiowc_Options' ) ):
 					 )
 				 ),
 
+				// AI Suggestions
+
+				array(
+					'title'  => esc_html__( 'AI Suggestion Products', 'th-all-in-one-woo-cart' ),
+					'fields' => apply_filters(
+						'taiowc_ai_suggestion_fields', array(
+							array(
+								'id'      => 'taiowc-show_ai_suggestion',
+								'type'    => 'checkbox',
+								'title'   => esc_html__( 'Enable AI Suggestion Products', 'th-all-in-one-woo-cart' ),
+								'desc'    => esc_html__( 'Check to show product recommendation with AI', 'th-all-in-one-woo-cart' ),
+								'default' => true
+							),	
+
+							array(
+								'id'      => 'taiowc_ai_heading',
+								'type'    => 'text',
+								'title'   => esc_html__( 'Heading', 'th-all-in-one-woo-cart' ),
+								'default' => esc_html__( '✨ AI Product Suggestions', 'th-all-in-one-woo-cart' ),
+							),
+
+							 array(
+										'id'      => 'taiowc_ai_heading_bg',
+										'type'    => 'colorpkr',
+										'title'   => esc_html__( 'Heading Background', 'th-all-in-one-woo-cart' ),
+										'default' => ''
+										
+								),
+
+							  array(
+										'id'      => 'taiowc_ai_heading_color',
+										'type'    => 'colorpkr',
+										'title'   => esc_html__( 'Heading Color', 'th-all-in-one-woo-cart' ),
+										'default' => ''
+										
+								),
+								
+							
+							
+						)
+					)
+				 ),
+
 			   )
 		     ),
 		   );

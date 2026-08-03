@@ -2549,6 +2549,7 @@ color: #464646;
 .taiowc-ai-suggest-wrap{
     padding:10px 14px;
     border-top:1px solid #f0f0f0;
+    box-sizing: border-box;
 }
 .taiowc-ai-suggest-btn{
     display:flex;
@@ -2654,14 +2655,15 @@ color: #464646;
 .taiowc-ai-product-btn{
     flex:0 0 auto;
 }
-.taiowc-ai-product-btn .th-button{
-    display:flex;
+.woocommerce .taiowc-ai-product-btn .th-button{
+    display:flex!important;
     align-items:center;
     justify-content:center;
-    width:34px;
-    height:34px;
-    border-radius:8px;
-    background:#1a1a1a;
+    width:21px;
+    height:21px;
+    border-radius: 5px;
+    background: #111;
+    border: 1px solid green;
     color:#fff !important;
     border:none;
     cursor:pointer;
@@ -2675,6 +2677,9 @@ color: #464646;
     font-weight:300;
     line-height:1;
     color:#fff;
+}
+.woocommerce .taiowc-ai-product-btn .th-button:hover{
+    background: #111;
 }
 .taiowc-ai-product-btn .th-button .dashicons{
     display:none;
