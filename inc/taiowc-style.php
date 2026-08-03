@@ -250,7 +250,7 @@ $taiowc_custom_css.=".taiowc-coupon,.taiowc-coupon-list-content{display:none;}";
 $taiowc_ai_heading_bg  = taiowc_main()->taiowc_get_option( 'taiowc_ai_heading_bg' );
 $taiowc_ai_heading_color  = taiowc_main()->taiowc_get_option( 'taiowc_ai_heading_color' );
 
-$taiowc_custom_css.=".taiowc-ai-suggest-btn{
+$taiowc_custom_css.=".taiowc-ai-suggest-wrap .taiowc-ai-suggest-btn{
     background:{$taiowc_ai_heading_bg};
     color:{$taiowc_ai_heading_color};
 }";
