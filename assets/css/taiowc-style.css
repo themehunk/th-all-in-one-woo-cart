@@ -1322,6 +1322,8 @@ padding:0;
 .taiowc-related-product-right-area h4{
     font-size: 1rem;
     line-height: inherit;
+    margin: 0;
+    margin-bottom: .19rem;
 }
 
 .taiowc-related-product-title,
@@ -1365,6 +1367,7 @@ padding:0;
     background: #111;
     text-decoration: none !important;
     border-radius: 5px;
+    min-height: initial!important;
 }
 
 .taiowc-cart-model .taiowc-related-product-right-area .button.th-button:hover {
@@ -1485,8 +1488,10 @@ margin: 0.25rem!important;
 display:block!important;
 }
 
-.woocommerce .taiowc-cart-model-body .star-rating,.taiowc-cart-model-body .star-rating {
-    font-size: 0.79em;
+.woocommerce .taiowc-cart-model-body .star-rating,
+.taiowc-cart-model-body .star-rating {
+    font-size: 0.79em!important;
+    letter-spacing: 1px!important;
     color: #e5a632;
     margin-top: 0.5rem;
     float: none;
