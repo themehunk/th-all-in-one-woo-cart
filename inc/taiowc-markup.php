@@ -1554,7 +1554,7 @@ if ( ! class_exists( 'Taiowc_Markup_Pro' ) ):
                                 smartSpeed: 800,      // transition smooth
                                 slideTransition: 'ease',
 
-                                autoplay: false,       // auto slide
+                                autoplay: true,       // auto slide
                                 autoplayTimeout: 3000,
                                 autoplayHoverPause: true,
 

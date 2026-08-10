@@ -168,7 +168,8 @@ Yes, You can translate our plugin to desired language.
 == Changelog ==
 
 = Version 2.3.7 =
-* Update: AI Suggestion seetings added.
+* Update: AI Suggestion settings added.
+* Update: Style Improved.
 
 = Version 2.3.6 =
 * Update: Svg issue in iphone resolved.

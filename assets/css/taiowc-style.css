@@ -276,6 +276,9 @@ font-size: 2rem;
 .taiowc .taiowc-cart-model-body .woocommerce-mini-cart .variation *{
     display: inline-flex;
 }
+.taiowc .taiowc-cart-model-body .woocommerce-mini-cart dd *{
+    margin: 0;
+}
 .taiowc .taiowc-cart-model-body .woocommerce-mini-cart dd{
     margin: 5px 0;
     line-height: 16px;
