@@ -675,11 +675,13 @@
                 
                 cart_shipping.init();
 
-            }
+            
 
             $( document.body ).on( 'updated_shipping_method', function(){
                 $( document.body ).trigger( 'wc_fragment_refresh' );
             } );
+
+        }
             
             //Shipping toggle
 
