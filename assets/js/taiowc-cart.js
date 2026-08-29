@@ -25,276 +25,322 @@
 SingleProductAddToCart: function () {
 
     /*
-     * Only run on single product pages.
+     * Only single product page.
      */
     if (!$('body').hasClass('single-product')) {
         return;
     }
 
+
     /*
-     * Remove only our previous event and bind again.
-     * This avoids duplicate bindings without a global variable.
+     * Remove only our old handlers.
+     * No duplicate binding.
      */
     $(document)
         .off(
-            'click.taiowcSingleATC',
-            'body.single-product form.cart:not(.variations_form) .single_add_to_cart_button'
-        )
-        .on(
-            'click.taiowcSingleATC',
-            'body.single-product form.cart:not(.variations_form) .single_add_to_cart_button',
-            function (e) {
+            '.taiowcSingleATC',
+            'body.single-product form.cart:not(.variations_form)'
+        );
 
-                e.preventDefault();
-                e.stopImmediatePropagation();
 
-                var $button = $(this);
-                var $form   = $button.closest('form.cart');
+    /*
+     * -----------------------------------------
+     * MAIN SIMPLE PRODUCT AJAX FUNCTION
+     * -----------------------------------------
+     */
+    function addSimpleProductToCart($form, $button) {
+
+        /*
+         * Already processing.
+         */
+        if (
+            !$form.length ||
+            !$button.length ||
+            $button.hasClass('loading')
+        ) {
+            return;
+        }
+
+
+        /*
+         * Product ID.
+         *
+         * IMPORTANT:
+         * Use add-to-cart hidden/button value.
+         */
+        var productID = $form
+            .find('[name="add-to-cart"]')
+            .val();
+
+        if (!productID) {
+            productID = $button.val();
+        }
+
+        if (!productID) {
+            productID = $button.attr('value');
+        }
+
+        if (!productID) {
+            return;
+        }
+
+
+        /*
+         * Current quantity.
+         *
+         * This gets the CURRENT modified value.
+         */
+        var quantity = $form
+            .find('input.qty[name="quantity"]')
+            .val();
+
+        quantity = quantity || 1;
+
+
+        /*
+         * IMPORTANT:
+         * Build clean WooCommerce AJAX data.
+         *
+         * Do not rely only on serialize().
+         */
+        var data = {
+            product_id: productID,
+            quantity: quantity
+        };
+
+
+        /*
+         * WooCommerce AJAX URL.
+         */
+        var ajaxURL = '';
+
+        if (
+            typeof taiowc_param !== 'undefined' &&
+            taiowc_param.wc_ajax_url
+        ) {
+
+            ajaxURL = taiowc_param.wc_ajax_url
+                .toString()
+                .replace(
+                    '%%endpoint%%',
+                    'add_to_cart'
+                );
+
+        } else if (
+            typeof wc_add_to_cart_params !== 'undefined' &&
+            wc_add_to_cart_params.wc_ajax_url
+        ) {
+
+            ajaxURL = wc_add_to_cart_params.wc_ajax_url
+                .toString()
+                .replace(
+                    '%%endpoint%%',
+                    'add_to_cart'
+                );
+        }
+
+
+        if (!ajaxURL) {
+            return;
+        }
+
+
+        /*
+         * Every request:
+         *
+         * added -> loading
+         */
+        $button
+            .removeClass('added')
+            .addClass('loading');
+
+
+        /*
+         * AJAX Add To Cart.
+         */
+        $.ajax({
+
+            type: 'POST',
+
+            url: ajaxURL,
+
+            data: data,
+
+            dataType: 'json',
+
+            cache: false,
+
+
+            success: function (response) {
 
                 /*
-                 * Safety checks.
+                 * WooCommerce error.
                  */
                 if (
-                    !$form.length ||
-                    $button.hasClass('loading')
-                ) {
-                    return false;
-                }
-
-                /*
-                 * Get product ID.
-                 */
-                var productID = $button.val();
-
-                if (!productID) {
-                    productID = $form
-                        .find('[name="product_id"]')
-                        .val();
-                }
-
-                if (!productID) {
-                    return false;
-                }
-
-                /*
-                 * Quantity.
-                 */
-                var quantity = $form
-                    .find('input[name="quantity"]')
-                    .val() || 1;
-
-                /*
-                 * Serialize form data.
-                 */
-                var formData = $form.serialize();
-
-                /*
-                 * WooCommerce AJAX endpoint needs product_id.
-                 */
-                formData +=
-                    '&product_id=' +
-                    encodeURIComponent(productID);
-
-                /*
-                 * Add quantity if it does not exist in form.
-                 */
-                if (
-                    !$form.find('input[name="quantity"]').length
-                ) {
-                    formData +=
-                        '&quantity=' +
-                        encodeURIComponent(quantity);
-                }
-
-                /*
-                 * Get WooCommerce AJAX URL.
-                 */
-                var ajaxURL = '';
-
-                /*
-                 * Plugin URL first.
-                 */
-                if (
-                    typeof taiowc_param !== 'undefined' &&
-                    taiowc_param.wc_ajax_url
+                    !response ||
+                    response.error
                 ) {
 
-                    ajaxURL = taiowc_param.wc_ajax_url
-                        .toString()
-                        .replace(
-                            '%%endpoint%%',
-                            'add_to_cart'
-                        );
+                    if (
+                        response &&
+                        response.product_url
+                    ) {
+                        window.location.href =
+                            response.product_url;
+                    }
+
+                    return;
+                }
+
+
+                var fragments =
+                    response.fragments || {};
+
+                var cartHash =
+                    response.cart_hash || '';
+
 
                 /*
-                 * WooCommerce fallback.
+                 * Update fragments.
                  */
-                } else if (
-                    typeof wc_add_to_cart_params !== 'undefined' &&
-                    wc_add_to_cart_params.wc_ajax_url
-                ) {
+                $.each(
+                    fragments,
+                    function (key, value) {
 
-                    ajaxURL = wc_add_to_cart_params.wc_ajax_url
-                        .toString()
-                        .replace(
-                            '%%endpoint%%',
-                            'add_to_cart'
-                        );
-                }
+                        var $fragment = $(key);
 
-                if (!ajaxURL) {
-                    return false;
-                }
+                        if ($fragment.length) {
+                            $fragment.replaceWith(value);
+                        }
+                    }
+                );
+
 
                 /*
-                 * ---------------------------------
-                 * FORCE LOADING STATE
-                 * ---------------------------------
-                 *
-                 * Every click:
-                 *
-                 * added -> loading
-                 *
-                 * This is important for second,
-                 * third and all future clicks.
+                 * Button state.
                  */
                 $button
-                    .removeClass('added')
-                    .addClass('loading');
+                    .removeClass('loading')
+                    .addClass('added');
+
 
                 /*
-                 * Start AJAX on the next frame so
-                 * browser gets a chance to render
-                 * the loading state immediately.
+                 * WooCommerce event.
                  */
-                requestAnimationFrame(function () {
+                $(document.body).trigger(
+                    'wc_fragments_loaded'
+                );
 
-                    $.ajax({
 
-                        type: 'POST',
+                /*
+                 * Standard added event.
+                 *
+                 * Your popup listener uses this.
+                 */
+                $(document.body).trigger(
+                    'added_to_cart',
+                    [
+                        fragments,
+                        cartHash,
+                        $button
+                    ]
+                );
+            },
 
-                        url: ajaxURL,
 
-                        data: formData,
+            error: function () {
 
-                        dataType: 'json',
+                $button.removeClass('loading');
 
-                        cache: false,
+            },
 
-                        success: function (response) {
 
-                            /*
-                             * WooCommerce error.
-                             */
-                            if (
-                                !response ||
-                                response.error
-                            ) {
+            complete: function () {
 
-                                /*
-                                 * WooCommerce may return
-                                 * a redirect URL.
-                                 */
-                                if (
-                                    response &&
-                                    response.product_url
-                                ) {
-                                    window.location.href =
-                                        response.product_url;
-                                }
+                $button.removeClass('loading');
 
-                                return;
-                            }
-
-                            /*
-                             * ---------------------------------
-                             * PRODUCT ADDED SUCCESSFULLY
-                             * ---------------------------------
-                             */
-
-                            var fragments =
-                                response.fragments || {};
-
-                            var cartHash =
-                                response.cart_hash || '';
-
-                            /*
-                             * Update WooCommerce fragments.
-                             */
-                            if (
-                                typeof fragments === 'object'
-                            ) {
-
-                                $.each(
-                                    fragments,
-                                    function (key, value) {
-
-                                        var $fragment =
-                                            $(key);
-
-                                        if ($fragment.length) {
-                                            $fragment.replaceWith(
-                                                value
-                                            );
-                                        }
-                                    }
-                                );
-                            }
-
-                            /*
-                             * Restore WooCommerce
-                             * button success state.
-                             */
-                            $button
-                                .removeClass('loading')
-                                .addClass('added');
-
-                            /*
-                             * Notify WooCommerce fragments.
-                             */
-                            $(document.body).trigger(
-                                'wc_fragments_loaded'
-                            );
-
-                            /*
-                             * Standard WooCommerce event.
-                             *
-                             * Your existing Taiowc listener
-                             * handles this and opens popup.
-                             */
-                            $(document.body).trigger(
-                                'added_to_cart',
-                                [
-                                    fragments,
-                                    cartHash,
-                                    $button
-                                ]
-                            );
-                        },
-
-                        error: function () {
-
-                            /*
-                             * AJAX failed.
-                             * Remove loader but do not
-                             * add "added" class.
-                             */
-                            $button.removeClass('loading');
-                        },
-
-                        complete: function () {
-
-                            /*
-                             * Final safety cleanup.
-                             */
-                            $button.removeClass('loading');
-                        }
-                    });
-                });
-
-                return false;
             }
-        );
+        });
+    }
+
+
+    /*
+     * -----------------------------------------
+     * CLICK HANDLER
+     * -----------------------------------------
+     */
+    $(document).on(
+        'click.taiowcSingleATC',
+        'body.single-product form.cart:not(.variations_form) .single_add_to_cart_button',
+        function (e) {
+
+            /*
+             * STOP ALL NORMAL CLICK BEHAVIOUR.
+             */
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+
+            var $button = $(this);
+
+            var $form = $button.closest(
+                'form.cart:not(.variations_form)'
+            );
+
+
+            addSimpleProductToCart(
+                $form,
+                $button
+            );
+
+
+            return false;
+        }
+    );
+
+
+    /*
+     * -----------------------------------------
+     * FORM SUBMIT HANDLER
+     * -----------------------------------------
+     *
+     * This handles:
+     *
+     * - Quantity changed
+     * - Enter key
+     * - Native form submit
+     */
+    $(document).on(
+        'submit.taiowcSingleATC',
+        'body.single-product form.cart:not(.variations_form)',
+        function (e) {
+
+            /*
+             * STOP PAGE REFRESH.
+             */
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+
+            var $form = $(this);
+
+            var $button = $form.find(
+                '.single_add_to_cart_button'
+            );
+
+
+            addSimpleProductToCart(
+                $form,
+                $button
+            );
+
+
+            return false;
+        }
+    );
+
 },
 SingleVariableProductAddToCart: function () {
 
