@@ -3,7 +3,7 @@ Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shipping Bar
 Requires at least: 5.5
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 2.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -171,6 +171,8 @@ Yes, You can translate our plugin to desired language.
 * Update: AI Suggestion settings added.
 * Update: Style Improved.
 * Update: Shipping switching issue resolved.
+* Fix: Fatal error "Call to a member function is_block_editor() on null" in block render callback.
+
 
 = Version 2.3.6 =
 * Update: Svg issue in iphone resolved.
