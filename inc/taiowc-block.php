@@ -113,9 +113,9 @@ add_action( 'enqueue_block_assets', 'taiowc_blocks_editor_assets' );
   
   function taiowc_blocks_render_callback( $attr ) {
     
-    if ( function_exists( 'get_current_screen' ) && get_current_screen()->is_block_editor() ) {
+    if ( function_exists( 'get_current_screen' ) && get_current_screen() && get_current_screen()->is_block_editor() ) {
           return;
-    } 
+    }
 
     $taiowBlockStyle = '';
     $taiowcPriceShow = '';
