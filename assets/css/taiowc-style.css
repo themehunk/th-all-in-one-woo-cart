@@ -1824,7 +1824,10 @@ margin-left:0.1rem;
 body.no-scroll {
     overflow: hidden;
     position: fixed;
+    left: 0;
+    right: 0;
     width: 100%;
+    box-sizing: border-box;
 }
 
 

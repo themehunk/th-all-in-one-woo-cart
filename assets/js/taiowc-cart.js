@@ -674,11 +674,38 @@ OpenCartPopup: function () {
 },
         handleBodyScroll: function () {
             var $wrap = $('.taiowc-model-wrap');
+            var $body = $('body');
 
             if ($wrap.hasClass('model-cart-active')) {
-                $('body').addClass('no-scroll');
+                // Already locked, keep the saved scroll position.
+                if ($body.hasClass('no-scroll')) {
+                    return;
+                }
+                var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+                $body.data('taiowc-scroll-y', scrollY);
+                $body.css({
+                    'top': -scrollY + 'px',
+                    'padding-right': scrollbarWidth > 0 ? scrollbarWidth + 'px' : ''
+                });
+                $body.addClass('no-scroll');
             } else {
-                $('body').removeClass('no-scroll');
+                if (!$body.hasClass('no-scroll')) {
+                    return;
+                }
+                var savedY = parseInt($body.data('taiowc-scroll-y'), 10) || 0;
+
+                $body.removeClass('no-scroll');
+                $body.css({ 'top': '', 'padding-right': '' });
+                $body.removeData('taiowc-scroll-y');
+
+                // Restore position instantly, avoiding smooth-scroll animation.
+                var html = document.documentElement;
+                var prevBehavior = html.style.scrollBehavior;
+                html.style.scrollBehavior = 'auto';
+                window.scrollTo(0, savedY);
+                html.style.scrollBehavior = prevBehavior;
             }
         },
 
