@@ -1,10 +1,10 @@
-=== Advance Side Cart, Ajax Cart & Floating Cart for WooCommerce   ===
+=== ThemeHunk - Side Cart, Ajax Cart & Menu Cart for WooCommerce   ===
 Contributors: ThemeHunk,satyendra61
 Author URI: : https://www.themehunk.com/
 Tags: Cart for WooCommerce, floating cart, ajax cart, side cart, shipping Bar
 Requires at least: 5.5
 Tested up to: 7.1
-Stable tag: 2.3.7
+Stable tag: 2.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires Plugins: woocommerce
@@ -167,13 +167,16 @@ Yes, You can translate our plugin to desired language.
 
 == Changelog ==
 
+= 2026-10-21 - version 2.3.8 =
+* New: Single Product ajax add to cart added and page refresh stopped.
+* New: Single Product ajax add to cart laoding class added on second time click if product is already added.
+
+
 = Version 2.3.7 =
 * Update: AI Suggestion settings added.
 * Update: Style Improved.
 * Update: Shipping switching issue resolved.
-* New: Single Product ajax add to cart added and page refresh stopped.
-* New: Single Product ajax add to cart laoding class added on second time click if product is already added.
-* Fix: Fatal error "Call to a member function is_block_editor() on null" in block render callback.
+* Fix: Fatal error "Call to a member function on null" in block render callback.
 
 = Version 2.3.6 =
 * Update: Svg issue in iphone resolved.
