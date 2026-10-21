@@ -12,7 +12,7 @@
  * Requires at least:       5.5
  * Tested up to:            7.1
  * WC requires at least:    3.2
- * WC tested up to:         10.8
+ * WC tested up to:         11.1.0
  * Domain Path:             /languages
  * Text Domain:             th-all-in-one-woo-cart
  * Tags: floating cart,ajax,cart,woocommerce,advance cart,slider
