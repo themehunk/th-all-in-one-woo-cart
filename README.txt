@@ -171,8 +171,9 @@ Yes, You can translate our plugin to desired language.
 * Update: AI Suggestion settings added.
 * Update: Style Improved.
 * Update: Shipping switching issue resolved.
+* New: Single Product ajax add to cart added and page refresh stopped.
+* New: Single Product ajax add to cart laoding class added on second time click if product is already added.
 * Fix: Fatal error "Call to a member function is_block_editor() on null" in block render callback.
-
 
 = Version 2.3.6 =
 * Update: Svg issue in iphone resolved.

@@ -1540,6 +1540,9 @@ display:block!important;
 .taiowc-icon svg{
     width: inherit;
 }
+.single_add_to_cart_button.added:after{
+    display: none;
+}
 /* STORE ONE CSSS END   */
 @media screen and (max-width:1024px) {
     .responsive-main-header .taiowc-cart-model-footer .cart-total, .sticky-header-bar .taiowc-cart-model-footer .cart-total {

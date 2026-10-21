@@ -18,8 +18,660 @@
             $this.CartRedirectLoader();
             $this.handleBodyScroll();
             $this.aiSuggest();
+            $this.SingleProductAddToCart();
+            $this.SingleVariableProductAddToCart();
         },
 
+SingleProductAddToCart: function () {
+
+    /*
+     * Only single product page.
+     */
+    if (!$('body').hasClass('single-product')) {
+        return;
+    }
+
+
+    /*
+     * Remove only our old handlers.
+     * No duplicate binding.
+     */
+    $(document)
+        .off(
+            '.taiowcSingleATC',
+            'body.single-product form.cart:not(.variations_form)'
+        );
+
+
+    /*
+     * -----------------------------------------
+     * MAIN SIMPLE PRODUCT AJAX FUNCTION
+     * -----------------------------------------
+     */
+    function addSimpleProductToCart($form, $button) {
+
+        /*
+         * Already processing.
+         */
+        if (
+            !$form.length ||
+            !$button.length ||
+            $button.hasClass('loading')
+        ) {
+            return;
+        }
+
+
+        /*
+         * Product ID.
+         *
+         * IMPORTANT:
+         * Use add-to-cart hidden/button value.
+         */
+        var productID = $form
+            .find('[name="add-to-cart"]')
+            .val();
+
+        if (!productID) {
+            productID = $button.val();
+        }
+
+        if (!productID) {
+            productID = $button.attr('value');
+        }
+
+        if (!productID) {
+            return;
+        }
+
+
+        /*
+         * Current quantity.
+         *
+         * This gets the CURRENT modified value.
+         */
+        var quantity = $form
+            .find('input.qty[name="quantity"]')
+            .val();
+
+        quantity = quantity || 1;
+
+
+        /*
+         * IMPORTANT:
+         * Build clean WooCommerce AJAX data.
+         *
+         * Do not rely only on serialize().
+         */
+        var data = {
+            product_id: productID,
+            quantity: quantity
+        };
+
+
+        /*
+         * WooCommerce AJAX URL.
+         */
+        var ajaxURL = '';
+
+        if (
+            typeof taiowc_param !== 'undefined' &&
+            taiowc_param.wc_ajax_url
+        ) {
+
+            ajaxURL = taiowc_param.wc_ajax_url
+                .toString()
+                .replace(
+                    '%%endpoint%%',
+                    'add_to_cart'
+                );
+
+        } else if (
+            typeof wc_add_to_cart_params !== 'undefined' &&
+            wc_add_to_cart_params.wc_ajax_url
+        ) {
+
+            ajaxURL = wc_add_to_cart_params.wc_ajax_url
+                .toString()
+                .replace(
+                    '%%endpoint%%',
+                    'add_to_cart'
+                );
+        }
+
+
+        if (!ajaxURL) {
+            return;
+        }
+
+
+        /*
+         * Every request:
+         *
+         * added -> loading
+         */
+        $button
+            .removeClass('added')
+            .addClass('loading');
+
+
+        /*
+         * AJAX Add To Cart.
+         */
+        $.ajax({
+
+            type: 'POST',
+
+            url: ajaxURL,
+
+            data: data,
+
+            dataType: 'json',
+
+            cache: false,
+
+
+            success: function (response) {
+
+                /*
+                 * WooCommerce error.
+                 */
+                if (
+                    !response ||
+                    response.error
+                ) {
+
+                    if (
+                        response &&
+                        response.product_url
+                    ) {
+                        window.location.href =
+                            response.product_url;
+                    }
+
+                    return;
+                }
+
+
+                var fragments =
+                    response.fragments || {};
+
+                var cartHash =
+                    response.cart_hash || '';
+
+
+                /*
+                 * Update fragments.
+                 */
+                $.each(
+                    fragments,
+                    function (key, value) {
+
+                        var $fragment = $(key);
+
+                        if ($fragment.length) {
+                            $fragment.replaceWith(value);
+                        }
+                    }
+                );
+
+
+                /*
+                 * Button state.
+                 */
+                $button
+                    .removeClass('loading')
+                    .addClass('added');
+
+
+                /*
+                 * WooCommerce event.
+                 */
+                $(document.body).trigger(
+                    'wc_fragments_loaded'
+                );
+
+
+                /*
+                 * Standard added event.
+                 *
+                 * Your popup listener uses this.
+                 */
+                $(document.body).trigger(
+                    'added_to_cart',
+                    [
+                        fragments,
+                        cartHash,
+                        $button
+                    ]
+                );
+            },
+
+
+            error: function () {
+
+                $button.removeClass('loading');
+
+            },
+
+
+            complete: function () {
+
+                $button.removeClass('loading');
+
+            }
+        });
+    }
+
+
+    /*
+     * -----------------------------------------
+     * CLICK HANDLER
+     * -----------------------------------------
+     */
+    $(document).on(
+        'click.taiowcSingleATC',
+        'body.single-product form.cart:not(.variations_form) .single_add_to_cart_button',
+        function (e) {
+
+            /*
+             * STOP ALL NORMAL CLICK BEHAVIOUR.
+             */
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+
+            var $button = $(this);
+
+            var $form = $button.closest(
+                'form.cart:not(.variations_form)'
+            );
+
+
+            addSimpleProductToCart(
+                $form,
+                $button
+            );
+
+
+            return false;
+        }
+    );
+
+
+    /*
+     * -----------------------------------------
+     * FORM SUBMIT HANDLER
+     * -----------------------------------------
+     *
+     * This handles:
+     *
+     * - Quantity changed
+     * - Enter key
+     * - Native form submit
+     */
+    $(document).on(
+        'submit.taiowcSingleATC',
+        'body.single-product form.cart:not(.variations_form)',
+        function (e) {
+
+            /*
+             * STOP PAGE REFRESH.
+             */
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+
+
+            var $form = $(this);
+
+            var $button = $form.find(
+                '.single_add_to_cart_button'
+            );
+
+
+            addSimpleProductToCart(
+                $form,
+                $button
+            );
+
+
+            return false;
+        }
+    );
+
+},
+SingleVariableProductAddToCart: function () {
+
+   var processing = false;
+
+    function addVariableProductToCart(form, button) { 
+
+        var $form = $(form);
+    var $button = $(button);
+
+    /*
+     * Already loading hai to
+     * duplicate request mat bhejo.
+     */
+    if (
+        processing ||
+        $button.hasClass('loading')
+    ) {
+        return;
+    }
+
+    /*
+     * New request start.
+     */
+    processing = true;
+
+    /*
+     * Har click par loader forcefully
+     * show hoga.
+     */
+    $button
+        .removeClass('added')
+        .addClass('loading');
+
+    var variationID = parseInt(
+        $form.find('input.variation_id').val(),
+        10
+    );
+
+    var productID = parseInt(
+        $form.find('input[name="product_id"]').val(),
+        10
+    );
+
+    if (!variationID || !productID) {
+
+        processing = false;
+
+        $button.removeClass('loading');
+
+        return;
+    }
+
+        /*
+         * Complete current form data.
+         *
+         * This automatically includes all current
+         * variation attributes, quantity and IDs.
+         */
+     var quantity = parseFloat(
+    $form.find('input.qty').val()
+) || 1;
+
+var data = {
+
+    /*
+     * WooCommerce / form compatibility.
+     */
+    'add-to-cart': productID,
+
+    product_id: productID,
+
+    variation_id: variationID,
+
+    quantity: parseFloat(
+        $form.find('input.qty').val()
+    ) || 1
+
+};
+var ajaxURL = '';
+ajaxURL = taiowc_param.wc_ajax_url;
+/*
+ * Add all selected variation attributes.
+ */
+/*
+ * Selected variation attributes.
+ */
+$form.find(
+    'select[name^="attribute_"], input[name^="attribute_"]'
+).each(function () {
+
+    var name = $(this).attr('name');
+    var value = $(this).val();
+
+    if (
+        name &&
+        value !== ''
+    ) {
+        data[name] = value;
+    }
+
+});
+
+// console.log(
+//     'Variable product AJAX data:',
+//     data
+// );
+
+$.ajax({
+
+    type: 'POST',
+
+    /*
+     * Original WooCommerce variable product form action.
+     */
+    url: $form.attr('action'),
+
+    /*
+     * Original form data:
+     * quantity
+     * add-to-cart
+     * product_id
+     * variation_id
+     * all selected attributes
+     */
+    data: $form.serialize(),
+
+    /*
+     * IMPORTANT:
+     * No dataType: 'json'
+     *
+     * Variable form AJAX response can be HTML,
+     * empty response, or redirected response.
+     */
+
+    success: function (response) {
+
+        // console.log(
+        //     'Variable product added successfully'
+        // );
+
+        /*
+         * Button success state.
+         */
+        $button
+            .removeClass('loading')
+            .addClass('added');
+
+        /*
+         * Refresh WooCommerce fragments.
+         */
+        $(document.body).trigger(
+            'wc_fragment_refresh'
+        );
+
+        /*
+         * Standard event for plugin compatibility.
+         */
+        $(document.body).trigger(
+            'added_to_cart',
+            [
+                {},
+                '',
+                $button
+            ]
+        );
+
+        /*
+         * Directly open Taiowc popup.
+         */
+        if (
+            typeof taiowcscriptLib !== 'undefined' &&
+            typeof taiowcscriptLib.OpenCartPopup === 'function'
+        ) {
+
+            taiowcscriptLib.OpenCartPopup();
+
+        }
+
+    },
+
+    error: function (
+        xhr,
+        status,
+        error
+    ) {
+
+        // console.error(
+        //     'Variable product AJAX error:',
+        //     status,
+        //     error
+        // );
+
+    },
+
+    complete: function () {
+
+        processing = false;
+
+        $button.removeClass('loading');
+
+    }
+
+});
+
+    }
+
+    /*
+     * 1. Native CLICK CAPTURE
+     *
+     * Yeh jQuery/WooCommerce handlers se pehle chalega.
+     */
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            var button = event.target.closest(
+                'form.variations_form .single_add_to_cart_button'
+            );
+
+            if (!button) {
+                return;
+            }
+
+            if (!document.body.classList.contains('single-product')) {
+                return;
+            }
+
+            /*
+             * Disabled button ko normal WooCommerce handle kare.
+             */
+            if (
+                button.classList.contains('disabled') ||
+                button.disabled
+            ) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                return false;
+            }
+
+            /*
+             * STOP EVERYTHING before WooCommerce.
+             */
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            addVariableProductToCart(
+                button.closest('form.variations_form'),
+                button
+            );
+
+            return false;
+        },
+        true
+    );
+
+    /*
+     * 2. Native SUBMIT CAPTURE
+     *
+     * Extra protection against keyboard Enter
+     * or WooCommerce direct submit.
+     */
+    document.addEventListener(
+        'submit',
+        function (event) {
+
+            var form = event.target;
+
+            if (
+                !form ||
+                !form.matches('form.variations_form')
+            ) {
+                return;
+            }
+
+            if (!document.body.classList.contains('single-product')) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            var button = form.querySelector(
+                '.single_add_to_cart_button'
+            );
+
+            if (!button) {
+                return false;
+            }
+
+            if (
+                button.classList.contains('disabled') ||
+                button.disabled
+            ) {
+                return false;
+            }
+
+            addVariableProductToCart(
+                form,
+                button
+            );
+
+            return false;
+        },
+        true
+    );
+
+},
+
+OpenCartPopup: function () {
+
+    var $cartWrap = $(
+        '.taiowc-model-wrap, .taiowc-wrap.cart_fixed_2'
+    );
+
+    /*
+     * Already open hai to kuch mat karo.
+     */
+    if (!$cartWrap.hasClass('model-cart-active')) {
+        $cartWrap.addClass('model-cart-active');
+    }
+
+    /*
+     * Existing plugin body scroll logic.
+     */
+    this.handleBodyScroll();
+
+},
         handleBodyScroll: function () {
             var $wrap = $('.taiowc-model-wrap');
 
@@ -1035,3 +1687,5 @@ disableOverlayScroll: function () {
 taiowcscriptLib.init();
 
 })(jQuery);
+
+
