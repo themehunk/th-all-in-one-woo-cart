@@ -170,6 +170,7 @@ Yes, You can translate our plugin to desired language.
 = 2026-10-21 - version 2.3.8 =
 * New: Single Product ajax add to cart added and page refresh stopped.
 * New: Single Product ajax add to cart laoding class added on second time click if product is already added.
+* Fix: Page jumping and shifting when the side cart opens or closes.
 
 
 = Version 2.3.7 =
